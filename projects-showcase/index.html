@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Showcase | AI Club - College of Engineering</title>
+  <meta name="description" content="Discover cutting-edge student-led AI, Computer Vision, Robotics, and NLP projects developed by the college AI Club.">
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. Navigation Header (The 4 core website parts)
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo-brand" aria-label="AI Club Home">
+        <div class="logo-symbol">
+          <span>AI</span>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">AI CLUB</span>
+          <span class="logo-subtitle">Research & Innovation Wing</span>
+        </div>
+      </a>
+
+      <!-- The 4 Main Website Sections -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="home.html" class="nav-link">1. Home</a></li>
+          <li><a href="achievements.html" class="nav-link">2. Achievements</a></li>
+          <li><a href="index.html" class="nav-link active" aria-current="page">3. Projects</a></li>
+          <li><a href="visitors.html" class="nav-link">4. Visitors</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="btn-terminal" title="System Status: All AI pipelines online">
+          <span class="pulse-dot"></span>
+          <span>CLUSTER ONLINE</span>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. Hero Section: RUNNING SLOW-MO AI ANIMATED VIDEO BACKGROUND
+       Contains full neural network architectures, computer vision tracking,
+       tensor computations, LiDAR telemetry, and training convergence curves.
+       ========================================================================== -->
+  <section class="hero-section" id="heroSection">
+    <div class="hero-media-wrapper">
+      <!-- Genuine Local Slow-Mo AI Video Loop -->
+      <video class="hero-video-bg" id="heroVideoBg" autoplay loop muted playsinline poster="assets/images/projects/drone_vision.jpg">
+        <source src="assets/videos/ai_slomo_bg.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-grid-lines"></div>
+    </div>
+
+    <!-- Floating Video Control Badge -->
+    <div class="hero-video-control-pill" title="Background AI Video Telemetry">
+      <span class="status-live-indicator" id="videoStatusIndicator"></span>
+      <span style="letter-spacing:0.04em;">AI SLOW-MO BG</span>
+      <span style="opacity:0.3;">|</span>
+      <button id="btnVideoPlayPause" type="button" aria-label="Pause or play video">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="6" y="4" width="4" height="16"></rect>
+          <rect x="14" y="4" width="4" height="16"></rect>
+        </svg>
+        <span>Pause</span>
+      </button>
+      <span style="opacity:0.3;">|</span>
+      <button id="btnVideoSpeed" type="button" aria-label="Change slow motion speed">
+        0.6x Slow-Mo
+      </button>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="badge-icon">⚡</span>
+        <span>ACADEMIC YEAR 2024–2026 • AI INNOVATION CELL</span>
+      </div>
+
+      <h1 class="hero-title">
+        Engineering Intelligent Systems & <br>
+        <span class="text-gradient">Applied AI Architectures</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        We build, train, and deploy real-world machine intelligence. From edge-computed autonomous aerial search drones to sub-millimeter 3D neural brain tumor segmentations, explore the flagship models engineered by students in our AI Club.
+      </p>
+
+      <div class="hero-controls">
+        <a href="#projects" class="btn-primary">
+          <span>Explore All Projects</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <span>Pitch a Project / Collaborate</span>
+        </a>
+      </div>
+
+      <!-- Live Research Metrics Ticker -->
+      <div class="hero-metrics-grid">
+        <div class="metric-item">
+          <div class="metric-val" data-target="14">0<span class="unit">+</span></div>
+          <div class="metric-label">Completed AI Systems</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val" data-target="38">0<span class="unit">+</span></div>
+          <div class="metric-label">Active Student Researchers</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val" data-target="98.4">0<span class="unit">%</span></div>
+          <div class="metric-label">Average Test Accuracy</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val" data-target="6">0<span class="unit"> Repos</span></div>
+          <div class="metric-label">Open Source Releases</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. Projects Showcase Section (Matching Sketch Image 1)
+       Upper half: Project Image | Lower half: Catchy brief overview
+       Entire card acts as an interactive button linking to the deep-dive page
+       ========================================================================== -->
+  <main class="projects-section" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">PORTFOLIO ARCHIVE</div>
+        <h2 class="section-title">Projects That Our Team Done</h2>
+        <p class="section-desc">
+          Click on any project card below to access complete technical architectures, live model sandbox playgrounds, and individual student contributor rosters.
+        </p>
+      </div>
+
+      <!-- Filter Tabs and Search Bar -->
+      <div class="filter-search-container">
+        <div class="filter-pills" role="tablist" aria-label="Project Category Filters">
+          <button class="filter-btn active" data-category="All" role="tab" aria-selected="true">All Domains</button>
+          <button class="filter-btn" data-category="Computer Vision" role="tab" aria-selected="false">Computer Vision</button>
+          <button class="filter-btn" data-category="Healthcare AI" role="tab" aria-selected="false">Healthcare AI</button>
+          <button class="filter-btn" data-category="Cybersecurity" role="tab" aria-selected="false">Cybersecurity</button>
+          <button class="filter-btn" data-category="Robotics & RL" role="tab" aria-selected="false">Robotics & RL</button>
+          <button class="filter-btn" data-category="NLP & LLMs" role="tab" aria-selected="false">NLP & LLMs</button>
+        </div>
+
+        <div class="search-box-wrapper">
+          <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="projectSearchInput" class="search-input" placeholder="Search by model, tech, team member..." aria-label="Search projects">
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 18px;">
+        <span class="search-count-badge" id="projectCountBadge">Showing 6 Projects</span>
+        <span style="font-size:0.75rem; color:var(--text-muted); font-family:var(--font-mono);">CLICK ANY CARD TO OPEN FULL ARCHITECTURE & TEAM DETAILS</span>
+      </div>
+
+      <!-- Projects Grid (Injected dynamically from projects-data.js) -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Rendered by main.js -->
+      </div>
+
+      <!-- Innovation & Compute Cluster Spotlight Banner -->
+      <div class="innovation-banner">
+        <div>
+          <h3 class="banner-title">Empowered by On-Campus AI Compute Infrastructure</h3>
+          <p class="banner-desc">
+            All AI Club models are trained and benchmarked on our dedicated department GPU clusters featuring NVIDIA DGX workstations, Jetson edge kits, and high-bandwidth optical networking.
+          </p>
+          <div class="banner-badges">
+            <span class="banner-chip">NVIDIA Jetson Orin Nano</span>
+            <span class="banner-chip">8x NVIDIA A100 80GB GPUs</span>
+            <span class="banner-chip">Unitree Robotics Quadruped</span>
+            <span class="banner-chip">PyTorch 2.3 & CUDA 12.2</span>
+          </div>
+        </div>
+        <div class="banner-action-col">
+          <div style="font-size:0.75rem; font-family:var(--font-mono); color:var(--accent-emerald);">RESEARCH ACCESS GRANTED</div>
+          <div style="font-size:0.92rem; color:#fff; font-weight:600;">Want to propose a new model or join an existing sprint?</div>
+          <a href="#contact" class="btn-primary" style="padding:9px 18px; font-size:0.84rem; width:100%; justify-content:center;">
+            Submit Project Proposal
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       4. Contact Us Section (As requested by user: sample Gmail, LinkedIn, Instagram)
+       ========================================================================== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">COLLABORATE & ENGAGE</div>
+        <h2 class="section-title">Connect With The AI Club</h2>
+        <p class="section-desc">
+          Have an AI research idea, want to sponsor a student project, or eager to join our developer sprint team? Reach out through our official channels.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Left: Official Contact Channels -->
+        <div class="contact-info-panel">
+          <p class="contact-lead-text">
+            Our campus lab is always buzzing with deep learning experiments, robotics trials, and hackathon teams. Connect with us via our verified student club accounts below:
+          </p>
+
+          <div class="social-channels-list">
+            <!-- Sample Gmail -->
+            <div class="social-channel-card">
+              <div class="channel-left">
+                <div class="channel-icon-wrap gmail">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="channel-meta">
+                  <h4>Official Club Gmail</h4>
+                  <p>aiclub.college.official@gmail.com</p>
+                </div>
+              </div>
+              <button class="btn-copy-chip" data-copy="aiclub.college.official@gmail.com" title="Copy Gmail Address">
+                Copy Email
+              </button>
+            </div>
+
+            <!-- Sample LinkedIn -->
+            <div class="social-channel-card">
+              <div class="channel-left">
+                <div class="channel-icon-wrap linkedin">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="channel-meta">
+                  <h4>LinkedIn Community</h4>
+                  <p>linkedin.com/company/nexus-ai-club</p>
+                </div>
+              </div>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn-copy-chip" title="Visit LinkedIn">
+                Connect ↗
+              </a>
+            </div>
+
+            <!-- Sample Instagram -->
+            <div class="social-channel-card">
+              <div class="channel-left">
+                <div class="channel-icon-wrap instagram">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </div>
+                <div class="channel-meta">
+                  <h4>Instagram Daily Feeds</h4>
+                  <p>@nexus_aiclub_official</p>
+                </div>
+              </div>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-copy-chip" title="View Instagram">
+                Follow ↗
+              </a>
+            </div>
+
+            <!-- Sample GitHub -->
+            <div class="social-channel-card">
+              <div class="channel-left">
+                <div class="channel-icon-wrap github">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                </div>
+                <div class="channel-meta">
+                  <h4>GitHub Organization</h4>
+                  <p>github.com/nexus-ai-club</p>
+                </div>
+              </div>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-copy-chip" title="View Repositories">
+                Explore ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Project Pitch Form -->
+        <div class="contact-form-card">
+          <div class="form-header">
+            <h3>Pitch an AI Project or Join a Sprint</h3>
+            <p>Direct communication pipeline to the AI Club Technical Secretary & Project Review Board.</p>
+          </div>
+
+          <form id="projectPitchForm" class="contact-form">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="senderName">Your Full Name *</label>
+                <input type="text" id="senderName" class="form-control" placeholder="e.g. Alex Johnson" required>
+              </div>
+              <div class="form-group">
+                <label for="senderEmail">College Email ID *</label>
+                <input type="email" id="senderEmail" class="form-control" placeholder="name@college.edu" required>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="projectDomain">Target AI Domain</label>
+                <select id="projectDomain" class="form-control">
+                  <option value="Computer Vision">Computer Vision & Autonomous UAVs</option>
+                  <option value="Biomedical AI">Healthcare & Medical Diagnostics</option>
+                  <option value="Cybersecurity">Digital Forensics & DeepFake Defense</option>
+                  <option value="Robotics & RL">Robotics, SLAM & Reinforcement Learning</option>
+                  <option value="LLMs & Agents">LLMs, Graph Reasoning & Code Agents</option>
+                  <option value="Other">Other Interdisciplinary AI</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="studentYear">Academic Year</label>
+                <select id="studentYear" class="form-control">
+                  <option value="2nd Year">2nd Year B.Tech</option>
+                  <option value="3rd Year">3rd Year B.Tech</option>
+                  <option value="4th Year">Final Year B.Tech</option>
+                  <option value="Postgraduate">M.Tech / Research Scholar</option>
+                  <option value="External">External Collaborator / Mentor</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="pitchMessage">Project Proposal / Message *</label>
+              <textarea id="pitchMessage" class="form-control" placeholder="Outline your technical approach, dataset requirements, or the specific AI Club project you want to contribute to..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit-form">
+              <span>Transmit Project Pitch</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. Quick View Pop-Up Modal (Interactive peek without leaving page)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="quickViewModal" role="dialog" aria-modal="true" aria-label="Project Quick Preview">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close modal">×</button>
+      <div class="modal-body" id="quickViewContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       6. Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="logo-brand">
+          <div class="logo-symbol"><span>AI</span></div>
+          <div class="logo-text">
+            <span class="logo-title">AI CLUB</span>
+            <span class="logo-subtitle">Department of Artificial Intelligence & Data Science</span>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer Links">
+          <a href="home.html" class="footer-link">Home</a>
+          <a href="achievements.html" class="footer-link">Achievements</a>
+          <a href="index.html" class="footer-link" style="color:#fff;">Projects</a>
+          <a href="visitors.html" class="footer-link">Visitors</a>
+          <a href="#contact" class="footer-link">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2024–2026 AI Club Innovation Cell. Built for GitHub Repository Deployment.
+        </div>
+        <div class="footer-status-pill">
+          <span class="pulse-dot"></span>
+          <span>Turing Lab Room 402 • High-Performance Computing Cluster</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/projects-data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
