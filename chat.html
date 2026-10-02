@@ -1,0 +1,3288 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Lab Assistant | Sri Shakthi AI Lab</title>
+  <meta name="description"
+    content="Interactive neural AI Club Assistant for Sri Shakthi Institute of Engineering and Technology AI Lab. Inquire about hackathons, achievements, certifications, projects, and research.">
+  <meta name="keywords"
+    content="AI Lab Assistant, AI Club Chat, Chatbot, Artificial Intelligence, Hackathons, Certifications, SIET, Student Chapter">
+  <link rel="icon" type="image/png" href="assets/ai-lab-logo.png">
+  <link rel="apple-touch-icon" href="assets/ai-lab-logo.png">
+
+  <!-- Google Fonts: Outfit & JetBrains Mono for futuristic aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       AI LAB SHARED BASE DESIGN SYSTEM
+       ========================================================================== */
+    :root {
+      /* Color Tokens - Dark Mode (Default) */
+      --achieve-bg-body: #060913;
+      --achieve-bg-surface: #0a0f1d;
+      --achieve-bg-surface-elevated: #10172c;
+      --achieve-bg-card: rgba(16, 24, 44, 0.72);
+      --achieve-bg-card-hover: rgba(22, 33, 62, 0.9);
+      --achieve-bg-glass: rgba(10, 15, 29, 0.75);
+      --achieve-bg-glass-heavy: rgba(8, 12, 24, 0.92);
+
+      --achieve-border-subtle: rgba(255, 255, 255, 0.08);
+      --achieve-border-focus: rgba(0, 242, 254, 0.55);
+      --achieve-border-glow: rgba(99, 102, 241, 0.4);
+
+      --achieve-text-main: #f8fafc;
+      --achieve-text-muted: #94a3b8;
+      --achieve-text-dim: #64748b;
+
+      /* Cyber / AI Neon Palette */
+      --achieve-cyan: #00f2fe;
+      --achieve-blue: #3b82f6;
+      --achieve-indigo: #6366f1;
+      --achieve-purple: #a855f7;
+      --achieve-pink: #ec4899;
+      --achieve-emerald: #10b981;
+      --achieve-amber: #f59e0b;
+
+      --achieve-gradient-brand: linear-gradient(135deg, #00f2fe 0%, #3b82f6 50%, #8b5cf6 100%);
+      --achieve-gradient-gold: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+      --achieve-gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+      --achieve-gradient-glow: radial-gradient(circle, rgba(0, 242, 254, 0.16) 0%, rgba(168, 85, 247, 0.08) 45%, transparent 70%);
+
+      --achieve-shadow-card: 0 12px 36px -8px rgba(0, 0, 0, 0.65);
+      --achieve-shadow-glow: 0 0 30px rgba(0, 242, 254, 0.25);
+      --achieve-shadow-badge: 0 0 15px rgba(99, 102, 241, 0.35);
+
+      --achieve-radius-sm: 8px;
+      --achieve-radius-md: 14px;
+      --achieve-radius-lg: 20px;
+      --achieve-radius-xl: 28px;
+      --achieve-radius-full: 9999px;
+
+      --achieve-font-display: 'Outfit', sans-serif;
+      --achieve-font-body: 'Plus Jakarta Sans', sans-serif;
+      --achieve-font-mono: 'JetBrains Mono', monospace;
+
+      --achieve-transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --achieve-transition-medium: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --achieve-transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Light Mode Overrides */
+    [data-theme="light"] {
+      --achieve-bg-body: #f8fafc;
+      --achieve-bg-surface: #f1f5f9;
+      --achieve-bg-surface-elevated: #e2e8f0;
+      --achieve-bg-card: rgba(255, 255, 255, 0.88);
+      --achieve-bg-card-hover: rgba(255, 255, 255, 0.98);
+      --achieve-bg-glass: rgba(255, 255, 255, 0.82);
+      --achieve-bg-glass-heavy: rgba(255, 255, 255, 0.95);
+
+      --achieve-border-subtle: rgba(148, 163, 184, 0.25);
+      --achieve-border-focus: rgba(2, 132, 199, 0.6);
+      --achieve-border-glow: rgba(99, 102, 241, 0.25);
+
+      --achieve-text-main: #0f172a;
+      --achieve-text-muted: #475569;
+      --achieve-text-dim: #64748b;
+
+      --achieve-cyan: #0284c7;
+      --achieve-blue: #2563eb;
+      --achieve-indigo: #4f46e5;
+      --achieve-purple: #7c3aed;
+      --achieve-pink: #db2777;
+      --achieve-emerald: #059669;
+      --achieve-amber: #d97706;
+
+      --achieve-gradient-brand: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #7c3aed 100%);
+      --achieve-gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 249, 0.75) 100%);
+      --achieve-gradient-glow: radial-gradient(circle, rgba(2, 132, 199, 0.14) 0%, rgba(126, 34, 206, 0.06) 45%, transparent 70%);
+
+      --achieve-shadow-card: 0 12px 32px -8px rgba(15, 23, 42, 0.08);
+      --achieve-shadow-glow: 0 0 25px rgba(37, 99, 235, 0.15);
+      --achieve-shadow-badge: 0 0 12px rgba(79, 70, 229, 0.15);
+    }
+
+    /* Base Reset */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    body.achieve-body {
+      background-color: var(--achieve-bg-body);
+      color: var(--achieve-text-main);
+      font-family: var(--achieve-font-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      transition: background-color var(--achieve-transition-medium), color var(--achieve-transition-medium);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--achieve-font-display);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--achieve-text-main);
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      color: var(--achieve-text-muted);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--achieve-transition-fast);
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    .achieve-container {
+      width: 100%;
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    /* Background Mesh Canvas */
+    #achieve-bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.65;
+    }
+
+    /* Ambient Cursor Radial Glow */
+    .achieve-ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 600px;
+      height: 600px;
+      margin-left: -300px;
+      margin-top: -300px;
+      border-radius: 50%;
+      background: var(--achieve-gradient-glow);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.65;
+      transform: translate3d(0, 0, 0);
+      transition: opacity 0.5s ease;
+      will-change: transform;
+    }
+
+    /* ==========================================================================
+       NEW PREMIUM MOUSE ANIMATION: CYBER STARDUST TRAIL & PRECISION POINTER
+       ========================================================================== */
+    #achieve-cursor-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    /* Precision Futuristic Cursor Dot (Zero Lag, Instantaneous 1:1) */
+    .achieve-cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--achieve-cyan);
+      box-shadow: 0 0 10px var(--achieve-cyan), 0 0 20px var(--achieve-purple);
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease, background 0.2s ease;
+      will-change: left, top;
+    }
+
+    .achieve-cursor-dot.active-hover {
+      transform: translate(-50%, -50%) scale(2.4);
+      background: #ffffff;
+      box-shadow: 0 0 16px var(--achieve-cyan), 0 0 30px var(--achieve-purple);
+    }
+
+    @media (hover: none) or (pointer: coarse) {
+
+      .achieve-cursor-dot,
+      #achieve-cursor-canvas {
+        display: none !important;
+      }
+    }
+
+    /* Click Ripple Effect */
+    .achieve-ripple-target {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .achieve-ripple-wave {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(0);
+      animation: achieve-ripple-anim 0.6s cubic-bezier(0, 0, 0.2, 1) forwards;
+      pointer-events: none;
+    }
+
+    [data-theme="light"] .achieve-ripple-wave {
+      background: rgba(0, 140, 255, 0.25);
+    }
+
+    @keyframes achieve-ripple-anim {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* ==========================================================================
+       1. NAVIGATION HEADER
+       ========================================================================== */
+    .achieve-navbar-wrapper {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: background-color var(--achieve-transition-medium), backdrop-filter var(--achieve-transition-medium), border-color var(--achieve-transition-medium), box-shadow var(--achieve-transition-medium);
+      border-bottom: 1px solid transparent;
+    }
+
+    .achieve-navbar-wrapper.scrolled {
+      background-color: var(--achieve-bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--achieve-border-subtle);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="light"] .achieve-navbar-wrapper.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .achieve-nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .achieve-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--achieve-font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+
+    .achieve-brand-logo-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(10, 15, 29, 0.8);
+      border: 2px solid rgba(0, 242, 254, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.35);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      transition: transform var(--achieve-transition-fast), border-color var(--achieve-transition-fast), box-shadow var(--achieve-transition-fast);
+    }
+
+    .achieve-brand:hover .achieve-brand-logo-icon {
+      transform: scale(1.08) rotate(3deg);
+      border-color: var(--achieve-cyan);
+      box-shadow: 0 0 24px rgba(0, 242, 254, 0.6), 0 0 40px rgba(99, 102, 241, 0.35);
+    }
+
+    .achieve-brand-logo-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      transition: filter var(--achieve-transition-fast);
+    }
+
+    .achieve-brand:hover .achieve-brand-logo-img {
+      filter: brightness(1.12);
+    }
+
+    .achieve-brand-logo-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: var(--achieve-cyan);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 6px var(--achieve-cyan));
+    }
+
+    .achieve-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .achieve-brand-name {
+      background: var(--achieve-gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .achieve-brand-sub {
+      font-size: 0.65rem;
+      font-family: var(--achieve-font-mono);
+      color: var(--achieve-text-dim);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .achieve-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .achieve-nav-item {
+      position: relative;
+    }
+
+    .achieve-nav-link {
+      padding: 8px 16px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--achieve-text-muted);
+      border-radius: var(--achieve-radius-sm);
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      transition: color var(--achieve-transition-fast), background-color var(--achieve-transition-fast), transform var(--achieve-transition-fast);
+    }
+
+    .achieve-nav-link:hover {
+      color: var(--achieve-text-main);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    [data-theme="light"] .achieve-nav-link:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .achieve-nav-link.active {
+      color: var(--achieve-cyan);
+      font-weight: 600;
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+    }
+
+    .achieve-nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 2px;
+      background: var(--achieve-cyan);
+      border-radius: var(--achieve-radius-full);
+      box-shadow: 0 0 8px var(--achieve-cyan);
+    }
+
+    .achieve-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .achieve-theme-toggle {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color var(--achieve-transition-fast), transform var(--achieve-transition-fast), box-shadow var(--achieve-transition-fast);
+    }
+
+    .achieve-theme-toggle:hover {
+      border-color: var(--achieve-border-focus);
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .achieve-theme-toggle svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform var(--achieve-transition-medium);
+    }
+
+    .achieve-theme-toggle:active svg {
+      transform: rotate(45deg) scale(0.9);
+    }
+
+    .achieve-login-btn {
+      padding: 10px 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: var(--achieve-gradient-brand);
+      border-radius: var(--achieve-radius-md);
+      box-shadow: 0 4px 16px rgba(0, 242, 254, 0.25);
+      transition: transform var(--achieve-transition-fast), box-shadow var(--achieve-transition-fast), filter var(--achieve-transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .achieve-login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(0, 242, 254, 0.4);
+      filter: brightness(1.08);
+    }
+
+    .achieve-hamburger {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-main);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px;
+    }
+
+    .achieve-hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform var(--achieve-transition-fast), opacity var(--achieve-transition-fast);
+    }
+
+    .achieve-hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .achieve-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .achieve-hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .achieve-mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 76px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 76px);
+      background: var(--achieve-bg-glass-heavy);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 24px;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+      z-index: 999;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      border-bottom: 1px solid var(--achieve-border-subtle);
+    }
+
+    .achieve-mobile-drawer.active {
+      transform: translateY(0);
+      opacity: 1;
+      display: flex;
+    }
+
+    .achieve-mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .achieve-mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-radius: var(--achieve-radius-md);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--achieve-text-main);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--achieve-border-subtle);
+    }
+
+    .achieve-mobile-nav-link.active {
+      background: rgba(0, 242, 254, 0.1);
+      border-color: var(--achieve-cyan);
+      color: var(--achieve-cyan);
+      font-weight: 700;
+    }
+
+    
+
+    /* Ambient Particle Canvas */
+    #achieve-bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.65;
+    }
+
+    /* Ambient Cursor Radial Glow */
+    .achieve-ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 600px;
+      height: 600px;
+      margin-left: -300px;
+      margin-top: -300px;
+      border-radius: 50%;
+      background: var(--achieve-gradient-glow);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.65;
+      transform: translate3d(0, 0, 0);
+      transition: opacity 0.5s ease;
+      will-change: transform;
+    }
+
+    /* Cyber Stardust Trail & Precision Pointer */
+    #achieve-cursor-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    /* Precision Futuristic Cursor Dot (Zero Lag, Instantaneous 1:1) */
+    .achieve-cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--achieve-cyan);
+      box-shadow: 0 0 10px var(--achieve-cyan), 0 0 20px var(--achieve-purple);
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease, background 0.2s ease;
+      will-change: left, top;
+    }
+
+    .achieve-cursor-dot.active-hover {
+      transform: translate(-50%, -50%) scale(2.4);
+      background: #ffffff;
+      box-shadow: 0 0 16px var(--achieve-cyan), 0 0 30px var(--achieve-purple);
+    }
+
+    @media (hover: none) or (pointer: coarse) {
+      .achieve-cursor-dot,
+      #achieve-cursor-canvas {
+        display: none !important;
+      }
+    }
+
+
+    /* Global Container */
+    .achieve-container {
+      width: 100%;
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    /* Toast Notification */
+    .achieve-toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--achieve-bg-glass-heavy);
+      border: 1px solid var(--achieve-border-focus);
+      color: var(--achieve-text-main);
+      padding: 14px 22px;
+      border-radius: var(--achieve-radius-md);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.25);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .achieve-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Ripple Effect */
+    .achieve-ripple-target {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .achieve-ripple-wave {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(0);
+      animation: achieveRipple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes achieveRipple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* Dedicated Chat Page Main Wrapper */
+    .ai-chat-page-main {
+      min-height: calc(100vh - 160px);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       AI CLUB ASSISTANT - CHATBOT DESIGN SYSTEM (STRICTLY SCOPED: .ai-chat-*)
+       ========================================================================== */
+
+    .ai-chat-section {
+      position: relative;
+      padding: 90px 0 110px 0;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 25%, rgba(0, 242, 254, 0.05) 0%, rgba(99, 102, 241, 0.03) 45%, transparent 70%);
+      border-top: 1px solid var(--achieve-border-subtle);
+    }
+
+    [data-theme="light"] .ai-chat-section {
+      background: radial-gradient(circle at 50% 25%, rgba(2, 132, 199, 0.05) 0%, rgba(126, 34, 206, 0.03) 45%, transparent 70%);
+    }
+
+    .ai-chat-section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 40px auto;
+    }
+
+    .ai-chat-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--achieve-radius-full);
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid var(--achieve-border-focus);
+      color: var(--achieve-cyan);
+      font-family: var(--achieve-font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 16px;
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.2);
+    }
+
+    .ai-chat-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--achieve-cyan);
+      box-shadow: 0 0 8px var(--achieve-cyan);
+      animation: aiChatPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes aiChatPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.4; }
+    }
+
+    .ai-chat-section-title {
+      font-size: clamp(2rem, 3.6vw, 2.85rem);
+      font-weight: 800;
+      color: var(--achieve-text-main);
+      margin-bottom: 12px;
+      line-height: 1.18;
+    }
+
+    .ai-chat-gradient-text {
+      background: var(--achieve-gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .ai-chat-section-desc {
+      font-size: 1.02rem;
+      color: var(--achieve-text-muted);
+      line-height: 1.6;
+    }
+
+    /* Outer Chat App Box */
+    .ai-chat-app-box {
+      max-width: 1120px;
+      margin: 0 auto;
+      height: 680px;
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      border-radius: var(--achieve-radius-xl);
+      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 254, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--achieve-transition-medium), box-shadow var(--achieve-transition-medium);
+    }
+
+    [data-theme="light"] .ai-chat-app-box {
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.12), 0 0 25px rgba(2, 132, 199, 0.08);
+      border-color: rgba(226, 232, 240, 0.95);
+    }
+
+    /* Sidebar / Conversations History */
+    .ai-chat-sidebar {
+      width: 290px;
+      background: rgba(8, 12, 24, 0.78);
+      border-right: 1px solid var(--achieve-border-subtle);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10;
+    }
+
+    [data-theme="light"] .ai-chat-sidebar {
+      background: rgba(248, 250, 252, 0.96);
+      border-right-color: rgba(226, 232, 240, 0.9);
+    }
+
+    .ai-chat-sidebar-top {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-bottom: 1px solid var(--achieve-border-subtle);
+    }
+
+    .ai-chat-new-btn {
+      width: 100%;
+      padding: 10px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: var(--achieve-gradient-brand);
+      border: none;
+      border-radius: var(--achieve-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 242, 254, 0.25);
+      transition: transform var(--achieve-transition-fast), filter var(--achieve-transition-fast), box-shadow var(--achieve-transition-fast);
+    }
+
+    .ai-chat-new-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.4);
+    }
+
+    .ai-chat-search-wrap {
+      position: relative;
+    }
+
+    .ai-chat-search-input {
+      width: 100%;
+      padding: 8px 12px 8px 34px;
+      font-size: 0.82rem;
+      font-family: var(--achieve-font-body);
+      color: var(--achieve-text-main);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--achieve-border-subtle);
+      border-radius: var(--achieve-radius-sm);
+      outline: none;
+      transition: border-color var(--achieve-transition-fast), background var(--achieve-transition-fast);
+    }
+
+    [data-theme="light"] .ai-chat-search-input {
+      background: rgba(241, 245, 249, 0.8);
+    }
+
+    .ai-chat-search-input:focus {
+      border-color: var(--achieve-border-focus);
+      background: rgba(0, 242, 254, 0.04);
+    }
+
+    .ai-chat-search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      color: var(--achieve-text-dim);
+      pointer-events: none;
+    }
+
+    .ai-chat-history-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+    }
+
+    .ai-chat-history-item {
+      padding: 10px 12px;
+      border-radius: var(--achieve-radius-sm);
+      background: transparent;
+      border: 1px solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      cursor: pointer;
+      color: var(--achieve-text-muted);
+      transition: all var(--achieve-transition-fast);
+      position: relative;
+      text-align: left;
+    }
+
+    .ai-chat-history-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--achieve-text-main);
+    }
+
+    [data-theme="light"] .ai-chat-history-item:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .ai-chat-history-item.active {
+      background: rgba(0, 242, 254, 0.1);
+      border-color: rgba(0, 242, 254, 0.3);
+      color: var(--achieve-cyan);
+      font-weight: 600;
+    }
+
+    .ai-chat-item-content {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .ai-chat-item-title {
+      font-size: 0.84rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    .ai-chat-item-date {
+      font-size: 0.68rem;
+      color: var(--achieve-text-dim);
+      font-family: var(--achieve-font-mono);
+    }
+
+    .ai-chat-del-btn {
+      opacity: 0;
+      background: transparent;
+      border: none;
+      color: var(--achieve-text-dim);
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+      transition: opacity 0.2s ease, color 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ai-chat-history-item:hover .ai-chat-del-btn {
+      opacity: 1;
+    }
+
+    .ai-chat-del-btn:hover {
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .ai-chat-sidebar-footer {
+      padding: 12px 16px;
+      border-top: 1px solid var(--achieve-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--achieve-text-dim);
+    }
+
+    .ai-chat-clear-all-btn {
+      background: transparent;
+      border: none;
+      color: var(--achieve-text-dim);
+      cursor: pointer;
+      font-size: 0.75rem;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+
+    .ai-chat-clear-all-btn:hover {
+      color: #ef4444;
+    }
+
+    /* Main Chat Section */
+    .ai-chat-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background: rgba(10, 15, 29, 0.4);
+    }
+
+    [data-theme="light"] .ai-chat-main {
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    .ai-chat-header {
+      padding: 14px 22px;
+      border-bottom: 1px solid var(--achieve-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 15, 29, 0.6);
+      backdrop-filter: blur(12px);
+      flex-shrink: 0;
+    }
+
+    [data-theme="light"] .ai-chat-header {
+      background: rgba(248, 250, 252, 0.85);
+    }
+
+    .ai-chat-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ai-chat-avatar-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(168, 85, 247, 0.3));
+      border: 1.5px solid var(--achieve-border-focus);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .ai-chat-avatar-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1px dashed rgba(0, 242, 254, 0.4);
+      animation: aiChatSpin 12s linear infinite;
+    }
+
+    .ai-chat-avatar-wrap.thinking {
+      animation: aiChatPulseGlow 1.5s infinite ease-in-out;
+      border-color: #a855f7;
+    }
+
+    @keyframes aiChatSpin {
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes aiChatPulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.4); }
+      50% { box-shadow: 0 0 30px rgba(168, 85, 247, 0.8); }
+    }
+
+    .ai-chat-avatar-icon {
+      width: 22px;
+      height: 22px;
+      color: var(--achieve-cyan);
+    }
+
+    .ai-chat-header-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ai-chat-header-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--achieve-text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ai-chat-header-status {
+      font-size: 0.75rem;
+      color: var(--achieve-emerald);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--achieve-font-mono);
+    }
+
+    .ai-chat-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--achieve-emerald);
+      box-shadow: 0 0 6px var(--achieve-emerald);
+      animation: aiChatPulse 2s infinite ease-in-out;
+    }
+
+    .ai-chat-status-dot.thinking {
+      background: var(--achieve-purple);
+      box-shadow: 0 0 8px var(--achieve-purple);
+    }
+
+    .ai-chat-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ai-chat-header-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--achieve-radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--achieve-transition-fast);
+    }
+
+    .ai-chat-header-btn:hover {
+      background: rgba(0, 242, 254, 0.08);
+      border-color: var(--achieve-border-focus);
+      color: var(--achieve-cyan);
+    }
+
+    .ai-chat-toggle-sidebar-btn {
+      display: none;
+    }
+
+    /* Messages Display Area */
+    .ai-chat-messages-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+      scroll-behavior: smooth;
+    }
+
+    /* Welcome / Empty State */
+    .ai-chat-welcome-state {
+      margin: auto;
+      max-width: 560px;
+      text-align: center;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: aiChatFadeIn 0.5s ease;
+    }
+
+    .ai-chat-welcome-icon-box {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(99, 102, 241, 0.25));
+      border: 1.5px solid var(--achieve-border-focus);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .ai-chat-welcome-icon-box svg {
+      width: 36px;
+      height: 36px;
+      color: var(--achieve-cyan);
+    }
+
+    .ai-chat-welcome-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--achieve-text-main);
+      margin-bottom: 8px;
+    }
+
+    .ai-chat-welcome-desc {
+      font-size: 0.92rem;
+      color: var(--achieve-text-muted);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .ai-chat-welcome-prompts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      width: 100%;
+    }
+
+    .ai-chat-prompt-card {
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--achieve-border-subtle);
+      border-radius: var(--achieve-radius-md);
+      text-align: left;
+      cursor: pointer;
+      color: var(--achieve-text-main);
+      font-size: 0.82rem;
+      transition: all var(--achieve-transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    [data-theme="light"] .ai-chat-prompt-card {
+      background: rgba(241, 245, 249, 0.7);
+    }
+
+    .ai-chat-prompt-card:hover {
+      border-color: var(--achieve-border-focus);
+      background: rgba(0, 242, 254, 0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 242, 254, 0.15);
+    }
+
+    .ai-chat-prompt-card-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* Message Bubbles */
+    .ai-chat-message-row {
+      display: flex;
+      gap: 12px;
+      animation: aiChatFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes aiChatFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ai-chat-message-row.user-row {
+      justify-content: flex-end;
+    }
+
+    .ai-chat-msg-user-bubble {
+      max-width: 80%;
+      padding: 13px 18px;
+      background: var(--achieve-gradient-brand);
+      color: #ffffff;
+      border-radius: 18px 18px 4px 18px;
+      font-size: 0.94rem;
+      line-height: 1.55;
+      box-shadow: 0 4px 18px rgba(0, 242, 254, 0.25);
+      position: relative;
+      word-break: break-word;
+    }
+
+    .ai-chat-msg-time {
+      font-size: 0.68rem;
+      font-family: var(--achieve-font-mono);
+      opacity: 0.75;
+      margin-top: 4px;
+      display: block;
+      text-align: right;
+    }
+
+    .ai-chat-message-row.ai-row {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .ai-chat-msg-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(99, 102, 241, 0.3));
+      border: 1px solid var(--achieve-border-focus);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .ai-chat-msg-avatar svg {
+      width: 16px;
+      height: 16px;
+      color: var(--achieve-cyan);
+    }
+
+    .ai-chat-msg-ai-wrapper {
+      max-width: 84%;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ai-chat-msg-ai-bubble {
+      padding: 15px 19px;
+      background: rgba(16, 24, 44, 0.85);
+      border: 1px solid var(--achieve-border-subtle);
+      border-radius: 4px 18px 18px 18px;
+      font-size: 0.94rem;
+      color: var(--achieve-text-main);
+      line-height: 1.65;
+      word-break: break-word;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="light"] .ai-chat-msg-ai-bubble {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(226, 232, 240, 0.9);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+    }
+
+    .ai-chat-msg-ai-bubble p {
+      margin-bottom: 10px;
+    }
+
+    .ai-chat-msg-ai-bubble p:last-child {
+      margin-bottom: 0;
+    }
+
+    .ai-chat-msg-ai-bubble ul {
+      margin: 8px 0 10px 20px;
+    }
+
+    .ai-chat-msg-ai-bubble li {
+      margin-bottom: 4px;
+    }
+
+    .ai-chat-msg-ai-bubble strong {
+      color: var(--achieve-cyan);
+      font-weight: 700;
+    }
+
+    [data-theme="light"] .ai-chat-msg-ai-bubble strong {
+      color: var(--achieve-blue);
+    }
+
+    .ai-chat-msg-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-left: 4px;
+    }
+
+    .ai-chat-msg-action-btn {
+      background: transparent;
+      border: none;
+      color: var(--achieve-text-dim);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.74rem;
+      padding: 3px 6px;
+      border-radius: 4px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .ai-chat-msg-action-btn:hover {
+      color: var(--achieve-cyan);
+      background: rgba(0, 242, 254, 0.08);
+    }
+
+    .ai-chat-msg-action-btn.active {
+      color: var(--achieve-cyan);
+    }
+
+    /* Typing Dots */
+    .ai-chat-typing-dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px;
+    }
+
+    .ai-chat-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--achieve-cyan);
+      opacity: 0.4;
+      animation: aiChatBounce 1.4s infinite ease-in-out both;
+    }
+
+    .ai-chat-dot:nth-child(1) { animation-delay: -0.32s; }
+    .ai-chat-dot:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes aiChatBounce {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1.1); opacity: 1; }
+    }
+
+    /* Floating Stop Generating Button */
+    .ai-chat-stop-container {
+      display: none;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .ai-chat-stop-container.visible {
+      display: flex;
+    }
+
+    .ai-chat-stop-btn {
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-family: var(--achieve-font-mono);
+      color: #f87171;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: var(--achieve-radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 10px rgba(239, 68, 68, 0.15);
+    }
+
+    .ai-chat-stop-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+      border-color: #ef4444;
+      transform: translateY(-1px);
+    }
+
+    /* Suggestions Bar */
+    .ai-chat-suggestions-bar {
+      padding: 8px 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex-shrink: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .ai-chat-suggestions-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ai-chat-suggestion-chip {
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      white-space: nowrap;
+      color: var(--achieve-text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--achieve-border-subtle);
+      border-radius: var(--achieve-radius-full);
+      cursor: pointer;
+      transition: all var(--achieve-transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    [data-theme="light"] .ai-chat-suggestion-chip {
+      background: rgba(241, 245, 249, 0.7);
+    }
+
+    .ai-chat-suggestion-chip:hover {
+      color: var(--achieve-cyan);
+      border-color: var(--achieve-border-focus);
+      background: rgba(0, 242, 254, 0.08);
+      transform: translateY(-1px);
+    }
+
+    /* Input Area */
+    .ai-chat-input-bar-wrap {
+      padding: 14px 22px;
+      background: rgba(10, 15, 29, 0.55);
+      border-top: 1px solid var(--achieve-border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    [data-theme="light"] .ai-chat-input-bar-wrap {
+      background: rgba(248, 250, 252, 0.85);
+    }
+
+    .ai-chat-input-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      position: relative;
+    }
+
+    .ai-chat-textarea-container {
+      flex: 1;
+      position: relative;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--achieve-border-subtle);
+      border-radius: var(--achieve-radius-md);
+      transition: border-color var(--achieve-transition-fast), box-shadow var(--achieve-transition-fast);
+    }
+
+    [data-theme="light"] .ai-chat-textarea-container {
+      background: #ffffff;
+      border-color: rgba(203, 213, 225, 0.9);
+    }
+
+    .ai-chat-textarea-container:focus-within {
+      border-color: var(--achieve-border-focus);
+      box-shadow: 0 0 18px rgba(0, 242, 254, 0.2);
+    }
+
+    .ai-chat-textarea {
+      width: 100%;
+      min-height: 44px;
+      max-height: 140px;
+      padding: 11px 14px;
+      background: transparent;
+      border: none;
+      outline: none;
+      resize: none;
+      font-family: var(--achieve-font-body);
+      font-size: 0.94rem;
+      color: var(--achieve-text-main);
+      line-height: 1.5;
+    }
+
+    .ai-chat-textarea::placeholder {
+      color: var(--achieve-text-dim);
+    }
+
+    .ai-chat-send-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-gradient-brand);
+      border: none;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 242, 254, 0.3);
+      transition: transform var(--achieve-transition-fast), filter var(--achieve-transition-fast), opacity var(--achieve-transition-fast);
+      flex-shrink: 0;
+    }
+
+    .ai-chat-send-btn:hover:not(:disabled) {
+      transform: translateY(-2px) scale(1.04);
+      filter: brightness(1.12);
+      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.45);
+    }
+
+    .ai-chat-send-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      filter: grayscale(0.5);
+    }
+
+    .ai-chat-send-btn svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .ai-chat-send-btn:hover:not(:disabled) svg {
+      transform: translateX(2px) translateY(-2px);
+    }
+
+    .ai-chat-input-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: var(--achieve-text-dim);
+      font-family: var(--achieve-font-mono);
+    }
+
+    /* Mobile Backdrop for sidebar drawer */
+    .ai-chat-sidebar-backdrop {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 9;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 992px) {
+      .ai-chat-toggle-sidebar-btn {
+        display: flex;
+      }
+
+      .ai-chat-sidebar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 290px;
+        transform: translateX(-100%);
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
+      }
+
+      .ai-chat-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .ai-chat-sidebar.open + .ai-chat-sidebar-backdrop {
+        display: block;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .ai-chat-section {
+        padding: 60px 0 80px 0;
+      }
+
+      .ai-chat-app-box {
+        height: 620px;
+        border-radius: var(--achieve-radius-lg);
+      }
+
+      .ai-chat-welcome-prompts {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-chat-msg-user-bubble {
+        max-width: 90%;
+      }
+
+      .ai-chat-msg-ai-wrapper {
+        max-width: 92%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ai-chat-avatar-wrap::before,
+      .ai-chat-avatar-wrap.thinking,
+      .ai-chat-pulse-dot,
+      .ai-chat-status-dot,
+      .ai-chat-dot {
+        animation: none !important;
+      }
+
+      .ai-chat-message-row {
+        animation: none !important;
+      }
+    }
+
+
+  
+
+    /* Footer CSS */
+    .achieve-footer {
+      border-top: 1px solid var(--achieve-border-subtle);
+      background: var(--achieve-bg-surface);
+      padding: 70px 0 30px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .achieve-footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .achieve-footer-brand-desc {
+      font-size: 0.9rem;
+      color: var(--achieve-text-muted);
+      line-height: 1.6;
+      margin-top: 16px;
+      max-width: 320px;
+    }
+
+    .achieve-footer-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--achieve-text-main);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .achieve-footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .achieve-footer-link {
+      font-size: 0.88rem;
+      color: var(--achieve-text-muted);
+      transition: color var(--achieve-transition-fast), transform var(--achieve-transition-fast);
+      display: inline-block;
+    }
+
+    .achieve-footer-link:hover {
+      color: var(--achieve-cyan);
+      transform: translateX(4px);
+    }
+
+    .achieve-social-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .achieve-social-icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--achieve-transition-fast);
+    }
+
+    .achieve-social-icon-btn:hover {
+      background: var(--achieve-bg-card-hover);
+      border-color: var(--achieve-border-focus);
+      color: var(--achieve-cyan);
+      transform: translateY(-2px);
+    }
+
+    .achieve-social-icon-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .achieve-footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+      border-top: 1px solid var(--achieve-border-subtle);
+      font-size: 0.82rem;
+      color: var(--achieve-text-dim);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    
+
+    .achieve-social-icon-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="achieve-body">
+
+  <!-- Background Mesh Particle Canvas -->
+  <!-- Background Mesh Particle Canvas -->
+  <canvas id="achieve-bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient Cursor Glow Follower -->
+  <div class="achieve-ambient-glow" id="achieve-ambient-glow" aria-hidden="true"></div>
+
+  <!-- Cyber Stardust Particle Trail Canvas -->
+  <canvas id="achieve-cursor-canvas" aria-hidden="true"></canvas>
+
+  <!-- Precision Desktop Cursor Dot -->
+  <div class="achieve-cursor-dot" id="achieve-cursor-dot" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       1. NAVIGATION HEADER
+       ========================================================================== -->
+  <header class="achieve-navbar-wrapper" id="achieve-navbar">
+    <div class="achieve-container">
+      <div class="achieve-nav-content">
+
+        <!-- Logo / Name -->
+        <a href="achievement.html" class="achieve-brand" aria-label="AI Lab Home">
+          <div class="achieve-brand-logo-icon">
+            <img src="assets/ai-lab-logo.png" alt="AI LAB Official Logo" class="achieve-brand-logo-img" width="46" height="46" loading="eager" />
+          </div>
+          <div class="achieve-brand-text">
+            <span class="achieve-brand-name">AI LAB</span>
+            <span class="achieve-brand-sub">STUDENT CHAPTER</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav aria-label="Main Navigation">
+          <ul class="achieve-nav-links">
+            <li class="achieve-nav-item"><a href="achievement.html#home" class="achieve-nav-link">Home</a></li>
+            <li class="achieve-nav-item"><a href="achievement.html#projects" class="achieve-nav-link">Project</a></li>
+            <li class="achieve-nav-item"><a href="achievement.html" class="achieve-nav-link">Achievements</a></li>
+            <li class="achieve-nav-item"><a href="achievement.html#visitors" class="achieve-nav-link">Visitors</a></li>
+            <li class="achieve-nav-item"><a href="chat.html" class="achieve-nav-link active" id="achieve-chat-link" aria-current="page">Chat</a></li>
+          </ul>
+        </nav>
+
+        <!-- Right Side Nav Actions -->
+        <div class="achieve-nav-actions">
+          <button class="achieve-theme-toggle achieve-ripple-target" id="achieve-theme-toggle-btn"
+            aria-label="Toggle dark or light theme">
+            <svg id="achieve-theme-icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <a href="#login" class="achieve-login-btn achieve-ripple-target">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            <span>Login</span>
+          </a>
+
+          <button class="achieve-hamburger" id="achieve-hamburger-btn" aria-label="Toggle navigation drawer"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="achieve-mobile-drawer" id="achieve-mobile-drawer">
+    <div style="display: flex; align-items: center; gap: 12px; padding: 4px 6px 16px 6px; border-bottom: 1px solid var(--achieve-border-subtle); margin-bottom: 8px;">
+      <div class="achieve-brand-logo-icon" style="width: 42px; height: 42px;">
+        <img src="assets/ai-lab-logo.png" alt="AI LAB Official Logo" class="achieve-brand-logo-img" width="42" height="42" />
+      </div>
+      <div class="achieve-brand-text">
+        <span class="achieve-brand-name" style="font-size: 1.15rem;">AI LAB</span>
+        <span class="achieve-brand-sub">STUDENT CHAPTER</span>
+      </div>
+    </div>
+    <ul class="achieve-mobile-nav-list">
+      <li><a href="achievement.html#home" class="achieve-mobile-nav-link">Home</a></li>
+      <li><a href="achievement.html#projects" class="achieve-mobile-nav-link">Project</a></li>
+      <li><a href="achievement.html" class="achieve-mobile-nav-link">Achievements</a></li>
+      <li><a href="achievement.html#visitors" class="achieve-mobile-nav-link">Visitors</a></li>
+      <li><a href="chat.html" class="achieve-mobile-nav-link active" id="achieve-mobile-chat-link">Chat (Active)</a></li>
+    </ul>
+    <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px;">
+      <a href="#login" class="achieve-login-btn" style="width: 100%; justify-content: center;">
+        <span>Member Portal Login</span>
+      </a>
+      <a href="https://www.linkedin.com/in/ai-lab-siet-1b1507419?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="achieve-btn-secondary" style="width: 100%; justify-content: center; padding: 10px 16px; font-size: 0.875rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.55a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z" />
+        </svg>
+        <span>Connect on LinkedIn</span>
+      </a>
+    </div>
+  </div>
+
+  <main class="ai-chat-page-main">
+    
+    <!-- ==========================================================================
+         AI LAB ASSISTANT - INTERACTIVE CHATBOT SECTION
+         ========================================================================== -->
+    <section class="ai-chat-section" id="ai-chat-section" aria-label="AI Club Intelligent Assistant">
+      <div class="achieve-container">
+
+        <!-- Section Header -->
+        <div class="ai-chat-section-header">
+          <div class="ai-chat-pill-badge">
+            <span class="ai-chat-pulse-dot"></span>
+            <span>AI LAB INTELLIGENT ASSISTANT</span>
+          </div>
+          <h1 class="ai-chat-section-title">
+            Ask Our AI Lab <span class="ai-chat-gradient-text">Assistant</span>
+          </h1>
+          <p class="ai-chat-section-desc">
+            Explore our hackathon victories, research breakthroughs, certifications, and student achievements through an interactive, neural assistant.
+          </p>
+        </div>
+
+        <!-- Chat Application Interface Box -->
+        <div class="ai-chat-app-box" id="ai-chat-app">
+
+          <!-- Sidebar / Conversations History -->
+          <aside class="ai-chat-sidebar" id="ai-chat-sidebar" aria-label="Chat Conversation History">
+            <div class="ai-chat-sidebar-top">
+              <button class="ai-chat-new-btn achieve-ripple-target" id="ai-chat-new-chat-btn" aria-label="Start new chat conversation">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <span>New Chat</span>
+              </button>
+              <div class="ai-chat-search-wrap">
+                <svg class="ai-chat-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" class="ai-chat-search-input" id="ai-chat-search-input" placeholder="Search chats..." aria-label="Search conversation history" />
+              </div>
+            </div>
+
+            <!-- History List -->
+            <div class="ai-chat-history-list" id="ai-chat-history-list" role="list">
+              <!-- Rendered dynamically by AIClubChatApp -->
+            </div>
+
+            <div class="ai-chat-sidebar-footer">
+              <span id="ai-chat-conv-count">0 chats</span>
+              <button class="ai-chat-clear-all-btn" id="ai-chat-clear-all-btn" aria-label="Clear all conversations">Clear All</button>
+            </div>
+          </aside>
+
+          <!-- Mobile backdrop for sidebar -->
+          <div class="ai-chat-sidebar-backdrop" id="ai-chat-sidebar-backdrop"></div>
+
+          <!-- Main Chat Panel -->
+          <div class="ai-chat-main">
+
+            <!-- Chat Header -->
+            <div class="ai-chat-header">
+              <div class="ai-chat-header-left">
+                <div class="ai-chat-avatar-wrap" id="ai-chat-header-avatar">
+                  <svg class="ai-chat-avatar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="11" width="18" height="10" rx="4"></rect>
+                    <circle cx="12" cy="5" r="2"></circle>
+                    <path d="M12 7v4"></path>
+                    <line x1="8" y1="16" x2="8.01" y2="16" stroke-width="3"></line>
+                    <line x1="16" y1="16" x2="16.01" y2="16" stroke-width="3"></line>
+                  </svg>
+                </div>
+                <div class="ai-chat-header-info">
+                  <h2 class="ai-chat-header-title">
+                    AI Lab Assistant
+                  </h2>
+                  <div class="ai-chat-header-status" id="ai-chat-status-text">
+                    <span class="ai-chat-status-dot" id="ai-chat-status-dot"></span>
+                    <span>Online • Ready to help</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ai-chat-header-actions">
+                <button class="ai-chat-header-btn ai-chat-toggle-sidebar-btn" id="ai-chat-toggle-history-btn" aria-label="Toggle chat history drawer" title="Chat History">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 8v4l3 3"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                  </svg>
+                </button>
+                <button class="ai-chat-header-btn" id="ai-chat-clear-conv-btn" aria-label="Clear current conversation" title="Clear Chat">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Chat Messages Area -->
+            <div class="ai-chat-messages-area" id="ai-chat-messages" role="log" aria-live="polite">
+              <!-- Dynamically rendered or welcome state -->
+            </div>
+
+            <!-- Stop Generating Indicator Button -->
+            <div class="ai-chat-stop-container" id="ai-chat-stop-container">
+              <button class="ai-chat-stop-btn" id="ai-chat-stop-btn" aria-label="Stop generating response">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                </svg>
+                <span>Stop Generating</span>
+              </button>
+            </div>
+
+            <!-- Quick Suggestions Bar -->
+            <div class="ai-chat-suggestions-bar" id="ai-chat-suggestions" role="toolbar" aria-label="Chat suggestion prompts">
+              <button class="ai-chat-suggestion-chip" data-prompt="Tell me about our top achievements">
+                <span>🏆</span> Top Achievements
+              </button>
+              <button class="ai-chat-suggestion-chip" data-prompt="Which hackathons did the club win?">
+                <span>⚡</span> Hackathon Victories
+              </button>
+              <button class="ai-chat-suggestion-chip" data-prompt="Tell me about CERN & IEEE research collaborations">
+                <span>🔬</span> CERN & Research
+              </button>
+              <button class="ai-chat-suggestion-chip" data-prompt="What AWS and TensorFlow certifications were achieved?">
+                <span>📜</span> Certifications
+              </button>
+              <button class="ai-chat-suggestion-chip" data-prompt="What student projects have been created?">
+                <span>🚀</span> Projects & AssistiveAI
+              </button>
+              <button class="ai-chat-suggestion-chip" data-prompt="What is the AI Club and how can I participate?">
+                <span>💡</span> About the Club
+              </button>
+            </div>
+
+            <!-- Chat Input Bar -->
+            <div class="ai-chat-input-bar-wrap">
+              <div class="ai-chat-input-row">
+                <div class="ai-chat-textarea-container">
+                  <textarea class="ai-chat-textarea" id="ai-chat-textarea" placeholder="Ask something about our AI Club..." rows="1" maxlength="500" aria-label="Message input"></textarea>
+                </div>
+                <button class="ai-chat-send-btn achieve-ripple-target" id="ai-chat-send-btn" aria-label="Send message" disabled>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
+              </div>
+              <div class="ai-chat-input-footer-row">
+                <span>Shift + Enter for new line • Enter to send</span>
+                <span id="ai-chat-char-count">0 / 500</span>
+              </div>
+            </div>
+
+          </div> <!-- /.ai-chat-main -->
+
+        </div> <!-- /.ai-chat-app-box -->
+
+      </div> <!-- /.achieve-container -->
+    </section> <!-- /.ai-chat-section -->
+
+  </main>
+
+    <!-- ==========================================================================
+       10. FOOTER SECTION
+       ========================================================================== -->
+  <footer class="achieve-footer">
+    <div class="achieve-container">
+      <div class="achieve-footer-grid">
+
+        <div>
+          <a href="achievement.html" class="achieve-brand" aria-label="AI Lab Home">
+            <div class="achieve-brand-logo-icon">
+              <img src="assets/ai-lab-logo.png" alt="AI LAB Official Logo" class="achieve-brand-logo-img" width="46" height="46" loading="lazy" />
+            </div>
+            <div class="achieve-brand-text">
+              <span class="achieve-brand-name">AI LAB</span>
+              <span class="achieve-brand-sub">STUDENT CHAPTER</span>
+            </div>
+          </a>
+          <p class="achieve-footer-brand-desc">
+            Empowering the next generation of artificial intelligence engineers, researchers, and innovators through
+            open collaboration and competitive excellence.
+          </p>
+          <div class="achieve-social-row">
+            <a href="https://github.com" target="_blank" rel="noopener"
+              class="achieve-social-icon-btn achieve-ripple-target" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="20" height="20">
+                <path
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/ai-lab-siet-1b1507419?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener"
+              class="achieve-social-icon-btn achieve-ripple-target" aria-label="AI Lab SIET LinkedIn Profile">
+              <svg viewBox="0 0 24 24" width="20" height="20">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.55a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z" />
+              </svg>
+            </a>
+            <a href="https://discord.com" target="_blank" rel="noopener"
+              class="achieve-social-icon-btn achieve-ripple-target" aria-label="Discord">
+              <svg viewBox="0 0 24 24" width="20" height="20">
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="achieve-footer-title">Pages</h4>
+          <ul class="achieve-footer-links">
+            <li><a href="achievement.html#home" class="achieve-footer-link">Home</a></li>
+            <li><a href="achievement.html#projects" class="achieve-footer-link">Project</a></li>
+            <li><a href="achievement.html" class="achieve-footer-link">Achievements</a></li>
+            <li><a href="achievement.html#visitors" class="achieve-footer-link">Visitors</a></li>
+            <li><a href="chat.html" class="achieve-footer-link" style="color:var(--achieve-cyan); font-weight: 600;">Chat</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="achieve-footer-title">Community</h4>
+          <ul class="achieve-footer-links">
+            <li><a href="achievement.html#collaborations" class="achieve-footer-link">Collaborations</a></li>
+            <li><a href="achievement.html#events" class="achieve-footer-link">Events</a></li>
+            <li><a href="achievement.html#visitors" class="achieve-footer-link">Visitors</a></li>
+            <li><a href="achievement.html#team" class="achieve-footer-link">Team Roster</a></li>
+            <li><a href="achievement.html#contests" class="achieve-footer-link">Contests</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="achieve-footer-title">Hall of Fame Info</h4>
+          <p style="font-size:0.88rem; color:var(--achieve-text-muted); line-height:1.6; margin-bottom:12px;">
+            Recognized by college administration and global competition consortiums. All claims verified by faculty
+            advisors.
+          </p>
+          <div style="font-family:var(--achieve-font-mono); font-size:0.75rem; color:var(--achieve-text-dim);">
+            API Version: v1.0.4-prod<br>
+            Updated: 2026 Academic Cycle
+          </div>
+        </div>
+
+      </div>
+
+      <div class="achieve-footer-bottom">
+        <div>© 2026 AI Club Student Chapter. Built by the AI Club Frontend Dev Team. All rights reserved.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="#privacy" style="color:inherit">Privacy Policy</a>
+          <a href="#terms" style="color:inherit">Terms of Service</a>
+          <a href="#verify" style="color:inherit">Verification Registry</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Single Toast Element -->
+  <div class="achieve-toast" id="achieve-toast" role="alert" aria-live="assertive">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span id="achieve-toast-msg">Notification message</span>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       PAGE CORE CONTROLLER: THEME, NAVBAR, CANVAS PARTICLES & RIPPLE
+       ========================================================================== */
+    const AIClubPageCore = (() => {
+      let toastTimer = null;
+
+      function showToast(message) {
+        const toast = document.getElementById('achieve-toast');
+        const toastMsg = document.getElementById('achieve-toast-msg');
+        if (!toast || !toastMsg) return;
+
+        toastMsg.textContent = message;
+        toast.classList.add('show');
+
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      }
+
+      function setupTheme() {
+        const html = document.documentElement;
+        const themeBtn = document.getElementById('achieve-theme-toggle-btn');
+        const themeIcon = document.getElementById('achieve-theme-icon');
+
+        const savedTheme = localStorage.getItem('ai-club-theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        if (themeBtn) {
+          themeBtn.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', nextTheme);
+            localStorage.setItem('ai-club-theme', nextTheme);
+            updateThemeIcon(nextTheme);
+            showToast(`Switched to ${nextTheme.toUpperCase()} theme`);
+          });
+        }
+
+        function updateThemeIcon(t) {
+          if (!themeIcon) return;
+          if (t === 'light') {
+            themeIcon.innerHTML = `
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            `;
+          } else {
+            themeIcon.innerHTML = `
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            `;
+          }
+        }
+      }
+
+      function setupNavbar() {
+        const navbar = document.getElementById('achieve-navbar');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 20) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        }, { passive: true });
+
+        const hamburger = document.getElementById('achieve-hamburger-btn');
+        const drawer = document.getElementById('achieve-mobile-drawer');
+        if (hamburger && drawer) {
+          hamburger.addEventListener('click', () => {
+            const isOpen = hamburger.classList.toggle('open');
+            drawer.classList.toggle('active', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+          });
+
+          drawer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+              hamburger.classList.remove('open');
+              drawer.classList.remove('active');
+              hamburger.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
+      }
+
+      function setupParticles() {
+        const canvas = document.getElementById('achieve-bg-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        });
+
+        const particles = [];
+        const count = Math.min(50, Math.floor(width / 30));
+
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            r: Math.random() * 2 + 1
+          });
+        }
+
+        function loop() {
+          ctx.clearRect(0, 0, width, height);
+          ctx.fillStyle = 'rgba(0, 242, 254, 0.4)';
+
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0) p.x = width;
+            if (p.x > width) p.x = 0;
+            if (p.y < 0) p.y = height;
+            if (p.y > height) p.y = 0;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+
+            for (let j = i + 1; j < particles.length; j++) {
+              const p2 = particles[j];
+              const dx = p.x - p2.x;
+              const dy = p.y - p2.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 120) {
+                ctx.strokeStyle = `rgba(0, 242, 254, ${0.15 * (1 - dist / 120)})`;
+                ctx.lineWidth = 0.8;
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.stroke();
+              }
+            }
+          }
+          requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+      }
+
+      function setupRipple() {
+        document.addEventListener('click', (e) => {
+          const target = e.target.closest('.achieve-ripple-target');
+          if (!target) return;
+
+          const rect = target.getBoundingClientRect();
+          const circle = document.createElement('span');
+          const d = Math.max(rect.width, rect.height);
+
+          circle.style.width = circle.style.height = `${d}px`;
+          circle.style.left = `${e.clientX - rect.left - d / 2}px`;
+          circle.style.top = `${e.clientY - rect.top - d / 2}px`;
+          circle.classList.add('achieve-ripple-wave');
+
+          const ripple = target.getElementsByClassName('achieve-ripple-wave')[0];
+          if (ripple) ripple.remove();
+
+          target.appendChild(circle);
+        });
+      }
+
+
+      function setupGlobalMouseGlowAndCursor() {
+        const dot = document.getElementById('achieve-cursor-dot');
+        const glow = document.getElementById('achieve-ambient-glow');
+        const trailCanvas = document.getElementById('achieve-cursor-canvas');
+
+        let mouseX = -100;
+        let mouseY = -100;
+        let lastX = -100;
+        let lastY = -100;
+
+        const particles = [];
+        let ctx = null;
+
+        if (trailCanvas) {
+          ctx = trailCanvas.getContext('2d');
+          trailCanvas.width = window.innerWidth;
+          trailCanvas.height = window.innerHeight;
+
+          window.addEventListener('resize', () => {
+            trailCanvas.width = window.innerWidth;
+            trailCanvas.height = window.innerHeight;
+          });
+        }
+
+        function addParticle(x, y, vx, vy, isClick = false) {
+          const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+          const colors = isDark
+            ? ['#00f2fe', '#38bdf8', '#c084fc', '#a855f7']
+            : ['#0284c7', '#7e22ce', '#2563eb', '#9333ea'];
+
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          const size = isClick ? (Math.random() * 3.5 + 2) : (Math.random() * 2.4 + 1.2);
+          const maxLife = isClick ? 45 : 30;
+
+          particles.push({
+            x,
+            y,
+            vx: vx || (Math.random() - 0.5) * 1.2,
+            vy: vy || (Math.random() - 0.5) * 1.2,
+            life: 0,
+            maxLife,
+            size,
+            color
+          });
+        }
+
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          if (dot) {
+            dot.style.left = `${mouseX}px`;
+            dot.style.top = `${mouseY}px`;
+          }
+
+          if (glow) {
+            glow.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+          }
+
+          if (lastX > 0 && lastY > 0) {
+            const dx = mouseX - lastX;
+            const dy = mouseY - lastY;
+            const dist = Math.hypot(dx, dy);
+
+            if (dist > 3) {
+              const steps = Math.min(Math.floor(dist / 5), 7);
+              for (let i = 0; i < steps; i++) {
+                const px = lastX + (dx * i) / steps;
+                const py = lastY + (dy * i) / steps;
+                addParticle(
+                  px + (Math.random() - 0.5) * 4,
+                  py + (Math.random() - 0.5) * 4,
+                  -dx * 0.04 + (Math.random() - 0.5) * 0.5,
+                  -dy * 0.04 + (Math.random() - 0.5) * 0.5
+                );
+              }
+            }
+          }
+
+          lastX = mouseX;
+          lastY = mouseY;
+        });
+
+        // Click Quantum Pulse Burst
+        window.addEventListener('click', (e) => {
+          for (let i = 0; i < 14; i++) {
+            const angle = (Math.PI * 2 * i) / 14 + (Math.random() - 0.5) * 0.4;
+            const speed = Math.random() * 3.5 + 1.8;
+            addParticle(
+              e.clientX,
+              e.clientY,
+              Math.cos(angle) * speed,
+              Math.sin(angle) * speed,
+              true
+            );
+          }
+        });
+
+        // Hover scale for precision dot
+        const hoverTargets = 'a, button, input, select, textarea, .ai-chat-suggestion-chip, .ai-chat-prompt-card, .ai-chat-history-item, .ai-chat-msg-action-btn';
+        document.addEventListener('mouseover', (e) => {
+          if (e.target.closest(hoverTargets) && dot) {
+            dot.classList.add('active-hover');
+          }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+          if (e.target.closest(hoverTargets) && dot) {
+            dot.classList.remove('active-hover');
+          }
+        });
+
+        // Continuous Stardust Particle Renderer
+        function renderStardust() {
+          if (ctx) {
+            ctx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+            ctx.globalCompositeOperation = 'lighter';
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+              const p = particles[i];
+              p.x += p.vx;
+              p.y += p.vy;
+              p.vx *= 0.96;
+              p.vy *= 0.96;
+              p.life++;
+
+              const progress = p.life / p.maxLife;
+              const alpha = Math.max(1 - progress, 0);
+              const currentSize = p.size * (1 - progress * 0.4);
+
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, Math.max(currentSize, 0.5), 0, Math.PI * 2);
+              ctx.fillStyle = p.color;
+              ctx.globalAlpha = alpha * 0.85;
+              ctx.shadowBlur = 10;
+              ctx.shadowColor = p.color;
+              ctx.fill();
+              ctx.shadowBlur = 0;
+
+              if (p.life >= p.maxLife) {
+                particles.splice(i, 1);
+              }
+            }
+            ctx.globalAlpha = 1;
+            ctx.globalCompositeOperation = 'source-over';
+          }
+          requestAnimationFrame(renderStardust);
+        }
+
+        if (trailCanvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          requestAnimationFrame(renderStardust);
+        }
+      }
+
+      return {
+        init: () => {
+          setupTheme();
+          setupNavbar();
+          setupParticles();
+          setupRipple();
+          setupGlobalMouseGlowAndCursor();
+        },
+        showToast
+      };
+    })();
+
+    /* ==========================================================================
+       AI CLUB ASSISTANT - CHATBOT MODULE (STRICTLY ISOLATED: AIClubChatApp)
+       ========================================================================== */
+    const AIClubChatApp = (() => {
+      const STORAGE_KEY = 'aiClubChatConversations';
+      const AI_CHAT_STREAMING = true;
+
+      const state = {
+        conversations: [],
+        currentConvId: null,
+        isGenerating: false,
+        streamInterval: null,
+        typingTimeout: null,
+        searchFilter: '',
+        historyOpen: false,
+        lastUserQuery: ''
+      };
+
+      // Mock Knowledge Base directly extracted from the 12 verified achievements on this page
+      const KNOWLEDGE_BASE = {
+        greetings: [
+          "Hello! 👋 I'm the **AI Lab Assistant**. How can I help you explore our college AI Club's achievements, hackathons, research collaborations, certifications, or projects today?",
+          "Welcome! I am the **AI Lab Assistant**. Feel free to ask me anything about our international hackathon championships, IEEE publications, CERN OpenLab partnerships, or student accomplishments!"
+        ],
+        overview: "The **AI Lab (Student Chapter)** at **Sri Shakthi Institute of Engineering and Technology** empowers student engineers and researchers in Machine Learning, Edge AI, Generative Models, and Autonomous Systems. Our members participate in international hackathons, open research, and high-impact industry certifications.",
+        achievements_summary: "🏆 **AI Lab Key Laurels & Milestones:**\n\n1. **Global AI Hackathon 2026 Grand Championship** in Singapore ($15,000 + Cloud Grants) by *Team NeuralForge* for *NeuroPulse* edge-AI clinical triage.\n2. **National Kaggle LLM Reasoning Challenge (Gold Medal Tier - Rank #2/1,200+)** by *Karthik Raja & Aditi Sharma*.\n3. **CERN OpenLab Research Partnership** co-developing geometric graph neural networks for particle trajectory reconstruction.\n4. **IEEE IAS Best Research Paper Award** for *Adaptive LoRA Distillation for Edge Autonomous Robotics* by *Siddharth Nair & Dr. V. Raman*.\n5. **Smart India Hackathon (SIH) 2024 National Champions** (Rs. 1,00,000) by *Team VisionAgro* for edge-AI crop pathology drone.\n6. **AWS & TensorFlow Certifications**: 24 AWS ML Specialty certified members and 35 Google TensorFlow certified developers.",
+        hackathons: "⚡ **Hackathon Victories & Competitive Laurels:**\n\n• **Global AI Hackathon 2026 (Singapore Hybrid)**: *Team NeuralForge* (Aarav, Priya, Rohan & Sneha) clinched **1st Grand Championship** among 450+ international university teams, winning $15,000 + Cloud Grants for *NeuroPulse* (an edge-AI clinical triage copilot with 97.4% diagnostic concordance).\n• **Smart India Hackathon (SIH) 2024**: *Team VisionAgro* secured **1st Position in Hardware/AI** (Rs. 1,00,000 Cash Prize) for their multispectral crop blight detection drone selected from 65,000 applicant teams.\n• **State Inter-College AI Project Expo 2024**: *Team AssistiveAI* won the **Overall State Innovation Gold Trophy** for an offline edge Indian Sign Language translator running on Raspberry Pi 5.",
+        competitions: "🎯 **Competitions & Challenges:**\n\n• **National Kaggle LLM Reasoning Challenge**: *Karthik Raja & Aditi Sharma* ranked **#2 nationwide** among 1,200+ teams (Gold Medal Tier) with a hybrid RAG pipeline with speculative decoding.\n• **State Project Expo**: Innovation Gold Trophy for *AssistiveAI* real-time sign-to-speech translation with 98% accuracy and sub-80ms latency.",
+        collaborations: "🔬 **Research Partnerships & Collaborations:**\n\n• **CERN OpenLab**: Bilateral academic research initiative co-developing geometric graph neural networks for high-energy collision particle trajectory reconstruction, reducing latency by 42%.\n• **DeepLearning.AI**: Premier regional study group partner recognition by Andrew Ng's foundation for weekly coding circles and 600+ student certificate completions.",
+        certifications: "📜 **Certifications & Professional Credentials:**\n\n• **AWS Certified Machine Learning - Specialty**: 24/24 core club members passed on their first attempt (100% pass rate) after an 8-week SageMaker & distributed training bootcamp.\n• **Google TensorFlow Developer Certificate**: 35 sophomore students earned official Google credentials in a single semester.\n• **NVIDIA DLI Ambassador**: Member *Meera Krishnan* selected as 1 of 15 student ambassadors nationwide, training 320+ engineers in GPU computing and TensorRT.",
+        projects: "🚀 **Featured Student AI Projects:**\n\n1. **NeuroPulse**: Lightweight quantized vision-language copilot for low-bandwidth rural clinical triage.\n2. **VisionAgro Drone**: Thermal & multispectral edge-AI drone detecting crop blight 7 days before visual onset.\n3. **AssistiveAI**: Indian Sign Language (ISL) to multilingual speech translation running on Raspberry Pi 5 with zero cloud dependency.\n4. **Foundations of Modern GenAI**: 6-module interactive open curriculum with 5,200+ active learners.",
+        events: "🎉 **Flagship Summits & Community Initiatives:**\n\n• **Synapse 2025**: Annual AI Club Alumni & Industry Summit uniting 250+ student engineers, 40 AI industry alumni, and 12 startup founders, yielding 14 direct summer internship offers.\n• **Foundations of Modern GenAI**: Zero-paywall interactive curriculum encompassing Attention, diffusion models, and LangChain agents.",
+        membership: "🤝 **How to Join & Contact AI Lab:**\n\nOur club is 100% student-driven at **Sri Shakthi Institute of Engineering and Technology**. Students from all engineering batches can join our hands-on study circles, competition squads, or open-source research wings by speaking with club leads or visiting our lab room.",
+        fallback: "I don't have that specific information in the current AI Club dataset. You can ask me about our **hackathon championships (Global AI Hackathon, SIH)**, **CERN & IEEE research collaborations**, **AWS & TensorFlow certifications**, **student projects (NeuroPulse, VisionAgro, AssistiveAI)**, or the **Synapse 2025 summit**!"
+      };
+
+      // Mock AI response generator (Frontend only, easily replaceable with fetch('/api/chat') in the future)
+      function aiChatGenerateResponse(userQuery) {
+        const q = (userQuery || '').toLowerCase().trim();
+
+        if (!q) {
+          return "Please type a question about our AI Club, achievements, hackathons, or projects!";
+        }
+
+        if (q.includes('hello') || q.includes('hi') || q.includes('hey') || q.includes('who are you') || q.includes('what can you do') || q.includes('help')) {
+          return KNOWLEDGE_BASE.greetings[Math.floor(Math.random() * KNOWLEDGE_BASE.greetings.length)] + "\n\nTry asking:\n• *What are our biggest achievements?*\n• *Tell me about the Global AI Hackathon*\n• *What research did we do with CERN or IEEE?*\n• *Tell me about our AWS certifications*";
+        }
+
+        if (q.includes('hackathon') || q.includes('sih') || q.includes('neuropulse') || q.includes('neuralforge') || q.includes('visionagro')) {
+          return KNOWLEDGE_BASE.hackathons;
+        }
+
+        if (q.includes('kaggle') || q.includes('competition') || q.includes('contest') || q.includes('reasoning') || q.includes('rag')) {
+          return KNOWLEDGE_BASE.competitions;
+        }
+
+        if (q.includes('cern') || q.includes('collaborat') || q.includes('partner') || q.includes('deeplearning.ai') || q.includes('andrew ng')) {
+          return KNOWLEDGE_BASE.collaborations;
+        }
+
+        if (q.includes('certificat') || q.includes('aws') || q.includes('tensorflow') || q.includes('nvidia') || q.includes('dli') || q.includes('credential')) {
+          return KNOWLEDGE_BASE.certifications;
+        }
+
+        if (q.includes('project') || q.includes('assistive') || q.includes('drone') || q.includes('model') || q.includes('build')) {
+          return KNOWLEDGE_BASE.projects;
+        }
+
+        if (q.includes('event') || q.includes('synapse') || q.includes('summit') || q.includes('workshop') || q.includes('course')) {
+          return KNOWLEDGE_BASE.events;
+        }
+
+        if (q.includes('member') || q.includes('join') || q.includes('team') || q.includes('contact') || q.includes('college') || q.includes('shakthi') || q.includes('siet')) {
+          return KNOWLEDGE_BASE.membership;
+        }
+
+        if (q.includes('achievement') || q.includes('laurel') || q.includes('award') || q.includes('trophy') || q.includes('hall of fame') || q.includes('win')) {
+          return KNOWLEDGE_BASE.achievements_summary;
+        }
+
+        if (q.includes('about') || q.includes('club') || q.includes('lab')) {
+          return KNOWLEDGE_BASE.overview + "\n\n" + KNOWLEDGE_BASE.achievements_summary;
+        }
+
+        return KNOWLEDGE_BASE.fallback;
+      }
+
+      // Storage Management
+      function loadConversations() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            state.conversations = JSON.parse(raw);
+          } else {
+            state.conversations = [];
+          }
+        } catch (e) {
+          console.warn("Could not load chat conversations from localStorage", e);
+          state.conversations = [];
+        }
+      }
+
+      function saveConversations() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state.conversations));
+        } catch (e) {
+          console.warn("Could not save chat conversations to localStorage", e);
+        }
+      }
+
+      function getCurrentConversation() {
+        return state.conversations.find(c => c.id === state.currentConvId);
+      }
+
+      function createNewConversation(initialQuery = null) {
+        const id = 'conv_' + Date.now();
+        const newConv = {
+          id: id,
+          title: initialQuery ? (initialQuery.length > 28 ? initialQuery.substring(0, 28) + '...' : initialQuery) : 'New Conversation',
+          timestamp: Date.now(),
+          messages: []
+        };
+        state.conversations.unshift(newConv);
+        state.currentConvId = id;
+        saveConversations();
+        renderSidebar();
+        renderMessages();
+        return newConv;
+      }
+
+      function formatTime(timestamp) {
+        const d = new Date(timestamp || Date.now());
+        let hours = d.getHours();
+        const minutes = d.getMinutes().toString().padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        return `${hours}:${minutes} ${ampm}`;
+      }
+
+      function formatDate(timestamp) {
+        const d = new Date(timestamp);
+        return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+      }
+
+      function formatMarkdown(text) {
+        if (!text) return '';
+        let escaped = text
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+
+        // Bold
+        escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Italics
+        escaped = escaped.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        // Code
+        escaped = escaped.replace(/`([^`]+)`/g, '<code style="background:rgba(0,242,254,0.1);padding:2px 5px;border-radius:4px;font-family:var(--achieve-font-mono);font-size:0.85em;">$1</code>');
+
+        // Lists & paragraphs
+        const lines = escaped.split('\n');
+        let html = '';
+        let inList = false;
+
+        lines.forEach(line => {
+          const trimmed = line.trim();
+          if (trimmed.startsWith('• ') || trimmed.startsWith('- ') || /^\d+\.\s/.test(trimmed)) {
+            if (!inList) {
+              html += '<ul>';
+              inList = true;
+            }
+            const itemText = trimmed.replace(/^[•\-]\s|^\d+\.\s/, '');
+            html += `<li>${itemText}</li>`;
+          } else {
+            if (inList) {
+              html += '</ul>';
+              inList = false;
+            }
+            if (trimmed) {
+              html += `<p>${trimmed}</p>`;
+            }
+          }
+        });
+
+        if (inList) html += '</ul>';
+        return html;
+      }
+
+      // Render History Sidebar
+      function renderSidebar() {
+        const list = document.getElementById('ai-chat-history-list');
+        const count = document.getElementById('ai-chat-conv-count');
+        if (!list) return;
+
+        let items = [...state.conversations];
+        if (state.searchFilter.trim()) {
+          const q = state.searchFilter.toLowerCase();
+          items = items.filter(c => 
+            c.title.toLowerCase().includes(q) ||
+            c.messages.some(m => m.content.toLowerCase().includes(q))
+          );
+        }
+
+        if (count) {
+          count.textContent = `${state.conversations.length} chat${state.conversations.length === 1 ? '' : 's'}`;
+        }
+
+        if (items.length === 0) {
+          list.innerHTML = `<div style="text-align:center;padding:24px 10px;color:var(--achieve-text-dim);font-size:0.82rem;">${state.searchFilter ? 'No matching chats found.' : 'No conversations yet.\nStart a new chat!'}</div>`;
+          return;
+        }
+
+        list.innerHTML = items.map(c => `
+          <div class="ai-chat-history-item ${c.id === state.currentConvId ? 'active' : ''}" data-id="${c.id}" role="button" tabindex="0">
+            <div class="ai-chat-item-content">
+              <span class="ai-chat-item-title">${c.title || 'Conversation'}</span>
+              <span class="ai-chat-item-date">${formatDate(c.timestamp)} • ${c.messages.length} msg${c.messages.length === 1 ? '' : 's'}</span>
+            </div>
+            <button class="ai-chat-del-btn" data-delete-id="${c.id}" title="Delete chat" aria-label="Delete chat">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+            </button>
+          </div>
+        `).join('');
+
+        // Item click listeners
+        list.querySelectorAll('.ai-chat-history-item').forEach(el => {
+          el.addEventListener('click', (e) => {
+            if (e.target.closest('.ai-chat-del-btn')) return;
+            const id = el.getAttribute('data-id');
+            if (id && id !== state.currentConvId) {
+              state.currentConvId = id;
+              renderSidebar();
+              renderMessages();
+              closeSidebarMobile();
+            }
+          });
+        });
+
+        // Delete buttons
+        list.querySelectorAll('.ai-chat-del-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const id = btn.getAttribute('data-delete-id');
+            deleteConversation(id);
+          });
+        });
+      }
+
+      function deleteConversation(id) {
+        state.conversations = state.conversations.filter(c => c.id !== id);
+        if (state.currentConvId === id) {
+          state.currentConvId = state.conversations.length > 0 ? state.conversations[0].id : null;
+        }
+        saveConversations();
+        renderSidebar();
+        renderMessages();
+      }
+
+      // Render Messages in Main Area
+      function renderMessages() {
+        const area = document.getElementById('ai-chat-messages');
+        if (!area) return;
+
+        const conv = getCurrentConversation();
+
+        if (!conv || !conv.messages || conv.messages.length === 0) {
+          // Welcome / Empty State
+          area.innerHTML = `
+            <div class="ai-chat-welcome-state">
+              <div class="ai-chat-welcome-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="11" width="18" height="10" rx="4"></rect>
+                  <circle cx="12" cy="5" r="2"></circle>
+                  <path d="M12 7v4"></path>
+                  <line x1="8" y1="16" x2="8.01" y2="16" stroke-width="3"></line>
+                  <line x1="16" y1="16" x2="16.01" y2="16" stroke-width="3"></line>
+                </svg>
+              </div>
+              <h3 class="ai-chat-welcome-title">AI Lab Assistant</h3>
+              <p class="ai-chat-welcome-desc">
+                Hello! I am your interactive AI Club guide. Ask me anything about our international hackathon championships, IEEE publications, CERN OpenLab partnerships, or student accomplishments.
+              </p>
+              <div class="ai-chat-welcome-prompts">
+                <div class="ai-chat-prompt-card" data-prompt="Tell me about our top achievements">
+                  <span class="ai-chat-prompt-card-icon">🏆</span>
+                  <span>Top Achievements</span>
+                </div>
+                <div class="ai-chat-prompt-card" data-prompt="Which hackathons did the club win?">
+                  <span class="ai-chat-prompt-card-icon">⚡</span>
+                  <span>Hackathon Victories</span>
+                </div>
+                <div class="ai-chat-prompt-card" data-prompt="Tell me about CERN & IEEE research collaborations">
+                  <span class="ai-chat-prompt-card-icon">🔬</span>
+                  <span>CERN & IEEE Research</span>
+                </div>
+                <div class="ai-chat-prompt-card" data-prompt="What AWS and TensorFlow certifications were achieved?">
+                  <span class="ai-chat-prompt-card-icon">📜</span>
+                  <span>Certifications & Cohorts</span>
+                </div>
+              </div>
+            </div>
+          `;
+
+          // Add click events to prompt cards
+          area.querySelectorAll('.ai-chat-prompt-card').forEach(card => {
+            card.addEventListener('click', () => {
+              const prompt = card.getAttribute('data-prompt');
+              if (prompt) sendMessage(prompt);
+            });
+          });
+          return;
+        }
+
+        // Render message rows
+        area.innerHTML = conv.messages.map((m, idx) => {
+          if (m.role === 'user') {
+            return `
+              <div class="ai-chat-message-row user-row">
+                <div class="ai-chat-msg-user-bubble">
+                  ${m.content}
+                  <span class="ai-chat-msg-time">${m.time || ''}</span>
+                </div>
+              </div>
+            `;
+          } else {
+            return `
+              <div class="ai-chat-message-row ai-row" data-msg-idx="${idx}">
+                <div class="ai-chat-msg-avatar">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="11" width="18" height="10" rx="4"></rect>
+                    <circle cx="12" cy="5" r="2"></circle>
+                    <path d="M12 7v4"></path>
+                  </svg>
+                </div>
+                <div class="ai-chat-msg-ai-wrapper">
+                  <div class="ai-chat-msg-ai-bubble" id="ai-chat-bubble-${idx}">
+                    ${formatMarkdown(m.content)}
+                  </div>
+                  <div class="ai-chat-msg-actions-row">
+                    <button class="ai-chat-msg-action-btn ai-chat-copy-btn" data-idx="${idx}" title="Copy response">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      <span>Copy</span>
+                    </button>
+                    <button class="ai-chat-msg-action-btn ai-chat-regen-btn" data-idx="${idx}" title="Regenerate response">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 4 23 10 17 10"></polyline>
+                        <polyline points="1 20 1 14 7 14"></polyline>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                      </svg>
+                      <span>Regenerate</span>
+                    </button>
+                    <button class="ai-chat-msg-action-btn ai-chat-like-btn" title="Helpful response">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                      </svg>
+                    </button>
+                    <button class="ai-chat-msg-action-btn ai-chat-dislike-btn" title="Not helpful">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3"></path>
+                      </svg>
+                    </button>
+                    <span style="font-size:0.68rem;color:var(--achieve-text-dim);font-family:var(--achieve-font-mono);margin-left:auto;">${m.time || ''}</span>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+        }).join('');
+
+        // Action listeners
+        area.querySelectorAll('.ai-chat-copy-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = parseInt(btn.getAttribute('data-idx'), 10);
+            if (conv && conv.messages[idx]) {
+              navigator.clipboard.writeText(conv.messages[idx].content).then(() => {
+                const span = btn.querySelector('span');
+                const orig = span ? span.textContent : '';
+                if (span) span.textContent = 'Copied!';
+                setTimeout(() => { if (span) span.textContent = orig; }, 2000);
+              });
+            }
+          });
+        });
+
+        area.querySelectorAll('.ai-chat-regen-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            if (state.isGenerating) return;
+            if (state.lastUserQuery) {
+              sendMessage(state.lastUserQuery, true);
+            }
+          });
+        });
+
+        area.querySelectorAll('.ai-chat-like-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+            const dis = btn.parentElement.querySelector('.ai-chat-dislike-btn');
+            if (dis) dis.classList.remove('active');
+          });
+        });
+
+        area.querySelectorAll('.ai-chat-dislike-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+            const like = btn.parentElement.querySelector('.ai-chat-like-btn');
+            if (like) like.classList.remove('active');
+          });
+        });
+
+        scrollToBottom();
+      }
+
+      function scrollToBottom() {
+        const area = document.getElementById('ai-chat-messages');
+        if (area) {
+          area.scrollTop = area.scrollHeight;
+        }
+      }
+
+      function setGeneratingUI(isGen) {
+        state.isGenerating = isGen;
+        const sendBtn = document.getElementById('ai-chat-send-btn');
+        const textarea = document.getElementById('ai-chat-textarea');
+        const stopContainer = document.getElementById('ai-chat-stop-container');
+        const statusText = document.getElementById('ai-chat-status-text');
+        const statusDot = document.getElementById('ai-chat-status-dot');
+        const avatar = document.getElementById('ai-chat-header-avatar');
+
+        if (sendBtn) sendBtn.disabled = isGen || (textarea && !textarea.value.trim());
+        if (stopContainer) {
+          if (isGen) stopContainer.classList.add('visible');
+          else stopContainer.classList.remove('visible');
+        }
+
+        if (isGen) {
+          if (statusText) statusText.innerHTML = '<span class="ai-chat-status-dot thinking"></span><span>Thinking & Generating...</span>';
+          if (avatar) avatar.classList.add('thinking');
+        } else {
+          if (statusText) statusText.innerHTML = '<span class="ai-chat-status-dot"></span><span>Online • Ready to help</span>';
+          if (avatar) avatar.classList.remove('thinking');
+        }
+      }
+
+      function stopGeneration() {
+        if (state.streamInterval) {
+          clearInterval(state.streamInterval);
+          state.streamInterval = null;
+        }
+        if (state.typingTimeout) {
+          clearTimeout(state.typingTimeout);
+          state.typingTimeout = null;
+        }
+        setGeneratingUI(false);
+        saveConversations();
+      }
+
+      // Send Message Flow
+      function sendMessage(textToSend, isRegenerate = false) {
+        if (state.isGenerating) return;
+
+        const text = textToSend ? textToSend.trim() : (document.getElementById('ai-chat-textarea')?.value || '').trim();
+        if (!text) return;
+
+        state.lastUserQuery = text;
+
+        // Ensure we have an active conversation
+        let conv = getCurrentConversation();
+        if (!conv) {
+          conv = createNewConversation(text);
+        } else if (conv.messages.length === 0) {
+          conv.title = text.length > 28 ? text.substring(0, 28) + '...' : text;
+          saveConversations();
+          renderSidebar();
+        }
+
+        // Add user message if not regenerating
+        if (!isRegenerate) {
+          conv.messages.push({
+            role: 'user',
+            content: text,
+            time: formatTime(Date.now())
+          });
+        }
+
+        // Clear textarea
+        const textarea = document.getElementById('ai-chat-textarea');
+        if (textarea) {
+          textarea.value = '';
+          textarea.style.height = '44px';
+          updateCharCount(0);
+        }
+
+        saveConversations();
+        renderMessages();
+        setGeneratingUI(true);
+
+        // Show typing indicator in message area
+        const area = document.getElementById('ai-chat-messages');
+        const typingEl = document.createElement('div');
+        typingEl.className = 'ai-chat-message-row ai-row';
+        typingEl.id = 'ai-chat-temp-typing';
+        typingEl.innerHTML = `
+          <div class="ai-chat-msg-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="11" width="18" height="10" rx="4"></rect>
+              <circle cx="12" cy="5" r="2"></circle>
+              <path d="M12 7v4"></path>
+            </svg>
+          </div>
+          <div class="ai-chat-msg-ai-wrapper">
+            <div class="ai-chat-msg-ai-bubble ai-chat-typing-dots">
+              <span class="ai-chat-dot"></span>
+              <span class="ai-chat-dot"></span>
+              <span class="ai-chat-dot"></span>
+            </div>
+          </div>
+        `;
+        if (area) {
+          area.appendChild(typingEl);
+          scrollToBottom();
+        }
+
+        // Simulate thinking delay 750ms - 1100ms
+        const delay = 750 + Math.random() * 350;
+        state.typingTimeout = setTimeout(() => {
+          if (typingEl && typingEl.parentNode) {
+            typingEl.parentNode.removeChild(typingEl);
+          }
+
+          // Generate response from mock knowledge base
+          let responseText = '';
+          try {
+            responseText = aiChatGenerateResponse(text);
+          } catch (e) {
+            responseText = "Sorry, I couldn't process that request right now. Please try asking again!";
+          }
+
+          if (!AI_CHAT_STREAMING) {
+            // Instant render
+            conv.messages.push({
+              role: 'assistant',
+              content: responseText,
+              time: formatTime(Date.now())
+            });
+            saveConversations();
+            renderMessages();
+            setGeneratingUI(false);
+          } else {
+            // Streaming character-by-character simulation
+            const newMsgIdx = conv.messages.length;
+            conv.messages.push({
+              role: 'assistant',
+              content: '',
+              time: formatTime(Date.now())
+            });
+            renderMessages();
+
+            const bubbleEl = document.getElementById(`ai-chat-bubble-${newMsgIdx}`);
+            let currChar = 0;
+            const fullLen = responseText.length;
+            const step = Math.max(2, Math.floor(fullLen / 60)); // smooth progressive stream
+
+            state.streamInterval = setInterval(() => {
+              currChar += step;
+              if (currChar >= fullLen) {
+                currChar = fullLen;
+                clearInterval(state.streamInterval);
+                state.streamInterval = null;
+                conv.messages[newMsgIdx].content = responseText;
+                if (bubbleEl) bubbleEl.innerHTML = formatMarkdown(responseText);
+                saveConversations();
+                setGeneratingUI(false);
+                scrollToBottom();
+              } else {
+                const partial = responseText.substring(0, currChar);
+                conv.messages[newMsgIdx].content = partial;
+                if (bubbleEl) bubbleEl.innerHTML = formatMarkdown(partial);
+                scrollToBottom();
+              }
+            }, 20);
+          }
+        }, delay);
+      }
+
+      function updateCharCount(len) {
+        const counter = document.getElementById('ai-chat-char-count');
+        if (counter) counter.textContent = `${len} / 500`;
+      }
+
+      function openSidebarMobile() {
+        const sidebar = document.getElementById('ai-chat-sidebar');
+        if (sidebar) sidebar.classList.add('open');
+        state.historyOpen = true;
+      }
+
+      function closeSidebarMobile() {
+        const sidebar = document.getElementById('ai-chat-sidebar');
+        if (sidebar) sidebar.classList.remove('open');
+        state.historyOpen = false;
+      }
+
+      function setupEvents() {
+        const newBtn = document.getElementById('ai-chat-new-chat-btn');
+        if (newBtn) {
+          newBtn.addEventListener('click', () => {
+            stopGeneration();
+            createNewConversation();
+            closeSidebarMobile();
+          });
+        }
+
+        const searchInput = document.getElementById('ai-chat-search-input');
+        if (searchInput) {
+          searchInput.addEventListener('input', (e) => {
+            state.searchFilter = e.target.value;
+            renderSidebar();
+          });
+        }
+
+        const clearAllBtn = document.getElementById('ai-chat-clear-all-btn');
+        if (clearAllBtn) {
+          clearAllBtn.addEventListener('click', () => {
+            if (state.conversations.length === 0) return;
+            if (confirm("Are you sure you want to delete all saved conversations?")) {
+              stopGeneration();
+              state.conversations = [];
+              state.currentConvId = null;
+              saveConversations();
+              renderSidebar();
+              renderMessages();
+            }
+          });
+        }
+
+        const clearConvBtn = document.getElementById('ai-chat-clear-conv-btn');
+        if (clearConvBtn) {
+          clearConvBtn.addEventListener('click', () => {
+            const conv = getCurrentConversation();
+            if (!conv || conv.messages.length === 0) return;
+            if (confirm("Clear messages in this conversation?")) {
+              stopGeneration();
+              conv.messages = [];
+              saveConversations();
+              renderMessages();
+              renderSidebar();
+            }
+          });
+        }
+
+        const toggleSidebarBtn = document.getElementById('ai-chat-toggle-history-btn');
+        if (toggleSidebarBtn) {
+          toggleSidebarBtn.addEventListener('click', () => {
+            if (state.historyOpen) closeSidebarMobile();
+            else openSidebarMobile();
+          });
+        }
+
+        const backdrop = document.getElementById('ai-chat-sidebar-backdrop');
+        if (backdrop) {
+          backdrop.addEventListener('click', closeSidebarMobile);
+        }
+
+        const stopBtn = document.getElementById('ai-chat-stop-btn');
+        if (stopBtn) {
+          stopBtn.addEventListener('click', stopGeneration);
+        }
+
+        // Suggestions pills
+        const suggestionsBar = document.getElementById('ai-chat-suggestions');
+        if (suggestionsBar) {
+          suggestionsBar.addEventListener('click', (e) => {
+            const chip = e.target.closest('.ai-chat-suggestion-chip');
+            if (chip) {
+              const prompt = chip.getAttribute('data-prompt');
+              if (prompt) sendMessage(prompt);
+            }
+          });
+        }
+
+        // Textarea & Send Button
+        const textarea = document.getElementById('ai-chat-textarea');
+        const sendBtn = document.getElementById('ai-chat-send-btn');
+
+        if (textarea && sendBtn) {
+          textarea.addEventListener('input', () => {
+            // Auto expand textarea
+            textarea.style.height = 'auto';
+            textarea.style.height = Math.min(textarea.scrollHeight, 130) + 'px';
+
+            const len = textarea.value.length;
+            updateCharCount(len);
+            sendBtn.disabled = state.isGenerating || len === 0;
+          });
+
+          textarea.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault();
+              if (!sendBtn.disabled) {
+                sendMessage();
+              }
+            }
+          });
+
+          sendBtn.addEventListener('click', () => {
+            if (!sendBtn.disabled) {
+              sendMessage();
+            }
+          });
+        }
+
+        // Global Escape to close sidebar drawer
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && state.historyOpen) {
+            closeSidebarMobile();
+          }
+        });
+      }
+
+      function init() {
+        loadConversations();
+        if (state.conversations.length > 0) {
+          state.currentConvId = state.conversations[0].id;
+        } else {
+          // Create initial empty conversation
+          createNewConversation();
+        }
+
+        renderSidebar();
+        renderMessages();
+        setupEvents();
+      }
+
+      return {
+        init,
+        sendMessage,
+        aiChatGenerateResponse
+      };
+    })();
+
+
+
+
+    
+
+    document.addEventListener('DOMContentLoaded', () => {
+      AIClubPageCore.init();
+      AIClubChatApp.init();
+    });
+  </script>
+</body>
+
+</html>
