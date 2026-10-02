@@ -13,10 +13,6 @@ export const UpcomingEventsSection: React.FC<{ events: Event[] }> = ({ events })
           badge="Live Schedule"
           title="Upcoming Events & Sprints"
           subtitle="Join our hackathons, masterclasses, and hands-on developer workshops."
-          action={{
-            label: 'View All Events',
-            href: '/events',
-          }}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

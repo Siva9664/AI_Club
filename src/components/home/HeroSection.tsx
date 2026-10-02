@@ -40,21 +40,14 @@ export const HeroSection: React.FC<{ hero: Hero }> = ({ hero }) => {
               {hero.supportingText}
             </p>
 
-            {/* Primary & Secondary CTAs */}
+            {/* Primary CTA */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <Link
-                to={hero.primaryCta.url}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base bg-primary text-primary-foreground hover:opacity-95 active:scale-95 shadow-glow hover:shadow-lg transition-all"
+                to="/projects"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm sm:text-base bg-primary text-primary-foreground hover:opacity-95 active:scale-95 shadow-glow hover:shadow-lg transition-all"
               >
-                <span>{hero.primaryCta.label}</span>
+                <span>Explore Projects</span>
                 <ArrowRight className="w-4 h-4" />
-              </Link>
-
-              <Link
-                to={hero.secondaryCta.url}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base bg-card border border-border text-foreground hover:bg-muted transition-all"
-              >
-                <span>{hero.secondaryCta.label}</span>
               </Link>
             </div>
 

@@ -47,7 +47,7 @@ export const WhatWeDoSection: React.FC<{ activities: Activity[] }> = ({ activiti
           {activities.map((act) => (
             <Link
               key={act.id}
-              to={act.link}
+              to="/projects"
               className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl border border-border/80 bg-card hover:border-primary/50 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary"
             >
               <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Mail, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export const CtaSection: React.FC = () => {
   return (
@@ -24,21 +24,13 @@ export const CtaSection: React.FC = () => {
             Whether you want to train state-of-the-art vision models, participate in national hackathons, or build transformative campus applications, SIET AI Club provides the compute, mentorship, and community.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8 flex items-center justify-center">
             <Link
               to="/projects"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm sm:text-base bg-primary text-primary-foreground hover:opacity-95 active:scale-95 shadow-glow hover:shadow-lg transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm sm:text-base bg-primary text-primary-foreground hover:opacity-95 active:scale-95 shadow-glow hover:shadow-lg transition-all"
             >
               <span>Explore Projects</span>
               <ArrowRight className="w-4 h-4" />
-            </Link>
-
-            <Link
-              to="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm sm:text-base bg-muted text-foreground border border-border hover:bg-muted/80 transition-all"
-            >
-              <Mail className="w-4 h-4" />
-              <span>Contact AI Club</span>
             </Link>
           </div>
         </div>

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bot, Mail, MapPin, Phone, Heart } from 'lucide-react';
+import { Bot, Mail, MapPin, Phone, Heart, ArrowRight } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from '../common/BrandIcons';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="border-t border-border bg-card/60 backdrop-blur-sm transition-colors text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
-          {/* Brand & Mission (2 cols) */}
-          <div className="lg:col-span-2 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+          {/* Brand & Mission (6 cols) */}
+          <div className="md:col-span-6 space-y-4">
             <Link to="/" className="flex items-center gap-3 group inline-block">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-accent p-0.5 shadow-glow-sm flex items-center justify-center">
                 <div className="w-full h-full bg-background dark:bg-card rounded-[10px] flex items-center justify-center">
@@ -25,8 +25,8 @@ export const Footer: React.FC = () => {
                 </span>
               </div>
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Fostering student research, open-source engineering, and real-world deployment of artificial intelligence systems in Computer Vision, NLP, and Edge Robotics.
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
+              Empowering students through applied artificial intelligence, deep learning, computer vision, and cognitive systems engineering.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -68,71 +68,29 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-3">
+          {/* Quick Navigation: Home & Projects (2 cols) */}
+          <div className="md:col-span-2 space-y-3">
             <h3 className="text-sm font-semibold tracking-wider uppercase text-foreground">
-              Explore
+              Navigation
             </h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
-                <Link to="/projects" className="hover:text-primary transition-colors">
-                  All Projects
+                <Link to="/" className="hover:text-primary transition-colors inline-flex items-center gap-1.5">
+                  <ArrowRight className="w-3.5 h-3.5 opacity-60" />
+                  <span>Home</span>
                 </Link>
               </li>
               <li>
-                <Link to="/achievements" className="hover:text-primary transition-colors">
-                  Achievements
-                </Link>
-              </li>
-              <li>
-                <Link to="/hackathons" className="hover:text-primary transition-colors">
-                  Hackathons
-                </Link>
-              </li>
-              <li>
-                <Link to="/workshops" className="hover:text-primary transition-colors">
-                  Workshops
-                </Link>
-              </li>
-              <li>
-                <Link to="/events" className="hover:text-primary transition-colors">
-                  Events & Talks
+                <Link to="/projects" className="hover:text-primary transition-colors inline-flex items-center gap-1.5">
+                  <ArrowRight className="w-3.5 h-3.5 opacity-60" />
+                  <span>Projects</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Community & Labs */}
-          <div className="space-y-3">
-            <h3 className="text-sm font-semibold tracking-wider uppercase text-foreground">
-              Community
-            </h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link to="/collaborations" className="hover:text-primary transition-colors">
-                  Industry Collabs
-                </Link>
-              </li>
-              <li>
-                <Link to="/team" className="hover:text-primary transition-colors">
-                  Core Team & Mentors
-                </Link>
-              </li>
-              <li>
-                <Link to="/contests" className="hover:text-primary transition-colors">
-                  Kaggle Contests
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-primary transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Details */}
-          <div className="space-y-3">
+          {/* Campus Lab & Contact (4 cols) */}
+          <div className="md:col-span-4 space-y-3">
             <h3 className="text-sm font-semibold tracking-wider uppercase text-foreground">
               Campus Lab
             </h3>
@@ -159,7 +117,7 @@ export const Footer: React.FC = () => {
         <div className="mt-12 pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} SIET AI Club & AI Lab. Sri Shakthi Institute of Engineering and Technology.</p>
           <p className="flex items-center gap-1">
-            Engineered with <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" /> by SIET AI Club developers
+            Engineered with <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" /> by SIET AI Club
           </p>
         </div>
       </div>

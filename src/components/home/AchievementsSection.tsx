@@ -23,10 +23,6 @@ export const AchievementsSection: React.FC<{ achievements: Achievement[] }> = ({
             badge="Recognition"
             title="Honors & Achievements"
             subtitle="National hackathon titles, hardware grants, and research publications."
-            action={{
-              label: 'View All Achievements',
-              href: '/achievements',
-            }}
             className="mb-0 flex-1"
           />
 

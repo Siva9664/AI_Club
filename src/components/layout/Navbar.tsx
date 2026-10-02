@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Bot, Menu, X, ArrowUpRight, LogIn } from 'lucide-react';
+import { Bot, Menu, X, ArrowUpRight } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { cn } from '../../lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -8,12 +8,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 const NAV_ITEMS = [
   { label: 'Home', path: '/' },
   { label: 'Projects', path: '/projects' },
-  { label: 'Achievements', path: '/achievements' },
-  { label: 'Hackathons', path: '/hackathons' },
-  { label: 'Workshops', path: '/workshops' },
-  { label: 'Events', path: '/events' },
-  { label: 'Collaborations', path: '/collaborations' },
-  { label: 'Team', path: '/team' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -69,9 +63,9 @@ export const Navbar: React.FC = () => {
             </div>
           </Link>
 
-          {/* CENTER: Desktop Navigation */}
+          {/* CENTER: Desktop Navigation (Home & Projects Only) */}
           <nav
-            className="hidden xl:flex items-center gap-1"
+            className="hidden md:flex items-center gap-2"
             aria-label="Main Navigation"
           >
             {NAV_ITEMS.map((item) => (
@@ -80,9 +74,9 @@ export const Navbar: React.FC = () => {
                 to={item.path}
                 className={({ isActive }) =>
                   cn(
-                    'px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary',
+                    'px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary',
                     isActive
-                      ? 'text-primary bg-primary/10 font-semibold'
+                      ? 'text-primary bg-primary/10 shadow-sm'
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/60'
                   )
                 }
@@ -92,58 +86,9 @@ export const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          {/* Desktop compact menu for mid screens (lg to xl) */}
-          <nav
-            className="hidden md:flex xl:hidden items-center gap-1"
-            aria-label="Compact Main Navigation"
-          >
-            {NAV_ITEMS.slice(0, 4).map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) =>
-                  cn(
-                    'px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200',
-                    isActive
-                      ? 'text-primary bg-primary/10 font-semibold'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/60'
-                  )
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
-            <div className="relative group">
-              <span className="px-2.5 py-1.5 rounded-lg text-xs font-medium text-muted-foreground cursor-pointer hover:text-foreground flex items-center gap-1">
-                More...
-              </span>
-              <div className="absolute right-0 top-full pt-2 w-44 hidden group-hover:block z-50">
-                <div className="glass-panel p-2 rounded-xl shadow-xl flex flex-col gap-1">
-                  {NAV_ITEMS.slice(4).map((item) => (
-                    <NavLink
-                      key={item.path}
-                      to={item.path}
-                      className="px-3 py-1.5 rounded-lg text-xs text-muted-foreground hover:text-foreground hover:bg-muted/60"
-                    >
-                      {item.label}
-                    </NavLink>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </nav>
-
-          {/* RIGHT: Actions (Theme Toggle & Login Button) */}
+          {/* RIGHT: Theme Toggle & Mobile Menu Trigger */}
           <div className="flex items-center gap-3">
             <ThemeToggle />
-
-            <Link
-              to="/login"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-primary text-primary-foreground hover:opacity-90 active:scale-95 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-            >
-              <LogIn className="w-3.5 h-3.5" />
-              <span>Login</span>
-            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -163,7 +108,7 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* MOBILE DRAWER / DROPDOWN NAVIGATION */}
+      {/* MOBILE DRAWER NAVIGATION (Home & Projects Only) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -171,9 +116,9 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-border bg-card/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2 shadow-xl"
+            className="md:hidden border-b border-border bg-card/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-2 shadow-xl"
           >
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1.5">
               {NAV_ITEMS.map((item) => (
                 <NavLink
                   key={item.path}
@@ -181,31 +126,22 @@ export const Navbar: React.FC = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={({ isActive }) =>
                     cn(
-                      'flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium transition-colors',
+                      'flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-colors',
                       isActive
-                        ? 'text-primary bg-primary/10 font-semibold'
-                        : 'text-foreground/80 hover:bg-muted/60'
+                        ? 'text-primary bg-primary/10 font-bold'
+                        : 'text-foreground/85 hover:bg-muted/60'
                     )
                   }
                 >
                   <span>{item.label}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+                  <ArrowUpRight className="w-4 h-4 opacity-60" />
                 </NavLink>
               ))}
             </div>
 
-            <div className="pt-4 mt-2 border-t border-border flex items-center justify-between">
-              <span className="text-xs text-muted-foreground font-mono">
-                SIET AI CLUB • 2026
-              </span>
-              <Link
-                to="/login"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-primary text-primary-foreground"
-              >
-                <LogIn className="w-3.5 h-3.5" />
-                <span>Portal Login</span>
-              </Link>
+            <div className="pt-3 border-t border-border flex items-center justify-between text-xs text-muted-foreground font-mono">
+              <span>SIET AI CLUB • AI LAB</span>
+              <span>v1.0</span>
             </div>
           </motion.div>
         )}
