@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details | AI Club</title>
+  <meta name="description" content="Detailed engineering breakdown, architecture pipeline, code implementation, and team contributions for AI Club project.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Core & Detail Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/project-detail.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. Navigation Header
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo-brand" aria-label="AI Club Home">
+        <div class="logo-symbol"><span>AI</span></div>
+        <div class="logo-text">
+          <span class="logo-title">AI CLUB</span>
+          <span class="logo-subtitle">Research & Innovation Wing</span>
+        </div>
+      </a>
+
+      <!-- The 4 Website Navigation Parts -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="home.html" class="nav-link">1. Home</a></li>
+          <li><a href="achievements.html" class="nav-link">2. Achievements</a></li>
+          <li><a href="index.html" class="nav-link active" aria-current="page">3. Projects</a></li>
+          <li><a href="visitors.html" class="nav-link">4. Visitors</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#projects" class="btn-terminal" title="Return to Projects Grid">
+          <span style="color:var(--neon-cyan);">←</span>
+          <span>PROJECTS GRID</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. Breadcrumbs Bar & Adjacent Project Switcher
+       ========================================================================== -->
+  <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="crumb-sep">/</span>
+        <a href="index.html#projects">Projects</a>
+        <span class="crumb-sep">/</span>
+        <span class="current" id="crumbProjectName">Loading Project...</span>
+      </div>
+
+      <div class="nav-adjacent-projects">
+        <a href="#" class="btn-nav-adj" id="btnPrevProject" title="Previous Project">
+          ← Previous Model
+        </a>
+        <a href="#" class="btn-nav-adj" id="btnNextProject" title="Next Project">
+          Next Model →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       3. Main Two-Column Detailed Project Layout (Matching Sketch Image 2)
+       Left Column: Title, Overview, Uses, Applications, Platform, Languages, Links, Code
+       Right Column: Team Group Photo, Scrolling Member Roster with Individual Photos & Roles
+       ========================================================================== -->
+  <main class="container" style="padding-top: 30px;">
+    <div class="detail-layout-grid">
+
+      <!-- ====================================================================
+           LEFT COLUMN: Detailed Technical Content
+           ==================================================================== -->
+      <article class="project-main-col">
+
+        <!-- 1. Project Title & Meta Header -->
+        <header class="project-header-hero">
+          <div class="header-meta-row">
+            <span class="category-tag" id="projectCategory">Domain</span>
+            <span class="status-pill">
+              <span class="indicator-dot"></span>
+              <span id="projectStatus">Active</span>
+            </span>
+            <span style="font-family:var(--font-mono); font-size:0.78rem; color:var(--text-dim);" id="projectVersion">v1.0.0</span>
+          </div>
+
+          <h1 class="project-page-title" id="projectTitle">Project Title</h1>
+          <p class="project-page-tagline" id="projectTagline">Tagline goes here</p>
+
+          <!-- Action CTA Links -->
+          <div class="project-cta-bar">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="btn-cta-github" id="btnProjectGithub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub Repository</span>
+            </a>
+
+            <a href="#" target="_blank" rel="noopener noreferrer" class="btn-cta-demo" id="btnProjectDemo">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>Launch Live Demo</span>
+            </a>
+
+            <a href="#" target="_blank" rel="noopener noreferrer" class="btn-cta-aux" id="btnProjectDocs">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>Documentation</span>
+            </a>
+
+            <button type="button" class="btn-cta-aux" id="btnShareProject" title="Copy Shareable Link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span>Share Project</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- 2. Project Visual Banner -->
+        <figure class="project-banner-card">
+          <img src="" alt="" class="banner-img-element" id="projectBannerImg">
+          <div class="banner-overlay-gradient"></div>
+        </figure>
+
+        <!-- 3. Key Benchmark Metrics Strip -->
+        <div class="detail-metrics-strip">
+          <div class="detail-metric-card">
+            <span class="detail-metric-label">Benchmark Accuracy</span>
+            <div class="detail-metric-value highlight" id="metricAccuracy">--</div>
+          </div>
+          <div class="detail-metric-card">
+            <span class="detail-metric-label">Inference Latency</span>
+            <div class="detail-metric-value" id="metricLatency">--</div>
+          </div>
+          <div class="detail-metric-card">
+            <span class="detail-metric-label">Throughput / Speed</span>
+            <div class="detail-metric-value" id="metricFps">--</div>
+          </div>
+          <div class="detail-metric-card">
+            <span class="detail-metric-label">Payload / Size</span>
+            <div class="detail-metric-value" id="metricPayload">--</div>
+          </div>
+          <div class="detail-metric-card">
+            <span class="detail-metric-label">Operational Scope</span>
+            <div class="detail-metric-value" id="metricRange">--</div>
+          </div>
+          <div class="detail-metric-card">
+            <span class="detail-metric-label">Parameters / Weights</span>
+            <div class="detail-metric-value" id="metricParams">--</div>
+          </div>
+        </div>
+
+        <!-- 4. Main Idea & Overview -->
+        <section class="detail-block">
+          <div class="block-title-row">
+            <div class="block-icon-badge">💡</div>
+            <h2 class="block-title">Executive Summary & Main Idea</h2>
+          </div>
+          <p class="block-prose" id="projectSummary">Summary loading...</p>
+        </section>
+
+        <!-- 5. Core Part Spotlight -->
+        <section class="core-part-spotlight">
+          <div class="core-part-tag">
+            <span class="pulse-dot" style="background:var(--neon-purple); width:6px; height:6px; display:inline-block; border-radius:50%;"></span>
+            <span>CORE ARCHITECTURAL INNOVATION</span>
+          </div>
+          <div class="core-part-text" id="corePartText">Core part loading...</div>
+        </section>
+
+        <!-- 6. Uses & Applications -->
+        <section class="detail-block">
+          <div class="block-title-row">
+            <div class="block-icon-badge">🎯</div>
+            <h2 class="block-title">Practical Uses & Industrial Applications</h2>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <div>
+              <h4 style="font-size:0.88rem; font-family:var(--font-mono); color:var(--neon-cyan); margin-bottom:10px; text-transform:uppercase;">Primary Use Cases</h4>
+              <div class="uses-app-grid" id="projectUsesGrid"></div>
+            </div>
+            <div>
+              <h4 style="font-size:0.88rem; font-family:var(--font-mono); color:var(--neon-emerald); margin-bottom:10px; text-transform:uppercase;">Deployment Environments & Applications</h4>
+              <div class="uses-app-grid" id="projectAppsGrid"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. Platform & Programming Languages Table -->
+        <section class="detail-block">
+          <div class="block-title-row">
+            <div class="block-icon-badge">⚙️</div>
+            <h2 class="block-title">Hardware Platform & Technical Stack</h2>
+          </div>
+          <div class="tech-spec-table">
+            <div class="spec-row">
+              <span class="spec-label">Target Platform</span>
+              <div class="spec-chips" id="platformChips"></div>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Languages</span>
+              <div class="spec-chips" id="languagesChips"></div>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Frameworks & Libs</span>
+              <div class="spec-chips" id="frameworksChips"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. Architecture Pipeline Breakdown -->
+        <section class="detail-block">
+          <div class="block-title-row">
+            <div class="block-icon-badge">📐</div>
+            <h2 class="block-title">End-to-End Pipeline Architecture</h2>
+          </div>
+          <div class="arch-timeline" id="archTimeline"></div>
+        </section>
+
+        <!-- 9. Source Code Snippet Window -->
+        <section class="detail-block">
+          <div class="block-title-row">
+            <div class="block-icon-badge">💻</div>
+            <h2 class="block-title">Core Implementation Snippet</h2>
+          </div>
+          <div class="code-window-card">
+            <div class="code-window-header">
+              <div class="window-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="code-title">pipeline_inference.py</div>
+              <button class="btn-copy-code" id="btnCopyCode" title="Copy code to clipboard">Copy Code</button>
+            </div>
+            <pre class="code-content-pre"><code id="projectCodePre"># Loading code snippet...</code></pre>
+          </div>
+        </section>
+
+        <!-- 10. Interactive Live AI Model Playground Sandbox -->
+        <section class="simulator-card">
+          <div class="sim-header">
+            <div class="sim-title">
+              <span>⚡ Interactive AI Model Sandbox</span>
+            </div>
+            <div class="sim-status-live">
+              <span class="pulse-dot"></span>
+              <span>INFERENCE CLUSTER READY</span>
+            </div>
+          </div>
+
+          <div class="sim-prompts-label" id="simPromptLabel">Select an evaluation scenario to test model:</div>
+          <div class="sim-options-row" id="simOptionsContainer">
+            <!-- Injected by project-detail.js -->
+          </div>
+
+          <div class="sim-console-screen" id="simConsoleScreen">
+            <div style="color:var(--text-dim);">Select a test scenario above to execute simulated tensor inference...</div>
+          </div>
+        </section>
+
+      </article>
+
+      <!-- ====================================================================
+           RIGHT COLUMN: Team Section (Matches Sketch Image 2)
+           Top: Team Group Photo
+           Scrolling Down: Each and every member, role, contribution, individual photo
+           ==================================================================== -->
+      <aside class="project-sidebar-col">
+
+        <!-- 1. Team Group Photo Card (Top of Right Column in Sketch) -->
+        <div class="team-group-photo-card">
+          <div class="team-photo-wrapper">
+            <img src="" alt="Project Team Group" class="team-group-img" id="teamGroupImg">
+            <div class="team-photo-caption">
+              <span class="team-caption-text">AI Club Project Squad</span>
+              <span class="team-caption-count" id="teamMembersCount">4 Members</span>
+            </div>
+          </div>
+          <div class="team-summary-body">
+            This project was ideated, researched, programmed, and deployed collaboratively by students in the college AI Club innovation cohort.
+          </div>
+        </div>
+
+        <!-- 2. Scrolling Individual Member Cards -->
+        <div class="team-roster-box">
+          <div class="roster-header">
+            <h3 class="roster-title">Contributors & Roles</h3>
+            <span class="roster-subtitle">SCROLL TO INSPECT</span>
+          </div>
+
+          <!-- Vertical stack with individual cards matching sketch -->
+          <div class="members-scroll-stack" id="membersScrollStack">
+            <!-- Injected dynamically with photo, name, role, part/contributions, skills, social links -->
+          </div>
+        </div>
+
+        <!-- 3. University Lab Credential Badge -->
+        <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:16px; font-size:0.8rem; color:var(--text-dim); display:flex; flex-direction:column; gap:6px;">
+          <div style="color:#fff; font-weight:600;">College AI Innovation Lab</div>
+          <div>Department of Computer Science & Artificial Intelligence</div>
+          <div style="color:var(--neon-cyan); font-family:var(--font-mono); font-size:0.75rem;">Verified Academic Project • Open Source</div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       4. Pop-up Option: Member Spotlight Profile Modal
+       ========================================================================== -->
+  <div class="modal-backdrop" id="memberSpotlightModal" role="dialog" aria-modal="true" aria-label="Member Spotlight Modal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="closeMemberModalBtn" aria-label="Close modal">×</button>
+      <div class="modal-body" id="memberSpotlightContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       5. Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="logo-brand">
+          <div class="logo-symbol"><span>AI</span></div>
+          <div class="logo-text">
+            <span class="logo-title">AI CLUB</span>
+            <span class="logo-subtitle">Projects Deep-Dive Technical Portal</span>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer Links">
+          <a href="home.html" class="footer-link">Home</a>
+          <a href="achievements.html" class="footer-link">Achievements</a>
+          <a href="index.html#projects" class="footer-link" style="color:var(--neon-cyan);">Projects</a>
+          <a href="visitors.html" class="footer-link">Visitors</a>
+          <a href="index.html#contact" class="footer-link">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2024–2026 AI Club Research Wing. Open-Source Student Engineering.
+        </div>
+        <div class="footer-status-pill">
+          <span class="pulse-dot"></span>
+          <span>Edge Inference Ready • Jetson & A100 Tested</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/projects-data.js"></script>
+  <script src="assets/js/project-detail.js"></script>
+</body>
+</html>
