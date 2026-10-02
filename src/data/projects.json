@@ -1,0 +1,694 @@
+[
+  {
+    "id": "proj-001",
+    "slug": "smart-attendance",
+    "title": "Smart Attendance System via Facial Recognition",
+    "summary": "An automated contactless attendance tracking pipeline powered by deep facial recognition models, anti-spoofing liveness detection, and instant faculty dashboard synchronization.",
+    "thumbnail": {
+      "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+      "alt": "Smart Attendance Computer Vision System",
+      "width": 800,
+      "height": 500
+    },
+    "tags": ["Computer Vision", "Deep Learning", "Python", "OpenCV", "PyTorch", "FastAPI", "React"],
+    "category": "Computer Vision",
+    "status": "completed",
+    "featured": true,
+    "team": "VisionX Lab Team",
+    "heroImage": {
+      "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=85",
+      "alt": "Smart Attendance Hero Banner"
+    },
+    "overview": "The Smart Attendance System is an end-to-end computer vision solution engineered to replace manual roll calls and biometric fingerprint queues at Sri Shakthi Institute of Engineering and Technology. Using edge cameras deployed at lecture hall entryways, the system captures multiple faces in real-time, validates biological liveness against photo spoofing, matches embeddings against the student database with 99.4% accuracy, and updates the academic ERP in sub-second latency.",
+    "problem": "Traditional roll-calling consumes 10 to 15 minutes of every 50-minute lecture hour, resulting in substantial loss of instructional time. Fingerprint scanners lead to physical bottlenecks, hygienic concerns in large student cohorts, and proxy attendance issues that undermine institutional academic audits.",
+    "solution": "We designed an automated multi-camera surveillance pipeline leveraging RetinaFace for multi-scale face localization, coupled with an optimized ArcFace embedding backbone fine-tuned on South Asian facial feature variations. A spatial-temporal tracking module ensures students entering in groups are distinctly recognized, verified with flash-reflection liveness checks, and marked present without pausing.",
+    "objectives": [
+      "Eliminate instructional time loss by completing classroom attendance in under 3 seconds per entry stream.",
+      "Achieve greater than 99% true-positive recognition accuracy while maintaining sub-0.1% false-acceptance rate.",
+      "Incorporate robust anti-spoofing algorithms to defeat printed 2D photos, digital screens, and 3D mask attacks.",
+      "Provide real-time telemetry and exportable reports directly to departmental faculty and administrative portals."
+    ],
+    "features": [
+      {
+        "title": "Simultaneous Multi-Face Tracking",
+        "description": "Processes up to 15 concurrent faces per video frame with zero frame drops at 30 FPS on edge hardware.",
+        "icon": "Users"
+      },
+      {
+        "title": "Anti-Spoofing & Liveness Guard",
+        "description": "Multi-spectral texture analysis and eye-blink micro-motion detectors prevent proxy attendance through photos or video replays.",
+        "icon": "ShieldCheck"
+      },
+      {
+        "title": "Instant ERP Sync & Webhooks",
+        "description": "Event-driven asynchronous webhooks push attendance timestamps into the SIET academic database within 450 milliseconds.",
+        "icon": "Zap"
+      },
+      {
+        "title": "Faculty Telemetry Portal",
+        "description": "Interactive React dashboard with real-time class occupancy graphs, absentee alerts, and automated SMS notifications to guardians.",
+        "icon": "LayoutDashboard"
+      }
+    ],
+    "techStack": [
+      { "name": "Python 3.11", "category": "AI / Machine Learning", "icon": "Code2" },
+      { "name": "PyTorch", "category": "AI / Machine Learning", "icon": "Cpu" },
+      { "name": "OpenCV", "category": "AI / Machine Learning", "icon": "Eye" },
+      { "name": "RetinaFace & ArcFace", "category": "AI / Machine Learning", "icon": "ScanFace" },
+      { "name": "FastAPI", "category": "Backend & APIs", "icon": "Server" },
+      { "name": "PostgreSQL & pgvector", "category": "Database & Storage", "icon": "Database" },
+      { "name": "React + TypeScript", "category": "Frontend", "icon": "Monitor" },
+      { "name": "Tailwind CSS", "category": "Frontend", "icon": "Palette" },
+      { "name": "NVIDIA Jetson Xavier NX", "category": "Hardware & Edge", "icon": "Cpu" },
+      { "name": "Docker & TensorRT", "category": "Tools & Cloud", "icon": "Container" }
+    ],
+    "architecture": {
+      "image": {
+        "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Smart Attendance Neural Network Architecture Diagram"
+      },
+      "caption": "Figure 1: High-throughput video ingestion, edge tensor inference, vector matching, and ERP dispatch workflow.",
+      "description": "RTSP camera streams are captured by the edge worker. Frames pass through color normalization and motion filters before passing to RetinaFace. Identified crops are aligned and embedded via ArcFace. Vectors are indexed via cosine similarity in pgvector with HNSW indexing."
+    },
+    "screenshots": [
+      {
+        "url": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
+        "alt": "Live Edge Detection Camera Feed"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+        "alt": "Faculty Analytics Dashboard"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        "alt": "Historical Attendance Analytics & Export"
+      }
+    ],
+    "demo": {
+      "type": "link",
+      "url": "https://demo.siet-aiclub.org/smart-attendance",
+      "label": "Launch Interactive Simulator"
+    },
+    "contributors": [
+      {
+        "name": "Karthik Raja S",
+        "role": "Lead AI Researcher & CV Engineer",
+        "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+        "github": "https://github.com",
+        "linkedin": "https://linkedin.com"
+      },
+      {
+        "name": "Priya Dharshini M",
+        "role": "Backend Systems & Model Deployment",
+        "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80",
+        "github": "https://github.com",
+        "linkedin": "https://linkedin.com"
+      },
+      {
+        "name": "Arun Kumar V",
+        "role": "Full Stack Dashboard Developer",
+        "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
+        "github": "https://github.com",
+        "linkedin": "https://linkedin.com"
+      },
+      {
+        "name": "Dr. R. Manimekalai",
+        "role": "Faculty Advisor & Project Mentor",
+        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80",
+        "linkedin": "https://linkedin.com"
+      }
+    ],
+    "links": {
+      "github": "https://github.com/siet-ai-club/smart-attendance-system",
+      "liveDemo": "https://attendance.siet-aiclub.org",
+      "documentation": "https://docs.siet-aiclub.org/projects/smart-attendance",
+      "paper": "https://arxiv.org"
+    },
+    "results": [
+      { "metric": "99.4%", "label": "Verification Accuracy", "detail": "Benchmarked on 1,800+ registered SIET engineering students" },
+      { "metric": "140ms", "label": "Average Inference Latency", "detail": "Per frame inference on edge TensorRT runtime" },
+      { "metric": "12.5 min", "label": "Lecture Time Saved Daily", "detail": "Reclaimed per course section across pilot departments" },
+      { "metric": "0.01%", "label": "False Acceptance Rate", "detail": "Zero proxy attendance incidents observed across 60 days" }
+    ],
+    "futureScope": [
+      "Integration with thermal imaging sensors for early symptom screening during flu seasons.",
+      "Edge clustering of cameras for seamless intra-building student movement tracking.",
+      "Autonomous dynamic timetable rescheduling based on real-time classroom occupancy patterns."
+    ],
+    "relatedProjects": [
+      {
+        "id": "proj-004",
+        "slug": "object-detection-platform",
+        "title": "Edge AI Real-Time Object Detection Platform",
+        "summary": "High-throughput object detection and hazard monitoring on NVIDIA Jetson embedded hardware.",
+        "thumbnail": {
+          "url": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=800&q=80",
+          "alt": "Edge AI Object Detection"
+        },
+        "tags": ["Edge AI", "YOLOv8", "TensorRT", "Jetson Nano"],
+        "category": "Computer Vision",
+        "status": "ongoing",
+        "featured": false
+      },
+      {
+        "id": "proj-007",
+        "slug": "smart-traffic-analyzer",
+        "title": "AI-Powered Urban Traffic & Congestion Analyzer",
+        "summary": "Real-time traffic flow prediction and adaptive signal timing using deep convolutional networks.",
+        "thumbnail": {
+          "url": "https://images.unsplash.com/photo-1508873696983-2df5293cb325?auto=format&fit=crop&w=800&q=80",
+          "alt": "Smart Traffic Analyzer"
+        },
+        "tags": ["Computer Vision", "PyTorch", "OpenCV"],
+        "category": "Computer Vision",
+        "status": "ongoing",
+        "featured": false
+      }
+    ],
+    "startedOn": "14 Mar 2026",
+    "completedOn": "20 Aug 2026"
+  },
+  {
+    "id": "proj-002",
+    "slug": "campus-ai-assistant",
+    "title": "SIET Campus AI Assistant & Chatbot",
+    "summary": "A multimodal Generative AI assistant featuring Retrieval-Augmented Generation (RAG) over campus regulations, exam schedules, course materials, and administrative workflows.",
+    "thumbnail": {
+      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "alt": "Campus AI Chatbot Neural Visual"
+    },
+    "tags": ["NLP", "Generative AI", "RAG", "LangChain", "PyTorch", "React", "VectorDB"],
+    "category": "NLP",
+    "status": "ongoing",
+    "featured": true,
+    "team": "Language & Agents Group",
+    "heroImage": {
+      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=85",
+      "alt": "Campus AI Assistant Hero Banner"
+    },
+    "overview": "The SIET Campus AI Assistant is a specialized conversational agent built to provide instant, hallucination-resistant guidance to 6,000+ students, faculty members, and campus visitors. Leveraging open-source small language models, domain-specific semantic embedding pipelines, and dense vector index retrieval, it addresses academic regulations, fee deadlines, syllabus queries, bus routes, and lab safety protocols with verifiable citations.",
+    "problem": "University administrative desks receive thousands of redundant queries every admission and examination cycle. Official circulars are dispersed across disparate PDF circulars, static portals, and departmental notice boards, resulting in missed academic deadlines and severe administrative overhead.",
+    "solution": "We architected an enterprise RAG pipeline that continuously ingests university circulars, course handbooks, and faculty directories into a high-performance vector store. When a student poses a query in English, Tamil, or Hinglish, hybrid keyword-vector retrieval extracts relevant chunks, and a fine-tuned Mistral-7B model formulates concise, cited answers with zero hallucinations.",
+    "objectives": [
+      "Deliver sub-800ms streaming responses for complex multi-part campus questions.",
+      "Support bilingual conversation with vernacular Tamil and code-switched queries.",
+      "Provide transparent source citations referencing specific institutional circulars and dates.",
+      "Integrate role-based authentication allowing students to query personalized academic transcripts."
+    ],
+    "features": [
+      {
+        "title": "Bilingual Query Understanding",
+        "description": "Seamlessly processes English, Tamil, and Tanglish queries with intent classification and colloquial language normalization.",
+        "icon": "MessageSquare"
+      },
+      {
+        "title": "Deterministic RAG with Exact Citations",
+        "description": "Every generated response embeds clickable hyperlinks to official institutional circular PDFs and administrative notices.",
+        "icon": "FileText"
+      },
+      {
+        "title": "Speech & Voice Interface",
+        "description": "Includes Whisper-based voice input and low-latency speech synthesis for hands-free queries at campus kiosk terminals.",
+        "icon": "Mic"
+      },
+      {
+        "title": "Role-Based Personalized Context",
+        "description": "Authenticated students can inquire about internal marks, pending library books, and examination hall tickets.",
+        "icon": "UserCheck"
+      }
+    ],
+    "techStack": [
+      { "name": "Python 3.11", "category": "AI / Machine Learning", "icon": "Code2" },
+      { "name": "LangChain & LlamaIndex", "category": "AI / Machine Learning", "icon": "Brain" },
+      { "name": "Mistral 7B / Llama 3", "category": "AI / Machine Learning", "icon": "Cpu" },
+      { "name": "ChromaDB & Qdrant", "category": "Database & Storage", "icon": "Database" },
+      { "name": "FastAPI & WebSockets", "category": "Backend & APIs", "icon": "Server" },
+      { "name": "React 19 & Vite", "category": "Frontend", "icon": "Monitor" },
+      { "name": "Tailwind CSS & Framer Motion", "category": "Frontend", "icon": "Palette" },
+      { "name": "Whisper Speech Engine", "category": "AI / Machine Learning", "icon": "Mic" },
+      { "name": "Redis Caching", "category": "Database & Storage", "icon": "Layers" }
+    ],
+    "architecture": {
+      "image": {
+        "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+        "alt": "RAG System Ingestion and Retrieval Architecture"
+      },
+      "caption": "Figure 2: Document parsing pipeline, dense embedding generation, hybrid BM25 + dense search, and context-stuffed prompt generation.",
+      "description": "Documents uploaded by the college registrar are chunked recursively with markdown-aware separators. Vectors are persisted in Qdrant with HNSW indexes. Real-time queries undergo semantic query rewriting and reciprocal rank fusion before generation."
+    },
+    "screenshots": [
+      {
+        "url": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
+        "alt": "Chatbot Web Interface with Citations"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+        "alt": "Knowledge Base Ingestion Dashboard"
+      }
+    ],
+    "demo": {
+      "type": "link",
+      "url": "https://assistant.siet-aiclub.org",
+      "label": "Try Campus Assistant"
+    },
+    "contributors": [
+      {
+        "name": "Deepak Vignesh",
+        "role": "NLP & LLM Architect",
+        "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
+        "github": "https://github.com",
+        "linkedin": "https://linkedin.com"
+      },
+      {
+        "name": "Ananya Sundaram",
+        "role": "Vector Search & Retrieval Engineer",
+        "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80",
+        "github": "https://github.com",
+        "linkedin": "https://linkedin.com"
+      },
+      {
+        "name": "Naveen Raj P",
+        "role": "Frontend Experience Lead",
+        "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80",
+        "github": "https://github.com",
+        "linkedin": "https://linkedin.com"
+      }
+    ],
+    "links": {
+      "github": "https://github.com/siet-ai-club/campus-rag-assistant",
+      "liveDemo": "https://assistant.siet-aiclub.org",
+      "documentation": "https://docs.siet-aiclub.org/projects/campus-assistant"
+    },
+    "results": [
+      { "metric": "94.8%", "label": "Answer Groundedness", "detail": "Ragas framework evaluation on 500 gold-standard queries" },
+      { "metric": "620ms", "label": "Time to First Token", "detail": "Streaming tokens via optimized vLLM server" },
+      { "metric": "14,000+", "label": "Monthly Student Queries", "detail": "Resolved autonomously during pilot testing phase" },
+      { "metric": "82%", "label": "Support Ticket Reduction", "detail": "Recorded at the Student Affairs administrative office" }
+    ],
+    "futureScope": [
+      "Integration with student WhatsApp / Telegram bot gateways.",
+      "Automated personalized revision roadmap generation based on individual semester grades.",
+      "Fine-tuning a proprietary Tamil-vernacular reasoning model for rural student outreach."
+    ],
+    "relatedProjects": [
+      {
+        "id": "proj-006",
+        "slug": "ai-recommendation-system",
+        "title": "Neural Collaborative Course & Project Recommender",
+        "summary": "Deep graph neural network architecture suggesting personalized elective courses and hackathon teams.",
+        "thumbnail": {
+          "url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+          "alt": "Neural Recommender"
+        },
+        "tags": ["Deep Learning", "GNN", "PyTorch", "Redis"],
+        "category": "Deep Learning",
+        "status": "ongoing",
+        "featured": true
+      }
+    ],
+    "startedOn": "02 May 2026",
+    "completedOn": "Ongoing"
+  },
+  {
+    "id": "proj-003",
+    "slug": "disease-prediction-system",
+    "title": "Multimodal Early Disease Prediction Platform",
+    "summary": "A clinical diagnostic decision support platform predicting cardiovascular and diabetic risks using ensemble gradient boosting, electronic health records, and explainable SHAP values.",
+    "thumbnail": {
+      "url": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+      "alt": "Disease Prediction Platform Healthcare AI"
+    },
+    "tags": ["Healthcare AI", "Machine Learning", "Scikit-Learn", "XGBoost", "SHAP", "FastAPI", "React"],
+    "category": "Healthcare AI",
+    "status": "completed",
+    "featured": true,
+    "team": "MedAI Innovation Group",
+    "heroImage": {
+      "url": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=85",
+      "alt": "Healthcare AI Hero Banner"
+    },
+    "overview": "The Multimodal Early Disease Prediction Platform empowers rural primary health centers around Coimbatore by providing proactive, explainable risk assessments for cardiovascular diseases, Type-2 diabetes, and chronic kidney ailments. By fusing routine blood laboratory parameters with demographic markers, clinicians receive instant risk probabilities backed by local feature contribution charts.",
+    "problem": "Chronic lifestyle diseases in rural communities are frequently diagnosed only after irreversible organ damage occurs. Specialist cardiologists and nephrologists are concentrated in urban medical complexes, leaving primary healthcare workers without diagnostic validation tools.",
+    "solution": "We developed a calibrated ensemble framework combining XGBoost, LightGBM, and TabNet with differential privacy constraints. The platform presents a web and tablet interface where lab technicians input basic clinical profiles and receive an instant prognostic evaluation along with actionable SHAP explanations.",
+    "objectives": [
+      "Achieve an ROC-AUC of greater than 0.93 across validated cardiovascular cohorts.",
+      "Provide model interpretability via Waterfall and Force plots so clinicians understand diagnostic reasoning.",
+      "Ensure complete HIPAA and Indian Digital Personal Data Protection Act compliance with on-premise inference.",
+      "Deliver a responsive tablet UI capable of offline caching in low-connectivity rural health camps."
+    ],
+    "features": [
+      {
+        "title": "Explainable AI (XAI) Engine",
+        "description": "Visualizes exact biological risk contributors (e.g. HbA1c, systolic BP) for each individual diagnosis.",
+        "icon": "Eye"
+      },
+      {
+        "title": "Multi-Condition Screening",
+        "description": "Simultaneously screens for 5 interconnected metabolic and chronic vascular conditions in a single pass.",
+        "icon": "Activity"
+      },
+      {
+        "title": "Offline-Ready Health Camp Mode",
+        "description": "Runs local quantized ONNX models directly in browser WASM when internet connectivity is unavailable.",
+        "icon": "WifiOff"
+      }
+    ],
+    "techStack": [
+      { "name": "Python 3.10", "category": "AI / Machine Learning", "icon": "Code2" },
+      { "name": "Scikit-Learn & XGBoost", "category": "AI / Machine Learning", "icon": "BarChart3" },
+      { "name": "SHAP & LIME", "category": "AI / Machine Learning", "icon": "Eye" },
+      { "name": "FastAPI", "category": "Backend & APIs", "icon": "Server" },
+      { "name": "React + Vite", "category": "Frontend", "icon": "Monitor" },
+      { "name": "Tailwind CSS", "category": "Frontend", "icon": "Palette" }
+    ],
+    "screenshots": [
+      {
+        "url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80",
+        "alt": "Clinical Diagnostic Dashboard"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "Siddharth Raman",
+        "role": "Lead Data Scientist",
+        "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80",
+        "github": "https://github.com",
+        "linkedin": "https://linkedin.com"
+      },
+      {
+        "name": "Kavitha Selvam",
+        "role": "Healthcare Systems Developer",
+        "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+        "github": "https://github.com",
+        "linkedin": "https://linkedin.com"
+      }
+    ],
+    "links": {
+      "github": "https://github.com/siet-ai-club/medai-disease-predictor",
+      "documentation": "https://docs.siet-aiclub.org/projects/medai"
+    },
+    "results": [
+      { "metric": "0.942", "label": "ROC-AUC Score", "detail": "Cross-validated against multi-hospital benchmark datasets" },
+      { "metric": "3,200+", "label": "Patients Screened", "detail": "Evaluated during free health screening camps in rural Coimbatore" },
+      { "metric": "100%", "label": "Explainability Coverage", "detail": "Every prediction accompanied by validated SHAP factor graphs" }
+    ],
+    "futureScope": [
+      "Integrating continuous ECG waveform time-series inputs from wearable sensors.",
+      "Expanding federated learning partnerships across regional academic medical colleges."
+    ],
+    "startedOn": "10 Jan 2026",
+    "completedOn": "18 Jun 2026"
+  },
+  {
+    "id": "proj-004",
+    "slug": "object-detection-platform",
+    "title": "Edge AI Real-Time Object Detection Platform",
+    "summary": "Industrial safety and automated defect inspection deployed on NVIDIA Jetson embedded platforms with TensorRT optimization and sub-15ms inference latency.",
+    "thumbnail": {
+      "url": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=800&q=80",
+      "alt": "Edge AI Object Detection Platform"
+    },
+    "tags": ["Computer Vision", "Edge AI", "YOLOv8", "TensorRT", "C++", "Jetson Nano"],
+    "category": "Computer Vision",
+    "status": "ongoing",
+    "featured": true,
+    "team": "Embedded Edge Team",
+    "heroImage": {
+      "url": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1600&q=85",
+      "alt": "Edge AI Platform Hero"
+    },
+    "overview": "The Edge AI Object Detection Platform brings real-time neural inference out of costly cloud servers and directly into constrained embedded hardware. Developed for smart manufacturing and campus laboratory safety, the system reliably identifies PPE compliance, machinery overheating hazards, and micro-defects at line speed.",
+    "problem": "Cloud-based video analytics incurs recurring network bandwidth overhead, high recurring operational costs, and latency spikes that make emergency shutdown triggers unreliable in critical environments.",
+    "solution": "We converted state-of-the-art YOLOv8 architectures into FP16/INT8 TensorRT execution engines executed on Jetson Orin Nano modules. Custom memory pipelines minimize CPU-GPU memory copies, unlocking sustained 65 FPS processing with under 12W power consumption.",
+    "objectives": [
+      "Achieve real-time performance (>60 FPS) on embedded ARM-based edge systems.",
+      "Detect factory safety infractions including lack of helmets, vests, and safety goggles.",
+      "Provide hardware-isolated dry contact relays for instant machine stoppage."
+    ],
+    "features": [
+      {
+        "title": "INT8 Quantized Acceleration",
+        "description": "TensorRT post-training quantization achieves 3.2x speedup with less than 0.8% loss in mAP.",
+        "icon": "Zap"
+      },
+      {
+        "title": "Thermal & Defect Multi-Modal Input",
+        "description": "Fuses standard optical camera feeds with FLIR long-wave infrared sensors for composite hazard maps.",
+        "icon": "Flame"
+      }
+    ],
+    "techStack": [
+      { "name": "C++ 20 & Python", "category": "AI / Machine Learning", "icon": "Code2" },
+      { "name": "YOLOv8 & PyTorch", "category": "AI / Machine Learning", "icon": "Cpu" },
+      { "name": "NVIDIA TensorRT & DeepStream", "category": "Tools & Cloud", "icon": "Boxes" },
+      { "name": "NVIDIA Jetson Orin Nano", "category": "Hardware & Edge", "icon": "Cpu" },
+      { "name": "React 19 & WebGL", "category": "Frontend", "icon": "Monitor" }
+    ],
+    "contributors": [
+      {
+        "name": "Manojkumar B",
+        "role": "Embedded AI & Edge Systems Lead",
+        "photo": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=300&q=80"
+      },
+      {
+        "name": "Dinesh G",
+        "role": "Computer Vision & Firmware Engineer",
+        "photo": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=300&q=80"
+      }
+    ],
+    "links": {
+      "github": "https://github.com/siet-ai-club/edge-yolo-detection",
+      "documentation": "https://docs.siet-aiclub.org/projects/edge-detection"
+    },
+    "results": [
+      { "metric": "68 FPS", "label": "Sustained Inference Speed", "detail": "Measured on Jetson Orin Nano 8GB" },
+      { "metric": "14.2ms", "label": "End-to-End Latency", "detail": "From sensor exposure to alarm actuation" }
+    ],
+    "futureScope": [
+      "Deployment in SIET advanced manufacturing laboratories and fabrication workshops."
+    ],
+    "startedOn": "01 Jun 2026",
+    "completedOn": "Ongoing"
+  },
+  {
+    "id": "proj-005",
+    "slug": "student-performance-predictor",
+    "title": "Student Academic Performance & Dropout Predictor",
+    "summary": "An educational data mining system identifying at-risk academic indicators and recommending early personalized pedagogical interventions for mentors.",
+    "thumbnail": {
+      "url": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+      "alt": "Student Academic Analytics & Performance Prediction"
+    },
+    "tags": ["Data Science", "Machine Learning", "Random Forest", "Pandas", "FastAPI", "React"],
+    "category": "Data Science",
+    "status": "completed",
+    "featured": false,
+    "team": "EduData Analytics Team",
+    "heroImage": {
+      "url": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=85",
+      "alt": "Student Performance Banner"
+    },
+    "overview": "Developed to foster academic excellence and proactive counseling at SIET, this platform analyzes continuous internal assessment metrics, attendance trends, assignment turnaround times, and LMS engagement logs to surface students experiencing early difficulty in core engineering subjects.",
+    "problem": "Traditional institutional alerts only trigger after end-semester exam failures, by which point credit deficits and academic probation have already accumulated.",
+    "solution": "We trained calibrated Random Forest and LightGBM models on historical cohorts, generating weekly proactive advisory flags for faculty mentors with actionable root cause summaries.",
+    "objectives": [
+      "Provide early warnings at the 4th week of the semester, allowing 12 weeks of corrective tutoring.",
+      "Protect student privacy through anonymized differential features and role-restricted dashboard access.",
+      "Recommend targeted remedial modules matching specific conceptual weak points."
+    ],
+    "features": [
+      {
+        "title": "Early Risk Scoring (Week 4)",
+        "description": "Accurately predicts end-semester performance trajectories well before midterm examinations.",
+        "icon": "AlertTriangle"
+      },
+      {
+        "title": "Mentor Recommendation Cards",
+        "description": "Suggests specific peer study groups, tutoring sessions, and supplementary laboratory exercises.",
+        "icon": "CheckSquare"
+      }
+    ],
+    "techStack": [
+      { "name": "Python & Pandas", "category": "AI / Machine Learning", "icon": "Code2" },
+      { "name": "Random Forest & Scikit-Learn", "category": "AI / Machine Learning", "icon": "Cpu" },
+      { "name": "FastAPI", "category": "Backend & APIs", "icon": "Server" },
+      { "name": "PostgreSQL", "category": "Database & Storage", "icon": "Database" },
+      { "name": "React 19 & Tailwind", "category": "Frontend", "icon": "Monitor" }
+    ],
+    "contributors": [
+      {
+        "name": "Nithya Sri K",
+        "role": "Educational Data Scientist",
+        "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
+      },
+      {
+        "name": "Gokul Prasad",
+        "role": "Dashboard Architect",
+        "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80"
+      }
+    ],
+    "links": {
+      "github": "https://github.com/siet-ai-club/student-performance-predictor",
+      "documentation": "https://docs.siet-aiclub.org/projects/student-performance"
+    },
+    "results": [
+      { "metric": "88.7%", "label": "Early Alert Precision", "detail": "Measured at the 4-week mark of academic semesters" },
+      { "metric": "31%", "label": "Arrear Rate Reduction", "detail": "Recorded across participating test engineering departments" }
+    ],
+    "futureScope": [
+      "Integration of automated natural language feedback generation for student self-study."
+    ],
+    "startedOn": "15 Feb 2026",
+    "completedOn": "12 Jul 2026"
+  },
+  {
+    "id": "proj-006",
+    "slug": "ai-recommendation-system",
+    "title": "Neural Collaborative Course & Project Recommender",
+    "summary": "A graph neural network architecture suggesting personalized elective courses, research papers, and cross-departmental hackathon teammates based on skills and aspirations.",
+    "thumbnail": {
+      "url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+      "alt": "Neural Recommendation System"
+    },
+    "tags": ["Deep Learning", "Graph Neural Networks", "PyTorch Geometric", "Redis", "Next.js"],
+    "category": "Deep Learning",
+    "status": "ongoing",
+    "featured": true,
+    "team": "RecSys Research Cell",
+    "heroImage": {
+      "url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85",
+      "alt": "Recommendation System Hero Banner"
+    },
+    "overview": "The Neural Collaborative Recommender constructs a heterogeneous academic knowledge graph connecting students, elective courses, github repositories, research publications, and skill taxonomies. Graph Convolutional Networks (GCNs) learn relational node embeddings that power recommendations with superior serendipity and relevance.",
+    "problem": "Students select final-year capstones and open electives with limited visibility, often duplicating previous student efforts or missing complementary teammates across different SIET branches.",
+    "solution": "We deployed LightGCN and GraphSAGE models using PyTorch Geometric, caching top-K neighborhood rankings in Redis for sub-50ms user query resolution.",
+    "objectives": [
+      "Break departmental academic silos by matching complementary skill sets for national hackathons.",
+      "Generate personalized reading lists connecting lecture concepts with state-of-the-art conference papers.",
+      "Achieve high recommendation diversity while keeping NDCG@10 above 0.42."
+    ],
+    "features": [
+      {
+        "title": "Heterogeneous Graph Embeddings",
+        "description": "Models complex multi-hop interactions between students, faculty domains, projects, and technologies.",
+        "icon": "Network"
+      },
+      {
+        "title": "Hackathon Squad Matcher",
+        "description": "Matches frontend designers, AI engineers, and hardware specialists into balanced tournament teams.",
+        "icon": "Users"
+      }
+    ],
+    "techStack": [
+      { "name": "PyTorch Geometric", "category": "AI / Machine Learning", "icon": "Cpu" },
+      { "name": "Python 3.11", "category": "AI / Machine Learning", "icon": "Code2" },
+      { "name": "Redis Vector", "category": "Database & Storage", "icon": "Database" },
+      { "name": "FastAPI", "category": "Backend & APIs", "icon": "Server" },
+      { "name": "React 19 & Tailwind", "category": "Frontend", "icon": "Monitor" }
+    ],
+    "contributors": [
+      {
+        "name": "Abishek Ramanathan",
+        "role": "Graph Neural Networks Researcher",
+        "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
+      },
+      {
+        "name": "Divya Lakshmi",
+        "role": "Data Engineer & Graph Pipeline Architect",
+        "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80"
+      }
+    ],
+    "links": {
+      "github": "https://github.com/siet-ai-club/neural-recsys",
+      "documentation": "https://docs.siet-aiclub.org/projects/recsys"
+    },
+    "results": [
+      { "metric": "0.485", "label": "NDCG@10 Score", "detail": "Outperforming conventional matrix factorization baselines by 24%" },
+      { "metric": "42ms", "label": "P99 Serving Latency", "detail": "Sub-millisecond embedding lookups via Redis vector indexes" }
+    ],
+    "futureScope": [
+      "Integrating student GitHub commit history and LeetCode progression for automated capability scoring."
+    ],
+    "startedOn": "20 Apr 2026",
+    "completedOn": "Ongoing"
+  },
+  {
+    "id": "proj-007",
+    "slug": "smart-traffic-analyzer",
+    "title": "AI-Powered Urban Traffic & Congestion Analyzer",
+    "summary": "Real-time traffic flow prediction, density estimation, and emergency vehicle green-corridor management using deep convolutional networks.",
+    "thumbnail": {
+      "url": "https://images.unsplash.com/photo-1508873696983-2df5293cb325?auto=format&fit=crop&w=800&q=80",
+      "alt": "Smart Traffic Analyzer"
+    },
+    "tags": ["Computer Vision", "Deep Learning", "PyTorch", "OpenCV", "Docker"],
+    "category": "Computer Vision",
+    "status": "ongoing",
+    "featured": false,
+    "team": "UrbanAI Research Group",
+    "heroImage": {
+      "url": "https://images.unsplash.com/photo-1508873696983-2df5293cb325?auto=format&fit=crop&w=1600&q=85",
+      "alt": "Urban Traffic Analyzer Banner"
+    },
+    "overview": "Urban bottlenecks in industrial corridors cause significant fuel waste and delays for emergency response vehicles. This project couples roadside CCTV streams with deep vehicle counting and velocity estimators to dynamically calculate traffic signal phase durations.",
+    "problem": "Static timer-based traffic signals fail to adapt during peak morning hours and cannot yield priority to approaching ambulances.",
+    "solution": "A distributed visual pipeline feeds vehicle density metrics into a reinforcement learning controller that adjusts traffic light cycles in real-time.",
+    "objectives": [
+      "Reduce average intersection waiting time by 28% across arterial corridors.",
+      "Guarantee automatic green corridor preemption when emergency sirens or flashing beacons are verified."
+    ],
+    "features": [
+      { "title": "Dynamic Phase Allocation", "description": "Adjusts green light duration based on live vehicle density.", "icon": "TrafficCone" },
+      { "title": "Emergency Vehicle Preemption", "description": "Detects ambulances and fire engines to trigger green corridors.", "icon": "ShieldAlert" }
+    ],
+    "techStack": [
+      { "name": "PyTorch & OpenCV", "category": "AI / Machine Learning", "icon": "Cpu" },
+      { "name": "Docker", "category": "Tools & Cloud", "icon": "Container" },
+      { "name": "FastAPI", "category": "Backend & APIs", "icon": "Server" }
+    ],
+    "contributors": [
+      { "name": "Sanjay Narayanan", "role": "Traffic ML Lead" }
+    ],
+    "startedOn": "01 May 2026"
+  },
+  {
+    "id": "proj-008",
+    "slug": "code-review-assistant",
+    "title": "Automated Code Review & Bug Sentinel",
+    "summary": "An intelligent static analysis and neural code comprehension engine flagging security vulnerabilities and recommending idiomatic code refactors.",
+    "thumbnail": {
+      "url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+      "alt": "Code Review Sentinel"
+    },
+    "tags": ["NLP", "Transformers", "AST Parsing", "TypeScript", "Python"],
+    "category": "NLP",
+    "status": "completed",
+    "featured": false,
+    "team": "DevOps & AI Cell",
+    "heroImage": {
+      "url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=85",
+      "alt": "Code Sentinel Banner"
+    },
+    "overview": "An automated GitHub Actions and GitLab CI companion that parses abstract syntax trees, checks for OWASP Top 10 vulnerabilities, and utilizes fine-tuned CodeLlama models to generate inline code reviews and unit test stubs for student projects.",
+    "problem": "Student code repositories frequently contain unvalidated user inputs, hardcoded secrets, and inefficient algorithms that go unnoticed due to faculty grading constraints.",
+    "solution": "We unified AST security rules with transformer-based reasoning to comment directly on Pull Requests with suggested one-click fixes.",
+    "objectives": [
+      "Catch 95% of common security and concurrency defects before student submissions.",
+      "Foster software engineering best practices within the student developer community."
+    ],
+    "features": [
+      { "title": "Zero-Config GitHub Action", "description": "Drop-in workflow file analyzes pull requests in under 30 seconds.", "icon": "GitPullRequest" },
+      { "title": "Synthetic Test Generation", "description": "Generates boundary test cases using neural code reasoning.", "icon": "CheckCheck" }
+    ],
+    "techStack": [
+      { "name": "CodeLlama & HuggingFace", "category": "AI / Machine Learning", "icon": "Cpu" },
+      { "name": "TypeScript & Tree-sitter", "category": "Backend & APIs", "icon": "Code2" },
+      { "name": "Docker & GitHub Actions", "category": "Tools & Cloud", "icon": "Container" }
+    ],
+    "contributors": [
+      { "name": "Vigneshwaran K", "role": "DevOps AI Specialist" }
+    ],
+    "startedOn": "12 Mar 2026",
+    "completedOn": "28 Aug 2026"
+  }
+]

@@ -1,0 +1,408 @@
+{
+  "hero": {
+    "smallLabel": "SIET AI CLUB • AI LAB",
+    "headline": "Building the Next Generation of AI Engineers",
+    "supportingText": "Empowering engineering students at Sri Shakthi Institute of Engineering and Technology to pioneer transformative artificial intelligence through hands-on research, real-world deployment, competitive hackathons, and collaborative open-source engineering.",
+    "primaryCta": {
+      "label": "Explore Projects",
+      "url": "/projects"
+    },
+    "secondaryCta": {
+      "label": "Contact Us",
+      "url": "/contact"
+    },
+    "badge": "Admissions & Projects 2026 Active",
+    "stats": [
+      { "label": "Active AI Projects", "value": "24+" },
+      { "label": "Student Researchers", "value": "150+" },
+      { "label": "GPU Compute Power", "value": "80+ TFLOPS" },
+      { "label": "Hackathon Honors", "value": "18" }
+    ]
+  },
+  "overview": {
+    "about": "The SIET AI Club & AI Lab at Sri Shakthi Institute of Engineering and Technology is a vibrant epicenter for applied artificial intelligence, deep learning, computer vision, and cognitive systems. We bridge the gap between academic theory and high-impact industrial engineering by providing students with cutting-edge computing infrastructure, mentorship from seasoned researchers, and end-to-end product development pipelines.",
+    "scope": [
+      "Deep Learning, Generative AI & Foundation Model Adaptation",
+      "Real-Time Computer Vision & Edge Intelligence on Embedded Silicon",
+      "Retrieval-Augmented Generation (RAG) & Multimodal NLP Architectures",
+      "Autonomous Systems, Robotics & Embedded IoT Sensor Fusion",
+      "Ethical AI, Algorithmic Fairness & Explainable Machine Learning"
+    ],
+    "aim": "To nurture a thriving student-led ecosystem of creative problem-solvers who conceptualize, engineer, and deploy state-of-the-art AI systems that address genuine societal and industrial challenges.",
+    "goals": [
+      "Incubate at least 15 production-grade student AI projects each academic year.",
+      "Provide accessible GPU workstation access to all passionate undergraduates.",
+      "Represent Sri Shakthi Institute at premier national and international AI hackathons.",
+      "Publish peer-reviewed student research in reputed conferences and journals.",
+      "Foster cross-disciplinary collaboration between Computer Science, Electronics, and Mechanical Engineering."
+    ]
+  },
+  "activities": [
+    {
+      "id": "act-projects",
+      "title": "Real-World Projects",
+      "summary": "Building end-to-end production AI applications solving real challenges on campus, healthcare, and smart cities.",
+      "icon": "FolderGit2",
+      "category": "Engineering",
+      "link": "/projects"
+    },
+    {
+      "id": "act-hackathons",
+      "title": "National Hackathons",
+      "summary": "Competing in premier national AI hackathons including Smart India Hackathon, SIET InnoVate, and Kaggle championships.",
+      "icon": "Trophy",
+      "category": "Competition",
+      "link": "/hackathons"
+    },
+    {
+      "id": "act-workshops",
+      "title": "Hands-On Workshops",
+      "summary": "Intensive masterclasses on PyTorch, Large Language Models, TensorRT optimization, and Vector Databases.",
+      "icon": "GraduationCap",
+      "category": "Education",
+      "link": "/workshops"
+    },
+    {
+      "id": "act-contests",
+      "title": "AI & ML Contests",
+      "summary": "Monthly algorithmic challenges, model optimization sprints, and Kaggle-style internal leaderboard competitions.",
+      "icon": "Terminal",
+      "category": "Skill Building",
+      "link": "/contests"
+    },
+    {
+      "id": "act-collab",
+      "title": "Industry Collaborations",
+      "summary": "Partnering with tech enterprises and AI startups for real-world capstone projects and research sponsorships.",
+      "icon": "Network",
+      "category": "Partnership",
+      "link": "/collaborations"
+    },
+    {
+      "id": "act-learning",
+      "title": "Peer Learning Circles",
+      "summary": "Weekly paper review reading groups, technical lightning talks, and open peer-to-peer code reviews.",
+      "icon": "Users",
+      "category": "Community",
+      "link": "/events"
+    }
+  ],
+  "featuredProjects": [
+    {
+      "id": "proj-001",
+      "slug": "smart-attendance",
+      "title": "Smart Attendance System via Facial Recognition",
+      "summary": "An automated contactless attendance tracking pipeline powered by deep facial recognition models, anti-spoofing liveness detection, and instant faculty dashboard synchronization.",
+      "thumbnail": {
+        "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+        "alt": "Smart Attendance System"
+      },
+      "tags": ["Computer Vision", "Deep Learning", "Python", "OpenCV", "React"],
+      "category": "Computer Vision",
+      "status": "completed",
+      "featured": true,
+      "team": "VisionX Lab Team"
+    },
+    {
+      "id": "proj-002",
+      "slug": "campus-ai-assistant",
+      "title": "SIET Campus AI Assistant & Chatbot",
+      "summary": "A multimodal Generative AI assistant featuring Retrieval-Augmented Generation (RAG) over campus regulations, exam schedules, course materials, and administrative workflows.",
+      "thumbnail": {
+        "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+        "alt": "Campus AI Assistant"
+      },
+      "tags": ["NLP", "Generative AI", "RAG", "LangChain", "VectorDB"],
+      "category": "NLP",
+      "status": "ongoing",
+      "featured": true,
+      "team": "Language & Agents Group"
+    },
+    {
+      "id": "proj-003",
+      "slug": "disease-prediction-system",
+      "title": "Multimodal Early Disease Prediction Platform",
+      "summary": "A clinical diagnostic decision support platform predicting cardiovascular and diabetic risks using ensemble gradient boosting, electronic health records, and explainable SHAP values.",
+      "thumbnail": {
+        "url": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+        "alt": "Disease Prediction Platform"
+      },
+      "tags": ["Healthcare AI", "Machine Learning", "Scikit-Learn", "FastAPI"],
+      "category": "Healthcare AI",
+      "status": "completed",
+      "featured": true,
+      "team": "MedAI Innovation Group"
+    },
+    {
+      "id": "proj-004",
+      "slug": "object-detection-platform",
+      "title": "Edge AI Real-Time Object Detection Platform",
+      "summary": "Industrial safety and automated defect inspection deployed on NVIDIA Jetson embedded platforms with TensorRT optimization and sub-15ms inference latency.",
+      "thumbnail": {
+        "url": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=800&q=80",
+        "alt": "Edge AI Platform"
+      },
+      "tags": ["Computer Vision", "Edge AI", "YOLOv8", "TensorRT", "Jetson Nano"],
+      "category": "Computer Vision",
+      "status": "ongoing",
+      "featured": true,
+      "team": "Embedded Edge Team"
+    },
+    {
+      "id": "proj-006",
+      "slug": "ai-recommendation-system",
+      "title": "Neural Collaborative Course & Project Recommender",
+      "summary": "A graph neural network architecture suggesting personalized elective courses, research papers, and cross-departmental hackathon teammates based on skills and aspirations.",
+      "thumbnail": {
+        "url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "alt": "Neural Recommender"
+      },
+      "tags": ["Deep Learning", "GNN", "PyTorch Geometric", "Redis"],
+      "category": "Deep Learning",
+      "status": "ongoing",
+      "featured": true,
+      "team": "RecSys Research Cell"
+    },
+    {
+      "id": "proj-005",
+      "slug": "student-performance-predictor",
+      "title": "Student Academic Performance & Dropout Predictor",
+      "summary": "An educational data mining system identifying at-risk academic indicators and recommending early personalized pedagogical interventions for mentors.",
+      "thumbnail": {
+        "url": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "alt": "Student Performance"
+      },
+      "tags": ["Data Science", "Machine Learning", "Random Forest", "React"],
+      "category": "Data Science",
+      "status": "completed",
+      "featured": false,
+      "team": "EduData Analytics Team"
+    }
+  ],
+  "featuredAchievements": [
+    {
+      "id": "ach-01",
+      "title": "1st Place — National Smart India Hackathon 2025",
+      "category": "National Award",
+      "date": "Dec 2025",
+      "summary": "Awarded ₹1,00,000 cash prize for the AI-Powered Agricultural Yield and Pest Advisory System under Ministry of Agriculture.",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&w=600&q=80",
+        "alt": "Smart India Hackathon Winners"
+      },
+      "recipient": "Team AgriVision SIET",
+      "award": "National Champion"
+    },
+    {
+      "id": "ach-02",
+      "title": "Best AI Paper Award — IEEE ICET 2026",
+      "category": "Research Excellence",
+      "date": "Feb 2026",
+      "summary": "Presented novel edge-quantization techniques for Vision Transformers on constrained low-power robotics.",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80",
+        "alt": "IEEE Conference Presentation"
+      },
+      "recipient": "Karthik Raja & Dr. R. Manimekalai",
+      "award": "Best Paper"
+    },
+    {
+      "id": "ach-03",
+      "title": "NVIDIA Academic Hardware Grant",
+      "category": "Grant & Sponsorship",
+      "date": "Nov 2025",
+      "summary": "Awarded 4 NVIDIA RTX 4090 GPUs and 2 Jetson Orin Developer Kits to fuel student deep learning research in our AI Lab.",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+        "alt": "NVIDIA GPU Grant"
+      },
+      "recipient": "SIET AI Lab",
+      "award": "Hardware Grant"
+    },
+    {
+      "id": "ach-04",
+      "title": "Top 10 Finalist — Global AI Agents Hackathon",
+      "category": "International Hackathon",
+      "date": "Jan 2026",
+      "summary": "Recognized among top 10 from 1,200 international teams for autonomous multi-agent software testing framework.",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
+        "alt": "Global Hackathon Recognition"
+      },
+      "recipient": "Team AgentCraft",
+      "award": "Global Top 10"
+    }
+  ],
+  "upcomingEvents": [
+    {
+      "id": "ev-01",
+      "title": "SIET AI InnoVate 2026: 36-Hour Hackathon",
+      "date": "Oct 24-25, 2026",
+      "timing": "09:00 AM onwards",
+      "type": "Hackathon",
+      "summary": "The marquee annual AI buildathon bringing together 300+ developers to build multimodal AI products with cash pool ₹1,50,000.",
+      "status": "upcoming",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
+        "alt": "SIET AI InnoVate Hackathon"
+      },
+      "location": "Auditorium & AI Lab 1, SIET Campus",
+      "action": {
+        "label": "Register Team",
+        "url": "/hackathons"
+      }
+    },
+    {
+      "id": "ev-02",
+      "title": "Masterclass: Building Agentic RAG with LangGraph",
+      "date": "Nov 07, 2026",
+      "timing": "02:00 PM - 05:30 PM",
+      "type": "Workshop",
+      "summary": "Deep dive into multi-agent workflows, state persistence, tool calling, and human-in-the-loop validation.",
+      "status": "upcoming",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80",
+        "alt": "Agentic RAG Masterclass"
+      },
+      "location": "Virtual & AI Lab 2",
+      "action": {
+        "label": "Reserve Seat",
+        "url": "/workshops"
+      }
+    },
+    {
+      "id": "ev-03",
+      "title": "Kaggle Internal Sprint: Edge Vision Classification",
+      "date": "Nov 15, 2026",
+      "timing": "All Day Challenge",
+      "type": "Contest",
+      "summary": "24-hour sprint to train lightweight neural architectures under 5MB with maximum F1 accuracy.",
+      "status": "upcoming",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+        "alt": "Kaggle Sprint"
+      },
+      "location": "Online Leaderboard",
+      "action": {
+        "label": "Join Contest",
+        "url": "/contests"
+      }
+    },
+    {
+      "id": "ev-04",
+      "title": "Industry Tech Talk: Scaling AI at Enterprise Scale",
+      "date": "Nov 28, 2026",
+      "timing": "10:30 AM - 12:30 PM",
+      "type": "Seminar",
+      "summary": "Guest lecture by Senior AI Architect from Microsoft Research on distributed training and inference clusters.",
+      "status": "upcoming",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80",
+        "alt": "Industry Tech Talk"
+      },
+      "location": "Seminar Hall 3",
+      "action": {
+        "label": "View Details",
+        "url": "/events"
+      }
+    }
+  ],
+  "recentEvents": [
+    {
+      "id": "rev-01",
+      "title": "Generative AI Bootcamp for Undergraduates",
+      "date": "Aug 14, 2026",
+      "type": "Bootcamp",
+      "summary": "A 3-day intensive hands-on bootcamp introducing 120 sophomore engineering students to PyTorch and Transformers.",
+      "status": "completed",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80",
+        "alt": "GenAI Bootcamp"
+      },
+      "location": "SIET AI Central Lab"
+    },
+    {
+      "id": "rev-02",
+      "title": "Computer Vision Summer Exhibition 2026",
+      "date": "Jul 22, 2026",
+      "type": "Project Expo",
+      "summary": "18 student teams demonstrated live prototypes of autonomous vehicle perception, drone inspection, and medical imaging.",
+      "status": "completed",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80",
+        "alt": "Project Expo"
+      },
+      "location": "Central Exhibition Hall"
+    }
+  ],
+  "facilities": [
+    {
+      "id": "fac-01",
+      "title": "Advanced AI & Deep Learning Lab",
+      "summary": "Dedicated research facility housing high-density GPU computing nodes for training complex foundation and vision models.",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+        "alt": "Deep Learning Lab"
+      },
+      "specs": ["NVIDIA RTX 4090 Clusters", "High-speed NVMe Cache", "Dual Xeon Processors"]
+    },
+    {
+      "id": "fac-02",
+      "title": "Embedded Edge AI & Robotics Station",
+      "summary": "Hardware prototyping benches equipped with NVIDIA Jetson Xavier, Raspberry Pi 5, Google Coral, and LiDAR depth sensors.",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+        "alt": "Edge AI and Robotics"
+      },
+      "specs": ["NVIDIA Jetson Orin Nano", "Intel RealSense Depth Cams", "Oscilloscopes & Soldering"]
+    },
+    {
+      "id": "fac-03",
+      "title": "Collaborative Ideation & Sprint Lounge",
+      "summary": "Ergonomic team pods with 4K touch displays, digital whiteboards, and gigabit fiber connectivity for hackathon sprints.",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+        "alt": "Ideation Lounge"
+      },
+      "specs": ["4K Interactive Displays", "Dual Band Wi-Fi 6", "Modular Scrum Stations"]
+    },
+    {
+      "id": "fac-04",
+      "title": "High Performance Server Cluster",
+      "summary": "On-premise private cloud cluster hosting containerized model endpoints, vector stores, and CI/CD pipelines.",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+        "alt": "Server Cluster"
+      },
+      "specs": ["Kubernetes Cluster", "10GbE Network Fabric", "Redundant UPS Backup"]
+    }
+  ],
+  "contact": {
+    "email": "aiclub@siet.ac.in",
+    "phone": "+91 422 2369900",
+    "address": "Sri Shakthi Institute of Engineering and Technology, Sri Shakthi Nagar, L&T Bypass, Chinniyampalayam post, Coimbatore, Tamil Nadu 641062, India",
+    "labLocation": "Block III, 2nd Floor, AI & Innovation Wing (Room 320)",
+    "socialLinks": [
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/siet-ai-club",
+        "icon": "Github"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://linkedin.com/company/siet-ai-club",
+        "icon": "Linkedin"
+      },
+      {
+        "platform": "Twitter / X",
+        "url": "https://twitter.com/siet_aiclub",
+        "icon": "Twitter"
+      },
+      {
+        "platform": "YouTube",
+        "url": "https://youtube.com/@siet_aiclub",
+        "icon": "Youtube"
+      }
+    ]
+  }
+}
