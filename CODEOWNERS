@@ -1,0 +1,15 @@
+# CODEOWNERS
+
+# Page owners
+/src/pages/home/ @dev1
+/src/pages/achievements/ @dev2
+/src/pages/projects/ @dev3
+/src/pages/our-guests/ @dev4
+/src/pages/admin/ @shiva
+
+# Shared core ownership
+/src/shared/ @shiva
+/src/services/ @shiva
+/src/app-setup/ @shiva
+/src/types/ @shiva
+/src/styles/ @shiva
