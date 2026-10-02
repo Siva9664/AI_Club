@@ -1,0 +1,4726 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achievements & Hall of Fame | AI Lab</title>
+  <meta name="description"
+    content="Explore the achievements, milestones, certifications, hackathon victories, collaborations, and recognized excellence of our college AI Lab community.">
+  <meta name="keywords"
+    content="AI Lab, Achievements, Artificial Intelligence, Machine Learning, Hackathons, Competitions, Certifications, Student Innovation">
+  <link rel="icon" type="image/png" href="assets/ai-lab-logo.png">
+  <link rel="apple-touch-icon" href="assets/ai-lab-logo.png">
+
+  <!-- Google Fonts: Outfit & JetBrains Mono for futuristic aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       AI CLUB ACHIEVEMENTS PAGE - DESIGN SYSTEM & SCOPED STYLES
+       All classes are scoped with .achieve- or .achievement- to prevent
+       conflicts when merged into the main 5-member team website.
+       ========================================================================== */
+
+    :root {
+      /* Color Tokens - Dark Mode (Default) */
+      --achieve-bg-body: #060913;
+      --achieve-bg-surface: #0a0f1d;
+      --achieve-bg-surface-elevated: #10172c;
+      --achieve-bg-card: rgba(16, 24, 44, 0.72);
+      --achieve-bg-card-hover: rgba(22, 33, 62, 0.9);
+      --achieve-bg-glass: rgba(10, 15, 29, 0.75);
+      --achieve-bg-glass-heavy: rgba(8, 12, 24, 0.92);
+
+      --achieve-border-subtle: rgba(255, 255, 255, 0.08);
+      --achieve-border-focus: rgba(0, 242, 254, 0.55);
+      --achieve-border-glow: rgba(99, 102, 241, 0.4);
+
+      --achieve-text-main: #f8fafc;
+      --achieve-text-muted: #94a3b8;
+      --achieve-text-dim: #64748b;
+
+      /* Cyber / AI Neon Palette */
+      --achieve-cyan: #00f2fe;
+      --achieve-blue: #3b82f6;
+      --achieve-indigo: #6366f1;
+      --achieve-purple: #a855f7;
+      --achieve-pink: #ec4899;
+      --achieve-emerald: #10b981;
+      --achieve-amber: #f59e0b;
+
+      --achieve-gradient-brand: linear-gradient(135deg, #00f2fe 0%, #3b82f6 50%, #8b5cf6 100%);
+      --achieve-gradient-gold: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+      --achieve-gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+      --achieve-gradient-glow: radial-gradient(circle, rgba(0, 242, 254, 0.16) 0%, rgba(168, 85, 247, 0.08) 45%, transparent 70%);
+
+      --achieve-shadow-card: 0 12px 36px -8px rgba(0, 0, 0, 0.65);
+      --achieve-shadow-glow: 0 0 30px rgba(0, 242, 254, 0.25);
+      --achieve-shadow-badge: 0 0 15px rgba(99, 102, 241, 0.35);
+
+      --achieve-radius-sm: 8px;
+      --achieve-radius-md: 14px;
+      --achieve-radius-lg: 20px;
+      --achieve-radius-xl: 28px;
+      --achieve-radius-full: 9999px;
+
+      --achieve-font-display: 'Outfit', sans-serif;
+      --achieve-font-body: 'Plus Jakarta Sans', sans-serif;
+      --achieve-font-mono: 'JetBrains Mono', monospace;
+
+      --achieve-transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --achieve-transition-medium: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --achieve-transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Light Mode Overrides */
+    [data-theme="light"] {
+      --achieve-bg-body: #f8fafc;
+      --achieve-bg-surface: #f1f5f9;
+      --achieve-bg-surface-elevated: #e2e8f0;
+      --achieve-bg-card: rgba(255, 255, 255, 0.88);
+      --achieve-bg-card-hover: rgba(255, 255, 255, 0.98);
+      --achieve-bg-glass: rgba(255, 255, 255, 0.82);
+      --achieve-bg-glass-heavy: rgba(255, 255, 255, 0.95);
+
+      --achieve-border-subtle: rgba(148, 163, 184, 0.25);
+      --achieve-border-focus: rgba(2, 132, 199, 0.6);
+      --achieve-border-glow: rgba(99, 102, 241, 0.25);
+
+      --achieve-text-main: #0f172a;
+      --achieve-text-muted: #475569;
+      --achieve-text-dim: #64748b;
+
+      --achieve-cyan: #0284c7;
+      --achieve-blue: #2563eb;
+      --achieve-indigo: #4f46e5;
+      --achieve-purple: #7c3aed;
+      --achieve-pink: #db2777;
+      --achieve-emerald: #059669;
+      --achieve-amber: #d97706;
+
+      --achieve-gradient-brand: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #7c3aed 100%);
+      --achieve-gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 249, 0.75) 100%);
+      --achieve-gradient-glow: radial-gradient(circle, rgba(2, 132, 199, 0.14) 0%, rgba(126, 34, 206, 0.06) 45%, transparent 70%);
+
+      --achieve-shadow-card: 0 12px 32px -8px rgba(15, 23, 42, 0.08);
+      --achieve-shadow-glow: 0 0 25px rgba(37, 99, 235, 0.15);
+      --achieve-shadow-badge: 0 0 12px rgba(79, 70, 229, 0.15);
+    }
+
+    /* Base Reset */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    body.achieve-body {
+      background-color: var(--achieve-bg-body);
+      color: var(--achieve-text-main);
+      font-family: var(--achieve-font-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      transition: background-color var(--achieve-transition-medium), color var(--achieve-transition-medium);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--achieve-font-display);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--achieve-text-main);
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      color: var(--achieve-text-muted);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--achieve-transition-fast);
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    .achieve-container {
+      width: 100%;
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    /* Background Mesh Canvas */
+    #achieve-bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.65;
+    }
+
+    /* Ambient Cursor Radial Glow */
+    .achieve-ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 600px;
+      height: 600px;
+      margin-left: -300px;
+      margin-top: -300px;
+      border-radius: 50%;
+      background: var(--achieve-gradient-glow);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.65;
+      transform: translate3d(0, 0, 0);
+      transition: opacity 0.5s ease;
+      will-change: transform;
+    }
+
+    /* ==========================================================================
+       NEW PREMIUM MOUSE ANIMATION: CYBER STARDUST TRAIL & PRECISION POINTER
+       ========================================================================== */
+    #achieve-cursor-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    /* Precision Futuristic Cursor Dot (Zero Lag, Instantaneous 1:1) */
+    .achieve-cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--achieve-cyan);
+      box-shadow: 0 0 10px var(--achieve-cyan), 0 0 20px var(--achieve-purple);
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease, background 0.2s ease;
+      will-change: left, top;
+    }
+
+    .achieve-cursor-dot.active-hover {
+      transform: translate(-50%, -50%) scale(2.4);
+      background: #ffffff;
+      box-shadow: 0 0 16px var(--achieve-cyan), 0 0 30px var(--achieve-purple);
+    }
+
+    @media (hover: none) or (pointer: coarse) {
+
+      .achieve-cursor-dot,
+      #achieve-cursor-canvas {
+        display: none !important;
+      }
+    }
+
+    /* Click Ripple Effect */
+    .achieve-ripple-target {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .achieve-ripple-wave {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(0);
+      animation: achieve-ripple-anim 0.6s cubic-bezier(0, 0, 0.2, 1) forwards;
+      pointer-events: none;
+    }
+
+    [data-theme="light"] .achieve-ripple-wave {
+      background: rgba(0, 140, 255, 0.25);
+    }
+
+    @keyframes achieve-ripple-anim {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* ==========================================================================
+       1. NAVIGATION HEADER
+       ========================================================================== */
+    .achieve-navbar-wrapper {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: background-color var(--achieve-transition-medium), backdrop-filter var(--achieve-transition-medium), border-color var(--achieve-transition-medium), box-shadow var(--achieve-transition-medium);
+      border-bottom: 1px solid transparent;
+    }
+
+    .achieve-navbar-wrapper.scrolled {
+      background-color: var(--achieve-bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--achieve-border-subtle);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="light"] .achieve-navbar-wrapper.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .achieve-nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .achieve-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--achieve-font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+
+    .achieve-brand-logo-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(10, 15, 29, 0.8);
+      border: 2px solid rgba(0, 242, 254, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.35);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      transition: transform var(--achieve-transition-fast), border-color var(--achieve-transition-fast), box-shadow var(--achieve-transition-fast);
+    }
+
+    .achieve-brand:hover .achieve-brand-logo-icon {
+      transform: scale(1.08) rotate(3deg);
+      border-color: var(--achieve-cyan);
+      box-shadow: 0 0 24px rgba(0, 242, 254, 0.6), 0 0 40px rgba(99, 102, 241, 0.35);
+    }
+
+    .achieve-brand-logo-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      transition: filter var(--achieve-transition-fast);
+    }
+
+    .achieve-brand:hover .achieve-brand-logo-img {
+      filter: brightness(1.12);
+    }
+
+    .achieve-brand-logo-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: var(--achieve-cyan);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 6px var(--achieve-cyan));
+    }
+
+    .achieve-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .achieve-brand-name {
+      background: var(--achieve-gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .achieve-brand-sub {
+      font-size: 0.65rem;
+      font-family: var(--achieve-font-mono);
+      color: var(--achieve-text-dim);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .achieve-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .achieve-nav-item {
+      position: relative;
+    }
+
+    .achieve-nav-link {
+      padding: 8px 16px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--achieve-text-muted);
+      border-radius: var(--achieve-radius-sm);
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      transition: color var(--achieve-transition-fast), background-color var(--achieve-transition-fast), transform var(--achieve-transition-fast);
+    }
+
+    .achieve-nav-link:hover {
+      color: var(--achieve-text-main);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    [data-theme="light"] .achieve-nav-link:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .achieve-nav-link.active {
+      color: var(--achieve-cyan);
+      font-weight: 600;
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+    }
+
+    .achieve-nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 2px;
+      background: var(--achieve-cyan);
+      border-radius: var(--achieve-radius-full);
+      box-shadow: 0 0 8px var(--achieve-cyan);
+    }
+
+    .achieve-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .achieve-theme-toggle {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color var(--achieve-transition-fast), transform var(--achieve-transition-fast), box-shadow var(--achieve-transition-fast);
+    }
+
+    .achieve-theme-toggle:hover {
+      border-color: var(--achieve-border-focus);
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .achieve-theme-toggle svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform var(--achieve-transition-medium);
+    }
+
+    .achieve-theme-toggle:active svg {
+      transform: rotate(45deg) scale(0.9);
+    }
+
+    .achieve-login-btn {
+      padding: 10px 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: var(--achieve-gradient-brand);
+      border-radius: var(--achieve-radius-md);
+      box-shadow: 0 4px 16px rgba(0, 242, 254, 0.25);
+      transition: transform var(--achieve-transition-fast), box-shadow var(--achieve-transition-fast), filter var(--achieve-transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .achieve-login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(0, 242, 254, 0.4);
+      filter: brightness(1.08);
+    }
+
+    .achieve-hamburger {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-main);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px;
+    }
+
+    .achieve-hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform var(--achieve-transition-fast), opacity var(--achieve-transition-fast);
+    }
+
+    .achieve-hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .achieve-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .achieve-hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .achieve-mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 76px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 76px);
+      background: var(--achieve-bg-glass-heavy);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 24px;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+      z-index: 999;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      border-bottom: 1px solid var(--achieve-border-subtle);
+    }
+
+    .achieve-mobile-drawer.active {
+      transform: translateY(0);
+      opacity: 1;
+      display: flex;
+    }
+
+    .achieve-mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .achieve-mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-radius: var(--achieve-radius-md);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--achieve-text-main);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--achieve-border-subtle);
+    }
+
+    .achieve-mobile-nav-link.active {
+      background: rgba(0, 242, 254, 0.1);
+      border-color: var(--achieve-cyan);
+      color: var(--achieve-cyan);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       2. HERO SECTION
+       ========================================================================== */
+    .achieve-hero {
+      position: relative;
+      padding-top: 50px;
+      padding-bottom: 90px;
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    .achieve-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 48px;
+      min-height: calc(82vh - 76px);
+    }
+
+    .achieve-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .achieve-badge-container {
+      margin-bottom: 24px;
+    }
+
+    .achieve-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 16px;
+      border-radius: var(--achieve-radius-full);
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      color: var(--achieve-cyan);
+      font-family: var(--achieve-font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.15);
+      animation: achieve-pulse-border 3s infinite ease-in-out;
+    }
+
+    .achieve-badge-pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--achieve-cyan);
+      box-shadow: 0 0 8px var(--achieve-cyan);
+      position: relative;
+    }
+
+    .achieve-badge-pulse-dot::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid var(--achieve-cyan);
+      animation: achieve-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes achieve-ping {
+
+      75%,
+      100% {
+        transform: scale(2.2);
+        opacity: 0;
+      }
+    }
+
+    @keyframes achieve-pulse-border {
+
+      0%,
+      100% {
+        border-color: rgba(0, 242, 254, 0.35);
+      }
+
+      50% {
+        border-color: rgba(99, 102, 241, 0.6);
+      }
+    }
+
+    .achieve-hero-title {
+      font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .achieve-gradient-text {
+      background: var(--achieve-gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .achieve-hero-desc {
+      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+      line-height: 1.65;
+      color: var(--achieve-text-muted);
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+
+    .achieve-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .achieve-btn-primary {
+      padding: 14px 28px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-gradient-brand);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(0, 242, 254, 0.3);
+      transition: transform var(--achieve-transition-fast), box-shadow var(--achieve-transition-fast), filter var(--achieve-transition-fast);
+    }
+
+    .achieve-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 242, 254, 0.45);
+      filter: brightness(1.1);
+    }
+
+    .achieve-btn-primary svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      transition: transform var(--achieve-transition-fast);
+    }
+
+    .achieve-btn-primary:hover svg {
+      transform: translateX(4px);
+    }
+
+    .achieve-btn-secondary {
+      padding: 14px 26px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-main);
+      font-size: 1rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(12px);
+      transition: background var(--achieve-transition-fast), border-color var(--achieve-transition-fast), transform var(--achieve-transition-fast);
+    }
+
+    .achieve-btn-secondary:hover {
+      background: var(--achieve-bg-card-hover);
+      border-color: var(--achieve-border-focus);
+      transform: translateY(-3px);
+    }
+
+    .achieve-hero-quick-stats {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--achieve-border-subtle);
+    }
+
+    .achieve-quick-stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .achieve-quick-stat-num {
+      font-family: var(--achieve-font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--achieve-cyan);
+    }
+
+    .achieve-quick-stat-label {
+      font-size: 0.75rem;
+      color: var(--achieve-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Hero 3D Futuristic Trophy Visual */
+    .achieve-hero-visual-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1200px;
+      z-index: 2;
+    }
+
+    .achieve-hero-3d-scene {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+    }
+
+    .achieve-trophy-glow-disc {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.22) 0%, rgba(99, 102, 241, 0.18) 40%, transparent 70%);
+      filter: blur(28px);
+      animation: achieve-pulse-glow 5s infinite alternate ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes achieve-pulse-glow {
+      0% {
+        transform: scale(0.9);
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: scale(1.15);
+        opacity: 0.85;
+      }
+    }
+
+    .achieve-orbit-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px dashed rgba(0, 242, 254, 0.3);
+      pointer-events: none;
+    }
+
+    .achieve-orbit-ring-1 {
+      width: 380px;
+      height: 380px;
+      animation: achieve-spin 26s linear infinite;
+    }
+
+    .achieve-orbit-ring-2 {
+      width: 300px;
+      height: 300px;
+      border-style: dotted;
+      border-color: rgba(168, 85, 247, 0.35);
+      animation: achieve-spin-reverse 20s linear infinite;
+    }
+
+    @keyframes achieve-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes achieve-spin-reverse {
+      from {
+        transform: rotate(360deg);
+      }
+
+      to {
+        transform: rotate(0deg);
+      }
+    }
+
+    .achieve-trophy-svg-container {
+      position: relative;
+      width: 260px;
+      height: 290px;
+      z-index: 5;
+      filter: drop-shadow(0 15px 35px rgba(0, 242, 254, 0.35));
+      animation: achieve-float-y 4.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes achieve-float-y {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      100% {
+        transform: translateY(-14px) rotate(1.5deg);
+      }
+    }
+
+    .achieve-orbit-badge {
+      position: absolute;
+      padding: 10px 14px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-bg-glass-heavy);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--achieve-border-focus);
+      color: var(--achieve-text-main);
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+      z-index: 10;
+      white-space: nowrap;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      cursor: default;
+    }
+
+    .achieve-orbit-badge:hover {
+      border-color: var(--achieve-cyan);
+      transform: scale(1.08) translateZ(20px);
+      box-shadow: 0 12px 30px rgba(0, 242, 254, 0.35);
+    }
+
+    .achieve-badge-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+    }
+
+    .achieve-badge-gold .achieve-badge-icon {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+    }
+
+    .achieve-badge-cyan .achieve-badge-icon {
+      background: rgba(0, 242, 254, 0.2);
+      color: var(--achieve-cyan);
+    }
+
+    .achieve-badge-purple .achieve-badge-icon {
+      background: rgba(168, 85, 247, 0.2);
+      color: #c084fc;
+    }
+
+    .achieve-orbit-badge-1 {
+      top: 15%;
+      left: -20px;
+      animation: achieve-float-alt 4s ease-in-out infinite alternate;
+    }
+
+    .achieve-orbit-badge-2 {
+      bottom: 22%;
+      right: -25px;
+      animation: achieve-float-alt 4.8s ease-in-out infinite alternate 1s;
+    }
+
+    .achieve-orbit-badge-3 {
+      bottom: 6%;
+      left: 15px;
+      animation: achieve-float-alt 5.2s ease-in-out infinite alternate 2s;
+    }
+
+    @keyframes achieve-float-alt {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      100% {
+        transform: translateY(-10px) rotate(-1.5deg);
+      }
+    }
+
+    .achieve-scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+      color: var(--achieve-text-dim);
+      font-size: 0.75rem;
+      font-family: var(--achieve-font-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      transition: opacity var(--achieve-transition-fast);
+    }
+
+    .achieve-scroll-indicator:hover {
+      opacity: 1;
+      color: var(--achieve-cyan);
+    }
+
+    .achieve-scroll-chevron {
+      width: 20px;
+      height: 20px;
+      animation: achieve-bounce 2s infinite;
+      stroke: currentColor;
+    }
+
+    @keyframes achieve-bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(8px);
+      }
+
+      60% {
+        transform: translateY(4px);
+      }
+    }
+
+    /* ==========================================================================
+       3. ACHIEVEMENT STATISTICS SECTION
+       ========================================================================== */
+    .achieve-stats-section {
+      padding: 60px 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .achieve-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .achieve-stat-card {
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      border-radius: var(--achieve-radius-lg);
+      padding: 28px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform var(--achieve-transition-medium), border-color var(--achieve-transition-medium), box-shadow var(--achieve-transition-medium), background var(--achieve-transition-medium);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .achieve-stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--achieve-gradient-brand);
+      opacity: 0;
+      transition: opacity var(--achieve-transition-medium);
+    }
+
+    .achieve-stat-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--achieve-border-focus);
+      background: var(--achieve-bg-card-hover);
+      box-shadow: 0 16px 36px -10px rgba(0, 242, 254, 0.25);
+    }
+
+    .achieve-stat-card:hover::before {
+      opacity: 1;
+    }
+
+    .achieve-stat-icon-wrapper {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--achieve-radius-md);
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid rgba(0, 242, 254, 0.2);
+      color: var(--achieve-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      transition: transform var(--achieve-transition-medium), background var(--achieve-transition-medium);
+    }
+
+    .achieve-stat-card:hover .achieve-stat-icon-wrapper {
+      transform: scale(1.12) rotate(6deg);
+      background: rgba(0, 242, 254, 0.16);
+      box-shadow: 0 0 18px rgba(0, 242, 254, 0.35);
+    }
+
+    .achieve-stat-icon-wrapper svg {
+      width: 26px;
+      height: 26px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .achieve-stat-number {
+      font-family: var(--achieve-font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+      background: var(--achieve-gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .achieve-stat-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--achieve-text-main);
+      margin-bottom: 4px;
+    }
+
+    .achieve-stat-desc {
+      font-size: 0.75rem;
+      color: var(--achieve-text-dim);
+    }
+
+    /* ==========================================================================
+       4. FEATURED ACHIEVEMENTS CAROUSEL
+       ========================================================================== */
+    .achieve-featured-section {
+      padding: 70px 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .achieve-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .achieve-section-title-group {
+      max-width: 600px;
+    }
+
+    .achieve-section-subtitle {
+      font-family: var(--achieve-font-mono);
+      font-size: 0.8rem;
+      color: var(--achieve-cyan);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .achieve-section-title {
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .achieve-carousel-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .achieve-carousel-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--achieve-radius-full);
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--achieve-transition-fast), border-color var(--achieve-transition-fast), transform var(--achieve-transition-fast), box-shadow var(--achieve-transition-fast);
+    }
+
+    .achieve-carousel-btn:hover {
+      background: var(--achieve-bg-card-hover);
+      border-color: var(--achieve-border-focus);
+      transform: scale(1.06);
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.25);
+    }
+
+    .achieve-carousel-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+    }
+
+    .achieve-carousel-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--achieve-radius-xl);
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      box-shadow: var(--achieve-shadow-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .achieve-carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+      width: 100%;
+    }
+
+    .achieve-featured-slide {
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      position: relative;
+    }
+
+    .achieve-featured-img-wrap {
+      position: relative;
+      height: 460px;
+      overflow: hidden;
+    }
+
+    .achieve-featured-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .achieve-featured-slide:hover .achieve-featured-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .achieve-featured-img-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 50%, var(--achieve-bg-surface) 100%),
+        linear-gradient(180deg, transparent 60%, var(--achieve-bg-surface) 100%);
+    }
+
+    [data-theme="light"] .achieve-featured-img-overlay {
+      background: linear-gradient(90deg, transparent 50%, var(--achieve-bg-card) 100%),
+        linear-gradient(180deg, transparent 60%, var(--achieve-bg-card) 100%);
+    }
+
+    .achieve-featured-content {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .achieve-featured-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .achieve-category-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--achieve-radius-full);
+      font-family: var(--achieve-font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(0, 242, 254, 0.12);
+      color: var(--achieve-cyan);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+    }
+
+    .achieve-category-badge.badge-hackathon {
+      background: rgba(168, 85, 247, 0.12);
+      color: #c084fc;
+      border-color: rgba(168, 85, 247, 0.35);
+    }
+
+    .achieve-category-badge.badge-competition {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    .achieve-category-badge.badge-collaboration {
+      background: rgba(59, 130, 246, 0.12);
+      color: #60a5fa;
+      border-color: rgba(59, 130, 246, 0.35);
+    }
+
+    .achieve-category-badge.badge-certificate {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.35);
+    }
+
+    .achieve-featured-year {
+      font-family: var(--achieve-font-mono);
+      font-size: 0.8rem;
+      color: var(--achieve-text-dim);
+    }
+
+    .achieve-featured-title {
+      font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: var(--achieve-text-main);
+    }
+
+    .achieve-featured-recipient {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--achieve-cyan);
+      margin-bottom: 16px;
+    }
+
+    .achieve-featured-recipient svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+    }
+
+    .achieve-featured-summary {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--achieve-text-muted);
+      margin-bottom: 28px;
+    }
+
+    .achieve-featured-footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .achieve-carousel-pagination {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .achieve-carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--achieve-radius-full);
+      background: rgba(255, 255, 255, 0.25);
+      transition: width var(--achieve-transition-fast), background var(--achieve-transition-fast);
+      cursor: pointer;
+    }
+
+    .achieve-carousel-dot.active {
+      width: 26px;
+      background: var(--achieve-cyan);
+      box-shadow: 0 0 10px var(--achieve-cyan);
+    }
+
+    /* ==========================================================================
+       5. MAIN SHOWCASE: TIMELINE ("Milestones That Define Us")
+       ========================================================================== */
+    .achieve-timeline-section {
+      padding: 80px 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .achieve-timeline-wrapper {
+      position: relative;
+      margin-top: 60px;
+      padding: 20px 0;
+    }
+
+    .achieve-timeline-spine {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, var(--achieve-cyan) 0%, var(--achieve-indigo) 50%, var(--achieve-purple) 100%);
+      box-shadow: 0 0 14px rgba(0, 242, 254, 0.4);
+      border-radius: var(--achieve-radius-full);
+    }
+
+    .achieve-timeline-year-marker {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      margin: 40px 0 30px;
+    }
+
+    .achieve-timeline-year-badge {
+      padding: 8px 24px;
+      border-radius: var(--achieve-radius-full);
+      background: var(--achieve-bg-surface-elevated);
+      border: 1px solid var(--achieve-border-focus);
+      font-family: var(--achieve-font-mono);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--achieve-cyan);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.35);
+      letter-spacing: 0.1em;
+    }
+
+    .achieve-timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 20px 45px;
+      box-sizing: border-box;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .achieve-timeline-item.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .achieve-timeline-item.left {
+      left: 0;
+      text-align: right;
+    }
+
+    .achieve-timeline-item.right {
+      left: 50%;
+      text-align: left;
+    }
+
+    .achieve-timeline-node {
+      position: absolute;
+      top: 36px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--achieve-bg-surface);
+      border: 3px solid var(--achieve-cyan);
+      box-shadow: 0 0 16px var(--achieve-cyan);
+      z-index: 6;
+      transition: transform var(--achieve-transition-fast), background var(--achieve-transition-fast);
+    }
+
+    .achieve-timeline-item.left .achieve-timeline-node {
+      right: -10px;
+    }
+
+    .achieve-timeline-item.right .achieve-timeline-node {
+      left: -10px;
+    }
+
+    .achieve-timeline-item:hover .achieve-timeline-node {
+      transform: scale(1.3);
+      background: var(--achieve-cyan);
+    }
+
+    .achieve-timeline-card {
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      border-radius: var(--achieve-radius-lg);
+      padding: 28px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform var(--achieve-transition-medium), border-color var(--achieve-transition-medium), box-shadow var(--achieve-transition-medium);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .achieve-timeline-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--achieve-border-focus);
+      box-shadow: var(--achieve-shadow-card), 0 0 24px rgba(0, 242, 254, 0.2);
+    }
+
+    .achieve-timeline-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .achieve-timeline-card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--achieve-text-main);
+    }
+
+    .achieve-timeline-card-recipient {
+      font-size: 0.85rem;
+      color: var(--achieve-cyan);
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .achieve-timeline-card-summary {
+      font-size: 0.92rem;
+      color: var(--achieve-text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+
+    .achieve-timeline-card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--achieve-cyan);
+      transition: gap var(--achieve-transition-fast);
+    }
+
+    .achieve-timeline-card:hover .achieve-timeline-card-action {
+      gap: 12px;
+    }
+
+    /* ==========================================================================
+       6. FILTERING & SEARCH CONTROLS
+       ========================================================================== */
+    .achieve-filter-section {
+      padding: 30px 0 20px;
+      position: sticky;
+      top: 76px;
+      z-index: 50;
+      background: var(--achieve-bg-body);
+      transition: background var(--achieve-transition-medium);
+    }
+
+    .achieve-filter-wrapper {
+      background: var(--achieve-bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--achieve-border-subtle);
+      border-radius: var(--achieve-radius-lg);
+      padding: 16px 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    [data-theme="light"] .achieve-filter-wrapper {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .achieve-filter-row-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .achieve-search-box {
+      position: relative;
+      flex: 1;
+      min-width: 260px;
+      max-width: 440px;
+    }
+
+    .achieve-search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      color: var(--achieve-text-dim);
+      pointer-events: none;
+    }
+
+    .achieve-search-input {
+      width: 100%;
+      padding: 11px 40px 11px 42px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-bg-surface);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-main);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color var(--achieve-transition-fast), box-shadow var(--achieve-transition-fast);
+    }
+
+    .achieve-search-input:focus {
+      border-color: var(--achieve-border-focus);
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.2);
+    }
+
+    .achieve-search-clear {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--achieve-text-dim);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+    }
+
+    .achieve-search-clear.visible {
+      display: flex;
+    }
+
+    .achieve-filter-extras {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .achieve-year-select-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .achieve-year-select {
+      appearance: none;
+      padding: 10px 36px 10px 16px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-bg-surface);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-main);
+      font-size: 0.88rem;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+      transition: border-color var(--achieve-transition-fast);
+    }
+
+    .achieve-year-select:focus {
+      border-color: var(--achieve-border-focus);
+    }
+
+    .achieve-year-chevron {
+      position: absolute;
+      right: 12px;
+      pointer-events: none;
+      width: 16px;
+      height: 16px;
+      stroke: var(--achieve-text-dim);
+    }
+
+    .achieve-results-count {
+      font-family: var(--achieve-font-mono);
+      font-size: 0.82rem;
+      color: var(--achieve-text-dim);
+      white-space: nowrap;
+    }
+
+    .achieve-category-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--achieve-border-focus) transparent;
+    }
+
+    .achieve-category-bar::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .achieve-category-bar::-webkit-scrollbar-thumb {
+      background: var(--achieve-border-focus);
+      border-radius: 4px;
+    }
+
+    .achieve-category-btn {
+      padding: 8px 16px;
+      border-radius: var(--achieve-radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--achieve-text-muted);
+      background: var(--achieve-bg-surface);
+      border: 1px solid var(--achieve-border-subtle);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all var(--achieve-transition-fast);
+    }
+
+    .achieve-category-btn:hover {
+      color: var(--achieve-text-main);
+      border-color: var(--achieve-border-focus);
+      background: rgba(0, 242, 254, 0.05);
+    }
+
+    .achieve-category-btn.active {
+      color: #ffffff;
+      background: var(--achieve-gradient-brand);
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(0, 242, 254, 0.3);
+    }
+
+    .achieve-category-btn svg {
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+    }
+
+    /* ==========================================================================
+       7. MAIN ACHIEVEMENT CARD GRID & INTERACTIVE SPOTLIGHT
+       ========================================================================== */
+    .achieve-grid-section {
+      padding: 40px 0 80px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .achieve-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    /* Card with Dynamic Interactive Spotlight Border */
+    .achieve-card {
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      border-radius: var(--achieve-radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--achieve-shadow-card);
+      transition: transform var(--achieve-transition-medium), border-color var(--achieve-transition-medium), box-shadow var(--achieve-transition-medium);
+      position: relative;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    /* Dynamic Border Spotlight Beam */
+    .achieve-card::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: radial-gradient(350px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(0, 242, 254, 0.5) 0%, rgba(168, 85, 247, 0.2) 40%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 3;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      padding: 1.5px;
+    }
+
+    .achieve-card:hover::after {
+      opacity: 1;
+    }
+
+    .achieve-card:hover {
+      border-color: var(--achieve-border-focus);
+      box-shadow: var(--achieve-shadow-card), 0 0 28px rgba(0, 242, 254, 0.22);
+    }
+
+    .achieve-card-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 210px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .achieve-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .achieve-card:hover .achieve-card-img {
+      transform: scale(1.08);
+    }
+
+    .achieve-card-scan-sweep {
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(0, 242, 254, 0.25) 50%, transparent 100%);
+      transform: skewX(-25deg);
+      pointer-events: none;
+      transition: left 0.75s ease;
+    }
+
+    .achieve-card:hover .achieve-card-scan-sweep {
+      left: 150%;
+    }
+
+    .achieve-card-badge-floating {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+    }
+
+    .achieve-card-date-floating {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      padding: 4px 10px;
+      border-radius: var(--achieve-radius-full);
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-family: var(--achieve-font-mono);
+      font-size: 0.72rem;
+      color: #e2e8f0;
+    }
+
+    .achieve-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .achieve-card-title {
+      font-size: 1.22rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 8px;
+      color: var(--achieve-text-main);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 52px;
+    }
+
+    .achieve-card-recipient {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--achieve-cyan);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .achieve-card-recipient svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+    }
+
+    .achieve-card-summary {
+      font-size: 0.9rem;
+      color: var(--achieve-text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .achieve-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--achieve-border-subtle);
+    }
+
+    .achieve-btn-view-details {
+      padding: 8px 16px;
+      border-radius: var(--achieve-radius-sm);
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      color: var(--achieve-cyan);
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--achieve-transition-fast);
+    }
+
+    .achieve-btn-view-details:hover {
+      background: var(--achieve-cyan);
+      color: #060913;
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.35);
+    }
+
+    .achieve-btn-proof {
+      padding: 8px 12px;
+      border-radius: var(--achieve-radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--achieve-transition-fast);
+    }
+
+    .achieve-btn-proof:hover {
+      color: var(--achieve-text-main);
+      border-color: var(--achieve-border-focus);
+    }
+
+    .achieve-btn-proof svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+    }
+
+    /* Skeleton Loading State */
+    .achieve-skeleton-card {
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      border-radius: var(--achieve-radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .achieve-skeleton-img {
+      width: 100%;
+      height: 210px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 25%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.03) 75%);
+      background-size: 200% 100%;
+      animation: achieve-shimmer 1.8s infinite;
+    }
+
+    .achieve-skeleton-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .achieve-skeleton-line {
+      height: 14px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 25%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.03) 75%);
+      background-size: 200% 100%;
+      animation: achieve-shimmer 1.8s infinite;
+    }
+
+    @keyframes achieve-shimmer {
+      0% {
+        background-position: -200% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    /* Empty State */
+    .achieve-empty-state {
+      grid-column: 1 / -1;
+      padding: 70px 24px;
+      text-align: center;
+      background: var(--achieve-bg-card);
+      border: 1px dashed var(--achieve-border-subtle);
+      border-radius: var(--achieve-radius-xl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .achieve-empty-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid var(--achieve-border-focus);
+      color: var(--achieve-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .achieve-empty-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .achieve-empty-desc {
+      font-size: 0.95rem;
+      color: var(--achieve-text-muted);
+      max-width: 420px;
+      margin-bottom: 24px;
+    }
+
+    /* Error State */
+    .achieve-error-state {
+      grid-column: 1 / -1;
+      padding: 60px 24px;
+      text-align: center;
+      background: rgba(239, 68, 68, 0.05);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: var(--achieve-radius-xl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       8. ACHIEVEMENT JOURNEY / MILESTONE PIPELINE ("From Learning to Leadership")
+       ========================================================================== */
+    .achieve-journey-section {
+      padding: 80px 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .achieve-journey-pipeline {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .achieve-journey-pipeline::before {
+      content: '';
+      position: absolute;
+      top: 45px;
+      left: 60px;
+      right: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--achieve-cyan) 0%, var(--achieve-indigo) 50%, var(--achieve-purple) 100%);
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    .achieve-journey-step {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .achieve-journey-step-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--achieve-bg-surface-elevated);
+      border: 2px solid var(--achieve-border-focus);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--achieve-cyan);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+      margin-bottom: 20px;
+      transition: transform var(--achieve-transition-medium), background var(--achieve-transition-medium), box-shadow var(--achieve-transition-medium);
+    }
+
+    .achieve-journey-step:hover .achieve-journey-step-circle {
+      transform: scale(1.15);
+      background: var(--achieve-gradient-brand);
+      color: #ffffff;
+      box-shadow: 0 0 28px rgba(0, 242, 254, 0.45);
+    }
+
+    .achieve-journey-step-circle svg {
+      width: 30px;
+      height: 30px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+    }
+
+    .achieve-journey-step-tag {
+      font-family: var(--achieve-font-mono);
+      font-size: 0.7rem;
+      color: var(--achieve-cyan);
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .achieve-journey-step-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--achieve-text-main);
+    }
+
+    .achieve-journey-step-desc {
+      font-size: 0.78rem;
+      color: var(--achieve-text-muted);
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       9. CALL-TO-ACTION SECTION
+       ========================================================================== */
+    .achieve-cta-section {
+      padding: 60px 0 90px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .achieve-cta-box {
+      border-radius: var(--achieve-radius-xl);
+      background: linear-gradient(135deg, rgba(16, 24, 44, 0.95) 0%, rgba(13, 20, 38, 0.9) 100%);
+      border: 1px solid var(--achieve-border-focus);
+      padding: 60px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 242, 254, 0.15);
+    }
+
+    [data-theme="light"] .achieve-cta-box {
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+    }
+
+    .achieve-cta-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(40px);
+    }
+
+    .achieve-cta-title {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .achieve-cta-desc {
+      font-size: 1.1rem;
+      color: var(--achieve-text-muted);
+      max-width: 620px;
+      margin: 0 auto 32px;
+      position: relative;
+      z-index: 2;
+      line-height: 1.6;
+    }
+
+    .achieve-cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       10. FOOTER-STYLE BOTTOM SECTION
+       ========================================================================== */
+    .achieve-footer {
+      border-top: 1px solid var(--achieve-border-subtle);
+      background: var(--achieve-bg-surface);
+      padding: 70px 0 30px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .achieve-footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .achieve-footer-brand-desc {
+      font-size: 0.9rem;
+      color: var(--achieve-text-muted);
+      line-height: 1.6;
+      margin-top: 16px;
+      max-width: 320px;
+    }
+
+    .achieve-footer-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--achieve-text-main);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .achieve-footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .achieve-footer-link {
+      font-size: 0.88rem;
+      color: var(--achieve-text-muted);
+      transition: color var(--achieve-transition-fast), transform var(--achieve-transition-fast);
+      display: inline-block;
+    }
+
+    .achieve-footer-link:hover {
+      color: var(--achieve-cyan);
+      transform: translateX(4px);
+    }
+
+    .achieve-social-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .achieve-social-icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-bg-card);
+      border: 1px solid var(--achieve-border-subtle);
+      color: var(--achieve-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--achieve-transition-fast);
+    }
+
+    .achieve-social-icon-btn:hover {
+      background: var(--achieve-bg-card-hover);
+      border-color: var(--achieve-border-focus);
+      color: var(--achieve-cyan);
+      transform: translateY(-2px);
+    }
+
+    .achieve-social-icon-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .achieve-footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+      border-top: 1px solid var(--achieve-border-subtle);
+      font-size: 0.82rem;
+      color: var(--achieve-text-dim);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ==========================================================================
+       11. ACHIEVEMENT DETAIL MODAL
+       ========================================================================== */
+    .achieve-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(4, 7, 16, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+
+    .achieve-modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .achieve-modal-box {
+      width: 100%;
+      max-width: 760px;
+      max-height: 90vh;
+      background: var(--achieve-bg-surface);
+      border: 1px solid var(--achieve-border-focus);
+      border-radius: var(--achieve-radius-xl);
+      overflow-y: auto;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 242, 254, 0.25);
+      position: relative;
+      transform: scale(0.88) translateY(20px);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .achieve-modal-backdrop.active .achieve-modal-box {
+      transform: scale(1) translateY(0);
+    }
+
+    .achieve-modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: transform var(--achieve-transition-fast), background var(--achieve-transition-fast);
+    }
+
+    .achieve-modal-close-btn:hover {
+      transform: scale(1.1) rotate(90deg);
+      background: rgba(239, 68, 68, 0.8);
+      border-color: #ef4444;
+    }
+
+    .achieve-modal-close-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2.5;
+    }
+
+    .achieve-modal-hero-img-wrap {
+      width: 100%;
+      height: 320px;
+      position: relative;
+      background: #000;
+    }
+
+    .achieve-modal-hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .achieve-modal-hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(180deg, transparent 0%, var(--achieve-bg-surface) 100%);
+    }
+
+    .achieve-modal-body {
+      padding: 32px 36px 40px;
+      position: relative;
+    }
+
+    .achieve-modal-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .achieve-modal-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      color: var(--achieve-text-main);
+    }
+
+    .achieve-modal-recipient-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: var(--achieve-radius-md);
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      color: var(--achieve-cyan);
+      font-weight: 600;
+      font-size: 0.92rem;
+      margin-bottom: 24px;
+    }
+
+    .achieve-modal-desc-heading {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--achieve-text-main);
+      margin-bottom: 10px;
+    }
+
+    .achieve-modal-full-desc {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--achieve-text-muted);
+      margin-bottom: 28px;
+    }
+
+    .achieve-modal-highlight-box {
+      background: var(--achieve-bg-card);
+      border-left: 3px solid var(--achieve-cyan);
+      padding: 16px 20px;
+      border-radius: 0 var(--achieve-radius-md) var(--achieve-radius-md) 0;
+      margin-bottom: 28px;
+      font-size: 0.92rem;
+      color: var(--achieve-text-main);
+    }
+
+    .achieve-modal-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 1px solid var(--achieve-border-subtle);
+    }
+
+    .achieve-toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      padding: 12px 20px;
+      border-radius: var(--achieve-radius-md);
+      background: var(--achieve-bg-surface-elevated);
+      border: 1px solid var(--achieve-border-focus);
+      color: var(--achieve-text-main);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 11000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    }
+
+    .achieve-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .achieve-journey-pipeline {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px 16px;
+      }
+
+      .achieve-journey-pipeline::before {
+        display: none;
+      }
+
+      .achieve-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .achieve-hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .achieve-hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .achieve-hero-actions {
+        justify-content: center;
+      }
+
+      .achieve-hero-quick-stats {
+        justify-content: center;
+      }
+
+      .achieve-featured-slide {
+        grid-template-columns: 1fr;
+      }
+
+      .achieve-featured-img-wrap {
+        height: 300px;
+      }
+
+      .achieve-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .achieve-footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+
+      .achieve-nav-links,
+      .achieve-login-btn {
+        display: none;
+      }
+
+      .achieve-hamburger {
+        display: flex;
+      }
+
+      .achieve-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .achieve-timeline-spine {
+        left: 24px;
+      }
+
+      .achieve-timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 64px;
+        padding-right: 16px;
+        text-align: left !important;
+      }
+
+      .achieve-timeline-node {
+        left: 14px !important;
+      }
+
+      .achieve-timeline-year-marker {
+        justify-content: flex-start;
+        padding-left: 14px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .achieve-container {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .achieve-cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .achieve-stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .achieve-journey-pipeline {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .achieve-footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .achieve-featured-content {
+        padding: 24px;
+      }
+
+      .achieve-cta-box {
+        padding: 40px 20px;
+      }
+
+      .achieve-modal-body {
+        padding: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      #achieve-bg-canvas,
+      #achieve-cursor-canvas {
+        display: none !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body class="achieve-body">
+
+  <!-- Background Mesh Particle Canvas -->
+  <canvas id="achieve-bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient Cursor Glow Follower -->
+  <div class="achieve-ambient-glow" id="achieve-ambient-glow" aria-hidden="true"></div>
+
+  <!-- Cyber Stardust Particle Trail Canvas -->
+  <canvas id="achieve-cursor-canvas" aria-hidden="true"></canvas>
+
+  <!-- Precision Desktop Cursor Dot -->
+  <div class="achieve-cursor-dot" id="achieve-cursor-dot" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       1. NAVIGATION HEADER
+       ========================================================================== -->
+  <header class="achieve-navbar-wrapper" id="achieve-navbar">
+    <div class="achieve-container">
+      <div class="achieve-nav-content">
+
+        <!-- Logo / Name -->
+        <a href="#hero" class="achieve-brand" aria-label="AI Lab Home">
+          <div class="achieve-brand-logo-icon">
+            <img src="assets/ai-lab-logo.png" alt="AI LAB Official Logo" class="achieve-brand-logo-img" width="46" height="46" loading="eager" />
+          </div>
+          <div class="achieve-brand-text">
+            <span class="achieve-brand-name">AI LAB</span>
+            <span class="achieve-brand-sub">STUDENT CHAPTER</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav aria-label="Main Navigation">
+          <ul class="achieve-nav-links">
+            <li class="achieve-nav-item"><a href="#home" class="achieve-nav-link">Home</a></li>
+            <li class="achieve-nav-item"><a href="#projects" class="achieve-nav-link">Project</a></li>
+            <li class="achieve-nav-item"><a href="#hero" class="achieve-nav-link active"
+                aria-current="page">Achievements</a></li>
+            <li class="achieve-nav-item"><a href="#visitors" class="achieve-nav-link">Visitors</a></li>
+            <li class="achieve-nav-item"><a href="chat.html" class="achieve-nav-link" id="achieve-chat-link">Chat</a></li>
+          </ul>
+        </nav>
+
+        <!-- Right Side Nav Actions -->
+        <div class="achieve-nav-actions">
+          <button class="achieve-theme-toggle achieve-ripple-target" id="achieve-theme-toggle-btn"
+            aria-label="Toggle dark or light theme">
+            <svg id="achieve-theme-icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <a href="#login" class="achieve-login-btn achieve-ripple-target">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            <span>Login</span>
+          </a>
+
+          <button class="achieve-hamburger" id="achieve-hamburger-btn" aria-label="Toggle navigation drawer"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="achieve-mobile-drawer" id="achieve-mobile-drawer">
+    <div style="display: flex; align-items: center; gap: 12px; padding: 4px 6px 16px 6px; border-bottom: 1px solid var(--achieve-border-subtle); margin-bottom: 8px;">
+      <div class="achieve-brand-logo-icon" style="width: 42px; height: 42px;">
+        <img src="assets/ai-lab-logo.png" alt="AI LAB Official Logo" class="achieve-brand-logo-img" width="42" height="42" />
+      </div>
+      <div class="achieve-brand-text">
+        <span class="achieve-brand-name" style="font-size: 1.15rem;">AI LAB</span>
+        <span class="achieve-brand-sub">STUDENT CHAPTER</span>
+      </div>
+    </div>
+    <ul class="achieve-mobile-nav-list">
+      <li><a href="#home" class="achieve-mobile-nav-link">Home</a></li>
+      <li><a href="#projects" class="achieve-mobile-nav-link">Project</a></li>
+      <li><a href="#hero" class="achieve-mobile-nav-link active">Achievements (Active)</a></li>
+      <li><a href="#visitors" class="achieve-mobile-nav-link">Visitors</a></li>
+      <li><a href="chat.html" class="achieve-mobile-nav-link" id="achieve-mobile-chat-link">Chat</a></li>
+    </ul>
+    <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px;">
+      <a href="#login" class="achieve-login-btn" style="width: 100%; justify-content: center;">
+        <span>Member Portal Login</span>
+      </a>
+      <a href="https://www.linkedin.com/in/ai-lab-siet-1b1507419?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="achieve-btn-secondary" style="width: 100%; justify-content: center; padding: 10px 16px; font-size: 0.875rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.55a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z" />
+        </svg>
+        <span>Connect on LinkedIn</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         2. ACHIEVEMENT HERO SECTION
+         ========================================================================== -->
+    <section class="achieve-hero" id="hero">
+      <div class="achieve-container">
+        <div class="achieve-hero-grid">
+
+          <div class="achieve-hero-content">
+            <div class="achieve-badge-container">
+              <div class="achieve-pill-badge">
+                <span class="achieve-badge-pulse-dot"></span>
+                <span>AI CLUB HALL OF FAME</span>
+              </div>
+            </div>
+
+            <h1 class="achieve-hero-title">
+              Celebrating Innovation.<br>
+              <span class="achieve-gradient-text">Recognizing Excellence.</span>
+            </h1>
+
+            <p class="achieve-hero-desc">
+              Explore the achievements, milestones, certifications, competitions, collaborations and accomplishments of
+              our AI Club community.
+            </p>
+
+            <div class="achieve-hero-actions">
+              <a href="#milestones" class="achieve-btn-primary achieve-ripple-target">
+                <span>Explore Milestones</span>
+                <svg viewBox="0 0 24 24">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="#gallery" class="achieve-btn-secondary achieve-ripple-target">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+                <span>Filter Gallery</span>
+              </a>
+            </div>
+
+            <div class="achieve-hero-quick-stats">
+              <div class="achieve-quick-stat-item">
+                <span class="achieve-quick-stat-num">25+</span>
+                <span class="achieve-quick-stat-label">Major Laurels</span>
+              </div>
+              <div class="achieve-quick-stat-item">
+                <span class="achieve-quick-stat-num">100%</span>
+                <span class="achieve-quick-stat-label">Student Driven</span>
+              </div>
+              <div class="achieve-quick-stat-item">
+                <span class="achieve-quick-stat-num">Tier-1</span>
+                <span class="achieve-quick-stat-label">National Rank</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: 3D Holographic Trophy & Floating Badges -->
+          <div class="achieve-hero-visual-wrapper" id="achieve-hero-visual-box">
+            <div class="achieve-hero-3d-scene" id="achieve-hero-scene">
+              <div class="achieve-trophy-glow-disc"></div>
+              <div class="achieve-orbit-ring achieve-orbit-ring-1"></div>
+              <div class="achieve-orbit-ring achieve-orbit-ring-2"></div>
+
+              <div class="achieve-trophy-svg-container">
+                <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="trophyGold" x1="20" y1="20" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#00f2fe" />
+                      <stop offset="40%" stop-color="#3b82f6" />
+                      <stop offset="100%" stop-color="#8b5cf6" />
+                    </linearGradient>
+                    <linearGradient id="cupShine" x1="50" y1="30" x2="150" y2="130" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="rgba(255,255,255,0.7)" />
+                      <stop offset="100%" stop-color="rgba(255,255,255,0.05)" />
+                    </linearGradient>
+                    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="8" result="blur" />
+                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                  </defs>
+
+                  <circle cx="100" cy="90" r="75" stroke="url(#trophyGold)" stroke-width="1.5" stroke-dasharray="4 6"
+                    opacity="0.6" />
+                  <path d="M60 195 L140 195 L130 175 L70 175 Z" fill="url(#trophyGold)" />
+                  <rect x="75" y="170" width="50" height="8" rx="2" fill="#00f2fe" opacity="0.8" />
+                  <rect x="92" y="135" width="16" height="35" rx="3" fill="url(#trophyGold)" />
+                  <path d="M50 40 L150 40 C150 40 145 125 100 135 C55 125 50 40 50 40 Z" fill="url(#trophyGold)"
+                    filter="url(#neonGlow)" opacity="0.95" />
+                  <path d="M58 45 L142 45 C142 45 138 115 100 125 C62 115 58 45 58 45 Z" fill="url(#cupShine)" />
+                  <path d="M50 50 C25 50 20 85 45 100 C52 104 55 100 55 96 C35 84 38 62 52 60 Z"
+                    fill="url(#trophyGold)" />
+                  <path d="M150 50 C175 50 180 85 155 100 C148 104 145 100 145 96 C165 84 162 62 148 60 Z"
+                    fill="url(#trophyGold)" />
+                  <circle cx="100" cy="80" r="18" fill="#060913" stroke="#00f2fe" stroke-width="2" />
+                  <path d="M93 80 L100 73 L107 80 L100 87 Z" fill="#00f2fe" />
+                  <circle cx="100" cy="80" r="3" fill="#ffffff" />
+                </svg>
+              </div>
+
+              <div class="achieve-orbit-badge achieve-orbit-badge-1 achieve-badge-gold">
+                <span class="achieve-badge-icon">🏆</span>
+                <div>
+                  <div style="font-size:0.7rem; color:var(--achieve-text-dim);">Global Hackathon</div>
+                  <div>1st Grand Prize</div>
+                </div>
+              </div>
+
+              <div class="achieve-orbit-badge achieve-orbit-badge-2 achieve-badge-purple">
+                <span class="achieve-badge-icon">⚡</span>
+                <div>
+                  <div style="font-size:0.7rem; color:var(--achieve-text-dim);">IEEE Conf</div>
+                  <div>Best Research Paper</div>
+                </div>
+              </div>
+
+              <div class="achieve-orbit-badge achieve-orbit-badge-3 achieve-badge-cyan">
+                <span class="achieve-badge-icon">🔬</span>
+                <div>
+                  <div style="font-size:0.7rem; color:var(--achieve-text-dim);">Research Lab</div>
+                  <div>CERN OpenLab Partner</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <a href="#stats" class="achieve-scroll-indicator" aria-label="Scroll down to statistics">
+          <span>DISCOVER ACHIEVEMENTS</span>
+          <svg class="achieve-scroll-chevron" viewBox="0 0 24 24" fill="none">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. ACHIEVEMENT STATISTICS
+         ========================================================================== -->
+    <section class="achieve-stats-section" id="stats">
+      <div class="achieve-container">
+        <div class="achieve-stats-grid">
+
+          <div class="achieve-stat-card" data-stat="25">
+            <div class="achieve-stat-icon-wrapper">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+            </div>
+            <div class="achieve-stat-number"><span class="achieve-counter-val" data-target="25">0</span>+</div>
+            <div class="achieve-stat-title">Achievements</div>
+            <div class="achieve-stat-desc">Hall of Fame Records</div>
+          </div>
+
+          <div class="achieve-stat-card" data-stat="12">
+            <div class="achieve-stat-icon-wrapper">
+              <svg viewBox="0 0 24 24">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                <path d="M4 22h16"></path>
+                <path d="M10 14.66V17c0 .55-.45 1-1 1H7"></path>
+                <path d="M14 14.66V17c0 .55.45 1 1 1h2"></path>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+              </svg>
+            </div>
+            <div class="achieve-stat-number"><span class="achieve-counter-val" data-target="12">0</span>+</div>
+            <div class="achieve-stat-title">Competitions</div>
+            <div class="achieve-stat-desc">Victories & Podiums</div>
+          </div>
+
+          <div class="achieve-stat-card" data-stat="40">
+            <div class="achieve-stat-icon-wrapper">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <line x1="7" y1="8" x2="17" y2="8"></line>
+                <line x1="7" y1="12" x2="13" y2="12"></line>
+                <circle cx="16" cy="14" r="2"></circle>
+              </svg>
+            </div>
+            <div class="achieve-stat-number"><span class="achieve-counter-val" data-target="40">0</span>+</div>
+            <div class="achieve-stat-title">Certificates</div>
+            <div class="achieve-stat-desc">Cloud & ML Specialist</div>
+          </div>
+
+          <div class="achieve-stat-card" data-stat="8">
+            <div class="achieve-stat-icon-wrapper">
+              <svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="achieve-stat-number"><span class="achieve-counter-val" data-target="8">0</span>+</div>
+            <div class="achieve-stat-title">Collaborations</div>
+            <div class="achieve-stat-desc">Labs & Industry Tie-ups</div>
+          </div>
+
+          <div class="achieve-stat-card" data-stat="100">
+            <div class="achieve-stat-icon-wrapper">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z"></path>
+                <path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"></path>
+                <polygon points="12 4 13.5 7.5 17 8 14.5 10.5 15 14 12 12.2 9 14 9.5 10.5 7 8 10.5 7.5 12 4"></polygon>
+              </svg>
+            </div>
+            <div class="achieve-stat-number"><span class="achieve-counter-val" data-target="100">0</span>+</div>
+            <div class="achieve-stat-title">Members Recognized</div>
+            <div class="achieve-stat-desc">Students Empowered</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       4. FEATURED ACHIEVEMENTS CAROUSEL
+       ========================================================================== -->
+    <section class="achieve-featured-section" id="featured">
+      <div class="achieve-container">
+
+        <div class="achieve-section-header">
+          <div class="achieve-section-title-group">
+            <div class="achieve-section-subtitle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
+              </svg>
+              <span>Spotlight Honors</span>
+            </div>
+            <h2 class="achieve-section-title">Featured Achievements</h2>
+          </div>
+
+          <div class="achieve-carousel-controls">
+            <button class="achieve-carousel-btn achieve-ripple-target" id="achieve-carousel-prev"
+              aria-label="Previous featured achievement">
+              <svg viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="achieve-carousel-btn achieve-ripple-target" id="achieve-carousel-next"
+              aria-label="Next featured achievement">
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="achieve-carousel-container" id="achieve-carousel-box" tabindex="0">
+          <div class="achieve-carousel-track" id="achieve-carousel-track"></div>
+          <div class="achieve-carousel-pagination" id="achieve-carousel-pagination" role="tablist"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       5. MAIN SHOWCASE: TIMELINE ("Milestones That Define Us")
+       ========================================================================== -->
+    <section class="achieve-timeline-section" id="milestones">
+      <div class="achieve-container">
+
+        <div class="achieve-section-header" style="justify-content: center; text-align: center;">
+          <div class="achieve-section-title-group" style="max-width: 700px;">
+            <div class="achieve-section-subtitle" style="justify-content: center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 14 14"></polyline>
+              </svg>
+              <span>Chronicles of Excellence</span>
+            </div>
+            <h2 class="achieve-section-title">Milestones That Define Us</h2>
+            <p style="margin-top: 10px; font-size: 1.05rem;">
+              Trace our progression from ambitious undergraduate research projects to world-class competitive accolades.
+            </p>
+          </div>
+        </div>
+
+        <div class="achieve-timeline-wrapper" id="achieve-timeline-container">
+          <div class="achieve-timeline-spine" id="achieve-timeline-spine"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       6. ACHIEVEMENT CATEGORY NAVIGATION, SEARCH & FILTER CONTROLS
+       ========================================================================== -->
+    <section class="achieve-filter-section" id="gallery">
+      <div class="achieve-container">
+        <div class="achieve-filter-wrapper">
+
+          <div class="achieve-filter-row-top">
+            <div class="achieve-search-box">
+              <svg class="achieve-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="achieve-search-input" class="achieve-search-input"
+                placeholder="Search by title, recipient, summary..." aria-label="Search achievements">
+              <button id="achieve-search-clear" class="achieve-search-clear" aria-label="Clear search">✕</button>
+            </div>
+
+            <div class="achieve-filter-extras">
+              <div class="achieve-year-select-wrap">
+                <select id="achieve-year-select" class="achieve-year-select" aria-label="Filter by Year">
+                  <option value="all">All Years</option>
+                  <option value="2026">2026</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                </select>
+                <svg class="achieve-year-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+
+              <div class="achieve-results-count" id="achieve-results-indicator">
+                Showing <strong id="achieve-count-current">0</strong> of <strong id="achieve-count-total">0</strong>
+                achievements
+              </div>
+            </div>
+          </div>
+
+          <div class="achieve-category-bar" id="achieve-category-bar" role="tablist">
+            <button class="achieve-category-btn active achieve-ripple-target" data-category="all" role="tab"
+              aria-selected="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a10 10 0 0 1 10 10"></path>
+              </svg>
+              <span>All</span>
+            </button>
+            <button class="achieve-category-btn achieve-ripple-target" data-category="competition" role="tab"
+              aria-selected="false">
+              <svg viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
+              </svg>
+              <span>Competitions</span>
+            </button>
+            <button class="achieve-category-btn achieve-ripple-target" data-category="hackathon" role="tab"
+              aria-selected="false">
+              <svg viewBox="0 0 24 24">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              <span>Hackathons</span>
+            </button>
+            <button class="achieve-category-btn achieve-ripple-target" data-category="get-together" role="tab"
+              aria-selected="false">
+              <svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span>Get-Togethers</span>
+            </button>
+            <button class="achieve-category-btn achieve-ripple-target" data-category="collaboration" role="tab"
+              aria-selected="false">
+              <svg viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <line x1="19" y1="8" x2="19" y2="14"></line>
+                <line x1="22" y1="11" x2="16" y2="11"></line>
+              </svg>
+              <span>Collaborations</span>
+            </button>
+            <button class="achieve-category-btn achieve-ripple-target" data-category="free-course" role="tab"
+              aria-selected="false">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              <span>Free Courses</span>
+            </button>
+            <button class="achieve-category-btn achieve-ripple-target" data-category="certificate" role="tab"
+              aria-selected="false">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <line x1="7" y1="8" x2="17" y2="8"></line>
+                <line x1="7" y1="12" x2="13" y2="12"></line>
+              </svg>
+              <span>Certificates</span>
+            </button>
+            <button class="achieve-category-btn achieve-ripple-target" data-category="ambassador" role="tab"
+              aria-selected="false">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Ambassador</span>
+            </button>
+            <button class="achieve-category-btn achieve-ripple-target" data-category="other" role="tab"
+              aria-selected="false">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="19" cy="12" r="1"></circle>
+                <circle cx="5" cy="12" r="1"></circle>
+              </svg>
+              <span>Other</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       7. MAIN ACHIEVEMENT CARD GRID
+       ========================================================================== -->
+    <section class="achieve-grid-section">
+      <div class="achieve-container">
+        <div class="achieve-cards-grid" id="achieve-cards-grid"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       8. ACHIEVEMENT JOURNEY / MILESTONE PIPELINE
+       ========================================================================== -->
+    <section class="achieve-journey-section" id="journey">
+      <div class="achieve-container">
+
+        <div class="achieve-section-header" style="justify-content: center; text-align: center;">
+          <div class="achieve-section-title-group" style="max-width: 650px;">
+            <div class="achieve-section-subtitle" style="justify-content: center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              <span>Growth Ecosystem</span>
+            </div>
+            <h2 class="achieve-section-title">From Learning to Leadership</h2>
+            <p style="margin-top: 10px;">
+              Our proven multi-stage roadmap that guides every club recruit into an award-winning artificial
+              intelligence pioneer.
+            </p>
+          </div>
+        </div>
+
+        <div class="achieve-journey-pipeline">
+          <div class="achieve-journey-step">
+            <div class="achieve-journey-step-circle">
+              <svg viewBox="0 0 24 24">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <div class="achieve-journey-step-tag">STAGE 01</div>
+            <h3 class="achieve-journey-step-name">LEARN</h3>
+            <p class="achieve-journey-step-desc">Master mathematical foundations, PyTorch, LLMs, and agentic workflows.
+            </p>
+          </div>
+
+          <div class="achieve-journey-step">
+            <div class="achieve-journey-step-circle">
+              <svg viewBox="0 0 24 24">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <div class="achieve-journey-step-tag">STAGE 02</div>
+            <h3 class="achieve-journey-step-name">BUILD</h3>
+            <p class="achieve-journey-step-desc">Architect open-source neural frameworks, vision models, and web tools.
+            </p>
+          </div>
+
+          <div class="achieve-journey-step">
+            <div class="achieve-journey-step-circle">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+            </div>
+            <div class="achieve-journey-step-tag">STAGE 03</div>
+            <h3 class="achieve-journey-step-name">COMPETE</h3>
+            <p class="achieve-journey-step-desc">Form elite squads for international hackathons & Kaggle leaderboards.
+            </p>
+          </div>
+
+          <div class="achieve-journey-step">
+            <div class="achieve-journey-step-circle">
+              <svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="achieve-journey-step-tag">STAGE 04</div>
+            <h3 class="achieve-journey-step-name">COLLABORATE</h3>
+            <p class="achieve-journey-step-desc">Partner with CERN, DeepLearning.AI, academic labs, and tech firms.</p>
+          </div>
+
+          <div class="achieve-journey-step">
+            <div class="achieve-journey-step-circle">
+              <svg viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
+              </svg>
+            </div>
+            <div class="achieve-journey-step-tag">STAGE 05</div>
+            <h3 class="achieve-journey-step-name">ACHIEVE</h3>
+            <p class="achieve-journey-step-desc">Win grand championships, publish in IEEE, and earn industry
+              credentials.</p>
+          </div>
+
+          <div class="achieve-journey-step">
+            <div class="achieve-journey-step-circle">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2a5 5 0 0 1 5 5v3a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z"></path>
+                <path d="M19 11v1a7 7 0 0 1-14 0v-1"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+            </div>
+            <div class="achieve-journey-step-tag">STAGE 06</div>
+            <h3 class="achieve-journey-step-name">LEAD</h3>
+            <p class="achieve-journey-step-desc">Mentor rising juniors, drive keynote summits, and direct club strategy.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       9. CALL-TO-ACTION SECTION
+       ========================================================================== -->
+    <section class="achieve-cta-section">
+      <div class="achieve-container">
+        <div class="achieve-cta-box">
+          <h2 class="achieve-cta-title">
+            Have You Achieved Something <span class="achieve-gradient-text">Extraordinary?</span>
+          </h2>
+          <p class="achieve-cta-desc">
+            Whether you just published a research breakthrough, secured a hackathon trophy, or earned an elite AI
+            credential, your accomplishments belong in our Digital Hall of Fame.
+          </p>
+          <div class="achieve-cta-actions">
+            <button class="achieve-btn-primary achieve-ripple-target" id="achieve-submit-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>Submit Your Achievement</span>
+            </button>
+            <a href="#contact" class="achieve-btn-secondary achieve-ripple-target">
+              <span>Join Competition Squad</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       10. FOOTER SECTION
+       ========================================================================== -->
+  <footer class="achieve-footer">
+    <div class="achieve-container">
+      <div class="achieve-footer-grid">
+
+        <div>
+          <a href="#hero" class="achieve-brand" aria-label="AI Lab Home">
+            <div class="achieve-brand-logo-icon">
+              <img src="assets/ai-lab-logo.png" alt="AI LAB Official Logo" class="achieve-brand-logo-img" width="46" height="46" loading="lazy" />
+            </div>
+            <div class="achieve-brand-text">
+              <span class="achieve-brand-name">AI LAB</span>
+              <span class="achieve-brand-sub">STUDENT CHAPTER</span>
+            </div>
+          </a>
+          <p class="achieve-footer-brand-desc">
+            Empowering the next generation of artificial intelligence engineers, researchers, and innovators through
+            open collaboration and competitive excellence.
+          </p>
+          <div class="achieve-social-row">
+            <a href="https://github.com" target="_blank" rel="noopener"
+              class="achieve-social-icon-btn achieve-ripple-target" aria-label="GitHub">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/ai-lab-siet-1b1507419?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener"
+              class="achieve-social-icon-btn achieve-ripple-target" aria-label="AI Lab SIET LinkedIn Profile">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.55a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z" />
+              </svg>
+            </a>
+            <a href="https://discord.com" target="_blank" rel="noopener"
+              class="achieve-social-icon-btn achieve-ripple-target" aria-label="Discord">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="achieve-footer-title">Pages</h4>
+          <ul class="achieve-footer-links">
+            <li><a href="#home" class="achieve-footer-link">Home</a></li>
+            <li><a href="#projects" class="achieve-footer-link">Project</a></li>
+            <li><a href="#hero" class="achieve-footer-link" style="color:var(--achieve-cyan)">Achievements</a></li>
+            <li><a href="#visitors" class="achieve-footer-link">Visitors</a></li>
+            <li><a href="chat.html" class="achieve-footer-link">Chat</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="achieve-footer-title">Community</h4>
+          <ul class="achieve-footer-links">
+            <li><a href="#collaborations" class="achieve-footer-link">Collaborations</a></li>
+            <li><a href="#events" class="achieve-footer-link">Events</a></li>
+            <li><a href="#visitors" class="achieve-footer-link">Visitors</a></li>
+            <li><a href="#team" class="achieve-footer-link">Team Roster</a></li>
+            <li><a href="#contests" class="achieve-footer-link">Contests</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="achieve-footer-title">Hall of Fame Info</h4>
+          <p style="font-size:0.88rem; color:var(--achieve-text-muted); line-height:1.6; margin-bottom:12px;">
+            Recognized by college administration and global competition consortiums. All claims verified by faculty
+            advisors.
+          </p>
+          <div style="font-family:var(--achieve-font-mono); font-size:0.75rem; color:var(--achieve-text-dim);">
+            API Version: v1.0.4-prod<br>
+            Updated: 2026 Academic Cycle
+          </div>
+        </div>
+
+      </div>
+
+      <div class="achieve-footer-bottom">
+        <div>© 2026 AI Club Student Chapter. Built by the AI Club Frontend Dev Team. All rights reserved.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="#privacy" style="color:inherit">Privacy Policy</a>
+          <a href="#terms" style="color:inherit">Terms of Service</a>
+          <a href="#verify" style="color:inherit">Verification Registry</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       11. ACHIEVEMENT DETAIL MODAL
+       ========================================================================== -->
+  <div class="achieve-modal-backdrop" id="achieve-detail-modal" role="dialog" aria-modal="true"
+    aria-labelledby="achieve-modal-title" aria-hidden="true">
+    <div class="achieve-modal-box">
+      <button class="achieve-modal-close-btn achieve-ripple-target" id="achieve-modal-close-btn"
+        aria-label="Close achievement details modal">
+        <svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="achieve-modal-hero-img-wrap">
+        <img id="achieve-modal-img" src="" alt="Achievement Full View">
+        <div class="achieve-modal-hero-overlay"></div>
+      </div>
+
+      <div class="achieve-modal-body">
+        <div class="achieve-modal-meta-row">
+          <span class="achieve-category-badge" id="achieve-modal-badge">Category</span>
+          <span style="font-family:var(--achieve-font-mono); font-size:0.8rem; color:var(--achieve-text-dim);"
+            id="achieve-modal-date">Date</span>
+          <span style="font-family:var(--achieve-font-mono); font-size:0.8rem; color:var(--achieve-cyan);"
+            id="achieve-modal-year">Year</span>
+        </div>
+
+        <h2 class="achieve-modal-title" id="achieve-modal-title">Achievement Title</h2>
+
+        <div class="achieve-modal-recipient-card">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span id="achieve-modal-recipient">Team / Recipient Name</span>
+        </div>
+
+        <div class="achieve-modal-highlight-box" id="achieve-modal-highlight">
+          <strong>Key Impact / Award:</strong> <span id="achieve-modal-metric-val">1st Place Grand Winner</span>
+        </div>
+
+        <h3 class="achieve-modal-desc-heading">Overview & Technical Accomplishment</h3>
+        <p class="achieve-modal-full-desc" id="achieve-modal-desc">
+          Full detailed description will appear here...
+        </p>
+
+        <div class="achieve-modal-actions-row">
+          <a href="#" target="_blank" rel="noopener" class="achieve-btn-primary achieve-ripple-target"
+            id="achieve-modal-proof-link">
+            <span>View Verified Proof</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+
+          <button class="achieve-btn-secondary achieve-ripple-target" id="achieve-modal-share-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <span>Share Achievement</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="achieve-toast" id="achieve-toast" role="status" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--achieve-cyan)" stroke-width="2.5">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="achieve-toast-message">Notification text</span>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT ARCHITECTURE
+       ========================================================================== -->
+  <script>
+    const AIClubAchievementsApp = (() => {
+
+      const API_CONFIG = {
+        baseUrl: '/api/v1/achievements',
+        useMock: true,
+        enableAmbassador: true
+      };
+
+      const MOCK_ACHIEVEMENTS = [
+        {
+          id: "a1",
+          title: "Global AI Hackathon 2026 - 1st Grand Championship",
+          category: "hackathon",
+          date: "2026-03-14",
+          year: 2026,
+          image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+          summary: "Engineered 'NeuroPulse', an edge-AI clinical triage copilot for low-bandwidth rural healthcare facilities.",
+          description: "Competing against 450+ international university teams in Singapore (Hybrid), AI Club flagship squad 'NeuralForge' secured the Grand Championship prize. NeuroPulse deploys lightweight quantized vision-language models to perform preliminary diagnostic triage and radiological scans with 97.4% board concordance.",
+          recipient: "Team NeuralForge (Aarav, Priya, Rohan & Sneha)",
+          metric: "1st Place Grand Winner ($15,000 + Cloud Grants)",
+          proofUrl: "https://example.com/certificates/global-hackathon-2026",
+          featured: true
+        },
+        {
+          id: "a2",
+          title: "National Kaggle LLM Reasoning Challenge - Gold Medal Tier",
+          category: "competition",
+          date: "2026-01-20",
+          year: 2026,
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+          summary: "Ranked #2 nationwide among 1,200+ data science teams in generative multi-hop reasoning.",
+          description: "Club research leads engineered a high-throughput hybrid RAG retrieval pipeline featuring custom speculative decoding and dynamic context pruning. The model attained a leaderboard metric of 0.931 on complex multi-hop STEM queries.",
+          recipient: "Karthik Raja & Aditi Sharma",
+          metric: "National Rank #2 / 1,200+ (Gold Medal Tier)",
+          proofUrl: "https://example.com/certificates/kaggle-llm-2026",
+          featured: true
+        },
+        {
+          id: "a3",
+          title: "Quantum-Classical AI Research Partnership with CERN OpenLab",
+          category: "collaboration",
+          date: "2025-11-18",
+          year: 2025,
+          image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80",
+          summary: "Formed bilateral academic initiative co-developing geometric graph neural networks for particle trajectory reconstruction.",
+          description: "Under a rigorous 6-month research grant, our student research wing co-designed distributed graph neural networks with CERN OpenLab scientists. The resulting algorithm decreased track reconstruction latency by 42% on high-energy collision clusters.",
+          recipient: "AI Club Advanced Systems Lab",
+          metric: "Official CERN Academic Affiliation & Code Release",
+          proofUrl: "https://example.com/collaborations/cern-ai-2025",
+          featured: true
+        },
+        {
+          id: "a4",
+          title: "NVIDIA Deep Learning Institute (DLI) University Ambassador",
+          category: "ambassador",
+          date: "2025-09-10",
+          year: 2025,
+          image: "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=1200&q=80",
+          summary: "Appointed official student ambassador for accelerated computing, training 320+ engineers in GPU deep learning.",
+          description: "Selected as 1 of only 15 student ambassadors nationwide for NVIDIA DLI. Successfully designed and facilitated 4 official certified hands-on workshops covering TensorRT optimization, Transformer architectures, and CUDA acceleration.",
+          recipient: "Meera Krishnan",
+          metric: "Official NVIDIA DLI Ambassador (320+ Students Certified)",
+          proofUrl: "https://example.com/ambassador/nvidia-dli-2025",
+          featured: false
+        },
+        {
+          id: "a5",
+          title: "IEEE International Conference Best Research Paper Award",
+          category: "competition",
+          date: "2025-07-28",
+          year: 2025,
+          image: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=1200&q=80",
+          summary: "Awarded Best Student Research Paper for 'Adaptive LoRA Distillation for Edge Autonomous Robotics'.",
+          description: "Presented at the 2025 IEEE International Conference on Intelligent Autonomous Systems. The paper proposed an energy-frugal parameter-efficient fine-tuning technique that enabled onboard quadcopters to conduct real-time obstacle avoidance with 3x battery longevity.",
+          recipient: "Siddharth Nair & Dr. V. Raman",
+          metric: "Best Student Paper Laurels (Top 1% of Submissions)",
+          proofUrl: "https://example.com/papers/ieee-2025-best-paper",
+          featured: true
+        },
+        {
+          id: "a6",
+          title: "AWS Certified Machine Learning - Specialty Cohort Milestone",
+          category: "certificate",
+          date: "2025-05-15",
+          year: 2025,
+          image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+          summary: "100% first-attempt pass rate achieved in intensive 8-week Cloud Machine Learning Specialty bootcamp.",
+          description: "Our club sponsored and organized an intensive 8-week bootcamp covering AWS SageMaker pipelines, feature stores, hyperparameter optimization, and distributed multi-GPU training. All 24 enrolled club members passed their official examinations.",
+          recipient: "24 AI Club Core Members",
+          metric: "24/24 Certified Developers (100% Pass Rate)",
+          proofUrl: "https://example.com/certifications/aws-ml-cohort-2025",
+          featured: false
+        },
+        {
+          id: "a7",
+          title: "Annual AI Club Alumni & Industry Summit ('Synapse 2025')",
+          category: "get-together",
+          date: "2025-04-02",
+          year: 2025,
+          image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
+          summary: "Conducted flagship summit uniting 250+ student engineers, 40 AI industry alumni, and 12 startup founders.",
+          description: "Synapse 2025 was our annual flagship networking get-together. Featuring keynote fireside chats with alumni from leading AI research labs, panel discussions on autonomous robotics, and a speed-mentoring session that yielded 14 summer internship offers for members.",
+          recipient: "AI Club Executive Committee",
+          metric: "250+ Attendees & 14 Direct Internship Offers",
+          proofUrl: "https://example.com/events/synapse-2025",
+          featured: false
+        },
+        {
+          id: "a8",
+          title: "Open-Access 'Foundations of Modern GenAI' Community Course",
+          category: "free-course",
+          date: "2025-02-12",
+          year: 2025,
+          image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+          summary: "Authored and launched an open-access, zero-paywall 6-module GenAI interactive curriculum reaching 5,000+ learners.",
+          description: "To democratize deep learning education, the club designed an end-to-end curriculum encompassing Python for ML, Attention mechanisms, diffusion models, and LangChain agents. Hosted with zero paywalls and interactive Jupyter notebooks.",
+          recipient: "AI Club Education Wing",
+          metric: "5,200+ Active Students & 4.9/5 Rating",
+          proofUrl: "https://example.com/courses/modern-genai",
+          featured: false
+        },
+        {
+          id: "a9",
+          title: "Smart India Hackathon (SIH) 2024 - 1st Position Hardware/AI",
+          category: "hackathon",
+          date: "2024-12-19",
+          year: 2024,
+          image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80",
+          summary: "Built an edge-AI IoT drone for multispectral crop pathology detection for the Ministry of Agriculture.",
+          description: "Selected from 65,000 applicant teams across India, Team VisionAgro represented our college in the 36-hour nonstop Grand Finale. Their thermal & multispectral drone pipeline detected crop blight 7 days before visual onset, winning the national 1st prize trophy.",
+          recipient: "Team VisionAgro (4 AI Club Sophomores)",
+          metric: "National Champions (Rs. 1,00,000 Cash Prize)",
+          proofUrl: "https://example.com/awards/sih-2024-winner",
+          featured: false
+        },
+        {
+          id: "a10",
+          title: "DeepLearning.AI Official Study Group Partner Recognition",
+          category: "collaboration",
+          date: "2024-10-05",
+          year: 2024,
+          image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+          summary: "Recognized as premier regional partner by Andrew Ng's DeepLearning.AI educational foundation.",
+          description: "Official institutional recognition awarded for hosting weekly community coding circles, peer paper reviews, and fostering open AI literacy. Over 600 students completed specialization certificates through this collaborative framework.",
+          recipient: "AI Club Leadership",
+          metric: "Premier Institutional Partner Recognition",
+          proofUrl: "https://example.com/partners/deeplearning-ai-2024",
+          featured: false
+        },
+        {
+          id: "a11",
+          title: "TensorFlow Developer Professional Certificate Milestone",
+          category: "certificate",
+          date: "2024-06-18",
+          year: 2024,
+          image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+          summary: "35 sophomore students earned Google TensorFlow Developer Certificates in a record single semester.",
+          description: "A comprehensive mentorship pipeline paired senior club leads with sophomores to master computer vision, NLP, and time-series forecasting in TensorFlow 2.x, resulting in 35 credentialed developers.",
+          recipient: "AI Club Junior Batch",
+          metric: "35 Certified Google Developers",
+          proofUrl: "https://example.com/certifications/tf-cohort-2024",
+          featured: false
+        },
+        {
+          id: "a12",
+          title: "State Inter-College AI Project Expo - Innovation Trophy",
+          category: "other",
+          date: "2024-03-22",
+          year: 2024,
+          image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
+          summary: "Created a real-time sign language to multilingual speech translator running on Raspberry Pi 5.",
+          description: "Showcased at the State Technical Project Exposition among 90 competing engineering colleges. The AssistiveAI system achieved 98% accuracy on Indian Sign Language (ISL) with zero cloud dependency and sub-80ms latency, taking home the Overall Innovation Trophy.",
+          recipient: "Team AssistiveAI (Vandana, Naveen, & Deepa)",
+          metric: "Overall State Innovation Gold Trophy",
+          proofUrl: "https://example.com/expo/assistive-ai-2024",
+          featured: false
+        }
+      ];
+
+      const state = {
+        achievements: [],
+        filteredAchievements: [],
+        featuredAchievements: [],
+        currentCategory: 'all',
+        currentYear: 'all',
+        searchQuery: '',
+        carouselIndex: 0,
+        carouselTimer: null,
+        activeModalId: null,
+        theme: 'dark'
+      };
+
+      async function getAchievements(params = {}) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            let results = [...MOCK_ACHIEVEMENTS];
+
+            if (!API_CONFIG.enableAmbassador) {
+              results = results.filter(item => item.category !== 'ambassador');
+            }
+
+            if (params.category && params.category !== 'all') {
+              results = results.filter(item => item.category === params.category);
+            }
+
+            if (params.year && params.year !== 'all') {
+              results = results.filter(item => item.year.toString() === params.year.toString());
+            }
+
+            if (params.search && params.search.trim()) {
+              const q = params.search.toLowerCase().trim();
+              results = results.filter(item =>
+                item.title.toLowerCase().includes(q) ||
+                item.summary.toLowerCase().includes(q) ||
+                item.recipient.toLowerCase().includes(q) ||
+                item.category.toLowerCase().includes(q)
+              );
+            }
+
+            if (params.featured === true) {
+              results = results.filter(item => item.featured === true);
+            }
+
+            resolve(results);
+          }, 40);
+        });
+      }
+
+      function renderAchievements(list) {
+        const grid = document.getElementById('achieve-cards-grid');
+        const countCurrent = document.getElementById('achieve-count-current');
+        const countTotal = document.getElementById('achieve-count-total');
+
+        if (!grid) return;
+
+        countCurrent.textContent = list.length;
+        countTotal.textContent = state.achievements.length;
+
+        if (list.length === 0) {
+          grid.innerHTML = `
+            <div class="achieve-empty-state">
+              <div class="achieve-empty-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>
+              <h3 class="achieve-empty-title">No Achievements Found</h3>
+              <p class="achieve-empty-desc">
+                We couldn't find any achievements matching your current filter or search criteria. Try selecting another category or resetting filters.
+              </p>
+              <button class="achieve-btn-primary achieve-ripple-target" id="achieve-empty-reset-btn">
+                <span>Reset All Filters</span>
+              </button>
+            </div>
+          `;
+
+          const resetBtn = document.getElementById('achieve-empty-reset-btn');
+          if (resetBtn) resetBtn.addEventListener('click', resetFilters);
+          return;
+        }
+
+        grid.innerHTML = list.map((item, index) => {
+          const categoryBadgeClass = getBadgeClass(item.category);
+
+          return `
+            <article class="achieve-card" data-id="${item.id}" style="animation: achieve-fade-up 0.5s ease backwards ${index * 60}ms;">
+              <div class="achieve-card-img-wrap">
+                <img class="achieve-card-img" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy">
+                <div class="achieve-card-scan-sweep"></div>
+                <div class="achieve-card-badge-floating">
+                  <span class="achieve-category-badge ${categoryBadgeClass}">${item.category}</span>
+                </div>
+                <div class="achieve-card-date-floating">${item.year}</div>
+              </div>
+
+              <div class="achieve-card-body">
+                <h3 class="achieve-card-title">${escapeHtml(item.title)}</h3>
+                <div class="achieve-card-recipient">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  <span>${escapeHtml(item.recipient)}</span>
+                </div>
+                <p class="achieve-card-summary">${escapeHtml(item.summary)}</p>
+
+                <div class="achieve-card-footer">
+                  <button class="achieve-btn-view-details achieve-ripple-target" onclick="AIClubAchievementsApp.openAchievementModal('${item.id}')">
+                    <span>View Details</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+
+                  ${item.proofUrl ? `
+                    <a href="${item.proofUrl}" target="_blank" rel="noopener" class="achieve-btn-proof achieve-ripple-target" title="View Verified Proof">
+                      <span>Proof</span>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  ` : ''}
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        initCard3DTilt();
+      }
+
+      function renderFeaturedCarousel(featuredList) {
+        const track = document.getElementById('achieve-carousel-track');
+        const pagination = document.getElementById('achieve-carousel-pagination');
+
+        if (!track || !pagination) return;
+
+        track.innerHTML = featuredList.map((item, index) => {
+          const badgeClass = getBadgeClass(item.category);
+
+          return `
+            <div class="achieve-featured-slide" data-index="${index}">
+              <div class="achieve-featured-img-wrap">
+                <img src="${item.image}" alt="${escapeHtml(item.title)}">
+                <div class="achieve-featured-img-overlay"></div>
+              </div>
+
+              <div class="achieve-featured-content">
+                <div class="achieve-featured-meta-row">
+                  <span class="achieve-category-badge ${badgeClass}">${item.category}</span>
+                  <span class="achieve-featured-year">${item.year} Academic Year</span>
+                </div>
+
+                <h3 class="achieve-featured-title">${escapeHtml(item.title)}</h3>
+
+                <div class="achieve-featured-recipient">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  <span>${escapeHtml(item.recipient)}</span>
+                </div>
+
+                <p class="achieve-featured-summary">${escapeHtml(item.summary)}</p>
+
+                <div class="achieve-featured-footer">
+                  <button class="achieve-btn-primary achieve-ripple-target" onclick="AIClubAchievementsApp.openAchievementModal('${item.id}')">
+                    <span>View Full Case Study</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+
+                  ${item.proofUrl ? `
+                    <a href="${item.proofUrl}" target="_blank" rel="noopener" class="achieve-btn-secondary achieve-ripple-target">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                      <span>Verified Certificate</span>
+                    </a>
+                  ` : ''}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        pagination.innerHTML = featuredList.map((_, index) => `
+          <button class="achieve-carousel-dot ${index === 0 ? 'active' : ''}" data-slide="${index}" aria-label="Go to featured slide ${index + 1}"></button>
+        `).join('');
+
+        pagination.querySelectorAll('.achieve-carousel-dot').forEach(dot => {
+          dot.addEventListener('click', (e) => {
+            const idx = parseInt(e.currentTarget.getAttribute('data-slide'), 10);
+            goToCarouselSlide(idx);
+          });
+        });
+      }
+
+      function renderTimeline(list) {
+        const container = document.getElementById('achieve-timeline-container');
+        if (!container) return;
+
+        const years = [2026, 2025, 2024];
+        let html = `<div class="achieve-timeline-spine"></div>`;
+
+        years.forEach(year => {
+          const yearItems = list.filter(item => item.year === year);
+          if (yearItems.length === 0) return;
+
+          html += `
+            <div class="achieve-timeline-year-marker">
+              <span class="achieve-timeline-year-badge">${year} MILESTONES</span>
+            </div>
+          `;
+
+          yearItems.forEach((item, index) => {
+            const side = index % 2 === 0 ? 'left' : 'right';
+            const badgeClass = getBadgeClass(item.category);
+
+            html += `
+              <div class="achieve-timeline-item ${side}" data-timeline-id="${item.id}">
+                <div class="achieve-timeline-node"></div>
+                <div class="achieve-timeline-card" onclick="AIClubAchievementsApp.openAchievementModal('${item.id}')">
+                  <div class="achieve-timeline-card-meta">
+                    <span class="achieve-category-badge ${badgeClass}">${item.category}</span>
+                    <span style="font-family:var(--achieve-font-mono); font-size:0.75rem; color:var(--achieve-text-dim);">${formatDate(item.date)}</span>
+                  </div>
+                  <h4 class="achieve-timeline-card-title">${escapeHtml(item.title)}</h4>
+                  <div class="achieve-timeline-card-recipient">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>${escapeHtml(item.recipient)}</span>
+                  </div>
+                  <p class="achieve-timeline-card-summary">${escapeHtml(item.summary)}</p>
+                  <div class="achieve-timeline-card-action">
+                    <span>Inspect Achievement</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+        });
+
+        container.innerHTML = html;
+        initTimelineObserver();
+      }
+
+      function goToCarouselSlide(index) {
+        const track = document.getElementById('achieve-carousel-track');
+        const dots = document.querySelectorAll('.achieve-carousel-dot');
+        const total = state.featuredAchievements.length;
+
+        if (!track || total === 0) return;
+
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+
+        state.carouselIndex = index;
+        track.style.transform = `translateX(-${index * 100}%)`;
+
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === index);
+        });
+      }
+
+      function nextCarouselSlide() { goToCarouselSlide(state.carouselIndex + 1); }
+      function prevCarouselSlide() { goToCarouselSlide(state.carouselIndex - 1); }
+
+      function startCarouselAutoplay() {
+        stopCarouselAutoplay();
+        state.carouselTimer = setInterval(nextCarouselSlide, 6000);
+      }
+
+      function stopCarouselAutoplay() {
+        if (state.carouselTimer) {
+          clearInterval(state.carouselTimer);
+          state.carouselTimer = null;
+        }
+      }
+
+      function openAchievementModal(id) {
+        const item = state.achievements.find(a => a.id === id);
+        if (!item) return;
+
+        state.activeModalId = id;
+        const modal = document.getElementById('achieve-detail-modal');
+
+        document.getElementById('achieve-modal-img').src = item.image;
+        document.getElementById('achieve-modal-title').textContent = item.title;
+        document.getElementById('achieve-modal-badge').textContent = item.category;
+        document.getElementById('achieve-modal-badge').className = `achieve-category-badge ${getBadgeClass(item.category)}`;
+        document.getElementById('achieve-modal-date').textContent = formatDate(item.date);
+        document.getElementById('achieve-modal-year').textContent = `${item.year} Academic Year`;
+        document.getElementById('achieve-modal-recipient').textContent = item.recipient;
+        document.getElementById('achieve-modal-desc').textContent = item.description;
+
+        const highlightEl = document.getElementById('achieve-modal-highlight');
+        const metricVal = document.getElementById('achieve-modal-metric-val');
+        if (item.metric) {
+          highlightEl.style.display = 'block';
+          metricVal.textContent = item.metric;
+        } else {
+          highlightEl.style.display = 'none';
+        }
+
+        const proofBtn = document.getElementById('achieve-modal-proof-link');
+        if (item.proofUrl) {
+          proofBtn.style.display = 'inline-flex';
+          proofBtn.href = item.proofUrl;
+        } else {
+          proofBtn.style.display = 'none';
+        }
+
+        document.body.style.overflow = 'hidden';
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+
+        setTimeout(() => {
+          document.getElementById('achieve-modal-close-btn').focus();
+        }, 100);
+      }
+
+      function closeAchievementModal() {
+        const modal = document.getElementById('achieve-detail-modal');
+        if (!modal) return;
+
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        state.activeModalId = null;
+      }
+
+      async function filterAchievements() {
+        const grid = document.getElementById('achieve-cards-grid');
+        grid.innerHTML = Array(6).fill(0).map(() => `
+          <div class="achieve-skeleton-card">
+            <div class="achieve-skeleton-img"></div>
+            <div class="achieve-skeleton-body">
+              <div class="achieve-skeleton-line" style="width: 40%"></div>
+              <div class="achieve-skeleton-line" style="width: 85%; height: 22px;"></div>
+              <div class="achieve-skeleton-line" style="width: 100%"></div>
+              <div class="achieve-skeleton-line" style="width: 70%"></div>
+            </div>
+          </div>
+        `).join('');
+
+        const params = {
+          category: state.currentCategory,
+          year: state.currentYear,
+          search: state.searchQuery
+        };
+
+        try {
+          const results = await getAchievements(params);
+          state.filteredAchievements = results;
+          renderAchievements(results);
+        } catch (err) {
+          console.error("Achievement filtering failed:", err);
+          grid.innerHTML = `
+            <div class="achieve-error-state">
+              <h3 style="color:#ef4444; margin-bottom:8px;">Unable to Load Achievements</h3>
+              <p style="color:var(--achieve-text-muted); margin-bottom:20px;">Something went wrong while retrieving records from the registry.</p>
+              <button class="achieve-btn-primary" onclick="AIClubAchievementsApp.filterAchievements()">
+                <span>Try Again</span>
+              </button>
+            </div>
+          `;
+        }
+      }
+
+      function resetFilters() {
+        state.currentCategory = 'all';
+        state.currentYear = 'all';
+        state.searchQuery = '';
+
+        const searchInput = document.getElementById('achieve-search-input');
+        const clearBtn = document.getElementById('achieve-search-clear');
+        const yearSelect = document.getElementById('achieve-year-select');
+
+        if (searchInput) searchInput.value = '';
+        if (clearBtn) clearBtn.classList.remove('visible');
+        if (yearSelect) yearSelect.value = 'all';
+
+        document.querySelectorAll('.achieve-category-btn').forEach(btn => {
+          const isAll = btn.getAttribute('data-category') === 'all';
+          btn.classList.toggle('active', isAll);
+          btn.setAttribute('aria-selected', isAll);
+        });
+
+        filterAchievements();
+      }
+
+      function initCounterAnimations() {
+        const counters = document.querySelectorAll('.achieve-counter-val');
+        let animated = false;
+
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+              animated = true;
+              counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'), 10);
+                const duration = 1600;
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                  const elapsed = currentTime - startTime;
+                  const progress = Math.min(elapsed / duration, 1);
+                  const currentVal = Math.floor(target * (1 - Math.pow(1 - progress, 3)));
+                  counter.textContent = currentVal;
+
+                  if (progress < 1) {
+                    requestAnimationFrame(update);
+                  } else {
+                    counter.textContent = target;
+                  }
+                }
+                requestAnimationFrame(update);
+              });
+              obs.disconnect();
+            }
+          });
+        }, { threshold: 0.3 });
+
+        const statsSection = document.getElementById('stats');
+        if (statsSection) observer.observe(statsSection);
+      }
+
+      function initTimelineObserver() {
+        const timelineItems = document.querySelectorAll('.achieve-timeline-item');
+        if (!timelineItems.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+            }
+          });
+        }, { threshold: 0.2 });
+
+        timelineItems.forEach(item => observer.observe(item));
+      }
+
+      function initHero3DTilt() {
+        const visualBox = document.getElementById('achieve-hero-visual-box');
+        const scene = document.getElementById('achieve-hero-scene');
+        if (!visualBox || !scene) return;
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let currentRotateX = 0;
+        let currentRotateY = 0;
+
+        visualBox.addEventListener('mousemove', (e) => {
+          const rect = visualBox.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          mouseX = (x / (rect.width / 2)) * 14;
+          mouseY = -(y / (rect.height / 2)) * 14;
+        });
+
+        visualBox.addEventListener('mouseleave', () => {
+          mouseX = 0;
+          mouseY = 0;
+        });
+
+        function renderTilt() {
+          currentRotateX += (mouseY - currentRotateX) * 0.08;
+          currentRotateY += (mouseX - currentRotateY) * 0.08;
+          scene.style.transform = `rotateX(${currentRotateX.toFixed(2)}deg) rotateY(${currentRotateY.toFixed(2)}deg)`;
+          requestAnimationFrame(renderTilt);
+        }
+        requestAnimationFrame(renderTilt);
+      }
+
+      function initCard3DTilt() {
+        const cards = document.querySelectorAll('.achieve-card');
+
+        cards.forEach(card => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Update interactive spotlight border variables
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+
+            const rotX = -((y - rect.height / 2) / (rect.height / 2)) * 7;
+            const rotY = ((x - rect.width / 2) / (rect.width / 2)) * 7;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateY(-8px)`;
+          });
+
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+          });
+        });
+      }
+
+      /* ========================================================================
+         NEW ADVANCED CYBER STARDUST & PRECISION SPOTLIGHT MOUSE ENGINE
+         ======================================================================== */
+      function initGlobalMouseGlowAndCursor() {
+        const dot = document.getElementById('achieve-cursor-dot');
+        const glow = document.getElementById('achieve-ambient-glow');
+        const trailCanvas = document.getElementById('achieve-cursor-canvas');
+
+        let mouseX = -100;
+        let mouseY = -100;
+        let lastX = -100;
+        let lastY = -100;
+
+        const particles = [];
+        let ctx = null;
+
+        if (trailCanvas) {
+          ctx = trailCanvas.getContext('2d');
+          trailCanvas.width = window.innerWidth;
+          trailCanvas.height = window.innerHeight;
+
+          window.addEventListener('resize', () => {
+            trailCanvas.width = window.innerWidth;
+            trailCanvas.height = window.innerHeight;
+          });
+        }
+
+        function addParticle(x, y, vx, vy, isClick = false) {
+          const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+          const colors = isDark
+            ? ['#00f2fe', '#38bdf8', '#c084fc', '#a855f7']
+            : ['#0284c7', '#7e22ce', '#2563eb', '#9333ea'];
+
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          const size = isClick ? (Math.random() * 3.5 + 2) : (Math.random() * 2.4 + 1.2);
+          const maxLife = isClick ? 45 : 30;
+
+          particles.push({
+            x,
+            y,
+            vx: vx || (Math.random() - 0.5) * 1.2,
+            vy: vy || (Math.random() - 0.5) * 1.2,
+            life: 0,
+            maxLife,
+            size,
+            color
+          });
+        }
+
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          if (dot) {
+            dot.style.left = `${mouseX}px`;
+            dot.style.top = `${mouseY}px`;
+          }
+
+          if (glow) {
+            glow.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+          }
+
+          if (lastX > 0 && lastY > 0) {
+            const dx = mouseX - lastX;
+            const dy = mouseY - lastY;
+            const dist = Math.hypot(dx, dy);
+
+            if (dist > 3) {
+              const steps = Math.min(Math.floor(dist / 5), 7);
+              for (let i = 0; i < steps; i++) {
+                const px = lastX + (dx * i) / steps;
+                const py = lastY + (dy * i) / steps;
+                addParticle(
+                  px + (Math.random() - 0.5) * 4,
+                  py + (Math.random() - 0.5) * 4,
+                  -dx * 0.04 + (Math.random() - 0.5) * 0.5,
+                  -dy * 0.04 + (Math.random() - 0.5) * 0.5
+                );
+              }
+            }
+          }
+
+          lastX = mouseX;
+          lastY = mouseY;
+        });
+
+        // Click Quantum Pulse Burst
+        window.addEventListener('click', (e) => {
+          for (let i = 0; i < 14; i++) {
+            const angle = (Math.PI * 2 * i) / 14 + (Math.random() - 0.5) * 0.4;
+            const speed = Math.random() * 3.5 + 1.8;
+            addParticle(
+              e.clientX,
+              e.clientY,
+              Math.cos(angle) * speed,
+              Math.sin(angle) * speed,
+              true
+            );
+          }
+        });
+
+        // Hover scale for precision dot
+        const hoverTargets = 'a, button, input, select, .achieve-card, .achieve-stat-card, .achieve-journey-step, .achieve-carousel-btn';
+        document.addEventListener('mouseover', (e) => {
+          if (e.target.closest(hoverTargets) && dot) {
+            dot.classList.add('active-hover');
+          }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+          if (e.target.closest(hoverTargets) && dot) {
+            dot.classList.remove('active-hover');
+          }
+        });
+
+        // Continuous Stardust Particle Renderer
+        function renderStardust() {
+          if (ctx) {
+            ctx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+            ctx.globalCompositeOperation = 'lighter';
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+              const p = particles[i];
+              p.x += p.vx;
+              p.y += p.vy;
+              p.vx *= 0.96;
+              p.vy *= 0.96;
+              p.life++;
+
+              const progress = p.life / p.maxLife;
+              const alpha = Math.max(1 - progress, 0);
+              const currentSize = p.size * (1 - progress * 0.4);
+
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, Math.max(currentSize, 0.5), 0, Math.PI * 2);
+              ctx.fillStyle = p.color;
+              ctx.globalAlpha = alpha * 0.85;
+              ctx.shadowBlur = 10;
+              ctx.shadowColor = p.color;
+              ctx.fill();
+              ctx.shadowBlur = 0;
+
+              if (p.life >= p.maxLife) {
+                particles.splice(i, 1);
+              }
+            }
+            ctx.globalAlpha = 1;
+            ctx.globalCompositeOperation = 'source-over';
+          }
+          requestAnimationFrame(renderStardust);
+        }
+
+        if (trailCanvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          requestAnimationFrame(renderStardust);
+        }
+      }
+
+      function initRippleEffect() {
+        document.addEventListener('click', (e) => {
+          const target = e.target.closest('.achieve-ripple-target');
+          if (!target) return;
+
+          const rect = target.getBoundingClientRect();
+          const ripple = document.createElement('span');
+          ripple.classList.add('achieve-ripple-wave');
+
+          const size = Math.max(rect.width, rect.height);
+          ripple.style.width = ripple.style.height = `${size}px`;
+          ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+          ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+
+          target.appendChild(ripple);
+          setTimeout(() => ripple.remove(), 600);
+        });
+      }
+
+      function initThemeToggle() {
+        const toggleBtn = document.getElementById('achieve-theme-toggle-btn');
+        const themeIcon = document.getElementById('achieve-theme-icon');
+
+        const savedTheme = localStorage.getItem('ai-club-theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        state.theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+        applyTheme(state.theme);
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', () => {
+            state.theme = state.theme === 'dark' ? 'light' : 'dark';
+            applyTheme(state.theme);
+            localStorage.setItem('ai-club-theme', state.theme);
+            showToast(`Switched to ${state.theme.toUpperCase()} theme`);
+          });
+        }
+
+        function applyTheme(theme) {
+          document.documentElement.setAttribute('data-theme', theme);
+          if (!themeIcon) return;
+
+          if (theme === 'light') {
+            themeIcon.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
+          } else {
+            themeIcon.innerHTML = `
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            `;
+          }
+        }
+      }
+
+      function initBackgroundCanvas() {
+        const canvas = document.getElementById('achieve-bg-canvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = Math.min(Math.floor(width * 0.04), 45);
+
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.45,
+            vy: (Math.random() - 0.5) * 0.45,
+            radius: Math.random() * 2 + 1,
+            color: Math.random() > 0.5 ? 'rgba(0, 242, 254,' : 'rgba(139, 92, 246,'
+          });
+        }
+
+        window.addEventListener('resize', () => {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        });
+
+        function animateCanvas() {
+          ctx.clearRect(0, 0, width, height);
+
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0) p.x = width;
+            if (p.x > width) p.x = 0;
+            if (p.y < 0) p.y = height;
+            if (p.y > height) p.y = 0;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `${p.color} 0.55)`;
+            ctx.fill();
+
+            for (let j = i + 1; j < particles.length; j++) {
+              const p2 = particles[j];
+              const dx = p.x - p2.x;
+              const dy = p.y - p2.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+
+              if (dist < 130) {
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.strokeStyle = `rgba(0, 242, 254, ${(1 - dist / 130) * 0.15})`;
+                ctx.lineWidth = 0.8;
+                ctx.stroke();
+              }
+            }
+          }
+
+          requestAnimationFrame(animateCanvas);
+        }
+
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          requestAnimationFrame(animateCanvas);
+        }
+      }
+
+      let toastTimer = null;
+      function showToast(message) {
+        const toast = document.getElementById('achieve-toast');
+        const msgEl = document.getElementById('achieve-toast-message');
+        if (!toast || !msgEl) return;
+
+        msgEl.textContent = message;
+        toast.classList.add('show');
+
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      }
+
+      function setupEventListeners() {
+        const navbar = document.getElementById('achieve-navbar');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 20) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        }, { passive: true });
+
+        const hamburger = document.getElementById('achieve-hamburger-btn');
+        const drawer = document.getElementById('achieve-mobile-drawer');
+        if (hamburger && drawer) {
+          hamburger.addEventListener('click', () => {
+            const isOpen = hamburger.classList.toggle('open');
+            drawer.classList.toggle('active', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+          });
+
+          drawer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+              hamburger.classList.remove('open');
+              drawer.classList.remove('active');
+              hamburger.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
+
+
+
+        const categoryBar = document.getElementById('achieve-category-bar');
+        if (categoryBar) {
+          categoryBar.addEventListener('click', (e) => {
+            const btn = e.target.closest('.achieve-category-btn');
+            if (!btn) return;
+
+            categoryBar.querySelectorAll('.achieve-category-btn').forEach(b => {
+              b.classList.remove('active');
+              b.setAttribute('aria-selected', 'false');
+            });
+
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            state.currentCategory = btn.getAttribute('data-category');
+
+            filterAchievements();
+          });
+        }
+
+        const yearSelect = document.getElementById('achieve-year-select');
+        if (yearSelect) {
+          yearSelect.addEventListener('change', (e) => {
+            state.currentYear = e.target.value;
+            filterAchievements();
+          });
+        }
+
+        const searchInput = document.getElementById('achieve-search-input');
+        const searchClear = document.getElementById('achieve-search-clear');
+        let searchDebounce = null;
+
+        if (searchInput) {
+          searchInput.addEventListener('input', (e) => {
+            const val = e.target.value;
+            if (searchClear) searchClear.classList.toggle('visible', val.length > 0);
+
+            clearTimeout(searchDebounce);
+            searchDebounce = setTimeout(() => {
+              state.searchQuery = val;
+              filterAchievements();
+            }, 250);
+          });
+        }
+
+        if (searchClear) {
+          searchClear.addEventListener('click', () => {
+            searchInput.value = '';
+            searchClear.classList.remove('visible');
+            state.searchQuery = '';
+            filterAchievements();
+            searchInput.focus();
+          });
+        }
+
+        const nextBtn = document.getElementById('achieve-carousel-next');
+        const prevBtn = document.getElementById('achieve-carousel-prev');
+        const carouselBox = document.getElementById('achieve-carousel-box');
+
+        if (nextBtn) nextBtn.addEventListener('click', () => { nextCarouselSlide(); startCarouselAutoplay(); });
+        if (prevBtn) prevBtn.addEventListener('click', () => { prevCarouselSlide(); startCarouselAutoplay(); });
+
+        if (carouselBox) {
+          carouselBox.addEventListener('mouseenter', stopCarouselAutoplay);
+          carouselBox.addEventListener('mouseleave', startCarouselAutoplay);
+
+          carouselBox.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') { nextCarouselSlide(); e.preventDefault(); }
+            if (e.key === 'ArrowLeft') { prevCarouselSlide(); e.preventDefault(); }
+          });
+
+          let touchStartX = 0;
+          carouselBox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+          }, { passive: true });
+
+          carouselBox.addEventListener('touchend', (e) => {
+            const diffX = e.changedTouches[0].screenX - touchStartX;
+            if (diffX < -50) nextCarouselSlide();
+            if (diffX > 50) prevCarouselSlide();
+          }, { passive: true });
+        }
+
+        const modal = document.getElementById('achieve-detail-modal');
+        const modalCloseBtn = document.getElementById('achieve-modal-close-btn');
+
+        if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeAchievementModal);
+        if (modal) {
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeAchievementModal();
+          });
+        }
+
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && state.activeModalId) {
+            closeAchievementModal();
+          }
+        });
+
+        const shareBtn = document.getElementById('achieve-modal-share-btn');
+        if (shareBtn) {
+          shareBtn.addEventListener('click', () => {
+            const url = window.location.href;
+            if (navigator.clipboard) {
+              navigator.clipboard.writeText(url).then(() => {
+                showToast("Achievement link copied to clipboard!");
+              });
+            } else {
+              showToast("Link ready to share!");
+            }
+          });
+        }
+
+        const submitBtn = document.getElementById('achieve-submit-btn');
+        if (submitBtn) {
+          submitBtn.addEventListener('click', () => {
+            showToast("Achievement Submission Portal: Contact your faculty lead or send PR to repo!");
+          });
+        }
+      }
+
+      function getBadgeClass(cat) {
+        switch (cat) {
+          case 'hackathon': return 'badge-hackathon';
+          case 'competition': return 'badge-competition';
+          case 'collaboration': return 'badge-collaboration';
+          case 'certificate': return 'badge-certificate';
+          default: return '';
+        }
+      }
+
+      function formatDate(dateStr) {
+        if (!dateStr) return '';
+        const parts = dateStr.split('-');
+        if (parts.length === 3) {
+          const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+          return `${months[parseInt(parts[1], 10) - 1]} ${parts[2]}, ${parts[0]}`;
+        }
+        return dateStr;
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      async function init() {
+        initThemeToggle();
+        setupEventListeners();
+        initRippleEffect();
+        initGlobalMouseGlowAndCursor();
+        initHero3DTilt();
+        initBackgroundCanvas();
+        initCounterAnimations();
+
+        try {
+          state.achievements = await getAchievements();
+          state.filteredAchievements = [...state.achievements];
+          state.featuredAchievements = state.achievements.filter(a => a.featured);
+
+          renderFeaturedCarousel(state.featuredAchievements);
+          renderTimeline(state.achievements);
+          renderAchievements(state.filteredAchievements);
+
+          startCarouselAutoplay();
+        } catch (err) {
+          console.error("Initialization error:", err);
+        }
+      }
+
+      return {
+        init,
+        getAchievements,
+        filterAchievements,
+        renderAchievements,
+        openAchievementModal,
+        closeAchievementModal,
+        goToCarouselSlide
+      };
+    })();
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      AIClubAchievementsApp.init();
+    });
+  </script>
+</body>
+
+</html>

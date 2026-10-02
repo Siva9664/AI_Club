@@ -5,6 +5,12 @@ An interactive web application showcasing achievements, milestones, certificatio
 
 ---
 
+## 🌐 Live Website Links
+- 🏆 **Achievements Portal**: [https://kruthikpranavtr.github.io/AI-LAB-ACHIEVEMENT-and-chat/](https://kruthikpranavtr.github.io/AI-LAB-ACHIEVEMENT-and-chat/)
+- 🤖 **AI Assistant Chat**: [https://kruthikpranavtr.github.io/AI-LAB-ACHIEVEMENT-and-chat/chat.html](https://kruthikpranavtr.github.io/AI-LAB-ACHIEVEMENT-and-chat/chat.html)
+
+---
+
 ## 🌟 Features
 
 ### 1. Achievements & Hall of Fame (`achievement.html`)
