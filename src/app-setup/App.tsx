@@ -1,5 +1,5 @@
 // src/app/App.tsx
-import React from 'react';
+
 import { Router } from './router';
 import { ThemeProvider } from './providers/ThemeProvider';
 import { AuthProvider } from './providers/AuthProvider';

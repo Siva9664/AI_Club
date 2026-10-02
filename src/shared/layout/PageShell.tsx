@@ -1,5 +1,5 @@
 // src/shared/layout/PageShell.tsx
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 
