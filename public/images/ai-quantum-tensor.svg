@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tensorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333ea" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.9" />
+    </linearGradient>
+    <radialGradient id="quantumCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e879f9" stop-opacity="1" />
+      <stop offset="40%" stop-color="#c084fc" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#6b21a8" stop-opacity="0" />
+    </radialGradient>
+    <style>
+      @keyframes spinTensor {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes floatCube {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-25px) rotate(5deg); }
+      }
+      @keyframes waveLine {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -200; }
+      }
+      .spin-ring { transform-origin: 400px 300px; animation: spinTensor 40s linear infinite; }
+      .spin-reverse { transform-origin: 400px 300px; animation: spinTensor 30s linear infinite reverse; }
+      .floating-core { animation: floatCube 8s ease-in-out infinite; }
+      .laser-track { stroke-dasharray: 8, 12; animation: waveLine 10s linear infinite; }
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#070417" />
+
+  <!-- Multi-dimensional Perspective Horizon Grid -->
+  <g opacity="0.3">
+    <path d="M0 450 L400 300 L800 450 M0 520 L400 300 L800 520 M0 600 L400 300 L800 600" stroke="#8b5cf6" stroke-width="1" />
+    <path d="M100 600 L400 300 L700 600 M250 600 L400 300 L550 600 M400 600 L400 300" stroke="#8b5cf6" stroke-width="1" />
+  </g>
+
+  <!-- Rotating Quantum Tensor Rings -->
+  <g class="spin-ring" opacity="0.7">
+    <ellipse cx="400" cy="300" rx="220" ry="85" fill="none" stroke="url(#tensorGrad)" stroke-width="2" class="laser-track" />
+    <ellipse cx="400" cy="300" rx="170" ry="170" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="15, 10" />
+    <circle cx="620" cy="300" r="8" fill="#e879f9" />
+    <circle cx="180" cy="300" r="8" fill="#818cf8" />
+  </g>
+
+  <g class="spin-reverse" opacity="0.6">
+    <ellipse cx="400" cy="300" rx="250" ry="110" fill="none" stroke="#6366f1" stroke-width="1.5" class="laser-track" />
+    <circle cx="400" cy="190" r="9" fill="#c084fc" />
+    <circle cx="400" cy="410" r="9" fill="#38bdf8" />
+  </g>
+
+  <!-- Glowing Central Quantum Core -->
+  <g class="floating-core">
+    <circle cx="400" cy="300" r="70" fill="url(#quantumCore)" opacity="0.8" />
+    <circle cx="400" cy="300" r="28" fill="#f0abfc" opacity="0.9" />
+    <polygon points="400,265 430,315 370,315" fill="none" stroke="#ffffff" stroke-width="2" />
+    <polygon points="400,335 370,285 430,285" fill="none" stroke="#38bdf8" stroke-width="2" />
+  </g>
+</svg>

@@ -31,14 +31,14 @@ export const Pagination: React.FC<PaginationProps> = ({
     <nav
       aria-label="Project Pagination"
       className={cn(
-        'flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-border/60',
+        'flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/80 dark:border-white/5',
         className
       )}
     >
-      <div className="text-xs text-muted-foreground font-mono">
-        Showing <span className="font-semibold text-foreground">{startIdx}</span> -{' '}
-        <span className="font-semibold text-foreground">{endIdx}</span> of{' '}
-        <span className="font-semibold text-foreground">{total}</span> projects
+      <div className="text-xs text-slate-500 dark:text-slate-400 font-mono">
+        Showing <span className="font-bold text-slate-900 dark:text-white">{startIdx}</span> -{' '}
+        <span className="font-bold text-slate-900 dark:text-white">{endIdx}</span> of{' '}
+        <span className="font-bold text-slate-900 dark:text-white">{total}</span> projects
       </div>
 
       <div className="flex items-center gap-1.5">
@@ -48,14 +48,14 @@ export const Pagination: React.FC<PaginationProps> = ({
           disabled={page <= 1}
           type="button"
           aria-label="Previous Page"
-          className="inline-flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-semibold border border-border bg-card text-foreground hover:bg-muted disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+          className="inline-flex items-center gap-1 px-3.5 py-2 rounded-2xl text-xs font-bold border border-white/90 dark:border-white/10 bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:bg-white disabled:opacity-40 disabled:cursor-not-allowed backdrop-blur-md shadow-xs transition-all hover:scale-105 active:scale-95"
         >
           <ChevronLeft className="w-4 h-4" />
           <span className="hidden xs:inline">Previous</span>
         </button>
 
         {/* Page Number Buttons */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1.5">
           {pages.map((p) => (
             <button
               key={p}
@@ -64,10 +64,10 @@ export const Pagination: React.FC<PaginationProps> = ({
               aria-label={`Go to page ${p}`}
               aria-current={p === page ? 'page' : undefined}
               className={cn(
-                'w-9 h-9 rounded-xl text-xs font-semibold flex items-center justify-center transition-colors',
+                'w-9 h-9 rounded-2xl text-xs font-bold flex items-center justify-center transition-all',
                 p === page
-                  ? 'bg-primary text-primary-foreground shadow-sm'
-                  : 'border border-border bg-card text-foreground hover:bg-muted'
+                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 border border-blue-400/30'
+                  : 'border border-white/90 dark:border-white/10 bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:bg-white backdrop-blur-md shadow-xs hover:scale-105'
               )}
             >
               {p}
@@ -81,7 +81,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           disabled={page >= totalPages}
           type="button"
           aria-label="Next Page"
-          className="inline-flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-semibold border border-border bg-card text-foreground hover:bg-muted disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+          className="inline-flex items-center gap-1 px-3.5 py-2 rounded-2xl text-xs font-bold border border-white/90 dark:border-white/10 bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:bg-white disabled:opacity-40 disabled:cursor-not-allowed backdrop-blur-md shadow-xs transition-all hover:scale-105 active:scale-95"
         >
           <span className="hidden xs:inline">Next</span>
           <ChevronRight className="w-4 h-4" />

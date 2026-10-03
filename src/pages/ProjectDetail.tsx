@@ -104,12 +104,12 @@ export const ProjectDetail: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-16">
         {/* 42. ACTION LINKS (GitHub, Demo, Docs, Paper) */}
         {project.links && (
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl bg-card border border-border/80 shadow-sm">
+          <div className="glass-panel flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-3xl bg-white/75 dark:bg-slate-900/75 border border-white/85 dark:border-white/10 shadow-lg backdrop-blur-xl">
             <div>
-              <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider block">
+              <span className="text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block font-semibold">
                 Repository & Deployment
               </span>
-              <h3 className="text-sm font-semibold text-foreground">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white">
                 Explore project source code and live links
               </h3>
             </div>
@@ -119,13 +119,13 @@ export const ProjectDetail: React.FC = () => {
 
         {/* 32. OVERVIEW (Strong editorial typography layout) */}
         <section className="space-y-4 max-w-4xl">
-          <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-500/10 border border-blue-500/20">
             Executive Summary
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
             Project Overview
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line">
             {project.overview}
           </p>
         </section>
@@ -133,27 +133,27 @@ export const ProjectDetail: React.FC = () => {
         {/* 33. PROBLEM & 34. SOLUTION (Two-column contrasting block) */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* PROBLEM */}
-          <div className="p-7 sm:p-8 rounded-3xl border border-destructive/20 bg-destructive/5 relative overflow-hidden">
+          <div className="glass-card p-7 sm:p-8 rounded-3xl border border-rose-200/80 dark:border-rose-900/30 bg-rose-50/70 dark:bg-rose-950/20 backdrop-blur-xl shadow-md relative overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2.5 rounded-xl bg-destructive/10 text-destructive">
+              <div className="p-2.5 rounded-2xl bg-rose-500/15 text-rose-600 dark:text-rose-400">
                 <AlertCircle className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-foreground">The Problem</h3>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white">The Problem</h3>
             </div>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
               {project.problem}
             </p>
           </div>
 
           {/* SOLUTION */}
-          <div className="p-7 sm:p-8 rounded-3xl border border-primary/30 bg-primary/5 relative overflow-hidden">
+          <div className="glass-card p-7 sm:p-8 rounded-3xl border border-blue-200/80 dark:border-blue-900/30 bg-blue-50/70 dark:bg-blue-950/20 backdrop-blur-xl shadow-md relative overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2.5 rounded-xl bg-primary/15 text-primary">
+              <div className="p-2.5 rounded-2xl bg-blue-500/15 text-blue-600 dark:text-blue-400">
                 <Lightbulb className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-foreground">Our Solution</h3>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white">Our Solution</h3>
             </div>
-            <p className="text-sm sm:text-base text-foreground/90 font-medium leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 font-medium leading-relaxed">
               {project.solution}
             </p>
           </div>
@@ -161,10 +161,10 @@ export const ProjectDetail: React.FC = () => {
 
         {/* 35. OBJECTIVES */}
         {project.objectives && project.objectives.length > 0 && (
-          <section className="p-8 rounded-3xl border border-border/80 bg-card shadow-sm">
+          <section className="glass-card p-8 rounded-3xl border border-white/80 dark:border-white/10 bg-white/75 dark:bg-slate-900/75 shadow-lg backdrop-blur-xl">
             <div className="flex items-center gap-2 mb-6">
-              <Sparkles className="w-5 h-5 text-primary" />
-              <h3 className="text-xl sm:text-2xl font-extrabold text-foreground">
+              <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
                 Core Objectives
               </h3>
             </div>
@@ -172,12 +172,12 @@ export const ProjectDetail: React.FC = () => {
               {project.objectives.map((obj, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3.5 p-4 rounded-2xl bg-muted/30 border border-border/40"
+                  className="flex items-start gap-3.5 p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-white/90 dark:border-white/10 shadow-2xs backdrop-blur-md"
                 >
-                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-mono font-bold shrink-0 mt-0.5">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-mono font-bold shrink-0 mt-0.5">
                     {idx + 1}
                   </span>
-                  <span className="text-sm text-foreground/90 leading-relaxed font-medium">
+                  <span className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
                     {obj}
                   </span>
                 </div>
@@ -190,10 +190,10 @@ export const ProjectDetail: React.FC = () => {
         {project.features && project.features.length > 0 && (
           <section className="space-y-6">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-500/10 border border-blue-500/20">
                 Capabilities
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight mt-1">
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight mt-2">
                 Key Features & Engineering Highlights
               </h3>
             </div>
@@ -202,16 +202,16 @@ export const ProjectDetail: React.FC = () => {
               {project.features.map((feature, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl border border-border/80 bg-card hover:border-primary/40 transition-colors shadow-sm flex flex-col justify-between"
+                  className="glass-card p-6 rounded-3xl border border-white/80 dark:border-white/10 bg-white/70 dark:bg-slate-900/70 hover:bg-white/95 dark:hover:bg-slate-800/90 backdrop-blur-xl transition-all shadow-md hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                    <div className="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4 shadow-2xs">
                       <CheckCircle2 className="w-5 h-5" />
                     </div>
-                    <h4 className="text-base font-bold text-foreground mb-2">
+                    <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
                       {feature.title}
                     </h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -280,8 +280,8 @@ export const ProjectDetail: React.FC = () => {
         {project.results && project.results.length > 0 && (
           <section className="space-y-6">
             <div className="flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-primary" />
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+              <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
                 Results & Outcomes
               </h3>
             </div>
@@ -290,16 +290,16 @@ export const ProjectDetail: React.FC = () => {
               {project.results.map((res, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl border border-border/80 bg-card shadow-sm"
+                  className="glass-card p-6 rounded-3xl border border-white/80 dark:border-white/10 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-md hover:shadow-lg transition-all"
                 >
                   {res.metric && (
-                    <div className="text-3xl font-black font-mono text-primary mb-1">
+                    <div className="text-3xl font-black font-mono text-blue-600 dark:text-blue-400 mb-1">
                       {res.metric}
                     </div>
                   )}
-                  <div className="text-sm font-bold text-foreground">{res.label}</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-white">{res.label}</div>
                   {res.detail && (
-                    <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    <p className="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                       {res.detail}
                     </p>
                   )}
@@ -311,17 +311,17 @@ export const ProjectDetail: React.FC = () => {
 
         {/* 44. FUTURE SCOPE */}
         {project.futureScope && project.futureScope.length > 0 && (
-          <section className="p-8 rounded-3xl border border-border/80 bg-card shadow-sm space-y-4">
+          <section className="glass-card p-8 rounded-3xl border border-white/80 dark:border-white/10 bg-white/75 dark:bg-slate-900/75 backdrop-blur-xl shadow-lg space-y-4">
             <div className="flex items-center gap-2">
-              <Compass className="w-5 h-5 text-accent" />
-              <h3 className="text-xl sm:text-2xl font-extrabold text-foreground">
+              <Compass className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
                 Future Scope & Roadmap
               </h3>
             </div>
             <ul className="space-y-3">
               {project.futureScope.map((scopeItem, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground">
-                  <TrendingUp className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                <li key={idx} className="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300 p-2 rounded-xl hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors">
+                  <TrendingUp className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0 mt-0.5" />
                   <span>{scopeItem}</span>
                 </li>
               ))}
@@ -333,10 +333,10 @@ export const ProjectDetail: React.FC = () => {
         {project.contributors && project.contributors.length > 0 && (
           <section className="space-y-6">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-500/10 border border-blue-500/20">
                 Project Creators
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight mt-1">
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight mt-2">
                 Contributors & Mentors
               </h3>
             </div>
@@ -351,14 +351,14 @@ export const ProjectDetail: React.FC = () => {
 
         {/* 45. RELATED PROJECTS */}
         {project.relatedProjects && project.relatedProjects.length > 0 && (
-          <section className="pt-8 border-t border-border/60 space-y-6">
+          <section className="pt-8 border-t border-white/80 dark:border-white/5 space-y-6">
             <div className="flex items-center justify-between">
-              <h3 className="text-xl sm:text-2xl font-extrabold text-foreground">
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
                 Related Projects
               </h3>
               <Link
                 to="/projects"
-                className="text-xs sm:text-sm font-semibold text-primary hover:text-accent flex items-center gap-1"
+                className="text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-indigo-600 flex items-center gap-1.5 transition-colors"
               >
                 <span>View All Projects</span>
                 <ArrowRight className="w-3.5 h-3.5" />

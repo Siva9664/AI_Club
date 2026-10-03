@@ -7,8 +7,8 @@ export const ContributorCard: React.FC<{ contributor: Person }> = ({ contributor
   const photoUrl = typeof contributor.photo === 'string' ? contributor.photo : contributor.photo?.url;
 
   return (
-    <div className="flex items-center gap-4 p-4 rounded-2xl border border-border/70 bg-card hover:border-primary/40 transition-colors">
-      <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 bg-muted border border-border flex items-center justify-center">
+    <div className="glass-card flex items-center gap-4 p-4 rounded-3xl border border-white/80 dark:border-white/10 bg-white/75 dark:bg-slate-900/75 backdrop-blur-xl shadow-xs hover:shadow-md transition-all">
+      <div className="relative w-14 h-14 rounded-2xl overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800 border border-white/90 dark:border-white/10 flex items-center justify-center shadow-2xs">
         {photoUrl ? (
           <img
             src={photoUrl}

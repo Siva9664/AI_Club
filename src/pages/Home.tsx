@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { getHome } from '../api/home';
 import type { HomeApiResponse } from '../types';
 import { HeroSection } from '../components/home/HeroSection';
+import { PillarsSection } from '../components/home/PillarsSection';
 import { OverviewSection } from '../components/home/OverviewSection';
 import { WhatWeDoSection } from '../components/home/WhatWeDoSection';
 import { FeaturedProjectsSection } from '../components/home/FeaturedProjectsSection';
@@ -62,7 +63,10 @@ export const Home: React.FC = () => {
       {/* 1. HERO SECTION */}
       <HeroSection hero={data.hero} />
 
-      {/* 2. AI CLUB OVERVIEW */}
+      {/* 2. THE 4 PILLARS: AIM, GOAL, WHAT WE HAVE DONE & ONGOING RESEARCH */}
+      <PillarsSection />
+
+      {/* 3. AI CLUB OVERVIEW */}
       <OverviewSection overview={data.overview} />
 
       {/* 3. WHAT WE DO */}

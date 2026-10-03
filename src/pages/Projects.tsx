@@ -12,7 +12,9 @@ import { Pagination } from '../components/projects/Pagination';
 import { LoadingState } from '../components/common/LoadingState';
 import { EmptyState } from '../components/common/EmptyState';
 import { ErrorState } from '../components/common/ErrorState';
+import { CinematicVideoBackground } from '../components/common/CinematicVideoBackground';
 import { Sparkles, Layers } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const Projects: React.FC = () => {
   // State for all projects
@@ -98,28 +100,46 @@ export const Projects: React.FC = () => {
   const isFiltered = query !== '' || category !== 'All' || status !== 'All' || tag !== 'All';
 
   return (
-    <div className="min-h-screen pb-20">
-      {/* 19. PROJECT PAGE HERO */}
-      <section className="relative py-12 md:py-16 border-b border-border/50 overflow-hidden">
-        {/* Subtle AI background visual */}
-        <div className="absolute top-0 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10" />
-        <div className="absolute inset-0 ai-grid-pattern opacity-25 pointer-events-none -z-10" />
-
+    <div className="min-h-screen pb-20 relative">
+      {/* 19. CINEMATIC PROJECT PAGE HERO */}
+      <CinematicVideoBackground
+        videoSources={[
+          {
+            src: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b4/Attention-animated.webm/Attention-animated.webm.1080p.vp9.webm',
+            type: 'video/webm',
+          },
+          {
+            src: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b4/Attention-animated.webm/Attention-animated.webm.480p.vp9.webm',
+            type: 'video/webm',
+          },
+          {
+            src: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Attention-animated.webm',
+            type: 'video/webm',
+          },
+        ]}
+        badgeLabel="TRANSFORMER ATTENTION MECHANISM • MULTI-HEAD ATTENTION"
+        posterSrc="/images/ai-quantum-tensor.svg"
+        className="py-14 md:py-20 border-b border-white/10"
+        overlayClassName="bg-gradient-to-b from-slate-950/85 via-slate-900/80 to-slate-950/90"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wide uppercase bg-primary/10 text-primary border border-primary/20 mb-3">
-            <Layers className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wide uppercase bg-slate-900/60 text-cyan-300 border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.2)] mb-4 backdrop-blur-xl">
+            <Layers className="w-3.5 h-3.5 text-cyan-400" />
             <span>AI Innovation Portfolio</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground">
-            Club Projects
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white drop-shadow-md">
+            Club Projects &{' '}
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-300 bg-clip-text text-transparent">
+              Frontier Systems
+            </span>
           </h1>
 
-          <p className="mt-3 text-base sm:text-lg text-muted-foreground max-w-2xl">
-            Explore the ideas, experiments and AI solutions built by our community. From computer vision to agentic LLMs and edge robotics.
+          <p className="mt-3 text-base sm:text-lg text-slate-200/90 max-w-2xl leading-relaxed font-normal">
+            Explore the deployed architectures, open models, and neural systems developed by our student researchers. From multimodal LLMs to edge vision and autonomous robotics.
           </p>
         </div>
-      </section>
+      </CinematicVideoBackground>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         {/* 20. FEATURED PROJECTS SHOWCASE (Only when not filtering) */}
@@ -127,7 +147,7 @@ export const Projects: React.FC = () => {
           <section className="mb-14">
             <div className="flex items-center gap-2 mb-6">
               <Sparkles className="w-5 h-5 text-amber-500" />
-              <h2 className="text-xl sm:text-2xl font-extrabold text-foreground">
+              <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
                 Featured Highlights
               </h2>
             </div>
@@ -143,11 +163,11 @@ export const Projects: React.FC = () => {
         {/* 21. FILTER & SEARCH TOOLBAR */}
         <section>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-foreground">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white">
               {isFiltered ? 'Filtered Results' : 'All Projects'}
             </h2>
             {projectsData && (
-              <span className="text-xs font-mono text-muted-foreground">
+              <span className="px-3 py-1 rounded-full bg-white/80 dark:bg-slate-800/80 border border-white dark:border-white/10 text-xs font-mono text-slate-600 dark:text-slate-300 shadow-xs backdrop-blur-md font-semibold">
                 Total: {projectsData.meta.total}
               </span>
             )}
@@ -202,14 +222,29 @@ export const Projects: React.FC = () => {
           />
         )}
 
-        {/* 23. PROJECT GRID */}
+        {/* 23. PROJECT GRID WITH MOVING & DISAPPEARING ANIMATION */}
         {!loading && !error && projectsData && projectsData.data.length > 0 && (
           <section>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {projectsData.data.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
-            </div>
+            <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              <AnimatePresence mode="popLayout">
+                {projectsData.data.map((project, idx) => (
+                  <motion.div
+                    key={project.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.9, y: 25, filter: 'blur(4px)' }}
+                    animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, scale: 0.88, y: -25, filter: 'blur(6px)' }}
+                    transition={{
+                      duration: 0.35,
+                      delay: Math.min(idx * 0.04, 0.2),
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
+                    <ProjectCard project={project} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
 
             {/* 26. PROJECT PAGINATION */}
             <Pagination

@@ -50,7 +50,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         onChange={(e) => setLocalVal(e.target.value)}
         placeholder={placeholder}
         aria-label="Search projects by title, summary or tags"
-        className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-border bg-card text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
+        className="glass-input w-full pl-10 pr-10 py-2.5 rounded-2xl border border-white/90 dark:border-white/10 bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-slate-100 text-sm font-medium placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-slate-800 backdrop-blur-md transition-all shadow-xs"
       />
 
       {localVal && (

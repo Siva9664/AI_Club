@@ -32,7 +32,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
   isFiltered,
 }) => {
   return (
-    <div className="w-full bg-card/80 border border-border/80 rounded-2xl p-4 sm:p-5 shadow-sm backdrop-blur-md mb-8">
+    <div className="glass-panel w-full bg-white/75 dark:bg-slate-900/75 border border-white/85 dark:border-white/10 rounded-3xl p-4 sm:p-5 shadow-lg shadow-slate-200/50 dark:shadow-black/30 backdrop-blur-2xl mb-8">
       <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-4">
         {/* Search Input */}
         <div className="flex-1">
@@ -54,10 +54,10 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
               onChange={(e) => onCategoryChange(e.target.value)}
               aria-label="Filter by Category"
               className={cn(
-                'w-full appearance-none pl-3 pr-8 py-2.5 rounded-xl border text-xs sm:text-sm font-medium bg-card text-foreground cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary transition-colors',
+                'w-full appearance-none pl-3.5 pr-8 py-2.5 rounded-2xl border text-xs sm:text-sm font-semibold bg-white/80 dark:bg-slate-800/80 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 backdrop-blur-md shadow-xs transition-all',
                 selectedCategory && selectedCategory !== 'All'
-                  ? 'border-primary text-primary bg-primary/5 font-semibold'
-                  : 'border-border text-muted-foreground'
+                  ? 'border-blue-500 text-blue-600 dark:text-blue-400 bg-blue-50/80 dark:bg-blue-950/40 font-bold'
+                  : 'border-white/90 dark:border-white/10 text-slate-700 dark:text-slate-200'
               )}
             >
               <option value="All">All Categories</option>
@@ -67,7 +67,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
                 </option>
               ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-muted-foreground">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
               <Filter className="w-3.5 h-3.5" />
             </div>
           </div>
@@ -81,10 +81,10 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
               onChange={(e) => onStatusChange(e.target.value)}
               aria-label="Filter by Status"
               className={cn(
-                'w-full appearance-none pl-3 pr-8 py-2.5 rounded-xl border text-xs sm:text-sm font-medium bg-card text-foreground cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary transition-colors',
+                'w-full appearance-none pl-3.5 pr-8 py-2.5 rounded-2xl border text-xs sm:text-sm font-semibold bg-white/80 dark:bg-slate-800/80 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 backdrop-blur-md shadow-xs transition-all',
                 selectedStatus && selectedStatus !== 'All'
-                  ? 'border-primary text-primary bg-primary/5 font-semibold'
-                  : 'border-border text-muted-foreground'
+                  ? 'border-blue-500 text-blue-600 dark:text-blue-400 bg-blue-50/80 dark:bg-blue-950/40 font-bold'
+                  : 'border-white/90 dark:border-white/10 text-slate-700 dark:text-slate-200'
               )}
             >
               <option value="All">All Statuses</option>
@@ -94,7 +94,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
                 </option>
               ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-muted-foreground">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
               <SlidersHorizontal className="w-3.5 h-3.5" />
             </div>
           </div>
@@ -108,10 +108,10 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
               onChange={(e) => onTagChange(e.target.value)}
               aria-label="Filter by Technology Tag"
               className={cn(
-                'w-full appearance-none pl-3 pr-8 py-2.5 rounded-xl border text-xs sm:text-sm font-medium bg-card text-foreground cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary transition-colors',
+                'w-full appearance-none pl-3.5 pr-8 py-2.5 rounded-2xl border text-xs sm:text-sm font-semibold bg-white/80 dark:bg-slate-800/80 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 backdrop-blur-md shadow-xs transition-all',
                 selectedTag && selectedTag !== 'All'
-                  ? 'border-primary text-primary bg-primary/5 font-semibold'
-                  : 'border-border text-muted-foreground'
+                  ? 'border-blue-500 text-blue-600 dark:text-blue-400 bg-blue-50/80 dark:bg-blue-950/40 font-bold'
+                  : 'border-white/90 dark:border-white/10 text-slate-700 dark:text-slate-200'
               )}
             >
               <option value="All">All Technologies</option>
@@ -121,8 +121,8 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
                 </option>
               ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-muted-foreground">
-              <span className="text-[11px] font-mono text-muted-foreground">#</span>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
+              <span className="text-[11px] font-mono text-slate-400">#</span>
             </div>
           </div>
         </div>
@@ -132,7 +132,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
           <button
             onClick={onReset}
             type="button"
-            className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/80 border border-border transition-colors self-end lg:self-center"
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white/80 dark:bg-slate-800/80 hover:bg-white border border-white/90 dark:border-white/10 shadow-xs backdrop-blur-md transition-all self-end lg:self-center"
             title="Reset filters"
           >
             <RotateCcw className="w-3.5 h-3.5" />

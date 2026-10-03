@@ -8,7 +8,7 @@ export const RecentEventsSection: React.FC<{ events: Event[] }> = ({ events }) =
   const displayEvents = events.slice(0, 4);
 
   return (
-    <section className="py-12 md:py-16 border-b border-border/50 bg-muted/20">
+    <section className="py-12 md:py-16 border-b border-white/80 dark:border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Archived"

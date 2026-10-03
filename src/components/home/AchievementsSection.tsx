@@ -16,13 +16,17 @@ export const AchievementsSection: React.FC<{ achievements: Achievement[] }> = ({
   };
 
   return (
-    <section className="py-16 md:py-24 border-b border-border/50">
+    <section className="py-16 md:py-24 border-b border-white/80 dark:border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <SectionHeader
             badge="Recognition"
             title="Honors & Achievements"
             subtitle="National hackathon titles, hardware grants, and research publications."
+            action={{
+              label: 'Explore AI Projects',
+              href: '/projects',
+            }}
             className="mb-0 flex-1"
           />
 
@@ -32,7 +36,7 @@ export const AchievementsSection: React.FC<{ achievements: Achievement[] }> = ({
               onClick={() => scroll('left')}
               type="button"
               aria-label="Scroll achievements left"
-              className="p-2.5 rounded-xl border border-border bg-card hover:bg-muted text-foreground transition-colors"
+              className="p-2.5 rounded-2xl border border-white/80 dark:border-white/10 bg-white/75 dark:bg-slate-800/75 hover:bg-white text-slate-700 dark:text-slate-200 shadow-sm backdrop-blur-md transition-all hover:scale-105"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -40,7 +44,7 @@ export const AchievementsSection: React.FC<{ achievements: Achievement[] }> = ({
               onClick={() => scroll('right')}
               type="button"
               aria-label="Scroll achievements right"
-              className="p-2.5 rounded-xl border border-border bg-card hover:bg-muted text-foreground transition-colors"
+              className="p-2.5 rounded-2xl border border-white/80 dark:border-white/10 bg-white/75 dark:bg-slate-800/75 hover:bg-white text-slate-700 dark:text-slate-200 shadow-sm backdrop-blur-md transition-all hover:scale-105"
             >
               <ChevronRight className="w-4 h-4" />
             </button>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#14b8a6" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.8" />
+    </linearGradient>
+    <radialGradient id="radarSweepGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.8" />
+      <stop offset="60%" stop-color="#10b981" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#047857" stop-opacity="0" />
+    </radialGradient>
+    <style>
+      @keyframes sweepRadar {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes pulseTarget {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.3); opacity: 1; }
+      }
+      @keyframes waveGrid {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -160; }
+      }
+      .sweep-arm { transform-origin: 400px 300px; animation: sweepRadar 6s linear infinite; }
+      .radar-ring { transform-origin: 400px 300px; }
+      .target-box { animation: pulseTarget 2.5s ease-in-out infinite; }
+      .laser-hud { stroke-dasharray: 4, 8; animation: waveGrid 6s linear infinite; }
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#030c08" />
+
+  <!-- Concentric Radar Coordinates -->
+  <g class="radar-ring" fill="none" stroke="#10b981" opacity="0.3">
+    <circle cx="400" cy="300" r="80" stroke-width="1" />
+    <circle cx="400" cy="300" r="160" stroke-width="1" stroke-dasharray="10, 5" />
+    <circle cx="400" cy="300" r="240" stroke-width="1.5" class="laser-hud" />
+    <circle cx="400" cy="300" r="320" stroke-width="0.75" />
+    <line x1="80" y1="300" x2="720" y2="300" stroke-width="1" />
+    <line x1="400" y1="50" x2="400" y2="550" stroke-width="1" />
+  </g>
+
+  <!-- Rotating Radar Sweep Cone -->
+  <g class="sweep-arm">
+    <path d="M400 300 L640 180 A280 280 0 0 1 680 300 Z" fill="url(#radarSweepGlow)" opacity="0.5" />
+    <line x1="400" y1="300" x2="680" y2="300" stroke="#6ee7b7" stroke-width="2" />
+  </g>
+
+  <!-- Live Telemetry Tracking Bounding Reticles -->
+  <g class="target-box" style="animation-delay: 0s">
+    <rect x="520" y="160" width="36" height="36" fill="none" stroke="#34d399" stroke-width="1.5" />
+    <circle cx="538" cy="178" r="4" fill="#34d399" />
+    <text x="562" y="182" fill="#34d399" font-family="monospace" font-size="10">PIPELINE-01 [99.4%]</text>
+  </g>
+
+  <g class="target-box" style="animation-delay: 1.2s">
+    <rect x="220" y="380" width="40" height="40" fill="none" stroke="#38bdf8" stroke-width="1.5" />
+    <circle cx="240" cy="400" r="4" fill="#38bdf8" />
+    <text x="266" y="405" fill="#38bdf8" font-family="monospace" font-size="10">ROBOTICS-LIDAR [ACTIVE]</text>
+  </g>
+
+  <g class="target-box" style="animation-delay: 0.7s">
+    <rect x="560" y="380" width="32" height="32" fill="none" stroke="#a7f3d0" stroke-width="1.5" />
+    <circle cx="576" cy="396" r="3" fill="#a7f3d0" />
+    <text x="598" y="401" fill="#a7f3d0" font-family="monospace" font-size="10">INT4-CORE [READY]</text>
+  </g>
+</svg>

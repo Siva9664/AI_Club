@@ -12,7 +12,7 @@ export const ArchitectureView: React.FC<{ architecture?: ArchitectureInfo }> = (
   }
 
   return (
-    <div className="rounded-3xl border border-border/80 bg-card/70 overflow-hidden shadow-sm backdrop-blur-sm">
+    <div className="glass-card rounded-3xl border border-white/80 dark:border-white/10 bg-white/75 dark:bg-slate-900/75 overflow-hidden shadow-lg backdrop-blur-2xl">
       <div className="p-6 md:p-8">
         <div className="flex items-center gap-2 mb-4 text-xs font-mono uppercase tracking-wider text-primary">
           <Network className="w-4 h-4" />

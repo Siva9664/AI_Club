@@ -7,7 +7,7 @@ export const FacilitiesSection: React.FC<{ facilities: Facility[] }> = ({ facili
   const displayFacilities = facilities.slice(0, 6);
 
   return (
-    <section className="py-16 md:py-24 border-b border-border/50">
+    <section className="py-16 md:py-24 border-b border-white/80 dark:border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Hardware & Silicon"
