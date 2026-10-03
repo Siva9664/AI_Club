@@ -2,6 +2,17 @@
 <html lang="en" data-theme="dark">
 
 <head>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('ai-club-theme') || localStorage.getItem('aiClubHomeTheme');
+        if (!saved) {
+          saved = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Achievements & Hall of Fame | AI Lab</title>
@@ -246,27 +257,11 @@
       box-shadow: 0 0 16px var(--achieve-cyan), 0 0 30px var(--achieve-purple);
     }
 
-    /* Mobile & Touch Particle/Glow Support */
-    #achieve-cursor-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 9998;
-    }
-
     @media (hover: none) or (pointer: coarse) {
-      .achieve-cursor-dot {
-        opacity: 0;
-        transition: opacity 0.25s ease, transform 0.15s ease;
-        pointer-events: none;
-      }
 
-      .achieve-cursor-dot.touch-active {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.6);
+      .achieve-cursor-dot,
+      #achieve-cursor-canvas {
+        display: none !important;
       }
     }
 
@@ -836,7 +831,7 @@
       width: 380px;
       height: 380px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, rgba(234, 88, 12, 0.22) 40%, rgba(251, 191, 36, 0.1) 60%, transparent 70%);
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.28) 0%, rgba(245, 158, 11, 0.2) 35%, rgba(234, 88, 12, 0.1) 60%, transparent 75%);
       filter: blur(28px);
       animation: achieve-pulse-glow 5s infinite alternate ease-in-out;
       pointer-events: none;
@@ -845,19 +840,19 @@
     @keyframes achieve-pulse-glow {
       0% {
         transform: scale(0.9);
-        opacity: 0.5;
+        opacity: 0.55;
       }
 
       100% {
         transform: scale(1.15);
-        opacity: 0.85;
+        opacity: 0.9;
       }
     }
 
     .achieve-orbit-ring {
       position: absolute;
       border-radius: 50%;
-      border: 1px dashed rgba(245, 158, 11, 0.4);
+      border: 1px dashed rgba(251, 191, 36, 0.35);
       pointer-events: none;
     }
 
@@ -900,7 +895,7 @@
       width: 260px;
       height: 290px;
       z-index: 5;
-      filter: drop-shadow(0 15px 35px rgba(245, 158, 11, 0.45));
+      filter: drop-shadow(0 15px 35px rgba(245, 158, 11, 0.5)) drop-shadow(0 0 25px rgba(251, 191, 36, 0.35));
       animation: achieve-float-y 4.5s ease-in-out infinite alternate;
     }
 
@@ -1315,7 +1310,7 @@
     .achieve-category-badge.badge-hackathon {
       background: rgba(168, 85, 247, 0.12);
       color: #c084fc;
-      border-color: rgba(249, 115, 22, 0.4);
+      border-color: rgba(168, 85, 247, 0.35);
     }
 
     .achieve-category-badge.badge-competition {
@@ -2661,6 +2656,92 @@
       }
     }
 
+    /* Floating AI Chatbot Launcher */
+    .achieve-floating-chat-launcher {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 18px 8px 10px;
+      background: rgba(10, 15, 29, 0.92);
+      border: 1.5px solid var(--achieve-border-focus);
+      border-radius: var(--achieve-radius-full);
+      box-shadow: 0 8px 30px rgba(0, 242, 254, 0.35), 0 0 20px rgba(168, 85, 247, 0.25);
+      backdrop-filter: blur(16px);
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: float-soft 4s ease-in-out infinite;
+    }
+
+    [data-theme="light"] .achieve-floating-chat-launcher {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(2, 132, 199, 0.45);
+      box-shadow: 0 8px 30px rgba(2, 132, 199, 0.25);
+    }
+
+    .achieve-floating-chat-launcher:hover {
+      transform: translateY(-4px) scale(1.04);
+      border-color: var(--achieve-cyan);
+      box-shadow: 0 12px 35px rgba(0, 242, 254, 0.55), 0 0 30px rgba(168, 85, 247, 0.4);
+    }
+
+    .achieve-floating-chat-avatar {
+      position: relative;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .achieve-floating-chat-logo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 1.5px solid var(--achieve-cyan);
+    }
+
+    .achieve-floating-chat-online {
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #10b981;
+      border: 2px solid #060913;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .achieve-floating-chat-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--achieve-text-main);
+      white-space: nowrap;
+    }
+
+    .achieve-floating-chat-badge {
+      font-family: var(--achieve-font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #10b981;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 2px 7px;
+      border-radius: var(--achieve-radius-full);
+      text-transform: uppercase;
+    }
+
+    @keyframes float-soft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
   </style>
 </head>
 
@@ -2686,7 +2767,7 @@
       <div class="achieve-nav-content">
 
         <!-- Logo / Name -->
-        <a href="#hero" class="achieve-brand" aria-label="AI Lab Home">
+        <a href="index.html" class="achieve-brand" aria-label="AI Lab Home">
           <div class="achieve-brand-logo-icon">
             <img src="assets/ai-lab-logo.png" alt="AI LAB Official Logo" class="achieve-brand-logo-img" width="46" height="46" loading="eager" />
           </div>
@@ -2699,11 +2780,11 @@
         <!-- Desktop Navigation Links -->
         <nav aria-label="Main Navigation">
           <ul class="achieve-nav-links">
-            <li class="achieve-nav-item"><a href="#home" class="achieve-nav-link">Home</a></li>
-            <li class="achieve-nav-item"><a href="#projects" class="achieve-nav-link">Project</a></li>
-            <li class="achieve-nav-item"><a href="#hero" class="achieve-nav-link active"
+            <li class="achieve-nav-item"><a href="index.html" class="achieve-nav-link">Home</a></li>
+            <li class="achieve-nav-item"><a href="projects.html" class="achieve-nav-link">Project</a></li>
+            <li class="achieve-nav-item"><a href="achievement.html" class="achieve-nav-link active"
                 aria-current="page">Achievements</a></li>
-            <li class="achieve-nav-item"><a href="#visitors" class="achieve-nav-link">Visitors</a></li>
+            <li class="achieve-nav-item"><a href="visitors.html" class="achieve-nav-link">Visitors</a></li>
             <li class="achieve-nav-item"><a href="chat.html" class="achieve-nav-link" id="achieve-chat-link">Chat</a></li>
           </ul>
         </nav>
@@ -2758,10 +2839,10 @@
       </div>
     </div>
     <ul class="achieve-mobile-nav-list">
-      <li><a href="#home" class="achieve-mobile-nav-link">Home</a></li>
-      <li><a href="#projects" class="achieve-mobile-nav-link">Project</a></li>
-      <li><a href="#hero" class="achieve-mobile-nav-link active">Achievements (Active)</a></li>
-      <li><a href="#visitors" class="achieve-mobile-nav-link">Visitors</a></li>
+      <li><a href="index.html" class="achieve-mobile-nav-link">Home</a></li>
+      <li><a href="projects.html" class="achieve-mobile-nav-link">Project</a></li>
+      <li><a href="achievement.html" class="achieve-mobile-nav-link active">Achievements (Active)</a></li>
+      <li><a href="visitors.html" class="achieve-mobile-nav-link">Visitors</a></li>
       <li><a href="chat.html" class="achieve-mobile-nav-link" id="achieve-mobile-chat-link">Chat</a></li>
     </ul>
     <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px;">
@@ -2845,37 +2926,44 @@
               <div class="achieve-trophy-svg-container">
                 <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
-                    <linearGradient id="trophyGold" x1="20" y1="20" x2="180" y2="180" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stop-color="#fde047" />
-                      <stop offset="35%" stop-color="#f59e0b" />
-                      <stop offset="70%" stop-color="#ea580c" />
+                    <linearGradient id="trophyGold" x1="20" y1="20" x2="180" y2="200" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#fffbeb" />
+                      <stop offset="15%" stop-color="#fde047" />
+                      <stop offset="42%" stop-color="#fbbf24" />
+                      <stop offset="70%" stop-color="#f59e0b" />
+                      <stop offset="90%" stop-color="#ea580c" />
+                      <stop offset="100%" stop-color="#c2410c" />
+                    </linearGradient>
+                    <linearGradient id="trophyAccentGold" x1="60" y1="40" x2="140" y2="180" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#fef08a" />
+                      <stop offset="50%" stop-color="#f59e0b" />
                       <stop offset="100%" stop-color="#d97706" />
                     </linearGradient>
                     <linearGradient id="cupShine" x1="50" y1="30" x2="150" y2="130" gradientUnits="userSpaceOnUse">
                       <stop offset="0%" stop-color="rgba(255,255,255,0.85)" />
-                      <stop offset="40%" stop-color="rgba(254,240,138,0.35)" />
-                      <stop offset="100%" stop-color="rgba(234,88,12,0.1)" />
+                      <stop offset="35%" stop-color="rgba(254, 240, 138, 0.45)" />
+                      <stop offset="100%" stop-color="rgba(245, 158, 11, 0.05)" />
                     </linearGradient>
                     <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feGaussianBlur stdDeviation="7" result="blur" />
+                      <feGaussianBlur stdDeviation="8" result="blur" />
                       <feComposite in="SourceGraphic" in2="blur" operator="over" />
                     </filter>
                   </defs>
 
                   <circle cx="100" cy="90" r="75" stroke="url(#trophyGold)" stroke-width="1.5" stroke-dasharray="4 6"
-                    opacity="0.65" />
+                    opacity="0.6" />
                   <path d="M60 195 L140 195 L130 175 L70 175 Z" fill="url(#trophyGold)" />
                   <rect x="75" y="170" width="50" height="8" rx="2" fill="#fbbf24" opacity="0.95" />
-                  <rect x="92" y="135" width="16" height="35" rx="3" fill="url(#trophyGold)" />
+                  <rect x="92" y="135" width="16" height="35" rx="3" fill="url(#trophyAccentGold)" />
                   <path d="M50 40 L150 40 C150 40 145 125 100 135 C55 125 50 40 50 40 Z" fill="url(#trophyGold)"
-                    filter="url(#neonGlow)" opacity="0.98" />
+                    filter="url(#neonGlow)" opacity="0.95" />
                   <path d="M58 45 L142 45 C142 45 138 115 100 125 C62 115 58 45 58 45 Z" fill="url(#cupShine)" />
                   <path d="M50 50 C25 50 20 85 45 100 C52 104 55 100 55 96 C35 84 38 62 52 60 Z"
                     fill="url(#trophyGold)" />
                   <path d="M150 50 C175 50 180 85 155 100 C148 104 145 100 145 96 C165 84 162 62 148 60 Z"
                     fill="url(#trophyGold)" />
-                  <circle cx="100" cy="80" r="18" fill="#0b0f19" stroke="#f59e0b" stroke-width="2.2" />
-                  <path d="M93 80 L100 73 L107 80 L100 87 Z" fill="#fbbf24" />
+                  <circle cx="100" cy="80" r="18" fill="#0b0f19" stroke="#fbbf24" stroke-width="2" />
+                  <path d="M93 80 L100 73 L107 80 L100 87 Z" fill="#f59e0b" />
                   <circle cx="100" cy="80" r="3" fill="#ffffff" />
                 </svg>
               </div>
@@ -3314,35 +3402,6 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-       9. CALL-TO-ACTION SECTION
-       ========================================================================== -->
-    <section class="achieve-cta-section">
-      <div class="achieve-container">
-        <div class="achieve-cta-box">
-          <h2 class="achieve-cta-title">
-            Have You Achieved Something <span class="achieve-gradient-text">Extraordinary?</span>
-          </h2>
-          <p class="achieve-cta-desc">
-            Whether you just published a research breakthrough, secured a hackathon trophy, or earned an elite AI
-            credential, your accomplishments belong in our Digital Hall of Fame.
-          </p>
-          <div class="achieve-cta-actions">
-            <button class="achieve-btn-primary achieve-ripple-target" id="achieve-submit-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
-              <span>Submit Your Achievement</span>
-            </button>
-            <a href="#contact" class="achieve-btn-secondary achieve-ripple-target">
-              <span>Join Competition Squad</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- ==========================================================================
@@ -3394,10 +3453,10 @@
         <div>
           <h4 class="achieve-footer-title">Pages</h4>
           <ul class="achieve-footer-links">
-            <li><a href="#home" class="achieve-footer-link">Home</a></li>
-            <li><a href="#projects" class="achieve-footer-link">Project</a></li>
+            <li><a href="index.html" class="achieve-footer-link">Home</a></li>
+            <li><a href="projects.html" class="achieve-footer-link">Project</a></li>
             <li><a href="#hero" class="achieve-footer-link" style="color:var(--achieve-cyan)">Achievements</a></li>
-            <li><a href="#visitors" class="achieve-footer-link">Visitors</a></li>
+            <li><a href="visitors.html" class="achieve-footer-link">Visitors</a></li>
             <li><a href="chat.html" class="achieve-footer-link">Chat</a></li>
           </ul>
         </div>
@@ -3437,6 +3496,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating AI Assistant Chat Launcher -->
+  <a href="chat.html" class="achieve-floating-chat-launcher" id="achieve-floating-chat-launcher" aria-label="Open AI Club Intelligent Assistant">
+    <div class="achieve-floating-chat-avatar">
+      <img src="assets/ai-lab-logo.png" alt="AI LAB Chat" class="achieve-floating-chat-logo" width="38" height="38" />
+      <span class="achieve-floating-chat-online"></span>
+    </div>
+    <span class="achieve-floating-chat-label">Ask AI Assistant</span>
+    <span class="achieve-floating-chat-badge">ONLINE</span>
+  </a>
 
   <!-- ==========================================================================
        11. ACHIEVEMENT DETAIL MODAL
@@ -3533,198 +3602,198 @@
 
       const MOCK_ACHIEVEMENTS = [
         {
-          id: "a2026-1",
-          title: "HackerRank Orchestrate – 24-Hour AI-Agent Hackathon",
-          category: "competition",
-          date: "2026-08-28",
-          year: 2026,
-          image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-          summary: "Among 1,983 participants, our students secured 6 global leaderboard rankings: Nitish R.G. (#162), Shreekumar B. (#209), Suchit (#558), Arun Prasath (#1215), Santheesh (#1227), and Nakshatra S.V. (#1360).",
-          description: "During the 24-Hour HackerRank Orchestrate AI-Agent Hackathon, 1,983 participants competed worldwide to architect autonomous agents. The student contingent from the Artificial Intelligence Research Lab secured impressive leaderboard rankings: Nitish R.G. – World Rank #162, Shreekumar B. – #209, Suchit – #558, Arun Prasath – #1215, Santheesh – #1227, and Nakshatra S.V. – #1360.",
-          recipient: "Nitish R.G., Shreekumar B., Suchit, Santheesh, Arun Prasath & Nakshatra S.V.",
-          metric: "World Rank #162, #209, #558, #1215, #1227, #1360 / 1,983 Participants",
-          proofUrl: "",
-          featured: false
-        },
-        {
-          id: "a2026-2",
+          id: "ach-2026-01",
           title: "International Faraway Hackathon – Global Selection",
           category: "hackathon",
-          date: "2026-08-23",
+          date: "2026-08-22",
           year: 2026,
           image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80",
-          summary: "Competed against 11,000+ participants worldwide and secured a place among the Top 100 teams globally in Patiala.",
-          description: "Two student teams from the institution were selected for the prestigious International Hackathon, 'Faraway Hackathon,' organized by Zuup and conducted at Chandigarh University, Patiala on 22–23 August 2026. Competing against 11,000+ participants worldwide, the teams secured a place among the Top 100 teams globally, representing SIET on an international stage and demonstrating excellence in AI, software development, and product innovation.",
-          recipient: "Aswin (II CSE), Nitish R. G (II CSE), Padmanabhan Suresh Babu (II CSE), Nakshatra S. V (II CSE), Meenakshi C (II CSE), Viswanath N (II CSE), Shreekumar (II AI&DS), Prithic P (II AIML)",
+          summary: "Selected among the Top 100 teams globally out of 11,000+ international participants at Chandigarh University, representing SIET.",
+          description: "Organized by Zuup and held at Patiala – Chandigarh University on 22–23 August 2026. The student cohort competed against 11,000+ participants worldwide and secured a place among the Top 100 teams globally, proudly representing SIET at an international hackathon.",
+          recipient: "Aswin – II CSE, Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Nakshatra S. V – II CSE, Meenakshi C – II CSE, Viswanath N – II CSE, Shreekumar – II AI&DS, Prithic P – II AIML",
           metric: "Top 100 Teams Globally / 11,000+ Participants Worldwide",
           proofUrl: "",
           featured: true
         },
         {
-          id: "a2026-3",
-          title: "Next.js UI/UX Hackathon - 1st Place Victory",
+          id: "ach-2026-02",
+          title: "HackerRank Orchestrate – 24-Hour AI-Agent Hackathon",
           category: "hackathon",
-          date: "2026-07-25",
+          date: "2026-08-16",
+          year: 2026,
+          image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+          summary: "Among 1,983 participants, AI Lab students secured top world leaderboard rankings in the 24-hour autonomous agent hackathon.",
+          description: "In an intensive 24-Hour AI-Agent Hackathon among 1,983 participants, the students developed intelligent autonomous systems and secured the following leaderboard rankings: Nitish R.G. – World Rank #162, Shreekumar B. – World Rank #209, Suchit – World Rank #558, Arun Prasath – World Rank #1215, Santheesh – World Rank #1227, Nakshatra S.V. – World Rank #1360.",
+          recipient: "Nitish R.G., Shreekumar B., Suchit, Santheesh, Arun Prasath, Nakshatra S.V.",
+          metric: "World Ranks #162, #209, #558, #1215, #1227, #1360 (1,983 Participants)",
+          proofUrl: "",
+          featured: false
+        },
+        {
+          id: "ach-2026-03",
+          title: "Next.js UI/UX Hackathon",
+          category: "competition",
+          date: "2026-07-20",
           year: 2026,
           image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-          summary: "Secured First Place in the Next.js UI/UX Hackathon organized by Crowdera Foundation, earning an executive internship interview.",
-          description: "Organized by the Crowdera Foundation, Shreekumar (II AIDS) secured First Place in the competitive Next.js UI/UX Hackathon. Following this championship victory, he was invited to attend an exclusive internship interview with the Co-founder of Crowdera Foundation and the CEO of Winsemble Systems for the Frontend Developer role.",
-          recipient: "Shreekumar (II Year, AI&DS)",
-          metric: "First Place Champion & Executive Interview with Crowdera & Winsemble",
+          summary: "Secured First Place in the Next.js UI/UX Hackathon organized by Crowdera Foundation, advancing to an executive frontend developer interview.",
+          description: "Organized by Crowdera Foundation. Shreekumar secured First Place in the Next.js UI/UX Hackathon. Following the competition, he attended an internship interview with the Co-founder of Crowdera Foundation and the CEO of Winsemble Systems for the Frontend Developer role.",
+          recipient: "Shreekumar – II AIDS",
+          metric: "First Place Winner & Frontend Developer Internship Interview",
           proofUrl: "",
           featured: true
         },
         {
-          id: "a2026-4",
-          title: "Java Package Development for AI Applications (SIDD-AI)",
+          id: "ach-2026-04",
+          title: "Java Package Development for AI Applications",
           category: "other",
-          date: "2026-07-15",
+          date: "2026-07-12",
           year: 2026,
           image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-          summary: "Developed SIDD-AI, a unified Java SDK integrating OpenAI, Gemini, Claude, and Ollama with 450+ downloads across 33 companies.",
-          description: "Prabhu Siddarth A V (III Year, IT) successfully developed SIDD-AI, a lightweight and framework-independent Java SDK for AI applications. The package enables developers to integrate leading AI models such as OpenAI, Google Gemini, Anthropic Claude, and Ollama through a single unified API, making AI integration in Java simple, efficient, and reusable. The open-source library demonstrated advanced software engineering skills, surpassing 450 downloads within two weeks of launch and adopted by around 33 companies.",
-          recipient: "Prabhu Siddarth A V (III Year, IT)",
-          metric: "450+ Downloads in 2 Weeks • Adopted by ~33 Companies",
+          summary: "Developed SIDD-AI, a lightweight, unified Java SDK for OpenAI, Google Gemini, Anthropic Claude, and Ollama with 450+ downloads in 2 weeks across 33 companies.",
+          description: "Developed 'SIDD-AI', a lightweight and framework-independent Java SDK for AI applications. The package enables developers to integrate OpenAI, Google Gemini, Anthropic Claude, and Ollama through a single unified API. Demonstrated advanced software engineering skills with more than 450 downloads within two weeks of launch, around 33 companies downloading the package, as an open-source contribution for AI developers.",
+          recipient: "Prabhu Siddarth A V, III Year, IT",
+          metric: "450+ Downloads & 33 Companies in 2 Weeks (Open-Source SDK)",
           proofUrl: "",
           featured: false
         },
         {
-          id: "a2026-5",
-          title: "International Internship & Sarvam AI Epoch Buildathon",
+          id: "ach-2026-05",
+          title: "International Internship",
           category: "other",
-          date: "2026-07-05",
+          date: "2026-07-04",
           year: 2026,
           image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
-          summary: "Selected as AI Intern at Movvr Pvt. Ltd. and ranked among the Top 50 in Sarvam AI Epoch Buildathon out of 700+ participants.",
-          description: "Nitish R. G (II Year, CSE) was selected as an AI Intern at Movvr Pvt. Ltd. for a competitive one-month international internship. Additionally, he achieved a high-tier ranking among the Top 50 participants in the Sarvam AI Epoch Buildathon from a talent pool of over 700 participants.",
-          recipient: "Nitish R. G (II Year, CSE)",
-          metric: "AI Intern at Movvr Pvt. Ltd. • Top 50 of 700+ in Sarvam AI Buildathon",
+          summary: "Selected as an AI Intern at Movvr Pvt. Ltd. and ranked among the Top 50 participants out of 700+ in the Sarvam AI Epoch Buildathon.",
+          description: "Selected as an AI Intern at Movvr Pvt. Ltd. for a one-month internship. Additional achievement: Ranked among the Top 50 participants in the Sarvam AI Epoch Buildathon from over 700 participants.",
+          recipient: "Nitish R. G, II Year, CSE",
+          metric: "AI Intern (Movvr Pvt. Ltd.) & Top 50 / 700+ (Sarvam AI Epoch Buildathon)",
           proofUrl: "",
           featured: false
         },
         {
-          id: "a2026-6",
+          id: "ach-2026-06",
           title: "Python Package for Model Context Protocol (MCP)",
           category: "other",
-          date: "2026-06-28",
-          year: 2026,
-          image: "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=1200&q=80",
-          summary: "Published an open-source MCP Python package enabling seamless tool communication, surpassing 4,000+ downloads.",
-          description: "Mahibala H (III Year, CSE) successfully developed and published a Python package for Model Context Protocol (MCP), enabling seamless communication between AI agents, external tools, and software applications. The package contributes to the open-source AI ecosystem and has received significant developer adoption with over 1,000 downloads within the first three days and more than 4,000 total downloads.",
-          recipient: "Mahibala H (III Year, CSE)",
-          metric: "4,000+ Downloads (1,000+ in First 3 Days)",
-          proofUrl: "",
-          featured: true
-        },
-        {
-          id: "a2026-7",
-          title: "HackerRank Orchestrate June 2026 (Autonomous AI Agents)",
-          category: "competition",
-          date: "2026-06-20",
+          date: "2026-06-25",
           year: 2026,
           image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80",
-          summary: "Secured World Rank #73 by developing a production-grade autonomous AI agent system under competitive conditions.",
-          description: "Competing in the HackerRank Orchestrate June 2026 International Challenge, Nitish R. G (II Year, CSE) developed a production-grade autonomous AI agent system under rigorous competitive conditions, successfully securing World Rank #73 on the global leaderboard.",
-          recipient: "Nitish R. G (II Year, CSE)",
-          metric: "World Rank #73 Global Leaderboard",
+          summary: "Published an MCP Python package enabling agentic tool communication, recording 4,000+ total downloads and over 1,000 within the first 3 days.",
+          description: "Successfully developed a Python package for Model Context Protocol (MCP), enabling seamless communication between AI agents, external tools, and software applications. Successfully published an MCP Python package with more than 4,000 downloads, including over 1,000 downloads within the first three days, as an open-source contribution for AI developers.",
+          recipient: "Mahibala H, III Year, CSE",
+          metric: "4,000+ Downloads (1,000+ Downloads in First 3 Days)",
+          proofUrl: "",
+          featured: false
+        },
+        {
+          id: "ach-2026-07",
+          title: "HackerRank Orchestrate – Autonomous AI Agents",
+          category: "competition",
+          date: "2026-06-18",
+          year: 2026,
+          image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+          summary: "Developed a production-grade autonomous AI agent system under competitive conditions and secured World Rank #73.",
+          description: "Developed a production-grade autonomous AI agent system under competitive conditions and secured World Rank #73.",
+          recipient: "Nitish R. G, II Year CSE",
+          metric: "World Rank #73",
           proofUrl: "",
           featured: true
         },
         {
-          id: "a2026-8",
-          title: "HackerRank SQL International Challenge – World Rank #1",
+          id: "ach-2026-08",
+          title: "HackerRank SQL International Challenge",
           category: "competition",
-          date: "2026-06-15",
+          date: "2026-06-14",
+          year: 2026,
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+          summary: "Secured World Rank #1 and earned the Gold Badge (5★ SQL) in the HackerRank SQL International Challenge.",
+          description: "Secured World Rank #1 and earned the Gold Badge (5★ SQL) in the HackerRank SQL International Challenge.",
+          recipient: "Nitish R. G, II Year CSE",
+          metric: "World Rank #1 & Gold Badge (5★ SQL)",
+          proofUrl: "",
+          featured: true
+        },
+        {
+          id: "ach-2026-09",
+          title: "Frontier Hackathon",
+          category: "hackathon",
+          date: "2026-06-08",
           year: 2026,
           image: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=1200&q=80",
-          summary: "Secured World Rank #1 globally and earned the coveted Gold Badge (5★ SQL) in the international challenge.",
-          description: "Nitish R. G (II Year, CSE) secured World Rank #1 in the HackerRank SQL International Challenge. Through comprehensive mastery of complex relational queries, data modeling, and query optimization, he earned the prestigious HackerRank Gold Badge (5★ SQL).",
-          recipient: "Nitish R. G (II Year, CSE)",
-          metric: "World Rank #1 Globally & 5★ SQL Gold Badge",
+          summary: "Selected for the international hackathon and accepted into the $250K Pre-Seed Funding Track, receiving startup mentorship and ecosystem support.",
+          description: "Organized by Colosseum × Solana. Selected for the international hackathon and accepted into the $250K Pre-Seed Funding Track, receiving startup mentorship and ecosystem support.",
+          recipient: "Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Prithic P – II AIML, Mithunesh K – II CSE, Viswanath N – II CSE",
+          metric: "Accepted into $250K Pre-Seed Funding Track & Startup Mentorship",
           proofUrl: "",
           featured: true
         },
         {
-          id: "a2026-9",
-          title: "Frontier Hackathon (Colosseum × Solana) - $250K Pre-Seed Track",
-          category: "hackathon",
-          date: "2026-06-10",
-          year: 2026,
-          image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-          summary: "Selected for the international hackathon and accepted into the $250K Pre-Seed Funding Track with startup mentorship.",
-          description: "Organized by Colosseum × Solana, student innovators from the AI Research Lab were selected for the prestigious Frontier international hackathon and officially accepted into the $250K Pre-Seed Funding Track. The team received elite startup mentorship, technical backing, and ecosystem support.",
-          recipient: "Nitish R. G (II CSE), Padmanabhan Suresh Babu (II CSE), Prithic P (II AIML), Mithunesh K (II CSE), Viswanath N (II CSE)",
-          metric: "Accepted into $250K Pre-Seed Funding Track",
-          proofUrl: "",
-          featured: true
-        },
-        {
-          id: "a2026-10",
+          id: "ach-2026-10",
           title: "Meta × PyTorch × Hugging Face OpenEnv Hackathon",
           category: "hackathon",
-          date: "2026-06-05",
+          date: "2026-06-02",
           year: 2026,
-          image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
-          summary: "Secured a position among the Top 800 teams globally out of 72,000+ participants worldwide.",
-          description: "In the worldwide Meta × PyTorch × Hugging Face OpenEnv Hackathon, our student team engineered reinforcement learning and environmental AI models, securing a position among the Top 800 teams globally from an extraordinary field of 72,000+ participants.",
-          recipient: "Nitish R. G (II CSE), Padmanabhan Suresh Babu (II CSE), Prithic P (II AIML)",
+          image: "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=1200&q=80",
+          summary: "Secured a position among the Top 800 teams globally out of 72,000+ participants.",
+          description: "Secured a position among the Top 800 teams globally out of 72,000+ participants in the Meta × PyTorch × Hugging Face OpenEnv Hackathon.",
+          recipient: "Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Prithic P – II AIML",
           metric: "Top 800 Teams Globally / 72,000+ Participants",
           proofUrl: "",
           featured: true
         },
         {
-          id: "a2026-11",
-          title: "HackerRank Orchestrate May 2026 (Autonomous AI Agents)",
+          id: "ach-2026-11",
+          title: "HackerRank Orchestrate – Autonomous AI Agents",
           category: "competition",
-          date: "2026-05-24",
+          date: "2026-05-22",
           year: 2026,
           image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-          summary: "Secured World Rank #384 on the international competitive leaderboard for autonomous agent design.",
-          description: "Competing in the May 2026 edition of the HackerRank Orchestrate Autonomous AI Agents competition, Nitish R. G (II CSE) designed algorithmic decision workflows to secure World Rank #384 internationally.",
-          recipient: "Nitish R. G (II Year, CSE)",
-          metric: "World Rank #384 Global Finish",
+          summary: "Secured World Rank #384 in the May edition of the HackerRank Orchestrate Autonomous AI Agents competition.",
+          description: "Secured World Rank #384 in the HackerRank Orchestrate – Autonomous AI Agents competition.",
+          recipient: "Nitish R. G, II CSE",
+          metric: "World Rank #384",
           proofUrl: "",
           featured: false
         },
         {
-          id: "a2026-12",
-          title: "Claude Code Builders Conference (Anthropic) - Speaker",
+          id: "ach-2026-12",
+          title: "Claude Code Builders Conference",
           category: "other",
           date: "2026-05-12",
           year: 2026,
-          image: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=1200&q=80",
-          summary: "Selected as one of only five speakers worldwide from more than 3,300 global applicants by Anthropic.",
-          description: "At the Claude Code Builders Conference organized by Anthropic, Nitish R. G (II CSE) achieved the rare distinction of being selected as one of only five speakers globally from a competitive applicant pool of more than 3,300 developers and researchers worldwide.",
-          recipient: "Nitish R. G (II Year, CSE)",
-          metric: "1 of Only 5 Global Speakers Selected / 3,300+ Applicants",
+          image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
+          summary: "Selected as one of only five speakers from more than 3,300 global applicants for the Anthropic Claude Code Builders Conference.",
+          description: "Organized by Anthropic. Selected as one of only five speakers from more than 3,300 global applicants.",
+          recipient: "Nitish R. G, II CSE",
+          metric: "1 of Only 5 Global Speakers Selected (3,300+ Applicants)",
           proofUrl: "",
           featured: true
         },
         {
-          id: "a2026-13",
-          title: "Hack-Nation Global AI Hackathon Selection",
+          id: "ach-2026-13",
+          title: "Hack-Nation Global AI Hackathon",
           category: "hackathon",
-          date: "2026-04-20",
+          date: "2026-04-18",
           year: 2026,
-          image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-          summary: "Selected to participate in the international AI hackathon supported by MIT and partnered with Stanford University.",
-          description: "Nitish R. G (II CSE) was selected to participate in the Hack-Nation Global AI Hackathon, an international AI competition supported by MIT and partnered with Stanford University along with leading global research institutions.",
-          recipient: "Nitish R. G (II Year, CSE)",
-          metric: "Selected Participant (Supported by MIT & Stanford Partners)",
+          image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+          summary: "Selected to participate in the international AI hackathon, supported by MIT and partnered with Stanford University and leading global research institutions.",
+          description: "Selected to participate in the international AI hackathon, supported by MIT and partnered with Stanford University and leading global research institutions.",
+          recipient: "Nitish R. G, II CSE",
+          metric: "International Selection (Supported by MIT & Stanford University)",
           proofUrl: "",
           featured: false
         },
         {
-          id: "a2026-14",
+          id: "ach-2026-14",
           title: "India Innovates 2026 – National Innovation Challenge",
           category: "competition",
-          date: "2026-04-08",
+          date: "2026-04-06",
           year: 2026,
           image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
-          summary: "Top 100 Finalists from 25,862+ participants across India, presenting at Bharat Mandapam, New Delhi.",
-          description: "Competing in India Innovates 2026 – National Innovation Challenge, our student team secured a place among the Top 100 finalists from an immense pool of 25,862+ participants across India. The team presented their innovative solution at the Grand Finale held at the prestigious Bharat Mandapam in New Delhi.",
-          recipient: "Nitish R. G (II CSE), Padmanabhan Suresh Babu (II CSE), Prithic P (II AIML), Nishanth K. R (II CSE), Mithunesh K (II CSE)",
-          metric: "Top 100 Finalists / 25,862+ Participants (Grand Finale at Bharat Mandapam)",
+          summary: "Secured a place among the Top 100 finalists from 25,862+ participants across India and presented their innovative solution at the Grand Finale held at Bharat Mandapam, New Delhi.",
+          description: "Secured a place among the Top 100 finalists from 25,862+ participants across India and presented their innovative solution at the Grand Finale held at Bharat Mandapam, New Delhi.",
+          recipient: "Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Prithic P – II AIML, Nishanth K. R – II CSE, Mithunesh K – II CSE",
+          metric: "Top 100 Finalists / 25,862+ Participants (Bharat Mandapam Finale)",
           proofUrl: "",
           featured: true
         },
@@ -3906,7 +3975,9 @@
                 item.title.toLowerCase().includes(q) ||
                 item.summary.toLowerCase().includes(q) ||
                 item.recipient.toLowerCase().includes(q) ||
-                item.category.toLowerCase().includes(q)
+                item.category.toLowerCase().includes(q) ||
+                (item.description && item.description.toLowerCase().includes(q)) ||
+                (item.metric && item.metric.toLowerCase().includes(q))
               );
             }
 
@@ -4471,96 +4542,6 @@
           lastY = mouseY;
         });
 
-        // Mobile Touch Support: Stardust Trail, Quantum Tap Burst, and Ambient Glow
-        let touchActive = false;
-
-        window.addEventListener('touchstart', (e) => {
-          if (!e.touches || e.touches.length === 0) return;
-          const touch = e.touches[0];
-          mouseX = touch.clientX;
-          mouseY = touch.clientY;
-          lastX = mouseX;
-          lastY = mouseY;
-          touchActive = true;
-
-          if (dot) {
-            dot.style.left = `${mouseX}px`;
-            dot.style.top = `${mouseY}px`;
-            dot.classList.add('touch-active');
-          }
-
-          if (glow) {
-            glow.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-          }
-
-          // Mobile Tap Burst
-          for (let i = 0; i < 10; i++) {
-            const angle = (Math.PI * 2 * i) / 10 + (Math.random() - 0.5) * 0.4;
-            const speed = Math.random() * 3 + 1.5;
-            addParticle(
-              touch.clientX,
-              touch.clientY,
-              Math.cos(angle) * speed,
-              Math.sin(angle) * speed,
-              true
-            );
-          }
-        }, { passive: true });
-
-        window.addEventListener('touchmove', (e) => {
-          if (!e.touches || e.touches.length === 0) return;
-          const touch = e.touches[0];
-          mouseX = touch.clientX;
-          mouseY = touch.clientY;
-
-          if (dot) {
-            dot.style.left = `${mouseX}px`;
-            dot.style.top = `${mouseY}px`;
-          }
-
-          if (glow) {
-            glow.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-          }
-
-          if (lastX > 0 && lastY > 0) {
-            const dx = mouseX - lastX;
-            const dy = mouseY - lastY;
-            const dist = Math.hypot(dx, dy);
-
-            if (dist > 3) {
-              const steps = Math.min(Math.floor(dist / 6), 6);
-              for (let i = 0; i < steps; i++) {
-                const px = lastX + (dx * i) / steps;
-                const py = lastY + (dy * i) / steps;
-                addParticle(
-                  px + (Math.random() - 0.5) * 4,
-                  py + (Math.random() - 0.5) * 4,
-                  -dx * 0.04 + (Math.random() - 0.5) * 0.4,
-                  -dy * 0.04 + (Math.random() - 0.5) * 0.4
-                );
-              }
-            }
-          }
-
-          lastX = mouseX;
-          lastY = mouseY;
-        }, { passive: true });
-
-        window.addEventListener('touchend', () => {
-          touchActive = false;
-          if (dot) {
-            dot.classList.remove('touch-active');
-          }
-        }, { passive: true });
-
-        window.addEventListener('touchcancel', () => {
-          touchActive = false;
-          if (dot) {
-            dot.classList.remove('touch-active');
-          }
-        }, { passive: true });
-
-
         // Click Quantum Pulse Burst
         window.addEventListener('click', (e) => {
           for (let i = 0; i < 14; i++) {
@@ -4655,7 +4636,7 @@
         const toggleBtn = document.getElementById('achieve-theme-toggle-btn');
         const themeIcon = document.getElementById('achieve-theme-icon');
 
-        const savedTheme = localStorage.getItem('ai-club-theme');
+        const savedTheme = localStorage.getItem('ai-club-theme') || localStorage.getItem('aiClubHomeTheme');
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         state.theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
 
@@ -4666,9 +4647,18 @@
             state.theme = state.theme === 'dark' ? 'light' : 'dark';
             applyTheme(state.theme);
             localStorage.setItem('ai-club-theme', state.theme);
+            localStorage.setItem('aiClubHomeTheme', state.theme);
             showToast(`Switched to ${state.theme.toUpperCase()} theme`);
           });
         }
+
+        // Live real-time cross-tab and cross-page synchronization
+        window.addEventListener('storage', (e) => {
+          if (e.key === 'ai-club-theme' || e.key === 'aiClubHomeTheme') {
+            state.theme = e.newValue || 'dark';
+            applyTheme(state.theme);
+          }
+        });
 
         function applyTheme(theme) {
           document.documentElement.setAttribute('data-theme', theme);
