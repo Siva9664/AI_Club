@@ -1,0 +1,24 @@
+# Code Owners
+
+# Global owners
+* @Siva9664
+
+# Frontend
+/src/ @Siva9664
+/public/ @Siva9664
+/index.html @Siva9664
+/vite.config.ts @Siva9664
+/vitest.config.ts @Siva9664
+/tailwind.config.js @Siva9664
+/tsconfig*.json @Siva9664
+/package.json @Siva9664
+
+# Backend
+/backend/ @Siva9664
+
+# Documentation
+/docs/ @Siva9664
+/README.md @Siva9664
+
+# CI/CD
+/.github/ @Siva9664

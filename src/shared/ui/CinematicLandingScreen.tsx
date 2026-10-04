@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/shared/lib/utils';
 
@@ -19,12 +19,12 @@ export const CinematicLandingScreen: React.FC<CinematicLandingScreenProps> = ({
   const [playCount, setPlayCount] = useState<number>(0);
   const [hasEntered, setHasEntered] = useState<boolean>(false);
 
-  const handleEnter = () => {
+  const handleEnter = useCallback(() => {
     if (!hasEntered) {
       setHasEntered(true);
       onEnter();
     }
-  };
+  }, [hasEntered, onEnter]);
 
   // Auto-play video on mount (loop is false so it auto-triggers onEnded)
   useEffect(() => {
@@ -63,7 +63,7 @@ export const CinematicLandingScreen: React.FC<CinematicLandingScreenProps> = ({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, hasEntered, onEnter]);
+  }, [isOpen, hasEntered, handleEnter]);
 
   // Video playback listener
   useEffect(() => {
@@ -114,7 +114,7 @@ export const CinematicLandingScreen: React.FC<CinematicLandingScreenProps> = ({
       video.removeEventListener('ended', handleEnded);
       video.removeEventListener('timeupdate', handleTimeUpdate);
     };
-  }, [isOpen, hasEntered, onEnter]);
+  }, [isOpen, hasEntered, handleEnter]);
 
   return (
     <AnimatePresence>
