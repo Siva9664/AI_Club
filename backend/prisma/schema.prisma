@@ -1,0 +1,223 @@
+// AI Club backend – Prisma schema
+// Docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Enums
+// ---------------------------------------------------------------------------
+
+enum Role {
+  ADMIN
+  MEMBER
+}
+
+enum Status {
+  DRAFT
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+// ---------------------------------------------------------------------------
+// Auth
+// ---------------------------------------------------------------------------
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         Role     @default(MEMBER)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  activity       ActivityLog[]
+  projectsEdited Project[]
+  achievementsEdited Achievement[]
+  guestsEdited   Guest[]
+  membersEdited  Member[]
+
+  @@map("users")
+}
+
+// ---------------------------------------------------------------------------
+// Content resources (shared shape: status / priority / featured / soft delete)
+// ---------------------------------------------------------------------------
+
+model Project {
+  id              Int       @id @default(autoincrement())
+  slug            String    @unique
+  name            String
+  summary         String    @default("")
+  description     String?
+  category        String?
+  tags            String[]  @default([])
+  thumbnail       String?
+  team            String?
+  links           Json?
+  status          Status    @default(DRAFT)
+  priority        Int       @default(0)
+  featured        Boolean   @default(false)
+  rejectionReason String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  updatedById     Int?
+  deletedAt       DateTime?
+
+  updatedBy User? @relation(fields: [updatedById], references: [id], onDelete: SetNull)
+
+  @@index([status, deletedAt])
+  @@index([priority])
+  @@map("projects")
+}
+
+model Achievement {
+  id              Int       @id @default(autoincrement())
+  name            String
+  year            Int
+  description     String?
+  category        String?
+  image           String?
+  recipient       String?
+  proofUrl        String?
+  status          Status    @default(DRAFT)
+  priority        Int       @default(0)
+  featured        Boolean   @default(false)
+  rejectionReason String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  updatedById     Int?
+  deletedAt       DateTime?
+
+  updatedBy User? @relation(fields: [updatedById], references: [id], onDelete: SetNull)
+
+  @@index([status, deletedAt])
+  @@index([priority])
+  @@index([year])
+  @@map("achievements")
+}
+
+model Guest {
+  id              Int       @id @default(autoincrement())
+  name            String
+  role            String?
+  organization    String?
+  bio             String?
+  topic           String?
+  photo           String?
+  visitDate       DateTime?
+  gallery         String[]  @default([])
+  status          Status    @default(DRAFT)
+  priority        Int       @default(0)
+  featured        Boolean   @default(false)
+  rejectionReason String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  updatedById     Int?
+  deletedAt       DateTime?
+
+  updatedBy User? @relation(fields: [updatedById], references: [id], onDelete: SetNull)
+
+  @@index([status, deletedAt])
+  @@index([priority])
+  @@map("guests")
+}
+
+model Member {
+  id              Int       @id @default(autoincrement())
+  name            String
+  email           String?
+  role            String    @default("member")
+  group           String?
+  bio             String?
+  photo           String?
+  links           Json?
+  status          Status    @default(DRAFT)
+  priority        Int       @default(0)
+  featured        Boolean   @default(false)
+  rejectionReason String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  updatedById     Int?
+  deletedAt       DateTime?
+
+  updatedBy User? @relation(fields: [updatedById], references: [id], onDelete: SetNull)
+
+  @@index([status, deletedAt])
+  @@index([priority])
+  @@map("members")
+}
+
+// ---------------------------------------------------------------------------
+// Site content, home layout, inbox, audit log, media
+// ---------------------------------------------------------------------------
+
+model SiteContent {
+  id          Int      @id @default(autoincrement())
+  key         String   @unique
+  value       Json
+  updatedAt   DateTime @updatedAt
+  updatedById Int?
+
+  @@map("site_content")
+}
+
+model HomeSlot {
+  id           Int    @id @default(autoincrement())
+  section      String
+  resourceType String
+  itemId       Int
+  position     Int
+
+  @@unique([section, position])
+  @@index([section])
+  @@map("home_slots")
+}
+
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([read])
+  @@map("contact_messages")
+}
+
+model ActivityLog {
+  id           Int      @id @default(autoincrement())
+  action       String
+  resourceType String
+  resourceId   Int?
+  title        String   @default("")
+  userId       Int?
+  createdAt    DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([resourceType])
+  @@index([userId])
+  @@map("activity_logs")
+}
+
+model Media {
+  id        Int      @id @default(autoincrement())
+  url       String
+  filename  String
+  size      Int
+  mime      String
+  createdAt DateTime @default(now())
+
+  @@map("media")
+}
