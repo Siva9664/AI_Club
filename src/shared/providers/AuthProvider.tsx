@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
+import { AuthContext } from './AuthContext';
 
 interface User {
   id: string;
@@ -7,16 +8,6 @@ interface User {
   role: 'admin' | 'member';
   avatar?: string;
 }
-
-interface AuthContextType {
-  user: User | null;
-  isLoading: boolean;
-  login: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-  isAuthenticated: boolean;
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Mock credentials
 const MOCK_USERS: Record<string, { password: string; user: User }> = {
@@ -31,21 +22,19 @@ const MOCK_USERS: Record<string, { password: string; user: User }> = {
 };
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Check for stored session
-    const stored = localStorage.getItem('ai-club-auth');
-    if (stored) {
-      try {
-        setUser(JSON.parse(stored));
-      } catch {
-        localStorage.removeItem('ai-club-auth');
+  const [user, setUser] = useState<User | null>(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('ai-club-auth');
+      if (stored) {
+        try {
+          return JSON.parse(stored);
+        } catch {
+          localStorage.removeItem('ai-club-auth');
+        }
       }
     }
-    setIsLoading(false);
-  }, []);
+    return null;
+  });
 
   const login = useCallback(async (email: string, password: string) => {
     const record = MOCK_USERS[email];
@@ -62,16 +51,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, logout, isAuthenticated: !!user }}>
+    <AuthContext.Provider value={{ user, isLoading: false, login, logout, isAuthenticated: !!user }}>
       {children}
     </AuthContext.Provider>
   );
-};
-
-export const useAuth = (): AuthContextType => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
 };

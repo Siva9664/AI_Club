@@ -59,10 +59,11 @@ export const Projects: React.FC = () => {
   }, []);
 
   // Fetch projects list based on current filters and pagination
-  const fetchProjectList = useCallback(async () => {
+  const loadProjectList = useCallback(async () => {
+    let isMounted = true;
     try {
-      setLoading(true);
       setError(null);
+      setLoading(true);
 
       const params: ProjectQueryParams = {
         page,
@@ -76,17 +77,25 @@ export const Projects: React.FC = () => {
       if (tag && tag !== 'All') params.tag = tag;
 
       const res = await getProjects(params);
-      setProjectsData(res);
+      if (isMounted) {
+        setProjectsData(res);
+      }
     } catch (err: any) {
-      setError(err?.message || 'Something went wrong while loading the projects.');
+      if (isMounted) {
+        setError(err?.message || 'Something went wrong while loading the projects.');
+      }
     } finally {
-      setLoading(false);
+      if (isMounted) {
+        setLoading(false);
+      }
     }
+    return () => { isMounted = false; };
   }, [page, query, category, status, tag]);
 
   useEffect(() => {
-    fetchProjectList();
-  }, [fetchProjectList]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- loadProjectList sets state internally, this is the standard data fetching pattern
+    loadProjectList();
+  }, [loadProjectList]);
 
   // Handler for reset / clear
   const handleClearFilters = () => {
@@ -208,7 +217,7 @@ export const Projects: React.FC = () => {
           <ErrorState
             title="Unable to load projects"
             message={error}
-            onRetry={fetchProjectList}
+            onRetry={loadProjectList}
           />
         )}
 

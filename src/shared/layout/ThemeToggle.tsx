@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sun, Moon } from 'lucide-react';
-import { useTheme } from '@/app-setup/providers/ThemeProvider';
+import { useTheme } from '@/app-setup/providers/ThemeContext';
 import { cn } from '@/shared/lib/utils';
 
 export const ThemeToggle: React.FC<{ className?: string }> = ({ className }) => {

@@ -29,7 +29,12 @@ export const CinematicVideoBackground: React.FC<CinematicVideoBackgroundProps> =
 
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+    return false;
+  });
 
   // User Requested Background Video: Pexels 37013442 (Local zero-buffer + CDN stream)
   const defaultSources: VideoSource[] = [
@@ -56,7 +61,6 @@ export const CinematicVideoBackground: React.FC<CinematicVideoBackgroundProps> =
   // Check prefers-reduced-motion
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
 
     const listener = (e: MediaQueryListEvent) => {
       setPrefersReducedMotion(e.matches);

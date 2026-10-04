@@ -15,9 +15,10 @@ export const CinematicLandingScreen: React.FC<CinematicLandingScreenProps> = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [progress, setProgress] = useState(0);
   const [videoDuration, setVideoDuration] = useState<number>(10);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [playCount, setPlayCount] = useState<number>(0);
-  const [hasEntered, setHasEntered] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [playCount, setPlayCount] = useState(0);
+  const [hasEntered, setHasEntered] = useState(false);
+  const isOpenRef = useRef(isOpen);
 
   const handleEnter = useCallback(() => {
     if (!hasEntered) {
@@ -26,32 +27,42 @@ export const CinematicLandingScreen: React.FC<CinematicLandingScreenProps> = ({
     }
   }, [hasEntered, onEnter]);
 
-  // Auto-play video on mount (loop is false so it auto-triggers onEnded)
+  // Reset state when isOpen changes from false to true
   useEffect(() => {
-    if (isOpen) {
+    const wasOpen = isOpenRef.current;
+    isOpenRef.current = isOpen;
+
+    if (isOpen && !wasOpen) {
       setHasEntered(false);
       setIsPlaying(false);
       setProgress(0);
-      if (videoRef.current) {
-        videoRef.current.currentTime = 0;
-        const playPromise = videoRef.current.play();
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              if (videoRef.current?.duration && isFinite(videoRef.current.duration) && videoRef.current.duration > 0) {
-                setVideoDuration(videoRef.current.duration);
-              }
-              setIsPlaying(true);
-              setPlayCount((prev) => prev + 1);
-            })
-            .catch(() => {});
-        }
-      }
-    } else {
+    } else if (!isOpen) {
       setIsPlaying(false);
       setProgress(0);
     }
   }, [isOpen]);
+
+  // Auto-play video on mount (loop is false so it auto-triggers onEnded)
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- Sync with isOpen prop, setState is intentional for video playback
+  useEffect(() => {
+    if (!isOpen) return;
+
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            if (videoRef.current?.duration && isFinite(videoRef.current.duration) && videoRef.current.duration > 0) {
+              setVideoDuration(videoRef.current.duration);
+            }
+            setIsPlaying(true);
+            setPlayCount((prev) => prev + 1);
+          })
+          .catch(() => {});
+      }
+    }
+  }, [isOpen, playCount]);
 
   // Enter the site when video ends, or if user presses any key or clicks
   useEffect(() => {

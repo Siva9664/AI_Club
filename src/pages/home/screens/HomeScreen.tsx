@@ -20,22 +20,31 @@ export const Home: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchHomeData = useCallback(async () => {
+  const loadData = useCallback(async () => {
+    let isMounted = true;
     try {
-      setLoading(true);
       setError(null);
+      setLoading(true);
       const res = await getHome();
-      setData(res);
+      if (isMounted) {
+        setData(res);
+      }
     } catch (err: any) {
-      setError(err?.message || 'Failed to load home page content.');
+      if (isMounted) {
+        setError(err?.message || 'Failed to load home page content.');
+      }
     } finally {
-      setLoading(false);
+      if (isMounted) {
+        setLoading(false);
+      }
     }
+    return () => { isMounted = false; };
   }, []);
 
   useEffect(() => {
-    fetchHomeData();
-  }, [fetchHomeData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- loadData sets state internally, this is the standard data fetching pattern
+    loadData();
+  }, [loadData]);
 
   if (loading) {
     return (
@@ -52,7 +61,7 @@ export const Home: React.FC = () => {
         <ErrorState
           title="Unable to load Home Page"
           message={error || 'Could not retrieve club data.'}
-          onRetry={fetchHomeData}
+          onRetry={loadData}
         />
       </div>
     );

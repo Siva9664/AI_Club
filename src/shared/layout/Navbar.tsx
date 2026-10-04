@@ -28,6 +28,7 @@ export const Navbar: React.FC = () => {
   }, []);
 
   // Close mobile menu on route change
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- Sync with router, setState is intentional
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);

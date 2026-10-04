@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { User, Lock, LogIn, LogOut, CheckCircle, Eye, EyeOff, Shield, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/shared/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAuth } from '@/shared/providers/AuthProvider';
+import { useAuth } from '@/shared/providers/AuthContext';
 
 export const LoginBox: React.FC = () => {
   const { user, login, logout, isAuthenticated, isLoading: authLoading } = useAuth();

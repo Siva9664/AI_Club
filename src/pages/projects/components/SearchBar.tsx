@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Search, X } from 'lucide-react';
 import { cn } from '@/shared/lib/utils';
 
@@ -16,27 +16,32 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   className,
 }) => {
   const [localVal, setLocalVal] = useState(value);
+  const prevValueRef = useRef(value);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Sync internal state when external value changes (e.g., cleared by parent)
+  // Keep local state in sync with controlled prop
   useEffect(() => {
-    setLocalVal(value);
+    if (value !== prevValueRef.current) {
+      setLocalVal(value);
+      prevValueRef.current = value;
+    }
   }, [value]);
 
   // Debounced notification to parent
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      if (localVal !== value) {
-        onChange(localVal);
+  const handleChange = useCallback((newVal: string) => {
+    setLocalVal(newVal);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      if (newVal !== value) {
+        onChange(newVal);
       }
     }, 300);
+  }, [onChange, value]);
 
-    return () => clearTimeout(handler);
-  }, [localVal, onChange, value]);
-
-  const handleClear = () => {
+  const handleClear = useCallback(() => {
     setLocalVal('');
     onChange('');
-  };
+  }, [onChange]);
 
   return (
     <div className={cn('relative w-full', className)}>
@@ -47,7 +52,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       <input
         type="text"
         value={localVal}
-        onChange={(e) => setLocalVal(e.target.value)}
+        onChange={(e) => handleChange(e.target.value)}
         placeholder={placeholder}
         aria-label="Search projects by title, summary or tags"
         className="glass-input w-full pl-10 pr-10 py-2.5 rounded-2xl border border-white/90 dark:border-white/10 bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-slate-100 text-sm font-medium placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-slate-800 backdrop-blur-md transition-all shadow-xs"

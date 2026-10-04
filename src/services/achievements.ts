@@ -1,7 +1,11 @@
-import { apiClient } from './client';
+import { isMockMode, simulateDelay, apiClient } from './client';
 import type { Achievement, Ambassador, UpcomingCompetition } from '@/types';
+import achievementsData from './mock-data/achievements.json';
 
-const MOCK_BASE_URL = '/mock-data';
+const achievements = achievementsData.achievements as Achievement[];
+const featured = achievementsData.featured as Achievement[];
+const ambassadors = achievementsData.ambassadors as Ambassador[];
+const upcomingCompetitions = achievementsData.upcomingCompetitions as UpcomingCompetition[];
 
 export async function getAchievements(): Promise<{
   achievements: Achievement[];
@@ -9,19 +13,18 @@ export async function getAchievements(): Promise<{
   ambassadors: Ambassador[];
   upcomingCompetitions: UpcomingCompetition[];
 }> {
-  if (import.meta.env.VITE_USE_MOCK === 'true') {
-    const res = await fetch(`${MOCK_BASE_URL}/achievements.json`);
-    return res.json();
+  if (isMockMode()) {
+    await simulateDelay();
+    return { achievements, featured, ambassadors, upcomingCompetitions };
   }
   const res = await apiClient.get<{ data: { achievements: Achievement[]; featured: Achievement[]; ambassadors: Ambassador[]; upcomingCompetitions: UpcomingCompetition[] } }>('/achievements');
   return res.data;
 }
 
 export async function getAchievementById(id: string): Promise<Achievement> {
-  if (import.meta.env.VITE_USE_MOCK === 'true') {
-    const res = await fetch(`${MOCK_BASE_URL}/achievements.json`);
-    const data = await res.json();
-    const achievement = data.achievements.find((a: Achievement) => a.id === id);
+  if (isMockMode()) {
+    await simulateDelay();
+    const achievement = achievements.find((a: Achievement) => a.id === id);
     if (!achievement) throw new Error('Achievement not found');
     return achievement;
   }
@@ -30,21 +33,19 @@ export async function getAchievementById(id: string): Promise<Achievement> {
 }
 
 export async function getAmbassadors(): Promise<Ambassador[]> {
-  if (import.meta.env.VITE_USE_MOCK === 'true') {
-    const res = await fetch(`${MOCK_BASE_URL}/achievements.json`);
-    const data = await res.json();
-    return data.ambassadors;
+  if (isMockMode()) {
+    await simulateDelay();
+    return ambassadors;
   }
   const res = await apiClient.get<{ data: Ambassador[] }>('/achievements/ambassadors');
   return res.data;
 }
 
 export async function getUpcomingCompetitions(): Promise<UpcomingCompetition[]> {
-  if (import.meta.env.VITE_USE_MOCK === 'true') {
-    const res = await fetch(`${MOCK_BASE_URL}/achievements.json`);
-    const data = await res.json();
-    return data.upcomingCompetitions;
+  if (isMockMode()) {
+    await simulateDelay();
+    return upcomingCompetitions;
   }
-  const res = await apiClient.get<{ data: UpcomingCompetition[] }>('/achievements/competitions');
+  const res = await apiClient.get<{ data: UpcomingCompetition[] }>(`/achievements/competitions`);
   return res.data;
 }

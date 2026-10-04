@@ -31,31 +31,40 @@ export const ProjectDetail: React.FC = () => {
   const [errorStatus, setErrorStatus] = useState<number | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const fetchProjectData = useCallback(async () => {
+  const loadData = useCallback(async () => {
     if (!slug) return;
+    let isMounted = true;
     try {
-      setLoading(true);
       setErrorStatus(null);
       setErrorMessage(null);
+      setLoading(true);
       const data = await getProject(slug);
-      setProject(data);
+      if (isMounted) {
+        setProject(data);
+      }
     } catch (err: any) {
-      if (err instanceof ApiError) {
-        setErrorStatus(err.status);
-        setErrorMessage(err.message);
-      } else {
-        setErrorStatus(500);
-        setErrorMessage(err?.message || 'Failed to load project details.');
+      if (isMounted) {
+        if (err instanceof ApiError) {
+          setErrorStatus(err.status);
+          setErrorMessage(err.message);
+        } else {
+          setErrorStatus(500);
+          setErrorMessage(err?.message || 'Failed to load project details.');
+        }
       }
     } finally {
-      setLoading(false);
+      if (isMounted) {
+        setLoading(false);
+      }
     }
+    return () => { isMounted = false; };
   }, [slug]);
 
   useEffect(() => {
-    fetchProjectData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- loadData sets state internally, this is the standard data fetching pattern
+    loadData();
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [fetchProjectData]);
+  }, [loadData]);
 
   if (loading) {
     return (
@@ -90,7 +99,7 @@ export const ProjectDetail: React.FC = () => {
           title="Unable to load project"
           message={errorMessage || 'An error occurred while loading this project.'}
           status={errorStatus || undefined}
-          onRetry={fetchProjectData}
+          onRetry={loadData}
         />
       </div>
     );

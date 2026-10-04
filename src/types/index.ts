@@ -224,6 +224,7 @@ export interface User {
   email: string;
   role: 'admin' | 'member';
   avatar?: string;
+  createdAt?: string;
 }
 
 export interface LoginCredentials {

@@ -1,17 +1,16 @@
-import { apiClient } from './client';
+import { isMockMode, simulateDelay, apiClient } from './client';
 import type { ChatMessage, FAQEntry } from '@/types';
+import faqData from './mock-data/faq.json';
 
-const MOCK_BASE_URL = '/mock-data';
+const faq = faqData.faq as FAQEntry[];
 
 export async function sendChatMessage(
   message: string,
   conversationHistory: ChatMessage[]
 ): Promise<{ response: string }> {
-  if (import.meta.env.VITE_USE_MOCK === 'true') {
-    // Use mock FAQ data
-    const res = await fetch(`${MOCK_BASE_URL}/faq.json`);
-    const data = await res.json();
-    const reply = generateMockResponse(message, data.faq);
+  if (isMockMode()) {
+    await simulateDelay();
+    const reply = generateMockResponse(message, faq);
     return { response: reply };
   }
 
@@ -45,10 +44,9 @@ What would you like to know?`;
 }
 
 export async function getFAQ(): Promise<FAQEntry[]> {
-  if (import.meta.env.VITE_USE_MOCK === 'true') {
-    const res = await fetch(`${MOCK_BASE_URL}/faq.json`);
-    const data = await res.json();
-    return data.faq;
+  if (isMockMode()) {
+    await simulateDelay();
+    return faq;
   }
   const res = await apiClient.get<{ data: FAQEntry[] }>('/chat/faq');
   return res.data;
