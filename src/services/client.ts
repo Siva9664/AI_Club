@@ -27,10 +27,11 @@ export const simulateDelay = (ms: number = 300): Promise<void> => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
-/**
- * Generic HTTP client wrapper for real API calls
- */
-export async function apiClientGet<T>(endpoint: string, params?: Record<string, any>): Promise<T> {
+async function request<T>(
+  endpoint: string,
+  options: RequestInit = {},
+  params?: Record<string, any>
+): Promise<T> {
   const baseUrl = getApiBaseUrl();
   const url = new URL(`${baseUrl}${endpoint.startsWith('/') ? '' : '/'}${endpoint}`, window.location.origin);
 
@@ -42,13 +43,16 @@ export async function apiClientGet<T>(endpoint: string, params?: Record<string, 
     });
   }
 
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    ...(options.headers as Record<string, string> || {}),
+  };
+
   try {
     const response = await fetch(url.toString(), {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
+      ...options,
+      headers,
     });
 
     if (!response.ok) {
@@ -85,3 +89,11 @@ export async function apiClientGet<T>(endpoint: string, params?: Record<string, 
     throw new ApiError(err?.message || 'Network connection error', 0, err);
   }
 }
+
+export const apiClient = {
+  get: <T>(endpoint: string, params?: Record<string, any>) => request<T>(endpoint, { method: 'GET' }, params),
+  post: <T>(endpoint: string, body: any) => request<T>(endpoint, { method: 'POST', body: JSON.stringify(body) }),
+  put: <T>(endpoint: string, body: any) => request<T>(endpoint, { method: 'PUT', body: JSON.stringify(body) }),
+  patch: <T>(endpoint: string, body: any) => request<T>(endpoint, { method: 'PATCH', body: JSON.stringify(body) }),
+  delete: <T>(endpoint: string) => request<T>(endpoint, { method: 'DELETE' }),
+};

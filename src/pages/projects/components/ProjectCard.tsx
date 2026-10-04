@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Users } from 'lucide-react';
+import { ArrowRight, Users, Image as ImageIcon } from 'lucide-react';
 import { LazyImage } from '@/shared/ui/LazyImage';
 import { StatusBadge, CategoryBadge } from '@/shared/ui/StatusBadge';
 import { cn } from '@/shared/lib/utils';
@@ -45,12 +45,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
         tabIndex={-1}
         aria-hidden="true"
       >
-        <LazyImage
-          src={thumbnail.url}
-          alt={thumbnail.alt || title}
-          className="transition-transform duration-700 ease-out group-hover:scale-108"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent opacity-80 group-hover:opacity-65 transition-opacity" />
+        {thumbnail ? (
+          <>
+            <LazyImage
+              src={thumbnail.url}
+              alt={thumbnail.alt || title}
+              className="transition-transform duration-700 ease-out group-hover:scale-108"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent opacity-80 group-hover:opacity-65 transition-opacity" />
+          </>
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-slate-400">
+            <ImageIcon className="w-12 h-12" />
+          </div>
+        )}
 
         {/* Status / Category Badges positioned over image */}
         <div className="absolute top-3 left-3 flex flex-wrap items-center gap-1.5 z-10">

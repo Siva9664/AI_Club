@@ -1,157 +1,56 @@
-import { ApiError, apiClientGet, isMockMode, simulateDelay } from './client';
-import type {
-  PaginatedResponse,
-  ProjectDetail,
-  ProjectFilterMeta,
-  ProjectQueryParams,
-  ProjectSummary,
-} from '@/types';
-import mockProjectsData from './mock-data/projects.json';
+import { apiClient } from './client';
+import type { ProjectDetail, ProjectSummary, ProjectFilterMeta, ProjectQueryParams } from '@/types';
 
-/**
- * Fetches paginated and filtered list of projects
- */
-export async function getProjects(params: ProjectQueryParams = {}): Promise<PaginatedResponse<ProjectSummary>> {
-  if (isMockMode()) {
-    await simulateDelay(260);
+const MOCK_BASE_URL = '/mock-data';
 
-    const {
-      page = 1,
-      limit = 12,
-      sort = 'newest',
-      category,
-      status,
-      tag,
-      q,
-      featured,
-    } = params;
+export async function getProjects(params?: ProjectQueryParams): Promise<{ data: ProjectSummary[]; meta: any }> {
+  if (import.meta.env.VITE_USE_MOCK === 'true') {
+    const res = await fetch(`${MOCK_BASE_URL}/projects.json`);
+    const data = await res.json();
+    let filtered = data.projects;
 
-    // Enforce API limits
-    const safeLimit = Math.min(Math.max(1, limit), 50);
-    const safePage = Math.max(1, page);
-
-    let results = [...(mockProjectsData as unknown as ProjectDetail[])];
-
-    // Search query filter (q)
-    if (q && q.trim()) {
-      const query = q.trim().toLowerCase();
-      results = results.filter((p) => {
-        const titleMatch = p.title.toLowerCase().includes(query);
-        const summaryMatch = p.summary.toLowerCase().includes(query);
-        const tagMatch = p.tags.some((t) => t.toLowerCase().includes(query));
-        const catMatch = p.category.toLowerCase().includes(query);
-        return titleMatch || summaryMatch || tagMatch || catMatch;
-      });
+    if (params?.category && params.category !== 'All') {
+      filtered = filtered.filter((p: ProjectSummary) => p.category === params.category);
+    }
+    if (params?.tag) {
+      filtered = filtered.filter((p: ProjectSummary) => p.tags.includes(params.tag!));
+    }
+    if (params?.featured) {
+      filtered = filtered.filter((p: ProjectSummary) => p.featured);
+    }
+    if (params?.q) {
+      const q = params.q.toLowerCase();
+      filtered = filtered.filter((p: ProjectSummary) =>
+        p.title.toLowerCase().includes(q) || p.summary.toLowerCase().includes(q)
+      );
     }
 
-    // Category filter
-    if (category && category !== 'All') {
-      results = results.filter((p) => p.category.toLowerCase() === category.toLowerCase());
-    }
-
-    // Status filter
-    if (status && status !== 'All') {
-      results = results.filter((p) => p.status.toLowerCase() === status.toLowerCase());
-    }
-
-    // Tag filter
-    if (tag && tag !== 'All') {
-      results = results.filter((p) => p.tags.some((t) => t.toLowerCase() === tag.toLowerCase()));
-    }
-
-    // Featured filter
-    if (featured !== undefined) {
-      results = results.filter((p) => p.featured === Boolean(featured));
-    }
-
-    // Sorting
-    if (sort === 'title') {
-      results.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sort === 'oldest') {
-      results.sort((a, b) => (a.startedOn || '').localeCompare(b.startedOn || ''));
-    } else {
-      // default newest: proj-008, proj-007, etc. or reverse order of array
-      results.sort((a, b) => b.id.localeCompare(a.id));
-    }
-
-    const total = results.length;
-    const totalPages = Math.ceil(total / safeLimit) || 1;
-    const startIndex = (safePage - 1) * safeLimit;
-    const paginatedItems = results.slice(startIndex, startIndex + safeLimit);
-
-    // Map to ProjectSummary shape
-    const data: ProjectSummary[] = paginatedItems.map((p) => ({
-      id: p.id,
-      slug: p.slug,
-      title: p.title,
-      summary: p.summary,
-      thumbnail: p.thumbnail,
-      tags: p.tags,
-      category: p.category,
-      status: p.status,
-      featured: p.featured,
-      team: p.team,
-    }));
-
-    return {
-      data,
-      meta: {
-        page: safePage,
-        limit: safeLimit,
-        total,
-        totalPages,
-      },
-    };
+    return { data: filtered, meta: { page: 1, limit: filtered.length, total: filtered.length, totalPages: 1 } };
   }
-
-  return apiClientGet<PaginatedResponse<ProjectSummary>>('/projects', params);
+  const res = await apiClient.get<{ data: ProjectSummary[]; meta: any }>('/projects', params);
+  return res;
 }
 
-/**
- * Fetches metadata for project discovery filters (categories, statuses, tags)
- */
-export async function getProjectMeta(): Promise<ProjectFilterMeta> {
-  if (isMockMode()) {
-    await simulateDelay(150);
-
-    const categories = Array.from(
-      new Set(mockProjectsData.map((p) => p.category))
-    ).sort();
-
-    const statuses = Array.from(
-      new Set(mockProjectsData.map((p) => p.status))
-    ).sort();
-
-    const allTags = mockProjectsData.flatMap((p) => p.tags);
-    const tags = Array.from(new Set(allTags)).sort();
-
-    return {
-      categories: ['All', ...categories],
-      statuses: ['All', ...statuses],
-      tags: ['All', ...tags],
-    };
-  }
-
-  return apiClientGet<ProjectFilterMeta>('/projects/meta');
-}
-
-/**
- * Fetches a single project by URL-safe slug
- */
 export async function getProject(slug: string): Promise<ProjectDetail> {
-  if (isMockMode()) {
-    await simulateDelay(240);
-
-    const found = mockProjectsData.find(
-      (p) => p.slug.toLowerCase() === slug.toLowerCase()
-    );
-
-    if (!found) {
-      throw new ApiError('Project not found', 404, { slug });
-    }
-
-    return found as unknown as ProjectDetail;
+  if (import.meta.env.VITE_USE_MOCK === 'true') {
+    const res = await fetch(`${MOCK_BASE_URL}/projects.json`);
+    const data = await res.json();
+    const project = data.projects.find((p: ProjectDetail) => p.slug === slug);
+    if (!project) throw new Error('Project not found');
+    return project;
   }
+  const res = await apiClient.get<{ data: ProjectDetail }>(`/projects/${slug}`);
+  return res.data;
+}
 
-  return apiClientGet<ProjectDetail>(`/projects/${encodeURIComponent(slug)}`);
+export async function getProjectFilterMeta(): Promise<ProjectFilterMeta> {
+  if (import.meta.env.VITE_USE_MOCK === 'true') {
+    const res = await fetch(`${MOCK_BASE_URL}/projects.json`);
+    const data: { projects: ProjectDetail[] } = await res.json();
+    const categories: string[] = [...new Set(data.projects.map((p: ProjectDetail) => p.category).filter(Boolean))] as string[];
+    const tags: string[] = [...new Set(data.projects.flatMap((p: ProjectDetail) => (p.tags as string[])))].sort();
+    return { categories: categories.sort(), tags, statuses: ['draft', 'pending', 'approved', 'rejected'] };
+  }
+  const res = await apiClient.get<ProjectFilterMeta>('/projects/meta');
+  return res;
 }

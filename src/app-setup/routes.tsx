@@ -12,6 +12,18 @@ const ProjectsScreen = lazy(() =>
 const ProjectDetailScreen = lazy(() =>
   import('@/pages/projects/screens/ProjectDetailScreen').then((m) => ({ default: m.ProjectDetail }))
 );
+const AchievementsScreen = lazy(() =>
+  import('@/pages/achievements/screens/AchievementsScreen').then((m) => ({ default: m.Achievements }))
+);
+const VisitorsScreen = lazy(() =>
+  import('@/pages/visitors/screens/VisitorsScreen').then((m) => ({ default: m.Visitors }))
+);
+const ChatbotScreen = lazy(() =>
+  import('@/pages/chatbot/screens/ChatbotScreen').then((m) => ({ default: m.Chatbot }))
+);
+const LoginScreen = lazy(() =>
+  import('@/pages/login/screens/LoginScreen').then((m) => ({ default: m.Login }))
+);
 
 const PageFallback: React.FC = () => (
   <div className="min-h-[60vh] flex flex-col items-center justify-center">
@@ -27,20 +39,25 @@ const PageFallback: React.FC = () => (
 export const AppRoutes: React.FC = () => (
   <Suspense fallback={<PageFallback />}>
     <Routes>
-      {/* USER-REQUESTED ONLY ROUTES: HOME & PROJECTS */}
+      {/* MAIN ROUTES */}
       <Route path="/" element={<HomeScreen />} />
       <Route path="/projects" element={<ProjectsScreen />} />
       <Route path="/projects/:slug" element={<ProjectDetailScreen />} />
+      <Route path="/achievements" element={<AchievementsScreen />} />
+      <Route path="/visitors" element={<VisitorsScreen />} />
+      <Route path="/chatbot" element={<ChatbotScreen />} />
+      <Route path="/login" element={<LoginScreen />} />
 
-      {/* Redirect any legacy/other route gracefully to /projects or / */}
-      <Route path="/achievements" element={<Navigate to="/" replace />} />
-      <Route path="/events" element={<Navigate to="/" replace />} />
-      <Route path="/hackathons" element={<Navigate to="/projects" replace />} />
-      <Route path="/workshops" element={<Navigate to="/" replace />} />
-      <Route path="/collaborations" element={<Navigate to="/" replace />} />
-      <Route path="/team" element={<Navigate to="/" replace />} />
+      {/* LEGACY REDIRECTS */}
+      <Route path="/guests" element={<Navigate to="/visitors" replace />} />
+      <Route path="/our-guests" element={<Navigate to="/visitors" replace />} />
+      <Route path="/project" element={<Navigate to="/projects" replace />} />
+      <Route path="/events" element={<Navigate to="/achievements" replace />} />
+      <Route path="/hackathons" element={<Navigate to="/achievements" replace />} />
+      <Route path="/workshops" element={<Navigate to="/achievements" replace />} />
+      <Route path="/collaborations" element={<Navigate to="/achievements" replace />} />
+      <Route path="/team" element={<Navigate to="/projects" replace />} />
       <Route path="/contact" element={<Navigate to="/" replace />} />
-      <Route path="/login" element={<Navigate to="/" replace />} />
 
       {/* 404 FALLBACK */}
       <Route

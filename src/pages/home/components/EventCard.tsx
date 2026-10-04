@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Clock, MapPin, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, MapPin, ArrowRight, Image as ImageIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { LazyImage } from '@/shared/ui/LazyImage';
 import { StatusBadge } from '@/shared/ui/StatusBadge';
@@ -20,12 +20,20 @@ export const EventCard: React.FC<EventCardProps> = ({ event, compact = false }) 
       )}
     >
       <div className={cn('relative overflow-hidden bg-slate-100 dark:bg-slate-800', compact ? 'aspect-[16/9]' : 'aspect-[16/10]')}>
-        <LazyImage
-          src={event.image.url}
-          alt={event.image.alt || event.title}
-          className="transition-transform duration-700 group-hover:scale-108"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent" />
+        {event.image ? (
+          <>
+            <LazyImage
+              src={event.image.url}
+              alt={event.image.alt || event.title}
+              className="transition-transform duration-700 group-hover:scale-108"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent" />
+          </>
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-slate-400 dark:text-slate-500">
+            <ImageIcon className="w-12 h-12" />
+          </div>
+        )}
 
         <div className="absolute top-3 left-3 flex items-center gap-1.5">
           <span className="text-xs font-bold px-3 py-1 rounded-full bg-white/85 dark:bg-slate-900/85 text-slate-800 dark:text-slate-100 backdrop-blur-md border border-white/90 dark:border-white/10 shadow-xs">

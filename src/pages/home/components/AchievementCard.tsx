@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Calendar, Users } from 'lucide-react';
+import { Award, Calendar, Users, Image as ImageIcon } from 'lucide-react';
 import { LazyImage } from '@/shared/ui/LazyImage';
 import type { Achievement } from '@/types';
 
@@ -7,12 +7,20 @@ export const AchievementCard: React.FC<{ achievement: Achievement }> = ({ achiev
   return (
     <article className="glass-card group flex flex-col rounded-3xl border border-white/80 dark:border-white/10 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl shadow-lg shadow-slate-200/50 dark:shadow-black/30">
       <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-800">
-        <LazyImage
-          src={achievement.image.url}
-          alt={achievement.image.alt || achievement.title}
-          className="transition-transform duration-700 ease-out group-hover:scale-108"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent" />
+        {achievement.image ? (
+          <>
+            <LazyImage
+              src={achievement.image.url}
+              alt={achievement.image.alt || achievement.title}
+              className="transition-transform duration-700 ease-out group-hover:scale-108"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent" />
+          </>
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-slate-400 dark:text-slate-500">
+            <ImageIcon className="w-12 h-12" />
+          </div>
+        )}
         <div className="absolute top-3 left-3">
           <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-amber-400/90 text-slate-950 border border-amber-300 shadow-sm backdrop-blur-md">
             <Award className="w-3.5 h-3.5" />
@@ -31,7 +39,7 @@ export const AchievementCard: React.FC<{ achievement: Achievement }> = ({ achiev
             {achievement.title}
           </h3>
           <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3">
-            {achievement.summary}
+            {achievement.summary || achievement.description}
           </p>
         </div>
 

@@ -43,7 +43,7 @@ export const DetailHero: React.FC<{ project: ProjectDetail }> = ({ project }) =>
           {/* LEFT: Metadata & Overview (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             <div className="flex flex-wrap items-center gap-2">
-              <CategoryBadge category={project.category} size="md" />
+              <CategoryBadge category={project.category || 'Uncategorized'} size="md" />
               <StatusBadge status={project.status} size="md" />
               {project.team && (
                 <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200 border border-white/90 dark:border-white/10 backdrop-blur-md shadow-2xs">
@@ -101,8 +101,8 @@ export const DetailHero: React.FC<{ project: ProjectDetail }> = ({ project }) =>
           <div className="lg:col-span-5">
             <div className="relative rounded-3xl overflow-hidden border border-white/95 dark:border-white/15 shadow-[0_20px_50px_-15px_rgba(59,130,246,0.25)] bg-slate-900/80 backdrop-blur-2xl aspect-[16/11]">
               <LazyImage
-                src={project.heroImage?.url || project.thumbnail.url}
-                alt={project.heroImage?.alt || project.title}
+                src={project.heroImage?.url || project.thumbnail?.url || ''}
+                alt={project.heroImage?.alt || project.thumbnail?.alt || project.title}
                 aspectRatio="aspect-[16/11]"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />

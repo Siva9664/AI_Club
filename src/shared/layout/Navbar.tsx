@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowUpRight, Sparkles, Cpu } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sparkles, Cpu, Users, Trophy, MessageSquare } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { LoginBox } from './LoginBox';
 import { cn } from '@/shared/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 
-// Only Home and Projects as requested
 const NAV_ITEMS = [
-  { label: 'Home', path: '/' },
-  { label: 'Projects', path: '/projects' },
+  { label: 'Home', path: '/', icon: null },
+  { label: 'Projects', path: '/projects', icon: Sparkles },
+  { label: 'Achievements', path: '/achievements', icon: Trophy },
+  { label: 'Visitors', path: '/visitors', icon: Users },
+  { label: 'Chatbot', path: '/chatbot', icon: MessageSquare },
 ];
 
 export const Navbar: React.FC = () => {
@@ -41,7 +43,7 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-18">
-          {/* LEFT: Site Logo in Left Corner Near SIET AI LAB */}
+          {/* LEFT: Site Logo */}
           <Link
             to="/"
             className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-slate-400 rounded-2xl px-1 py-1 transition-all"
@@ -68,7 +70,7 @@ export const Navbar: React.FC = () => {
             </div>
           </Link>
 
-          {/* CENTER: Desktop Navigation (Home & Projects Only) */}
+          {/* CENTER: Desktop Navigation */}
           <nav
             className="hidden md:flex items-center gap-1.5 p-1.5 rounded-2xl bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl border border-white/90 dark:border-white/10 shadow-sm"
             aria-label="Main Navigation"
@@ -80,14 +82,15 @@ export const Navbar: React.FC = () => {
                 end={item.path === '/'}
                 className={({ isActive }) =>
                   cn(
-                    'px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary',
+                    'flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary',
                     isActive
                       ? 'text-slate-900 dark:text-white bg-gradient-to-r from-slate-200 via-white to-slate-200 dark:from-slate-700 dark:via-slate-800 dark:to-slate-700 shadow-sm border border-slate-300/80 dark:border-white/20'
                       : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/40'
                   )
                 }
               >
-                {item.label}
+                {item.icon && <item.icon className="w-4 h-4" />}
+                <span>{item.label}</span>
               </NavLink>
             ))}
           </nav>
@@ -109,16 +112,7 @@ export const Navbar: React.FC = () => {
             {/* Theme Toggle */}
             <ThemeToggle />
 
-            {/* Explore Projects Button */}
-            <Link
-              to="/projects"
-              className="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-2xl text-xs font-bold bg-slate-200/60 dark:bg-slate-700/60 text-slate-900 dark:text-white hover:bg-white dark:hover:bg-slate-600 active:scale-95 transition-all border border-slate-300 dark:border-slate-600 shadow-xs"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Projects</span>
-            </Link>
-
-            {/* LOGIN BOX (IN RIGHT CORNER) */}
+            {/* Login Box / User Menu */}
             <LoginBox />
 
             {/* Mobile Menu Button */}
@@ -165,7 +159,10 @@ export const Navbar: React.FC = () => {
                     )
                   }
                 >
-                  <span>{item.label}</span>
+                  <div className="flex items-center gap-2">
+                    {item.icon && <item.icon className="w-4 h-4" />}
+                    <span>{item.label}</span>
+                  </div>
                   <ArrowUpRight className="w-4 h-4 opacity-50" />
                 </NavLink>
               ))}

@@ -1,16 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { User, Lock, LogIn, LogOut, CheckCircle, Eye, EyeOff, Shield, Sparkles, X, ChevronDown } from 'lucide-react';
+import { User, Lock, LogIn, LogOut, CheckCircle, Eye, EyeOff, Shield, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/shared/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useAuth } from '@/shared/providers/AuthProvider';
 
 export const LoginBox: React.FC = () => {
+  const { user, login, logout, isAuthenticated, isLoading: authLoading } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userRole, setUserRole] = useState<'student' | 'faculty'>('student');
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [notification, setNotification] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -27,34 +29,29 @@ export const LoginBox: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleOutsideClick);
   }, [isOpen]);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) {
-      setEmail('researcher@siet.ac.in');
-    }
-    setIsAuthenticated(true);
-    setNotification('Successfully authenticated to AI Lab cluster!');
-    setTimeout(() => {
-      setNotification(null);
-      setIsOpen(false);
-    }, 1200);
-  };
+    setError(null);
+    setIsSubmitting(true);
 
-  const handleDemoLogin = () => {
-    setEmail('alex.research@siet.ac.in');
-    setPassword('••••••••••••');
-    setIsAuthenticated(true);
-    setNotification('Signed in as Student AI Researcher');
-    setTimeout(() => {
-      setNotification(null);
-      setIsOpen(false);
-    }, 1000);
+    try {
+      await login(email, password);
+      setNotification('Successfully signed in!');
+      setTimeout(() => {
+        setNotification(null);
+        setIsOpen(false);
+        setEmail('');
+        setPassword('');
+      }, 1200);
+    } catch (err: any) {
+      setError(err.message || 'Invalid credentials');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleLogout = () => {
-    setIsAuthenticated(false);
-    setEmail('');
-    setPassword('');
+    logout();
     setIsOpen(false);
   };
 
@@ -90,11 +87,11 @@ export const LoginBox: React.FC = () => {
         >
           <div className="relative">
             <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center text-[10px] font-mono">
-              AR
+              {user?.name?.split(' ').map(n => n[0]).join('') || 'U'}
             </div>
             <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-slate-900" />
           </div>
-          <span className="hidden sm:inline font-mono text-[11px] text-slate-700 dark:text-slate-200">Alex R.</span>
+          <span className="hidden sm:inline font-mono text-[11px] text-slate-700 dark:text-slate-200">{user?.name?.split(' ')[0] || 'User'}</span>
           <ChevronDown className={cn('w-3 h-3 text-slate-400 transition-transform duration-200', isOpen && 'rotate-180')} />
         </button>
       )}
@@ -141,18 +138,25 @@ export const LoginBox: React.FC = () => {
               </div>
             )}
 
+            {error && (
+              <div className="mt-3 p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 text-xs flex items-center gap-2">
+                <X className="w-4 h-4 shrink-0" />
+                <span>{error}</span>
+              </div>
+            )}
+
             {/* AUTHENTICATED STATE */}
-            {isAuthenticated ? (
+            {isAuthenticated && user ? (
               <div className="mt-4 space-y-4">
                 <div className="p-3.5 rounded-2xl bg-white/60 dark:bg-slate-800/60 border border-white/80 dark:border-white/5 space-y-2">
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-slate-500 dark:text-slate-400">Active Identity</span>
-                    <span className="font-semibold text-slate-900 dark:text-white">Alex Rivera</span>
+                    <span className="font-semibold text-slate-900 dark:text-white">{user.name}</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-slate-500 dark:text-slate-400">Role</span>
-                    <span className="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[10px] font-mono font-bold">
-                      Student Researcher
+                    <span className="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[10px] font-mono font-bold capitalize">
+                      {user.role}
                     </span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
@@ -187,47 +191,20 @@ export const LoginBox: React.FC = () => {
             ) : (
               /* LOGIN FORM */
               <form onSubmit={handleLogin} className="mt-4 space-y-3.5">
-                {/* Role Switcher */}
-                <div className="grid grid-cols-2 p-1 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 text-xs font-medium">
-                  <button
-                    type="button"
-                    onClick={() => setUserRole('student')}
-                    className={cn(
-                      'py-1.5 rounded-lg transition-all text-center',
-                      userRole === 'student'
-                        ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 font-bold shadow-xs'
-                        : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
-                    )}
-                  >
-                    Student / Scholar
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setUserRole('faculty')}
-                    className={cn(
-                      'py-1.5 rounded-lg transition-all text-center',
-                      userRole === 'faculty'
-                        ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 font-bold shadow-xs'
-                        : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
-                    )}
-                  >
-                    Faculty / Lead
-                  </button>
-                </div>
-
                 {/* Email / ID Input */}
                 <div className="space-y-1">
                   <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
-                    Institutional Email / Roll No.
+                    Institutional Email
                   </label>
                   <div className="relative">
                     <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                     <input
-                      type="text"
+                      type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder={userRole === 'student' ? 'e.g. 21cs104@siet.ac.in' : 'faculty.lead@siet.ac.in'}
+                      placeholder="admin@club.test"
                       className="w-full pl-9 pr-3.5 py-2 rounded-xl text-xs glass-input focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-slate-800 dark:text-slate-100"
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -236,15 +213,8 @@ export const LoginBox: React.FC = () => {
                 <div className="space-y-1">
                   <div className="flex items-center justify-between">
                     <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
-                      Access Key / Password
+                      Password
                     </label>
-                    <a
-                      href="#contact"
-                      onClick={() => setIsOpen(false)}
-                      className="text-[10px] text-blue-600 dark:text-blue-400 hover:underline"
-                    >
-                      Need access?
-                    </a>
                   </div>
                   <div className="relative">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -254,6 +224,7 @@ export const LoginBox: React.FC = () => {
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••••••"
                       className="w-full pl-9 pr-9 py-2 rounded-xl text-xs glass-input focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-slate-800 dark:text-slate-100"
+                      disabled={isSubmitting}
                     />
                     <button
                       type="button"
@@ -269,21 +240,16 @@ export const LoginBox: React.FC = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full py-2.5 rounded-2xl text-xs font-bold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 active:scale-98 transition-all"
+                  disabled={isSubmitting || authLoading}
+                  className="w-full py-2.5 rounded-2xl text-xs font-bold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 active:scale-98 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Sign In to AI Lab
+                  {isSubmitting ? 'Signing in...' : 'Sign In to AI Lab'}
                 </button>
 
-                {/* 1-Click Quick Demo Access */}
-                <div className="pt-2 border-t border-slate-200/70 dark:border-slate-800 text-center">
-                  <button
-                    type="button"
-                    onClick={handleDemoLogin}
-                    className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
-                  >
-                    <Sparkles className="w-3 h-3 text-amber-500" />
-                    <span>Quick 1-Click Demo Sign In</span>
-                  </button>
+                {/* Demo Credentials Hint */}
+                <div className="pt-2 border-t border-slate-200/70 dark:border-slate-800 text-center text-[10px] text-slate-500 dark:text-slate-400 font-mono space-y-1">
+                  <p>Demo: admin@club.test / admin123</p>
+                  <p>Demo: member@club.test / member123</p>
                 </div>
               </form>
             )}

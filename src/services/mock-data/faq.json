@@ -1,0 +1,104 @@
+{
+  "faq": [
+    {
+      "category": "hackathons",
+      "question": "When is the next hackathon?",
+      "answer": "The next major hackathon is SIET AI InnoVate 2026 on October 24-25, 2026. It's a 36-hour buildathon with a ₹1,50,000 prize pool. We also have the Smart India Hackathon internal selection on December 1, 2026. Check the Achievements page for all upcoming competitions!"
+    },
+    {
+      "category": "hackathons",
+      "question": "How do I register for a hackathon?",
+      "answer": "Visit the Achievements page and click on the hackathon you're interested in. Each event has a 'Register Team' or 'Apply Now' button that links to the registration form. You'll need a team of 3-5 members."
+    },
+    {
+      "category": "hackathons",
+      "question": "Can solo participants join hackathons?",
+      "answer": "Most hackathons require teams of 3-5 members. However, we often have team-forming sessions before major events where you can find teammates. Check our Discord or the #team-formation channel."
+    },
+    {
+      "category": "achievements",
+      "question": "What are the club's major achievements?",
+      "answer": "Our major achievements include: 1st Place at Smart India Hackathon 2025 (₹1L prize), Best AI Paper Award at IEEE ICET 2026, NVIDIA Academic Hardware Grant (4x RTX 4090 + 2x Jetson Orin), Top 10 at Global AI Agents Hackathon, and multiple Kaggle top 5% finishes. See the Achievements page for the full list!"
+    },
+    {
+      "category": "achievements",
+      "question": "How can I get my project recognized?",
+      "answer": "Submit your project through the Projects page. Our review board evaluates projects monthly. Approved projects get featured on the website, considered for hackathon representation, and may receive compute credits from our partners (NVIDIA, AWS, AMD)."
+    },
+    {
+      "category": "projects",
+      "question": "What projects is the club currently working on?",
+      "answer": "We have 8 active projects including: Smart Attendance System (Computer Vision), Campus AI Assistant (RAG/LLM), Multimodal Disease Prediction (Healthcare AI), Edge AI Object Detection (YOLOv8/TensorRT), Student Performance Predictor (Data Science), Neural Course Recommender (GNN), Smart Traffic Analyzer (CV), and Automated Code Review Assistant (NLP)."
+    },
+    {
+      "category": "projects",
+      "question": "How can I contribute to a project?",
+      "answer": "Visit the Projects page, click on any project to see details. Each project has a 'Contribute' section with GitHub links and contact info for the project lead. You can also join our weekly project sync meetings (Fridays 4 PM, AI Lab 1)."
+    },
+    {
+      "category": "projects",
+      "question": "Can I propose a new project?",
+      "answer": "Absolutely! Use the 'Pitch a Project' button on the Projects page or the Contact form. We review proposals monthly. Approved proposals get mentorship, compute resources, and team matching support."
+    },
+    {
+      "category": "certifications",
+      "question": "What certifications does the club offer?",
+      "answer": "We don't offer certifications directly, but we run preparation workshops for: TensorFlow Developer Certificate, AWS ML Specialty, Google Cloud ML Engineer, and NVIDIA Deep Learning Institute certifications. 5 members earned TF certs in 2025!"
+    },
+    {
+      "category": "club-info",
+      "question": "How do I join the AI Club?",
+      "answer": "Visit the Login page and use the demo credentials (member@club.test / member123) to explore the portal. For actual membership, attend our weekly meetings (Wednesdays 5 PM, AI Lab 1) or fill out the interest form on the Contact page. All SIET students welcome!"
+    },
+    {
+      "category": "club-info",
+      "question": "What are the club meeting times?",
+      "answer": "General body meetings: Wednesdays 5:00 PM at AI Lab 1. Project sync: Fridays 4:00 PM at AI Lab 1. Paper reading group: Tuesdays 6:00 PM (hybrid). Check the Achievements page for special events."
+    },
+    {
+      "category": "club-info",
+      "question": "Is the club only for CSE students?",
+      "answer": "Not at all! We have members from CSE, ECE, EEE, Mechanical, and even Civil engineering. AI is interdisciplinary. Our projects need domain experts from all branches - especially for healthcare, robotics, and agri-tech projects."
+    },
+    {
+      "category": "events",
+      "question": "What workshops are coming up?",
+      "answer": "Upcoming workshops: 'Building Agentic RAG with LangGraph' (Nov 7), 'Research Paper Writing Workshop' (Sep 5), 'Generative AI Bootcamp' (Dec 10). All workshops are free for SIET students. Register via the Achievements page."
+    },
+    {
+      "category": "events",
+      "question": "Are events open to non-members?",
+      "answer": "Most workshops and tech talks are open to all SIET students. Hackathons require registration (open to all). Some industry collab events are members-only. Check individual event details on the Achievements page."
+    },
+    {
+      "category": "facilities",
+      "question": "What compute resources does the club have?",
+      "answer": "We have: 4x NVIDIA RTX 4090 (donated by NVIDIA), 2x Jetson Orin Nano, AMD EPYC server access, AWS $25K credits, Google Cloud credits, and on-premise Kubernetes cluster with 10GbE networking. All members get access after onboarding."
+    },
+    {
+      "category": "facilities",
+      "question": "Can I use the AI Lab for personal projects?",
+      "answer": "Yes! After completing the lab safety orientation and getting your access card activated, you can book GPU nodes via our internal portal. Personal projects are encouraged - that's how our best projects start!"
+    },
+    {
+      "category": "team",
+      "question": "Who are the current club leads?",
+      "answer": "2025-26 Leadership: President - Karthik Raja S (Final Year CSE), VP Technical - Sarah Chen (3rd Year CSE), VP Operations - Maya Patel (3rd Year CSE), VP Research - Liam Vance (Final Year CSE), Faculty Advisor - Dr. R. Manimekalai."
+    },
+    {
+      "category": "contacts",
+      "question": "How do I contact the club?",
+      "answer": "Email: aiclub@siet.ac.in | Phone: +91 422 2369900 | Lab: Block III, 2nd Floor, Room 320. We're also on GitHub (github.com/siet-ai-club), LinkedIn, Twitter (@siet_aiclub), and YouTube (@siet_aiclub)."
+    },
+    {
+      "category": "research",
+      "question": "Does the club publish research papers?",
+      "answer": "Yes! In 2025-26 we had papers at: NeurIPS Workshop (Federated Learning), IEEE ICET (Edge Quantization), CVPR Workshop (Medical Imaging). We support members with: paper writing workshops, faculty mentorship, compute for experiments, and travel grants for conferences."
+    },
+    {
+      "category": "default",
+      "question": "I have a different question",
+      "answer": "I'm here to help! You can ask me about hackathons, achievements, projects, certifications, club info, events, facilities, team, contacts, or research. What would you like to know more about?"
+    }
+  ]
+}

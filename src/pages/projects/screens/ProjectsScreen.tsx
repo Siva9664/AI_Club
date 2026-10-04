@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { getProjects, getProjectMeta } from '@/services/projects';
+import { getProjects, getProjectFilterMeta } from '@/services/projects';
 import type {
   PaginatedResponse,
   ProjectFilterMeta,
@@ -36,11 +36,11 @@ export const Projects: React.FC = () => {
   // Fetch filter metadata once on mount
   useEffect(() => {
     let isMounted = true;
-    getProjectMeta()
+    getProjectFilterMeta()
       .then((meta) => {
         if (isMounted) setFilterMeta(meta);
       })
-      .catch((err) => {
+      .catch((err: Error) => {
         console.error('Failed to load filter metadata:', err);
       });
 

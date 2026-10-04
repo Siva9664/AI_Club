@@ -1,0 +1,542 @@
+{
+  "achievements": [
+    {
+      "id": "ach-01",
+      "title": "1st Place - National Smart India Hackathon 2025",
+      "category": "hackathon",
+      "date": "2025-12-15",
+      "year": 2025,
+      "description": "Awarded ₹1,00,000 cash prize for the AI-Powered Agricultural Yield and Pest Advisory System under Ministry of Agriculture.",
+      "image": {
+        "url": "/images/achievements/sih-2025.jpg",
+        "alt": "Smart India Hackathon Winners"
+      },
+      "recipient": "Team AgriVision SIET",
+      "organization": "Ministry of Education, Govt. of India",
+      "tags": ["AI", "Agriculture", "Computer Vision", "IoT"],
+      "featured": true,
+      "proofUrl": "https://sih.gov.in/winners-2025",
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2025-12-15T10:00:00Z",
+      "updatedAt": "2025-12-15T10:00:00Z"
+    },
+    {
+      "id": "ach-02",
+      "title": "Best AI Paper Award - IEEE ICET 2026",
+      "category": "competition",
+      "date": "2026-02-20",
+      "year": 2026,
+      "description": "Presented novel edge-quantization techniques for Vision Transformers on constrained low-power robotics.",
+      "image": {
+        "url": "/images/achievements/ieee-icet-2026.jpg",
+        "alt": "IEEE Conference Presentation"
+      },
+      "recipient": "Karthik Raja & Dr. R. Manimekalai",
+      "organization": "IEEE",
+      "tags": ["Edge AI", "Vision Transformers", "Quantization", "Robotics"],
+      "featured": true,
+      "proofUrl": "https://ieee.org/icet-2026",
+      "status": "approved",
+      "priority": 9,
+      "createdAt": "2026-02-20T10:00:00Z",
+      "updatedAt": "2026-02-20T10:00:00Z"
+    },
+    {
+      "id": "ach-03",
+      "title": "NVIDIA Academic Hardware Grant",
+      "category": "collaboration",
+      "date": "2025-11-10",
+      "year": 2025,
+      "description": "Awarded 4 NVIDIA RTX 4090 GPUs and 2 Jetson Orin Developer Kits to fuel student deep learning research in our AI Lab.",
+      "image": {
+        "url": "/images/achievements/nvidia-grant.jpg",
+        "alt": "NVIDIA GPU Grant"
+      },
+      "recipient": "SIET AI Lab",
+      "organization": "NVIDIA",
+      "tags": ["GPU Grant", "NVIDIA", "Research Infrastructure"],
+      "featured": true,
+      "status": "approved",
+      "priority": 8,
+      "createdAt": "2025-11-10T10:00:00Z",
+      "updatedAt": "2025-11-10T10:00:00Z"
+    },
+    {
+      "id": "ach-04",
+      "title": "Top 10 Finalist - Global AI Agents Hackathon",
+      "category": "hackathon",
+      "date": "2026-01-25",
+      "year": 2026,
+      "description": "Recognized among top 10 from 1,200 international teams for autonomous multi-agent software testing framework.",
+      "image": {
+        "url": "/images/achievements/global-agents-hackathon.jpg",
+        "alt": "Global Hackathon Recognition"
+      },
+      "recipient": "Team AgentCraft",
+      "organization": "Global AI Hackathon",
+      "tags": ["Multi-Agent Systems", "LLM Agents", "Software Testing"],
+      "featured": false,
+      "status": "approved",
+      "priority": 7,
+      "createdAt": "2026-01-25T10:00:00Z",
+      "updatedAt": "2026-01-25T10:00:00Z"
+    },
+    {
+      "id": "ach-05",
+      "title": "AWS Cloud Credits for Research",
+      "category": "collaboration",
+      "date": "2025-09-15",
+      "year": 2025,
+      "description": "Received $25,000 in AWS credits for training large language models and deploying scalable AI services.",
+      "recipient": "SIET AI Lab",
+      "organization": "Amazon Web Services",
+      "tags": ["AWS", "Cloud Credits", "LLM Training"],
+      "featured": false,
+      "status": "approved",
+      "priority": 6,
+      "createdAt": "2025-09-15T10:00:00Z",
+      "updatedAt": "2025-09-15T10:00:00Z"
+    },
+    {
+      "id": "ach-06",
+      "title": "Google TensorFlow Certification - Advanced",
+      "category": "certificate",
+      "date": "2025-08-30",
+      "year": 2025,
+      "description": "5 team members earned TensorFlow Developer Certificate with specialization in production ML pipelines.",
+      "recipient": "Sarah Chen, Maya Patel, Liam Vance, Amara Okafor, Karthik Raja",
+      "organization": "Google",
+      "tags": ["TensorFlow", "Certification", "MLOps"],
+      "featured": false,
+      "status": "approved",
+      "priority": 5,
+      "createdAt": "2025-08-30T10:00:00Z",
+      "updatedAt": "2025-08-30T10:00:00Z"
+    },
+    {
+      "id": "ach-07",
+      "title": "2nd Place - SIET InnoVate 2025 Internal Hackathon",
+      "category": "hackathon",
+      "date": "2025-10-24",
+      "year": 2025,
+      "description": "Developed real-time sign language translation using MediaPipe and transformer models for inclusive communication.",
+      "recipient": "Team SignSpeak",
+      "organization": "SIET AI Club",
+      "tags": ["Sign Language", "MediaPipe", "Transformers", "Accessibility"],
+      "featured": false,
+      "status": "approved",
+      "priority": 4,
+      "createdAt": "2025-10-24T10:00:00Z",
+      "updatedAt": "2025-10-24T10:00:00Z"
+    },
+    {
+      "id": "ach-08",
+      "title": "Microsoft AI for Accessibility Grant",
+      "category": "collaboration",
+      "date": "2025-07-20",
+      "year": 2025,
+      "description": "Grant for developing AI-powered assistive technology for visually impaired students on campus.",
+      "recipient": "Team VisionAid",
+      "organization": "Microsoft",
+      "tags": ["Accessibility", "Computer Vision", "Assistive Tech"],
+      "featured": false,
+      "status": "approved",
+      "priority": 3,
+      "createdAt": "2025-07-20T10:00:00Z",
+      "updatedAt": "2025-07-20T10:00:00Z"
+    },
+    {
+      "id": "ach-09",
+      "title": "Kaggle Competition - Top 5% in Plant Pathology",
+      "category": "competition",
+      "date": "2025-06-15",
+      "year": 2025,
+      "description": "Achieved top 5% in Kaggle Plant Pathology 2025 challenge using ensemble of EfficientNet and Vision Transformers.",
+      "recipient": "Karthik Raja, Priya Dharshini",
+      "organization": "Kaggle",
+      "tags": ["Kaggle", "Plant Pathology", "Ensemble Learning", "Vision Transformers"],
+      "featured": false,
+      "status": "approved",
+      "priority": 2,
+      "createdAt": "2025-06-15T10:00:00Z",
+      "updatedAt": "2025-06-15T10:00:00Z"
+    },
+    {
+      "id": "ach-10",
+      "title": "Research Paper Accepted - NeurIPS 2025 Workshop",
+      "category": "competition",
+      "date": "2025-12-01",
+      "year": 2025,
+      "description": "Paper on 'Federated Learning for Edge AI in Healthcare' accepted at NeurIPS 2025 Federated Learning Workshop.",
+      "recipient": "Liam Vance, Dr. R. Manimekalai",
+      "organization": "NeurIPS",
+      "tags": ["Federated Learning", "Edge AI", "Healthcare", "Privacy"],
+      "featured": false,
+      "status": "approved",
+      "priority": 1,
+      "createdAt": "2025-12-01T10:00:00Z",
+      "updatedAt": "2025-12-01T10:00:00Z"
+    },
+    {
+      "id": "ach-11",
+      "title": "Intel Student Ambassador Program - 2025 Cohort",
+      "category": "certificate",
+      "date": "2025-05-01",
+      "year": 2025,
+      "description": "Maya Patel selected for Intel Student Ambassador Program for oneAPI and OpenVINO optimization work.",
+      "recipient": "Maya Patel",
+      "organization": "Intel",
+      "tags": ["Intel", "oneAPI", "OpenVINO", "Student Ambassador"],
+      "featured": false,
+      "status": "approved",
+      "priority": 0,
+      "createdAt": "2025-05-01T10:00:00Z",
+      "updatedAt": "2025-05-01T10:00:00Z"
+    },
+    {
+      "id": "ach-12",
+      "title": "HackMIT 2025 - Best Healthcare Hack",
+      "category": "hackathon",
+      "date": "2025-09-20",
+      "year": 2025,
+      "description": "Won Best Healthcare Hack for AI-powered early detection of diabetic retinopathy from fundus images.",
+      "recipient": "Team RetinaScan",
+      "organization": "MIT",
+      "tags": ["Healthcare AI", "Diabetic Retinopathy", "Fundus Imaging"],
+      "featured": false,
+      "status": "approved",
+      "priority": -1,
+      "createdAt": "2025-09-20T10:00:00Z",
+      "updatedAt": "2025-09-20T10:00:00Z"
+    },
+    {
+      "id": "ach-13",
+      "title": "IEEE Xtreme 2025 - Rank 150 Globally",
+      "category": "competition",
+      "date": "2025-10-25",
+      "year": 2025,
+      "description": "Team ranked 150th globally out of 5000+ teams in IEEE Xtreme 24-hour programming competition.",
+      "recipient": "Team CodeCrushers",
+      "organization": "IEEE",
+      "tags": ["Competitive Programming", "IEEE Xtreme", "Algorithms"],
+      "featured": false,
+      "status": "approved",
+      "priority": -2,
+      "createdAt": "2025-10-25T10:00:00Z",
+      "updatedAt": "2025-10-25T10:00:00Z"
+    },
+    {
+      "id": "ach-14",
+      "title": "AMD University Program - Research Grant",
+      "category": "collaboration",
+      "date": "2025-04-10",
+      "year": 2025,
+      "description": "Received AMD EPYC server access and ROCm optimization support for HPC workloads in AI research.",
+      "recipient": "SIET AI Lab",
+      "organization": "AMD",
+      "tags": ["AMD", "ROCm", "HPC", "EPYC"],
+      "featured": false,
+      "status": "approved",
+      "priority": -3,
+      "createdAt": "2025-04-10T10:00:00Z",
+      "updatedAt": "2025-04-10T10:00:00Z"
+    },
+    {
+      "id": "ach-15",
+      "title": "Best Student Chapter Award - CSI 2025",
+      "category": "certificate",
+      "date": "2025-03-15",
+      "year": 2025,
+      "description": "SIET AI Club awarded Best Student Chapter by Computer Society of India for outstanding technical activities.",
+      "recipient": "SIET AI Club",
+      "organization": "Computer Society of India",
+      "tags": ["CSI", "Student Chapter", "Leadership"],
+      "featured": false,
+      "status": "approved",
+      "priority": -4,
+      "createdAt": "2025-03-15T10:00:00Z",
+      "updatedAt": "2025-03-15T10:00:00Z"
+    }
+  ],
+  "featured": [
+    {
+      "id": "ach-01",
+      "title": "1st Place - National Smart India Hackathon 2025",
+      "category": "hackathon",
+      "date": "2025-12-15",
+      "year": 2025,
+      "description": "Awarded ₹1,00,000 cash prize for the AI-Powered Agricultural Yield and Pest Advisory System under Ministry of Agriculture.",
+      "image": {
+        "url": "/images/achievements/sih-2025.jpg",
+        "alt": "Smart India Hackathon Winners"
+      },
+      "recipient": "Team AgriVision SIET",
+      "organization": "Ministry of Education, Govt. of India",
+      "tags": ["AI", "Agriculture", "Computer Vision", "IoT"],
+      "featured": true,
+      "proofUrl": "https://sih.gov.in/winners-2025",
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2025-12-15T10:00:00Z",
+      "updatedAt": "2025-12-15T10:00:00Z"
+    },
+    {
+      "id": "ach-02",
+      "title": "Best AI Paper Award - IEEE ICET 2026",
+      "category": "competition",
+      "date": "2026-02-20",
+      "year": 2026,
+      "description": "Presented novel edge-quantization techniques for Vision Transformers on constrained low-power robotics.",
+      "image": {
+        "url": "/images/achievements/ieee-icet-2026.jpg",
+        "alt": "IEEE Conference Presentation"
+      },
+      "recipient": "Karthik Raja & Dr. R. Manimekalai",
+      "organization": "IEEE",
+      "tags": ["Edge AI", "Vision Transformers", "Quantization", "Robotics"],
+      "featured": true,
+      "proofUrl": "https://ieee.org/icet-2026",
+      "status": "approved",
+      "priority": 9,
+      "createdAt": "2026-02-20T10:00:00Z",
+      "updatedAt": "2026-02-20T10:00:00Z"
+    },
+    {
+      "id": "ach-03",
+      "title": "NVIDIA Academic Hardware Grant",
+      "category": "collaboration",
+      "date": "2025-11-10",
+      "year": 2025,
+      "description": "Awarded 4 NVIDIA RTX 4090 GPUs and 2 Jetson Orin Developer Kits to fuel student deep learning research in our AI Lab.",
+      "image": {
+        "url": "/images/achievements/nvidia-grant.jpg",
+        "alt": "NVIDIA GPU Grant"
+      },
+      "recipient": "SIET AI Lab",
+      "organization": "NVIDIA",
+      "tags": ["GPU Grant", "NVIDIA", "Research Infrastructure"],
+      "featured": true,
+      "status": "approved",
+      "priority": 8,
+      "createdAt": "2025-11-10T10:00:00Z",
+      "updatedAt": "2025-11-10T10:00:00Z"
+    }
+  ],
+  "ambassadors": [
+    {
+      "id": "amb-01",
+      "name": "Dr. Revathi Suresh",
+      "role": "Principal AI Research Scientist",
+      "bio": "Lead architect for enterprise AI at IBM Research. PhD from IISc Bangalore. 15+ years in ML systems.",
+      "image": {
+        "url": "/images/ambassadors/revathi-suresh.jpg",
+        "alt": "Dr. Revathi Suresh"
+      },
+      "social": {
+        "linkedin": "https://linkedin.com/in/revathisuresh",
+        "twitter": "https://twitter.com/revathisuresh"
+      }
+    },
+    {
+      "id": "amb-02",
+      "name": "Dr. Arvind Swaminathan",
+      "role": "Senior Staff Research Scientist",
+      "bio": "DeepMind London. Expert in reinforcement learning and frontier model alignment. PhD from Stanford.",
+      "image": {
+        "url": "/images/ambassadors/arvind-swaminathan.jpg",
+        "alt": "Dr. Arvind Swaminathan"
+      },
+      "social": {
+        "linkedin": "https://linkedin.com/in/arvindswaminathan",
+        "github": "https://github.com/arvindswaminathan"
+      }
+    },
+    {
+      "id": "amb-03",
+      "name": "Ananya Krishnan",
+      "role": "Staff ML Engineer (Alumna, Class of 2019)",
+      "bio": "From SIET classrooms to DeepMind labs. Mentors students on research portfolios and graduate fellowships.",
+      "image": {
+        "url": "/images/ambassadors/ananya-krishnan.jpg",
+        "alt": "Ananya Krishnan"
+      },
+      "social": {
+        "linkedin": "https://linkedin.com/in/ananyakrishnan",
+        "github": "https://github.com/ananyakrishnan"
+      }
+    }
+  ],
+  "upcomingCompetitions": [
+    {
+      "id": "comp-01",
+      "title": "SIET AI InnoVate 2026: 36-Hour Hackathon",
+      "date": "2026-10-24",
+      "type": "Hackathon",
+      "summary": "The marquee annual AI buildathon bringing together 300+ developers to build multimodal AI products with cash pool ₹1,50,000.",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/competitions/innovate-2026.jpg",
+        "alt": "SIET AI InnoVate Hackathon"
+      },
+      "location": "Auditorium & AI Lab 1, SIET Campus",
+      "action": {
+        "label": "Register Team",
+        "url": "/hackathons"
+      }
+    },
+    {
+      "id": "comp-02",
+      "title": "Masterclass: Building Agentic RAG with LangGraph",
+      "date": "2026-11-07",
+      "type": "Workshop",
+      "summary": "Deep dive into multi-agent workflows, state persistence, tool calling, and human-in-the-loop validation.",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/competitions/agentic-rag.jpg",
+        "alt": "Agentic RAG Masterclass"
+      },
+      "location": "Virtual & AI Lab 2",
+      "action": {
+        "label": "Reserve Seat",
+        "url": "/workshops"
+      }
+    },
+    {
+      "id": "comp-03",
+      "title": "Kaggle Internal Sprint: Edge Vision Classification",
+      "date": "2026-11-15",
+      "type": "Contest",
+      "summary": "24-hour sprint to train lightweight neural architectures under 5MB with maximum F1 accuracy.",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/competitions/kaggle-sprint.jpg",
+        "alt": "Kaggle Sprint"
+      },
+      "location": "Online Leaderboard",
+      "action": {
+        "label": "Join Contest",
+        "url": "/contests"
+      }
+    },
+    {
+      "id": "comp-04",
+      "title": "Industry Tech Talk: Scaling AI at Enterprise Scale",
+      "date": "2026-11-28",
+      "type": "Seminar",
+      "summary": "Guest lecture by Senior AI Architect from Microsoft Research on distributed training and inference clusters.",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/competitions/tech-talk.jpg",
+        "alt": "Industry Tech Talk"
+      },
+      "location": "Seminar Hall 3",
+      "action": {
+        "label": "View Details",
+        "url": "/events"
+      }
+    },
+    {
+      "id": "comp-05",
+      "title": "Smart India Hackathon 2026 - Internal Selection",
+      "date": "2026-12-01",
+      "type": "Hackathon",
+      "summary": "Internal selection round for SIH 2026. Top 3 teams represent SIET at national level.",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/competitions/sih-2026.jpg",
+        "alt": "SIH 2026 Selection"
+      },
+      "location": "AI Lab 1 & 2",
+      "action": {
+        "label": "Apply Now",
+        "url": "/hackathons"
+      }
+    },
+    {
+      "id": "comp-06",
+      "title": "Generative AI Bootcamp for Undergraduates",
+      "date": "2026-12-10",
+      "type": "Bootcamp",
+      "summary": "3-day intensive hands-on bootcamp introducing sophomore engineering students to PyTorch and Transformers.",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/competitions/genai-bootcamp.jpg",
+        "alt": "GenAI Bootcamp"
+      },
+      "location": "SIET AI Central Lab",
+      "action": {
+        "label": "Register",
+        "url": "/workshops"
+      }
+    },
+    {
+      "id": "comp-07",
+      "title": "Computer Vision Summer Exhibition 2026",
+      "date": "2026-07-22",
+      "type": "Project Expo",
+      "summary": "18 student teams demonstrated live prototypes of autonomous vehicle perception, drone inspection, and medical imaging.",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/competitions/cv-expo.jpg",
+        "alt": "CV Exhibition"
+      },
+      "location": "Central Exhibition Hall",
+      "action": {
+        "label": "Submit Project",
+        "url": "/projects"
+      }
+    },
+    {
+      "id": "comp-08",
+      "title": "NVIDIA Jetson Edge AI Challenge",
+      "date": "2026-08-15",
+      "type": "Contest",
+      "summary": "Deploy computer vision models on Jetson Orin Nano for real-time robotics applications.",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/competitions/jetson-challenge.jpg",
+        "alt": "Jetson Challenge"
+      },
+      "location": "Robotics & Embedded AI Center",
+      "action": {
+        "label": "Join Challenge",
+        "url": "/contests"
+      }
+    },
+    {
+      "id": "comp-09",
+      "title": "Research Paper Writing Workshop",
+      "date": "2026-09-05",
+      "type": "Workshop",
+      "summary": "Learn to write and publish in top-tier AI conferences (NeurIPS, ICML, CVPR) with faculty mentors.",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/competitions/paper-workshop.jpg",
+        "alt": "Paper Writing Workshop"
+      },
+      "location": "Seminar Hall 1",
+      "action": {
+        "label": "Reserve Seat",
+        "url": "/workshops"
+      }
+    },
+    {
+      "id": "comp-10",
+      "title": "AI for Social Good Hackathon",
+      "date": "2026-10-10",
+      "type": "Hackathon",
+      "summary": "Build AI solutions for healthcare accessibility, agricultural productivity, and environmental monitoring.",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/competitions/social-good.jpg",
+        "alt": "AI for Social Good"
+      },
+      "location": "Virtual & Campus",
+      "action": {
+        "label": "Register Team",
+        "url": "/hackathons"
+      }
+    }
+  ]
+}
