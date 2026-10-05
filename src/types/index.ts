@@ -110,9 +110,19 @@ export interface ClubApiResponse {
 export type HomeApiResponse = ClubApiResponse;
 
 // Achievement types
+export type AchievementCategory =
+  | 'hackathon'
+  | 'competition'
+  | 'collaboration'
+  | 'certificate'
+  | 'ambassador'
+  | 'get-together'
+  | 'free-course'
+  | 'other';
+
 export interface Achievement extends BaseEntity {
   title: string;
-  category: 'hackathon' | 'competition' | 'collaboration' | 'certificate';
+  category: AchievementCategory;
   date: string;
   year: number;
   description: string;
@@ -125,6 +135,8 @@ export interface Achievement extends BaseEntity {
   status: 'draft' | 'pending' | 'approved' | 'rejected';
   priority: number;
   summary?: string;
+  /** Key impact headline shown in the detail modal (from achievement.html `metric`). */
+  metric?: string;
 }
 
 export interface Ambassador {
@@ -133,11 +145,31 @@ export interface Ambassador {
   role: string;
   bio: string;
   image: ImageAsset;
+  organization?: string;
+  /** True for placeholder cards that are not real appointments. */
+  sample?: boolean;
   social: {
     github?: string;
     linkedin?: string;
     twitter?: string;
   };
+}
+
+export interface AchievementStats {
+  totalAchievements: number;
+  totalHackathons: number;
+  totalCompetitions: number;
+  totalCertificates: number;
+  totalCollaborations: number;
+  totalAmbassadors: number;
+  trainedMembers: number;
+}
+
+export interface AchievementQuery {
+  category?: AchievementCategory | 'all';
+  year?: number | 'all';
+  q?: string;
+  featured?: boolean;
 }
 
 export interface UpcomingCompetition {

@@ -1,542 +1,1083 @@
 {
+  "stats": {
+    "totalAchievements": 24,
+    "totalHackathons": 6,
+    "totalCompetitions": 6,
+    "totalCertificates": 2,
+    "totalCollaborations": 2,
+    "totalAmbassadors": 1,
+    "trainedMembers": 5579
+  },
+  "years": [
+    2026,
+    2025,
+    2024
+  ],
   "achievements": [
     {
-      "id": "ach-01",
-      "title": "1st Place - National Smart India Hackathon 2025",
+      "id": "ach-2026-01",
+      "title": "International Faraway Hackathon – Global Selection",
       "category": "hackathon",
-      "date": "2025-12-15",
-      "year": 2025,
-      "description": "Awarded ₹1,00,000 cash prize for the AI-Powered Agricultural Yield and Pest Advisory System under Ministry of Agriculture.",
-      "image": {
-        "url": "/images/achievements/sih-2025.jpg",
-        "alt": "Smart India Hackathon Winners"
-      },
-      "recipient": "Team AgriVision SIET",
-      "organization": "Ministry of Education, Govt. of India",
-      "tags": ["AI", "Agriculture", "Computer Vision", "IoT"],
+      "date": "2026-08-22",
+      "year": 2026,
+      "summary": "Selected among the Top 100 teams globally out of 11,000+ international participants at Chandigarh University, representing SIET.",
+      "description": "Organized by Zuup and held at Patiala – Chandigarh University on 22–23 August 2026. The student cohort competed against 11,000+ participants worldwide and secured a place among the Top 100 teams globally, proudly representing SIET at an international hackathon.",
+      "recipient": "Aswin – II CSE, Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Nakshatra S. V – II CSE, Meenakshi C – II CSE, Viswanath N – II CSE, Shreekumar – II AI&DS, Prithic P – II AIML",
+      "metric": "Top 100 Teams Globally / 11,000+ Participants Worldwide",
+      "proofUrl": "",
       "featured": true,
-      "proofUrl": "https://sih.gov.in/winners-2025",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "International Faraway Hackathon – Global Selection"
+      },
+      "tags": [
+        "hackathon"
+      ],
       "status": "approved",
       "priority": 10,
-      "createdAt": "2025-12-15T10:00:00Z",
-      "updatedAt": "2025-12-15T10:00:00Z"
+      "createdAt": "2026-08-22T10:00:00Z",
+      "updatedAt": "2026-08-22T10:00:00Z"
     },
     {
-      "id": "ach-02",
-      "title": "Best AI Paper Award - IEEE ICET 2026",
-      "category": "competition",
-      "date": "2026-02-20",
-      "year": 2026,
-      "description": "Presented novel edge-quantization techniques for Vision Transformers on constrained low-power robotics.",
-      "image": {
-        "url": "/images/achievements/ieee-icet-2026.jpg",
-        "alt": "IEEE Conference Presentation"
-      },
-      "recipient": "Karthik Raja & Dr. R. Manimekalai",
-      "organization": "IEEE",
-      "tags": ["Edge AI", "Vision Transformers", "Quantization", "Robotics"],
-      "featured": true,
-      "proofUrl": "https://ieee.org/icet-2026",
-      "status": "approved",
-      "priority": 9,
-      "createdAt": "2026-02-20T10:00:00Z",
-      "updatedAt": "2026-02-20T10:00:00Z"
-    },
-    {
-      "id": "ach-03",
-      "title": "NVIDIA Academic Hardware Grant",
-      "category": "collaboration",
-      "date": "2025-11-10",
-      "year": 2025,
-      "description": "Awarded 4 NVIDIA RTX 4090 GPUs and 2 Jetson Orin Developer Kits to fuel student deep learning research in our AI Lab.",
-      "image": {
-        "url": "/images/achievements/nvidia-grant.jpg",
-        "alt": "NVIDIA GPU Grant"
-      },
-      "recipient": "SIET AI Lab",
-      "organization": "NVIDIA",
-      "tags": ["GPU Grant", "NVIDIA", "Research Infrastructure"],
-      "featured": true,
-      "status": "approved",
-      "priority": 8,
-      "createdAt": "2025-11-10T10:00:00Z",
-      "updatedAt": "2025-11-10T10:00:00Z"
-    },
-    {
-      "id": "ach-04",
-      "title": "Top 10 Finalist - Global AI Agents Hackathon",
+      "id": "ach-2026-02",
+      "title": "HackerRank Orchestrate – 24-Hour AI-Agent Hackathon",
       "category": "hackathon",
-      "date": "2026-01-25",
+      "date": "2026-08-16",
       "year": 2026,
-      "description": "Recognized among top 10 from 1,200 international teams for autonomous multi-agent software testing framework.",
+      "summary": "Among 1,983 participants, AI Lab students secured top world leaderboard rankings in the 24-hour autonomous agent hackathon.",
+      "description": "In an intensive 24-Hour AI-Agent Hackathon among 1,983 participants, the students developed intelligent autonomous systems and secured the following leaderboard rankings: Nitish R.G. – World Rank #162, Shreekumar B. – World Rank #209, Suchit – World Rank #558, Arun Prasath – World Rank #1215, Santheesh – World Rank #1227, Nakshatra S.V. – World Rank #1360.",
+      "recipient": "Nitish R.G., Shreekumar B., Suchit, Santheesh, Arun Prasath, Nakshatra S.V.",
+      "metric": "World Ranks #162, #209, #558, #1215, #1227, #1360 (1,983 Participants)",
+      "proofUrl": "",
+      "featured": false,
       "image": {
-        "url": "/images/achievements/global-agents-hackathon.jpg",
-        "alt": "Global Hackathon Recognition"
+        "url": "/images/achievements/ach-02-1526374965328-7f61d4dc18c5.svg",
+        "alt": "HackerRank Orchestrate – 24-Hour AI-Agent Hackathon"
       },
-      "recipient": "Team AgentCraft",
-      "organization": "Global AI Hackathon",
-      "tags": ["Multi-Agent Systems", "LLM Agents", "Software Testing"],
-      "featured": false,
-      "status": "approved",
-      "priority": 7,
-      "createdAt": "2026-01-25T10:00:00Z",
-      "updatedAt": "2026-01-25T10:00:00Z"
-    },
-    {
-      "id": "ach-05",
-      "title": "AWS Cloud Credits for Research",
-      "category": "collaboration",
-      "date": "2025-09-15",
-      "year": 2025,
-      "description": "Received $25,000 in AWS credits for training large language models and deploying scalable AI services.",
-      "recipient": "SIET AI Lab",
-      "organization": "Amazon Web Services",
-      "tags": ["AWS", "Cloud Credits", "LLM Training"],
-      "featured": false,
+      "tags": [
+        "hackathon"
+      ],
       "status": "approved",
       "priority": 6,
-      "createdAt": "2025-09-15T10:00:00Z",
-      "updatedAt": "2025-09-15T10:00:00Z"
+      "createdAt": "2026-08-16T10:00:00Z",
+      "updatedAt": "2026-08-16T10:00:00Z"
     },
     {
-      "id": "ach-06",
-      "title": "Google TensorFlow Certification - Advanced",
-      "category": "certificate",
-      "date": "2025-08-30",
-      "year": 2025,
-      "description": "5 team members earned TensorFlow Developer Certificate with specialization in production ML pipelines.",
-      "recipient": "Sarah Chen, Maya Patel, Liam Vance, Amara Okafor, Karthik Raja",
-      "organization": "Google",
-      "tags": ["TensorFlow", "Certification", "MLOps"],
+      "id": "ach-2026-03",
+      "title": "Next.js UI/UX Hackathon",
+      "category": "competition",
+      "date": "2026-07-20",
+      "year": 2026,
+      "summary": "Secured First Place in the Next.js UI/UX Hackathon organized by Crowdera Foundation, advancing to an executive frontend developer interview.",
+      "description": "Organized by Crowdera Foundation. Shreekumar secured First Place in the Next.js UI/UX Hackathon. Following the competition, he attended an internship interview with the Co-founder of Crowdera Foundation and the CEO of Winsemble Systems for the Frontend Developer role.",
+      "recipient": "Shreekumar – II AIDS",
+      "metric": "First Place Winner & Frontend Developer Internship Interview",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-03-1551288049-bebda4e38f71.svg",
+        "alt": "Next.js UI/UX Hackathon"
+      },
+      "tags": [
+        "competition"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-07-20T10:00:00Z",
+      "updatedAt": "2026-07-20T10:00:00Z"
+    },
+    {
+      "id": "ach-2026-04",
+      "title": "Java Package Development for AI Applications",
+      "category": "other",
+      "date": "2026-07-12",
+      "year": 2026,
+      "summary": "Developed SIDD-AI, a lightweight, unified Java SDK for OpenAI, Google Gemini, Anthropic Claude, and Ollama with 450+ downloads in 2 weeks across 33 companies.",
+      "description": "Developed 'SIDD-AI', a lightweight and framework-independent Java SDK for AI applications. The package enables developers to integrate OpenAI, Google Gemini, Anthropic Claude, and Ollama through a single unified API. Demonstrated advanced software engineering skills with more than 450 downloads within two weeks of launch, around 33 companies downloading the package, as an open-source contribution for AI developers.",
+      "recipient": "Prabhu Siddarth A V, III Year, IT",
+      "metric": "450+ Downloads & 33 Companies in 2 Weeks (Open-Source SDK)",
+      "proofUrl": "",
       "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-04-1516321318423-f06f85e504b3.svg",
+        "alt": "Java Package Development for AI Applications"
+      },
+      "tags": [
+        "other"
+      ],
       "status": "approved",
       "priority": 5,
-      "createdAt": "2025-08-30T10:00:00Z",
-      "updatedAt": "2025-08-30T10:00:00Z"
+      "createdAt": "2026-07-12T10:00:00Z",
+      "updatedAt": "2026-07-12T10:00:00Z"
     },
     {
-      "id": "ach-07",
-      "title": "2nd Place - SIET InnoVate 2025 Internal Hackathon",
-      "category": "hackathon",
-      "date": "2025-10-24",
-      "year": 2025,
-      "description": "Developed real-time sign language translation using MediaPipe and transformer models for inclusive communication.",
-      "recipient": "Team SignSpeak",
-      "organization": "SIET AI Club",
-      "tags": ["Sign Language", "MediaPipe", "Transformers", "Accessibility"],
+      "id": "ach-2026-05",
+      "title": "International Internship",
+      "category": "other",
+      "date": "2026-07-04",
+      "year": 2026,
+      "summary": "Selected as an AI Intern at Movvr Pvt. Ltd. and ranked among the Top 50 participants out of 700+ in the Sarvam AI Epoch Buildathon.",
+      "description": "Selected as an AI Intern at Movvr Pvt. Ltd. for a one-month internship. Additional achievement: Ranked among the Top 50 participants in the Sarvam AI Epoch Buildathon from over 700 participants.",
+      "recipient": "Nitish R. G, II Year, CSE",
+      "metric": "AI Intern (Movvr Pvt. Ltd.) & Top 50 / 700+ (Sarvam AI Epoch Buildathon)",
+      "proofUrl": "",
       "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-05-1522071820081-009f0129c71c.svg",
+        "alt": "International Internship"
+      },
+      "tags": [
+        "other"
+      ],
       "status": "approved",
       "priority": 4,
-      "createdAt": "2025-10-24T10:00:00Z",
-      "updatedAt": "2025-10-24T10:00:00Z"
+      "createdAt": "2026-07-04T10:00:00Z",
+      "updatedAt": "2026-07-04T10:00:00Z"
     },
     {
-      "id": "ach-08",
-      "title": "Microsoft AI for Accessibility Grant",
-      "category": "collaboration",
-      "date": "2025-07-20",
-      "year": 2025,
-      "description": "Grant for developing AI-powered assistive technology for visually impaired students on campus.",
-      "recipient": "Team VisionAid",
-      "organization": "Microsoft",
-      "tags": ["Accessibility", "Computer Vision", "Assistive Tech"],
+      "id": "ach-2026-06",
+      "title": "Python Package for Model Context Protocol (MCP)",
+      "category": "other",
+      "date": "2026-06-25",
+      "year": 2026,
+      "summary": "Published an MCP Python package enabling agentic tool communication, recording 4,000+ total downloads and over 1,000 within the first 3 days.",
+      "description": "Successfully developed a Python package for Model Context Protocol (MCP), enabling seamless communication between AI agents, external tools, and software applications. Successfully published an MCP Python package with more than 4,000 downloads, including over 1,000 downloads within the first three days, as an open-source contribution for AI developers.",
+      "recipient": "Mahibala H, III Year, CSE",
+      "metric": "4,000+ Downloads (1,000+ Downloads in First 3 Days)",
+      "proofUrl": "",
       "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-06-1635070041078-e363dbe005cb.svg",
+        "alt": "Python Package for Model Context Protocol (MCP)"
+      },
+      "tags": [
+        "other"
+      ],
       "status": "approved",
       "priority": 3,
-      "createdAt": "2025-07-20T10:00:00Z",
-      "updatedAt": "2025-07-20T10:00:00Z"
+      "createdAt": "2026-06-25T10:00:00Z",
+      "updatedAt": "2026-06-25T10:00:00Z"
     },
     {
-      "id": "ach-09",
-      "title": "Kaggle Competition - Top 5% in Plant Pathology",
+      "id": "ach-2026-07",
+      "title": "HackerRank Orchestrate – Autonomous AI Agents",
       "category": "competition",
-      "date": "2025-06-15",
-      "year": 2025,
-      "description": "Achieved top 5% in Kaggle Plant Pathology 2025 challenge using ensemble of EfficientNet and Vision Transformers.",
-      "recipient": "Karthik Raja, Priya Dharshini",
-      "organization": "Kaggle",
-      "tags": ["Kaggle", "Plant Pathology", "Ensemble Learning", "Vision Transformers"],
+      "date": "2026-06-18",
+      "year": 2026,
+      "summary": "Developed a production-grade autonomous AI agent system under competitive conditions and secured World Rank #73.",
+      "description": "Developed a production-grade autonomous AI agent system under competitive conditions and secured World Rank #73.",
+      "recipient": "Nitish R. G, II Year CSE",
+      "metric": "World Rank #73",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-02-1526374965328-7f61d4dc18c5.svg",
+        "alt": "HackerRank Orchestrate – Autonomous AI Agents"
+      },
+      "tags": [
+        "competition"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-06-18T10:00:00Z",
+      "updatedAt": "2026-06-18T10:00:00Z"
+    },
+    {
+      "id": "ach-2026-08",
+      "title": "HackerRank SQL International Challenge",
+      "category": "competition",
+      "date": "2026-06-14",
+      "year": 2026,
+      "summary": "Secured World Rank #1 and earned the Gold Badge (5★ SQL) in the HackerRank SQL International Challenge.",
+      "description": "Secured World Rank #1 and earned the Gold Badge (5★ SQL) in the HackerRank SQL International Challenge.",
+      "recipient": "Nitish R. G, II Year CSE",
+      "metric": "World Rank #1 & Gold Badge (5★ SQL)",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-03-1551288049-bebda4e38f71.svg",
+        "alt": "HackerRank SQL International Challenge"
+      },
+      "tags": [
+        "competition"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-06-14T10:00:00Z",
+      "updatedAt": "2026-06-14T10:00:00Z"
+    },
+    {
+      "id": "ach-2026-09",
+      "title": "Frontier Hackathon",
+      "category": "hackathon",
+      "date": "2026-06-08",
+      "year": 2026,
+      "summary": "Selected for the international hackathon and accepted into the $250K Pre-Seed Funding Track, receiving startup mentorship and ecosystem support.",
+      "description": "Organized by Colosseum × Solana. Selected for the international hackathon and accepted into the $250K Pre-Seed Funding Track, receiving startup mentorship and ecosystem support.",
+      "recipient": "Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Prithic P – II AIML, Mithunesh K – II CSE, Viswanath N – II CSE",
+      "metric": "Accepted into $250K Pre-Seed Funding Track & Startup Mentorship",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-07-1507668077129-56e32842fceb.svg",
+        "alt": "Frontier Hackathon"
+      },
+      "tags": [
+        "hackathon"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-06-08T10:00:00Z",
+      "updatedAt": "2026-06-08T10:00:00Z"
+    },
+    {
+      "id": "ach-2026-10",
+      "title": "Meta × PyTorch × Hugging Face OpenEnv Hackathon",
+      "category": "hackathon",
+      "date": "2026-06-02",
+      "year": 2026,
+      "summary": "Secured a position among the Top 800 teams globally out of 72,000+ participants.",
+      "description": "Secured a position among the Top 800 teams globally out of 72,000+ participants in the Meta × PyTorch × Hugging Face OpenEnv Hackathon.",
+      "recipient": "Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Prithic P – II AIML",
+      "metric": "Top 800 Teams Globally / 72,000+ Participants",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-08-1591488320449-011701bb6704.svg",
+        "alt": "Meta × PyTorch × Hugging Face OpenEnv Hackathon"
+      },
+      "tags": [
+        "hackathon"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-06-02T10:00:00Z",
+      "updatedAt": "2026-06-02T10:00:00Z"
+    },
+    {
+      "id": "ach-2026-11",
+      "title": "HackerRank Orchestrate – Autonomous AI Agents",
+      "category": "competition",
+      "date": "2026-05-22",
+      "year": 2026,
+      "summary": "Secured World Rank #384 in the May edition of the HackerRank Orchestrate Autonomous AI Agents competition.",
+      "description": "Secured World Rank #384 in the HackerRank Orchestrate – Autonomous AI Agents competition.",
+      "recipient": "Nitish R. G, II CSE",
+      "metric": "World Rank #384",
+      "proofUrl": "",
       "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-02-1526374965328-7f61d4dc18c5.svg",
+        "alt": "HackerRank Orchestrate – Autonomous AI Agents"
+      },
+      "tags": [
+        "competition"
+      ],
       "status": "approved",
       "priority": 2,
-      "createdAt": "2025-06-15T10:00:00Z",
-      "updatedAt": "2025-06-15T10:00:00Z"
+      "createdAt": "2026-05-22T10:00:00Z",
+      "updatedAt": "2026-05-22T10:00:00Z"
     },
     {
-      "id": "ach-10",
-      "title": "Research Paper Accepted - NeurIPS 2025 Workshop",
-      "category": "competition",
-      "date": "2025-12-01",
-      "year": 2025,
-      "description": "Paper on 'Federated Learning for Edge AI in Healthcare' accepted at NeurIPS 2025 Federated Learning Workshop.",
-      "recipient": "Liam Vance, Dr. R. Manimekalai",
-      "organization": "NeurIPS",
-      "tags": ["Federated Learning", "Edge AI", "Healthcare", "Privacy"],
+      "id": "ach-2026-12",
+      "title": "Claude Code Builders Conference",
+      "category": "other",
+      "date": "2026-05-12",
+      "year": 2026,
+      "summary": "Selected as one of only five speakers from more than 3,300 global applicants for the Anthropic Claude Code Builders Conference.",
+      "description": "Organized by Anthropic. Selected as one of only five speakers from more than 3,300 global applicants.",
+      "recipient": "Nitish R. G, II CSE",
+      "metric": "1 of Only 5 Global Speakers Selected (3,300+ Applicants)",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-09-1540575467063-178a50c2df87.svg",
+        "alt": "Claude Code Builders Conference"
+      },
+      "tags": [
+        "other"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-05-12T10:00:00Z",
+      "updatedAt": "2026-05-12T10:00:00Z"
+    },
+    {
+      "id": "ach-2026-13",
+      "title": "Hack-Nation Global AI Hackathon",
+      "category": "hackathon",
+      "date": "2026-04-18",
+      "year": 2026,
+      "summary": "Selected to participate in the international AI hackathon, supported by MIT and partnered with Stanford University and leading global research institutions.",
+      "description": "Selected to participate in the international AI hackathon, supported by MIT and partnered with Stanford University and leading global research institutions.",
+      "recipient": "Nitish R. G, II CSE",
+      "metric": "International Selection (Supported by MIT & Stanford University)",
+      "proofUrl": "",
       "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-10-1451187580459-43490279c0fa.svg",
+        "alt": "Hack-Nation Global AI Hackathon"
+      },
+      "tags": [
+        "hackathon"
+      ],
       "status": "approved",
       "priority": 1,
-      "createdAt": "2025-12-01T10:00:00Z",
-      "updatedAt": "2025-12-01T10:00:00Z"
+      "createdAt": "2026-04-18T10:00:00Z",
+      "updatedAt": "2026-04-18T10:00:00Z"
     },
     {
-      "id": "ach-11",
-      "title": "Intel Student Ambassador Program - 2025 Cohort",
-      "category": "certificate",
-      "date": "2025-05-01",
+      "id": "ach-2026-14",
+      "title": "India Innovates 2026 – National Innovation Challenge",
+      "category": "competition",
+      "date": "2026-04-06",
+      "year": 2026,
+      "summary": "Secured a place among the Top 100 finalists from 25,862+ participants across India and presented their innovative solution at the Grand Finale held at Bharat Mandapam, New Delhi.",
+      "description": "Secured a place among the Top 100 finalists from 25,862+ participants across India and presented their innovative solution at the Grand Finale held at Bharat Mandapam, New Delhi.",
+      "recipient": "Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Prithic P – II AIML, Nishanth K. R – II CSE, Mithunesh K – II CSE",
+      "metric": "Top 100 Finalists / 25,862+ Participants (Bharat Mandapam Finale)",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-11-1485827404703-89b55fcc595e.svg",
+        "alt": "India Innovates 2026 – National Innovation Challenge"
+      },
+      "tags": [
+        "competition"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-04-06T10:00:00Z",
+      "updatedAt": "2026-04-06T10:00:00Z"
+    },
+    {
+      "id": "a3",
+      "title": "Quantum-Classical AI Research Partnership with CERN OpenLab",
+      "category": "collaboration",
+      "date": "2025-11-18",
       "year": 2025,
-      "description": "Maya Patel selected for Intel Student Ambassador Program for oneAPI and OpenVINO optimization work.",
-      "recipient": "Maya Patel",
-      "organization": "Intel",
-      "tags": ["Intel", "oneAPI", "OpenVINO", "Student Ambassador"],
+      "summary": "Formed bilateral academic initiative co-developing geometric graph neural networks for particle trajectory reconstruction.",
+      "description": "Under a rigorous 6-month research grant, our student research wing co-designed distributed graph neural networks with CERN OpenLab scientists. The resulting algorithm decreased track reconstruction latency by 42% on high-energy collision clusters.",
+      "recipient": "AI Club Advanced Systems Lab",
+      "metric": "Official CERN Academic Affiliation & Code Release",
+      "proofUrl": "https://example.com/collaborations/cern-ai-2025",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-06-1635070041078-e363dbe005cb.svg",
+        "alt": "Quantum-Classical AI Research Partnership with CERN OpenLab"
+      },
+      "tags": [
+        "collaboration"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2025-11-18T10:00:00Z",
+      "updatedAt": "2025-11-18T10:00:00Z"
+    },
+    {
+      "id": "a4",
+      "title": "NVIDIA Deep Learning Institute (DLI) University Ambassador",
+      "category": "ambassador",
+      "date": "2025-09-10",
+      "year": 2025,
+      "summary": "Appointed official student ambassador for accelerated computing, training 320+ engineers in GPU deep learning.",
+      "description": "Selected as 1 of only 15 student ambassadors nationwide for NVIDIA DLI. Successfully designed and facilitated 4 official certified hands-on workshops covering TensorRT optimization, Transformer architectures, and CUDA acceleration.",
+      "recipient": "Meera Krishnan",
+      "metric": "Official NVIDIA DLI Ambassador (320+ Students Certified)",
+      "proofUrl": "https://example.com/ambassador/nvidia-dli-2025",
       "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-08-1591488320449-011701bb6704.svg",
+        "alt": "NVIDIA Deep Learning Institute (DLI) University Ambassador"
+      },
+      "tags": [
+        "ambassador"
+      ],
       "status": "approved",
       "priority": 0,
-      "createdAt": "2025-05-01T10:00:00Z",
-      "updatedAt": "2025-05-01T10:00:00Z"
+      "createdAt": "2025-09-10T10:00:00Z",
+      "updatedAt": "2025-09-10T10:00:00Z"
     },
     {
-      "id": "ach-12",
-      "title": "HackMIT 2025 - Best Healthcare Hack",
-      "category": "hackathon",
-      "date": "2025-09-20",
+      "id": "a5",
+      "title": "IEEE International Conference Best Research Paper Award",
+      "category": "competition",
+      "date": "2025-07-28",
       "year": 2025,
-      "description": "Won Best Healthcare Hack for AI-powered early detection of diabetic retinopathy from fundus images.",
-      "recipient": "Team RetinaScan",
-      "organization": "MIT",
-      "tags": ["Healthcare AI", "Diabetic Retinopathy", "Fundus Imaging"],
+      "summary": "Awarded Best Student Research Paper for 'Adaptive LoRA Distillation for Edge Autonomous Robotics'.",
+      "description": "Presented at the 2025 IEEE International Conference on Intelligent Autonomous Systems. The paper proposed an energy-frugal parameter-efficient fine-tuning technique that enabled onboard quadcopters to conduct real-time obstacle avoidance with 3x battery longevity.",
+      "recipient": "Siddharth Nair & Dr. V. Raman",
+      "metric": "Best Student Paper Laurels (Top 1% of Submissions)",
+      "proofUrl": "https://example.com/papers/ieee-2025-best-paper",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-07-1507668077129-56e32842fceb.svg",
+        "alt": "IEEE International Conference Best Research Paper Award"
+      },
+      "tags": [
+        "competition"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2025-07-28T10:00:00Z",
+      "updatedAt": "2025-07-28T10:00:00Z"
+    },
+    {
+      "id": "a6",
+      "title": "AWS Certified Machine Learning - Specialty Cohort Milestone",
+      "category": "certificate",
+      "date": "2025-05-15",
+      "year": 2025,
+      "summary": "100% first-attempt pass rate achieved in intensive 8-week Cloud Machine Learning Specialty bootcamp.",
+      "description": "Our club sponsored and organized an intensive 8-week bootcamp covering AWS SageMaker pipelines, feature stores, hyperparameter optimization, and distributed multi-GPU training. All 24 enrolled club members passed their official examinations.",
+      "recipient": "24 AI Club Core Members",
+      "metric": "24/24 Certified Developers (100% Pass Rate)",
+      "proofUrl": "https://example.com/certifications/aws-ml-cohort-2025",
       "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-10-1451187580459-43490279c0fa.svg",
+        "alt": "AWS Certified Machine Learning - Specialty Cohort Milestone"
+      },
+      "tags": [
+        "certificate"
+      ],
       "status": "approved",
       "priority": -1,
-      "createdAt": "2025-09-20T10:00:00Z",
-      "updatedAt": "2025-09-20T10:00:00Z"
+      "createdAt": "2025-05-15T10:00:00Z",
+      "updatedAt": "2025-05-15T10:00:00Z"
     },
     {
-      "id": "ach-13",
-      "title": "IEEE Xtreme 2025 - Rank 150 Globally",
-      "category": "competition",
-      "date": "2025-10-25",
+      "id": "a7",
+      "title": "Annual AI Club Alumni & Industry Summit ('Synapse 2025')",
+      "category": "get-together",
+      "date": "2025-04-02",
       "year": 2025,
-      "description": "Team ranked 150th globally out of 5000+ teams in IEEE Xtreme 24-hour programming competition.",
-      "recipient": "Team CodeCrushers",
-      "organization": "IEEE",
-      "tags": ["Competitive Programming", "IEEE Xtreme", "Algorithms"],
+      "summary": "Conducted flagship summit uniting 250+ student engineers, 40 AI industry alumni, and 12 startup founders.",
+      "description": "Synapse 2025 was our annual flagship networking get-together. Featuring keynote fireside chats with alumni from leading AI research labs, panel discussions on autonomous robotics, and a speed-mentoring session that yielded 14 summer internship offers for members.",
+      "recipient": "AI Club Executive Committee",
+      "metric": "250+ Attendees & 14 Direct Internship Offers",
+      "proofUrl": "https://example.com/events/synapse-2025",
       "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-09-1540575467063-178a50c2df87.svg",
+        "alt": "Annual AI Club Alumni & Industry Summit ('Synapse 2025')"
+      },
+      "tags": [
+        "get-together"
+      ],
       "status": "approved",
       "priority": -2,
-      "createdAt": "2025-10-25T10:00:00Z",
-      "updatedAt": "2025-10-25T10:00:00Z"
+      "createdAt": "2025-04-02T10:00:00Z",
+      "updatedAt": "2025-04-02T10:00:00Z"
     },
     {
-      "id": "ach-14",
-      "title": "AMD University Program - Research Grant",
-      "category": "collaboration",
-      "date": "2025-04-10",
+      "id": "a8",
+      "title": "Open-Access 'Foundations of Modern GenAI' Community Course",
+      "category": "free-course",
+      "date": "2025-02-12",
       "year": 2025,
-      "description": "Received AMD EPYC server access and ROCm optimization support for HPC workloads in AI research.",
-      "recipient": "SIET AI Lab",
-      "organization": "AMD",
-      "tags": ["AMD", "ROCm", "HPC", "EPYC"],
+      "summary": "Authored and launched an open-access, zero-paywall 6-module GenAI interactive curriculum reaching 5,000+ learners.",
+      "description": "To democratize deep learning education, the club designed an end-to-end curriculum encompassing Python for ML, Attention mechanisms, diffusion models, and LangChain agents. Hosted with zero paywalls and interactive Jupyter notebooks.",
+      "recipient": "AI Club Education Wing",
+      "metric": "5,200+ Active Students & 4.9/5 Rating",
+      "proofUrl": "https://example.com/courses/modern-genai",
       "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-04-1516321318423-f06f85e504b3.svg",
+        "alt": "Open-Access 'Foundations of Modern GenAI' Community Course"
+      },
+      "tags": [
+        "free-course"
+      ],
       "status": "approved",
       "priority": -3,
-      "createdAt": "2025-04-10T10:00:00Z",
-      "updatedAt": "2025-04-10T10:00:00Z"
+      "createdAt": "2025-02-12T10:00:00Z",
+      "updatedAt": "2025-02-12T10:00:00Z"
     },
     {
-      "id": "ach-15",
-      "title": "Best Student Chapter Award - CSI 2025",
-      "category": "certificate",
-      "date": "2025-03-15",
-      "year": 2025,
-      "description": "SIET AI Club awarded Best Student Chapter by Computer Society of India for outstanding technical activities.",
-      "recipient": "SIET AI Club",
-      "organization": "Computer Society of India",
-      "tags": ["CSI", "Student Chapter", "Leadership"],
+      "id": "a9",
+      "title": "Smart India Hackathon (SIH) 2024 - 1st Position Hardware/AI",
+      "category": "hackathon",
+      "date": "2024-12-19",
+      "year": 2024,
+      "summary": "Built an edge-AI IoT drone for multispectral crop pathology detection for the Ministry of Agriculture.",
+      "description": "Selected from 65,000 applicant teams across India, Team VisionAgro represented our college in the 36-hour nonstop Grand Finale. Their thermal & multispectral drone pipeline detected crop blight 7 days before visual onset, winning the national 1st prize trophy.",
+      "recipient": "Team VisionAgro (4 AI Club Sophomores)",
+      "metric": "National Champions (Rs. 1,00,000 Cash Prize)",
+      "proofUrl": "https://example.com/awards/sih-2024-winner",
       "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "Smart India Hackathon (SIH) 2024 - 1st Position Hardware/AI"
+      },
+      "tags": [
+        "hackathon"
+      ],
       "status": "approved",
       "priority": -4,
-      "createdAt": "2025-03-15T10:00:00Z",
-      "updatedAt": "2025-03-15T10:00:00Z"
+      "createdAt": "2024-12-19T10:00:00Z",
+      "updatedAt": "2024-12-19T10:00:00Z"
+    },
+    {
+      "id": "a10",
+      "title": "DeepLearning.AI Official Study Group Partner Recognition",
+      "category": "collaboration",
+      "date": "2024-10-05",
+      "year": 2024,
+      "summary": "Recognized as premier regional partner by Andrew Ng's DeepLearning.AI educational foundation.",
+      "description": "Official institutional recognition awarded for hosting weekly community coding circles, peer paper reviews, and fostering open AI literacy. Over 600 students completed specialization certificates through this collaborative framework.",
+      "recipient": "AI Club Leadership",
+      "metric": "Premier Institutional Partner Recognition",
+      "proofUrl": "https://example.com/partners/deeplearning-ai-2024",
+      "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-05-1522071820081-009f0129c71c.svg",
+        "alt": "DeepLearning.AI Official Study Group Partner Recognition"
+      },
+      "tags": [
+        "collaboration"
+      ],
+      "status": "approved",
+      "priority": -5,
+      "createdAt": "2024-10-05T10:00:00Z",
+      "updatedAt": "2024-10-05T10:00:00Z"
+    },
+    {
+      "id": "a11",
+      "title": "TensorFlow Developer Professional Certificate Milestone",
+      "category": "certificate",
+      "date": "2024-06-18",
+      "year": 2024,
+      "summary": "35 sophomore students earned Google TensorFlow Developer Certificates in a record single semester.",
+      "description": "A comprehensive mentorship pipeline paired senior club leads with sophomores to master computer vision, NLP, and time-series forecasting in TensorFlow 2.x, resulting in 35 credentialed developers.",
+      "recipient": "AI Club Junior Batch",
+      "metric": "35 Certified Google Developers",
+      "proofUrl": "https://example.com/certifications/tf-cohort-2024",
+      "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-02-1526374965328-7f61d4dc18c5.svg",
+        "alt": "TensorFlow Developer Professional Certificate Milestone"
+      },
+      "tags": [
+        "certificate"
+      ],
+      "status": "approved",
+      "priority": -6,
+      "createdAt": "2024-06-18T10:00:00Z",
+      "updatedAt": "2024-06-18T10:00:00Z"
+    },
+    {
+      "id": "a12",
+      "title": "State Inter-College AI Project Expo - Innovation Trophy",
+      "category": "other",
+      "date": "2024-03-22",
+      "year": 2024,
+      "summary": "Created a real-time sign language to multilingual speech translator running on Raspberry Pi 5.",
+      "description": "Showcased at the State Technical Project Exposition among 90 competing engineering colleges. The AssistiveAI system achieved 98% accuracy on Indian Sign Language (ISL) with zero cloud dependency and sub-80ms latency, taking home the Overall Innovation Trophy.",
+      "recipient": "Team AssistiveAI (Vandana, Naveen, & Deepa)",
+      "metric": "Overall State Innovation Gold Trophy",
+      "proofUrl": "https://example.com/expo/assistive-ai-2024",
+      "featured": false,
+      "image": {
+        "url": "/images/achievements/ach-11-1485827404703-89b55fcc595e.svg",
+        "alt": "State Inter-College AI Project Expo - Innovation Trophy"
+      },
+      "tags": [
+        "other"
+      ],
+      "status": "approved",
+      "priority": -7,
+      "createdAt": "2024-03-22T10:00:00Z",
+      "updatedAt": "2024-03-22T10:00:00Z"
     }
   ],
   "featured": [
     {
-      "id": "ach-01",
-      "title": "1st Place - National Smart India Hackathon 2025",
+      "id": "ach-2026-01",
+      "title": "International Faraway Hackathon – Global Selection",
       "category": "hackathon",
-      "date": "2025-12-15",
-      "year": 2025,
-      "description": "Awarded ₹1,00,000 cash prize for the AI-Powered Agricultural Yield and Pest Advisory System under Ministry of Agriculture.",
-      "image": {
-        "url": "/images/achievements/sih-2025.jpg",
-        "alt": "Smart India Hackathon Winners"
-      },
-      "recipient": "Team AgriVision SIET",
-      "organization": "Ministry of Education, Govt. of India",
-      "tags": ["AI", "Agriculture", "Computer Vision", "IoT"],
+      "date": "2026-08-22",
+      "year": 2026,
+      "summary": "Selected among the Top 100 teams globally out of 11,000+ international participants at Chandigarh University, representing SIET.",
+      "description": "Organized by Zuup and held at Patiala – Chandigarh University on 22–23 August 2026. The student cohort competed against 11,000+ participants worldwide and secured a place among the Top 100 teams globally, proudly representing SIET at an international hackathon.",
+      "recipient": "Aswin – II CSE, Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Nakshatra S. V – II CSE, Meenakshi C – II CSE, Viswanath N – II CSE, Shreekumar – II AI&DS, Prithic P – II AIML",
+      "metric": "Top 100 Teams Globally / 11,000+ Participants Worldwide",
+      "proofUrl": "",
       "featured": true,
-      "proofUrl": "https://sih.gov.in/winners-2025",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "International Faraway Hackathon – Global Selection"
+      },
+      "tags": [
+        "hackathon"
+      ],
       "status": "approved",
       "priority": 10,
-      "createdAt": "2025-12-15T10:00:00Z",
-      "updatedAt": "2025-12-15T10:00:00Z"
+      "createdAt": "2026-08-22T10:00:00Z",
+      "updatedAt": "2026-08-22T10:00:00Z"
     },
     {
-      "id": "ach-02",
-      "title": "Best AI Paper Award - IEEE ICET 2026",
+      "id": "ach-2026-03",
+      "title": "Next.js UI/UX Hackathon",
       "category": "competition",
-      "date": "2026-02-20",
+      "date": "2026-07-20",
       "year": 2026,
-      "description": "Presented novel edge-quantization techniques for Vision Transformers on constrained low-power robotics.",
-      "image": {
-        "url": "/images/achievements/ieee-icet-2026.jpg",
-        "alt": "IEEE Conference Presentation"
-      },
-      "recipient": "Karthik Raja & Dr. R. Manimekalai",
-      "organization": "IEEE",
-      "tags": ["Edge AI", "Vision Transformers", "Quantization", "Robotics"],
+      "summary": "Secured First Place in the Next.js UI/UX Hackathon organized by Crowdera Foundation, advancing to an executive frontend developer interview.",
+      "description": "Organized by Crowdera Foundation. Shreekumar secured First Place in the Next.js UI/UX Hackathon. Following the competition, he attended an internship interview with the Co-founder of Crowdera Foundation and the CEO of Winsemble Systems for the Frontend Developer role.",
+      "recipient": "Shreekumar – II AIDS",
+      "metric": "First Place Winner & Frontend Developer Internship Interview",
+      "proofUrl": "",
       "featured": true,
-      "proofUrl": "https://ieee.org/icet-2026",
+      "image": {
+        "url": "/images/achievements/ach-03-1551288049-bebda4e38f71.svg",
+        "alt": "Next.js UI/UX Hackathon"
+      },
+      "tags": [
+        "competition"
+      ],
       "status": "approved",
-      "priority": 9,
-      "createdAt": "2026-02-20T10:00:00Z",
-      "updatedAt": "2026-02-20T10:00:00Z"
+      "priority": 10,
+      "createdAt": "2026-07-20T10:00:00Z",
+      "updatedAt": "2026-07-20T10:00:00Z"
     },
     {
-      "id": "ach-03",
-      "title": "NVIDIA Academic Hardware Grant",
-      "category": "collaboration",
-      "date": "2025-11-10",
-      "year": 2025,
-      "description": "Awarded 4 NVIDIA RTX 4090 GPUs and 2 Jetson Orin Developer Kits to fuel student deep learning research in our AI Lab.",
-      "image": {
-        "url": "/images/achievements/nvidia-grant.jpg",
-        "alt": "NVIDIA GPU Grant"
-      },
-      "recipient": "SIET AI Lab",
-      "organization": "NVIDIA",
-      "tags": ["GPU Grant", "NVIDIA", "Research Infrastructure"],
+      "id": "ach-2026-07",
+      "title": "HackerRank Orchestrate – Autonomous AI Agents",
+      "category": "competition",
+      "date": "2026-06-18",
+      "year": 2026,
+      "summary": "Developed a production-grade autonomous AI agent system under competitive conditions and secured World Rank #73.",
+      "description": "Developed a production-grade autonomous AI agent system under competitive conditions and secured World Rank #73.",
+      "recipient": "Nitish R. G, II Year CSE",
+      "metric": "World Rank #73",
+      "proofUrl": "",
       "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-02-1526374965328-7f61d4dc18c5.svg",
+        "alt": "HackerRank Orchestrate – Autonomous AI Agents"
+      },
+      "tags": [
+        "competition"
+      ],
       "status": "approved",
-      "priority": 8,
-      "createdAt": "2025-11-10T10:00:00Z",
-      "updatedAt": "2025-11-10T10:00:00Z"
+      "priority": 10,
+      "createdAt": "2026-06-18T10:00:00Z",
+      "updatedAt": "2026-06-18T10:00:00Z"
+    },
+    {
+      "id": "ach-2026-08",
+      "title": "HackerRank SQL International Challenge",
+      "category": "competition",
+      "date": "2026-06-14",
+      "year": 2026,
+      "summary": "Secured World Rank #1 and earned the Gold Badge (5★ SQL) in the HackerRank SQL International Challenge.",
+      "description": "Secured World Rank #1 and earned the Gold Badge (5★ SQL) in the HackerRank SQL International Challenge.",
+      "recipient": "Nitish R. G, II Year CSE",
+      "metric": "World Rank #1 & Gold Badge (5★ SQL)",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-03-1551288049-bebda4e38f71.svg",
+        "alt": "HackerRank SQL International Challenge"
+      },
+      "tags": [
+        "competition"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-06-14T10:00:00Z",
+      "updatedAt": "2026-06-14T10:00:00Z"
+    },
+    {
+      "id": "ach-2026-09",
+      "title": "Frontier Hackathon",
+      "category": "hackathon",
+      "date": "2026-06-08",
+      "year": 2026,
+      "summary": "Selected for the international hackathon and accepted into the $250K Pre-Seed Funding Track, receiving startup mentorship and ecosystem support.",
+      "description": "Organized by Colosseum × Solana. Selected for the international hackathon and accepted into the $250K Pre-Seed Funding Track, receiving startup mentorship and ecosystem support.",
+      "recipient": "Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Prithic P – II AIML, Mithunesh K – II CSE, Viswanath N – II CSE",
+      "metric": "Accepted into $250K Pre-Seed Funding Track & Startup Mentorship",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-07-1507668077129-56e32842fceb.svg",
+        "alt": "Frontier Hackathon"
+      },
+      "tags": [
+        "hackathon"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-06-08T10:00:00Z",
+      "updatedAt": "2026-06-08T10:00:00Z"
+    },
+    {
+      "id": "ach-2026-10",
+      "title": "Meta × PyTorch × Hugging Face OpenEnv Hackathon",
+      "category": "hackathon",
+      "date": "2026-06-02",
+      "year": 2026,
+      "summary": "Secured a position among the Top 800 teams globally out of 72,000+ participants.",
+      "description": "Secured a position among the Top 800 teams globally out of 72,000+ participants in the Meta × PyTorch × Hugging Face OpenEnv Hackathon.",
+      "recipient": "Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Prithic P – II AIML",
+      "metric": "Top 800 Teams Globally / 72,000+ Participants",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-08-1591488320449-011701bb6704.svg",
+        "alt": "Meta × PyTorch × Hugging Face OpenEnv Hackathon"
+      },
+      "tags": [
+        "hackathon"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-06-02T10:00:00Z",
+      "updatedAt": "2026-06-02T10:00:00Z"
+    },
+    {
+      "id": "ach-2026-12",
+      "title": "Claude Code Builders Conference",
+      "category": "other",
+      "date": "2026-05-12",
+      "year": 2026,
+      "summary": "Selected as one of only five speakers from more than 3,300 global applicants for the Anthropic Claude Code Builders Conference.",
+      "description": "Organized by Anthropic. Selected as one of only five speakers from more than 3,300 global applicants.",
+      "recipient": "Nitish R. G, II CSE",
+      "metric": "1 of Only 5 Global Speakers Selected (3,300+ Applicants)",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-09-1540575467063-178a50c2df87.svg",
+        "alt": "Claude Code Builders Conference"
+      },
+      "tags": [
+        "other"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-05-12T10:00:00Z",
+      "updatedAt": "2026-05-12T10:00:00Z"
+    },
+    {
+      "id": "ach-2026-14",
+      "title": "India Innovates 2026 – National Innovation Challenge",
+      "category": "competition",
+      "date": "2026-04-06",
+      "year": 2026,
+      "summary": "Secured a place among the Top 100 finalists from 25,862+ participants across India and presented their innovative solution at the Grand Finale held at Bharat Mandapam, New Delhi.",
+      "description": "Secured a place among the Top 100 finalists from 25,862+ participants across India and presented their innovative solution at the Grand Finale held at Bharat Mandapam, New Delhi.",
+      "recipient": "Nitish R. G – II CSE, Padmanabhan Suresh Babu – II CSE, Prithic P – II AIML, Nishanth K. R – II CSE, Mithunesh K – II CSE",
+      "metric": "Top 100 Finalists / 25,862+ Participants (Bharat Mandapam Finale)",
+      "proofUrl": "",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-11-1485827404703-89b55fcc595e.svg",
+        "alt": "India Innovates 2026 – National Innovation Challenge"
+      },
+      "tags": [
+        "competition"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2026-04-06T10:00:00Z",
+      "updatedAt": "2026-04-06T10:00:00Z"
+    },
+    {
+      "id": "a3",
+      "title": "Quantum-Classical AI Research Partnership with CERN OpenLab",
+      "category": "collaboration",
+      "date": "2025-11-18",
+      "year": 2025,
+      "summary": "Formed bilateral academic initiative co-developing geometric graph neural networks for particle trajectory reconstruction.",
+      "description": "Under a rigorous 6-month research grant, our student research wing co-designed distributed graph neural networks with CERN OpenLab scientists. The resulting algorithm decreased track reconstruction latency by 42% on high-energy collision clusters.",
+      "recipient": "AI Club Advanced Systems Lab",
+      "metric": "Official CERN Academic Affiliation & Code Release",
+      "proofUrl": "https://example.com/collaborations/cern-ai-2025",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-06-1635070041078-e363dbe005cb.svg",
+        "alt": "Quantum-Classical AI Research Partnership with CERN OpenLab"
+      },
+      "tags": [
+        "collaboration"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2025-11-18T10:00:00Z",
+      "updatedAt": "2025-11-18T10:00:00Z"
+    },
+    {
+      "id": "a5",
+      "title": "IEEE International Conference Best Research Paper Award",
+      "category": "competition",
+      "date": "2025-07-28",
+      "year": 2025,
+      "summary": "Awarded Best Student Research Paper for 'Adaptive LoRA Distillation for Edge Autonomous Robotics'.",
+      "description": "Presented at the 2025 IEEE International Conference on Intelligent Autonomous Systems. The paper proposed an energy-frugal parameter-efficient fine-tuning technique that enabled onboard quadcopters to conduct real-time obstacle avoidance with 3x battery longevity.",
+      "recipient": "Siddharth Nair & Dr. V. Raman",
+      "metric": "Best Student Paper Laurels (Top 1% of Submissions)",
+      "proofUrl": "https://example.com/papers/ieee-2025-best-paper",
+      "featured": true,
+      "image": {
+        "url": "/images/achievements/ach-07-1507668077129-56e32842fceb.svg",
+        "alt": "IEEE International Conference Best Research Paper Award"
+      },
+      "tags": [
+        "competition"
+      ],
+      "status": "approved",
+      "priority": 10,
+      "createdAt": "2025-07-28T10:00:00Z",
+      "updatedAt": "2025-07-28T10:00:00Z"
+    }
+  ],
+  "upcomingCompetitions": [
+    {
+      "id": "upc-01",
+      "title": "Smart India Hackathon (SIH) 2026",
+      "date": "2026-12-01",
+      "type": "Hackathon",
+      "summary": "National 36-hour build sprint; the SIET internal selection round precedes the Grand Finale.",
+      "location": "Smart India Hackathon, Govt. of India",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "Smart India Hackathon (SIH) 2026"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
+    },
+    {
+      "id": "upc-02",
+      "title": "HackerRank Orchestrate - Autonomous AI Agents",
+      "date": "2026-11-14",
+      "type": "Hackathon",
+      "summary": "Recurring monthly edition of the 24-hour autonomous-agent leaderboard the club has ranked in repeatedly.",
+      "location": "HackerRank",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "HackerRank Orchestrate - Autonomous AI Agents"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
+    },
+    {
+      "id": "upc-03",
+      "title": "Meta x PyTorch x Hugging Face OpenEnv Hackathon",
+      "date": "2026-10-24",
+      "type": "Hackathon",
+      "summary": "Next edition of the OpenEnv series where the club placed in the global Top 800.",
+      "location": "Meta, PyTorch, Hugging Face",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "Meta x PyTorch x Hugging Face OpenEnv Hackathon"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
+    },
+    {
+      "id": "upc-04",
+      "title": "Hack-Nation Global AI Hackathon",
+      "date": "2026-11-28",
+      "type": "Hackathon",
+      "summary": "Global AI buildathon supported by MIT and partnered with Stanford University.",
+      "location": "Hack-Nation",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "Hack-Nation Global AI Hackathon"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
+    },
+    {
+      "id": "upc-05",
+      "title": "India Innovates - National Innovation Challenge",
+      "date": "2026-10-17",
+      "type": "Competition",
+      "summary": "National innovation challenge culminating in the Bharat Mandapam Grand Finale.",
+      "location": "India Innovates",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "India Innovates - National Innovation Challenge"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
+    },
+    {
+      "id": "upc-06",
+      "title": "IEEE International Conference on Intelligent Autonomous Systems",
+      "date": "2026-11-07",
+      "type": "Conference",
+      "summary": "Conference track where the club received the Best Student Research Paper award.",
+      "location": "IEEE",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "IEEE International Conference on Intelligent Autonomous Systems"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
+    },
+    {
+      "id": "upc-07",
+      "title": "International Faraway Hackathon",
+      "date": "2026-12-12",
+      "type": "Hackathon",
+      "summary": "Next edition of the Zuup-organised international hackathon held at Chandigarh University.",
+      "location": "Zuup / Chandigarh University",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "International Faraway Hackathon"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
+    },
+    {
+      "id": "upc-08",
+      "title": "HackerRank SQL International Challenge",
+      "date": "2026-10-31",
+      "type": "Contest",
+      "summary": "Monthly SQL leaderboard where the club holds World Rank #1 and the Gold Badge.",
+      "location": "HackerRank",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "HackerRank SQL International Challenge"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
+    },
+    {
+      "id": "upc-09",
+      "title": "Next.js UI/UX Hackathon",
+      "date": "2026-11-21",
+      "type": "Hackathon",
+      "summary": "Next edition of the Crowdera Foundation UI/UX competition won with First Place.",
+      "location": "Crowdera Foundation",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "Next.js UI/UX Hackathon"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
+    },
+    {
+      "id": "upc-10",
+      "title": "Claude Code Builders Conference",
+      "date": "2026-12-05",
+      "type": "Conference",
+      "summary": "Anthropic conference edition; the club already spoke at the previous one.",
+      "location": "Anthropic",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "Claude Code Builders Conference"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
+    },
+    {
+      "id": "upc-11",
+      "title": "Frontier Hackathon",
+      "date": "2026-10-10",
+      "type": "Hackathon",
+      "summary": "Next edition of the frontier build programme that feeds the $250K pre-seed funding track.",
+      "location": "Frontier",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "Frontier Hackathon"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
+    },
+    {
+      "id": "upc-12",
+      "title": "State Inter-College AI Project Expo",
+      "date": "2026-11-14",
+      "type": "Expo",
+      "summary": "State technical project exposition where the club took the Overall Innovation Trophy.",
+      "location": "State Technical University",
+      "status": "upcoming",
+      "image": {
+        "url": "/images/achievements/ach-01-1508614589041-895b88991e3e.svg",
+        "alt": "State Inter-College AI Project Expo"
+      },
+      "action": {
+        "label": "View Details",
+        "url": "/achievements"
+      }
     }
   ],
   "ambassadors": [
     {
       "id": "amb-01",
-      "name": "Dr. Revathi Suresh",
-      "role": "Principal AI Research Scientist",
-      "bio": "Lead architect for enterprise AI at IBM Research. PhD from IISc Bangalore. 15+ years in ML systems.",
+      "name": "Meera Krishnan",
+      "role": "NVIDIA Deep Learning Institute (DLI) University Ambassador",
+      "organization": "NVIDIA DLI",
+      "bio": "Selected as 1 of only 15 student ambassadors nationwide for NVIDIA DLI. Designed and facilitated 4 official certified hands-on workshops on TensorRT optimization, Transformer architectures and CUDA acceleration, certifying 320+ students.",
       "image": {
-        "url": "/images/ambassadors/revathi-suresh.jpg",
-        "alt": "Dr. Revathi Suresh"
+        "url": "/images/achievements/ach-08-1591488320449-011701bb6704.svg",
+        "alt": "Meera Krishnan"
       },
-      "social": {
-        "linkedin": "https://linkedin.com/in/revathisuresh",
-        "twitter": "https://twitter.com/revathisuresh"
-      }
+      "social": {},
+      "sample": false
     },
     {
       "id": "amb-02",
-      "name": "Dr. Arvind Swaminathan",
-      "role": "Senior Staff Research Scientist",
-      "bio": "DeepMind London. Expert in reinforcement learning and frontier model alignment. PhD from Stanford.",
+      "name": "Ambassador slot 2",
+      "role": "To be announced",
+      "organization": "To be announced",
+      "bio": "Placeholder card. Replace with a real ambassador record when the club publishes the appointment.",
       "image": {
-        "url": "/images/ambassadors/arvind-swaminathan.jpg",
-        "alt": "Dr. Arvind Swaminathan"
+        "url": "/images/achievements/ach-06-1635070041078-e363dbe005cb.svg",
+        "alt": "Ambassador placeholder"
       },
-      "social": {
-        "linkedin": "https://linkedin.com/in/arvindswaminathan",
-        "github": "https://github.com/arvindswaminathan"
-      }
+      "social": {},
+      "sample": true
     },
     {
       "id": "amb-03",
-      "name": "Ananya Krishnan",
-      "role": "Staff ML Engineer (Alumna, Class of 2019)",
-      "bio": "From SIET classrooms to DeepMind labs. Mentors students on research portfolios and graduate fellowships.",
+      "name": "Ambassador slot 3",
+      "role": "To be announced",
+      "organization": "To be announced",
+      "bio": "Placeholder card. Replace with a real ambassador record when the club publishes the appointment.",
       "image": {
-        "url": "/images/ambassadors/ananya-krishnan.jpg",
-        "alt": "Ananya Krishnan"
+        "url": "/images/achievements/ach-05-1522071820081-009f0129c71c.svg",
+        "alt": "Ambassador placeholder"
       },
-      "social": {
-        "linkedin": "https://linkedin.com/in/ananyakrishnan",
-        "github": "https://github.com/ananyakrishnan"
-      }
-    }
-  ],
-  "upcomingCompetitions": [
-    {
-      "id": "comp-01",
-      "title": "SIET AI InnoVate 2026: 36-Hour Hackathon",
-      "date": "2026-10-24",
-      "type": "Hackathon",
-      "summary": "The marquee annual AI buildathon bringing together 300+ developers to build multimodal AI products with cash pool ₹1,50,000.",
-      "status": "upcoming",
-      "image": {
-        "url": "/images/competitions/innovate-2026.jpg",
-        "alt": "SIET AI InnoVate Hackathon"
-      },
-      "location": "Auditorium & AI Lab 1, SIET Campus",
-      "action": {
-        "label": "Register Team",
-        "url": "/hackathons"
-      }
-    },
-    {
-      "id": "comp-02",
-      "title": "Masterclass: Building Agentic RAG with LangGraph",
-      "date": "2026-11-07",
-      "type": "Workshop",
-      "summary": "Deep dive into multi-agent workflows, state persistence, tool calling, and human-in-the-loop validation.",
-      "status": "upcoming",
-      "image": {
-        "url": "/images/competitions/agentic-rag.jpg",
-        "alt": "Agentic RAG Masterclass"
-      },
-      "location": "Virtual & AI Lab 2",
-      "action": {
-        "label": "Reserve Seat",
-        "url": "/workshops"
-      }
-    },
-    {
-      "id": "comp-03",
-      "title": "Kaggle Internal Sprint: Edge Vision Classification",
-      "date": "2026-11-15",
-      "type": "Contest",
-      "summary": "24-hour sprint to train lightweight neural architectures under 5MB with maximum F1 accuracy.",
-      "status": "upcoming",
-      "image": {
-        "url": "/images/competitions/kaggle-sprint.jpg",
-        "alt": "Kaggle Sprint"
-      },
-      "location": "Online Leaderboard",
-      "action": {
-        "label": "Join Contest",
-        "url": "/contests"
-      }
-    },
-    {
-      "id": "comp-04",
-      "title": "Industry Tech Talk: Scaling AI at Enterprise Scale",
-      "date": "2026-11-28",
-      "type": "Seminar",
-      "summary": "Guest lecture by Senior AI Architect from Microsoft Research on distributed training and inference clusters.",
-      "status": "upcoming",
-      "image": {
-        "url": "/images/competitions/tech-talk.jpg",
-        "alt": "Industry Tech Talk"
-      },
-      "location": "Seminar Hall 3",
-      "action": {
-        "label": "View Details",
-        "url": "/events"
-      }
-    },
-    {
-      "id": "comp-05",
-      "title": "Smart India Hackathon 2026 - Internal Selection",
-      "date": "2026-12-01",
-      "type": "Hackathon",
-      "summary": "Internal selection round for SIH 2026. Top 3 teams represent SIET at national level.",
-      "status": "upcoming",
-      "image": {
-        "url": "/images/competitions/sih-2026.jpg",
-        "alt": "SIH 2026 Selection"
-      },
-      "location": "AI Lab 1 & 2",
-      "action": {
-        "label": "Apply Now",
-        "url": "/hackathons"
-      }
-    },
-    {
-      "id": "comp-06",
-      "title": "Generative AI Bootcamp for Undergraduates",
-      "date": "2026-12-10",
-      "type": "Bootcamp",
-      "summary": "3-day intensive hands-on bootcamp introducing sophomore engineering students to PyTorch and Transformers.",
-      "status": "upcoming",
-      "image": {
-        "url": "/images/competitions/genai-bootcamp.jpg",
-        "alt": "GenAI Bootcamp"
-      },
-      "location": "SIET AI Central Lab",
-      "action": {
-        "label": "Register",
-        "url": "/workshops"
-      }
-    },
-    {
-      "id": "comp-07",
-      "title": "Computer Vision Summer Exhibition 2026",
-      "date": "2026-07-22",
-      "type": "Project Expo",
-      "summary": "18 student teams demonstrated live prototypes of autonomous vehicle perception, drone inspection, and medical imaging.",
-      "status": "upcoming",
-      "image": {
-        "url": "/images/competitions/cv-expo.jpg",
-        "alt": "CV Exhibition"
-      },
-      "location": "Central Exhibition Hall",
-      "action": {
-        "label": "Submit Project",
-        "url": "/projects"
-      }
-    },
-    {
-      "id": "comp-08",
-      "title": "NVIDIA Jetson Edge AI Challenge",
-      "date": "2026-08-15",
-      "type": "Contest",
-      "summary": "Deploy computer vision models on Jetson Orin Nano for real-time robotics applications.",
-      "status": "upcoming",
-      "image": {
-        "url": "/images/competitions/jetson-challenge.jpg",
-        "alt": "Jetson Challenge"
-      },
-      "location": "Robotics & Embedded AI Center",
-      "action": {
-        "label": "Join Challenge",
-        "url": "/contests"
-      }
-    },
-    {
-      "id": "comp-09",
-      "title": "Research Paper Writing Workshop",
-      "date": "2026-09-05",
-      "type": "Workshop",
-      "summary": "Learn to write and publish in top-tier AI conferences (NeurIPS, ICML, CVPR) with faculty mentors.",
-      "status": "upcoming",
-      "image": {
-        "url": "/images/competitions/paper-workshop.jpg",
-        "alt": "Paper Writing Workshop"
-      },
-      "location": "Seminar Hall 1",
-      "action": {
-        "label": "Reserve Seat",
-        "url": "/workshops"
-      }
-    },
-    {
-      "id": "comp-10",
-      "title": "AI for Social Good Hackathon",
-      "date": "2026-10-10",
-      "type": "Hackathon",
-      "summary": "Build AI solutions for healthcare accessibility, agricultural productivity, and environmental monitoring.",
-      "status": "upcoming",
-      "image": {
-        "url": "/images/competitions/social-good.jpg",
-        "alt": "AI for Social Good"
-      },
-      "location": "Virtual & Campus",
-      "action": {
-        "label": "Register Team",
-        "url": "/hackathons"
-      }
+      "social": {},
+      "sample": true
     }
   ]
 }
