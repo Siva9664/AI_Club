@@ -60,12 +60,12 @@ export async function registerUser(data: RegisterData): Promise<User> {
   return res;
 }
 
-export async function getCurrentUser(): Promise<User> {
+export async function getCurrentUser(): Promise<User | null> {
   if (isMockMode()) {
     await simulateDelay();
-    // In mock mode, we return the user from localStorage/session
-    // This is handled by AuthProvider
-    throw new Error('Use AuthContext for current user in mock mode');
+    // In mock mode the session is owned by AuthProvider (localStorage);
+    // there is no /auth/me endpoint, so return null instead of throwing.
+    return null;
   }
   const res = await apiClient.get<User>('/auth/me');
   return res;

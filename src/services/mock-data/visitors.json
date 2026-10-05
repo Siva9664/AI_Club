@@ -31,7 +31,13 @@
       "delegationNote": "Named delegates documented for this visit. Individual facial identities in photographs are preserved as the documented delegation.",
       "quote": "International academic partnerships thrive when students actively build solutions alongside research faculty across borders.",
       "quoteAuthor": "Prof. Dr. Song Ki Won, Konyang University",
-      "tags": ["Global Mobility", "Medical IT", "Interdisciplinary AI", "Bilateral Research", "Student Exchange"],
+      "tags": [
+        "Global Mobility",
+        "Medical IT",
+        "Interdisciplinary AI",
+        "Bilateral Research",
+        "Student Exchange"
+      ],
       "gallery": [
         "/images/visitors/konyang_delegation_visit.jpg",
         "/images/visitors/konyang_campus_interaction.png"
@@ -51,7 +57,7 @@
       "bio": "Dr. Revathi conducted an intensive technical symposium reviewing retrieval-augmented generation (RAG) frameworks and autonomous multi-agent pipelines for enterprise deployments.",
       "topic": "Generative AI & The Future of Enterprise Workflows",
       "photo": {
-        "url": "/images/visitors/revathi-suresh.jpg",
+        "url": "/images/visitors/revathi-suresh.svg",
         "alt": "Dr. Revathi Suresh"
       },
       "visitDate": "12 Mar 2026",
@@ -63,10 +69,14 @@
       "delegationNote": "",
       "quote": "The enthusiasm and curiosity of the students here are truly inspiring. The AI Club is doing remarkable work in building the next generation of innovators.",
       "quoteAuthor": "Dr. Revathi Suresh, IBM Research",
-      "tags": ["Generative AI", "Agentic Systems", "LLM Architectures", "RAG"],
+      "tags": [
+        "Generative AI",
+        "Agentic Systems",
+        "LLM Architectures",
+        "RAG"
+      ],
       "gallery": [
-        "/images/visitors/revathi-suresh-1.jpg",
-        "/images/visitors/revathi-suresh-2.jpg"
+        "/images/visitors/gallery-ibm.svg"
       ],
       "location": "Dr. APJ Abdul Kalam Auditorium",
       "status": "approved",
@@ -83,7 +93,7 @@
       "bio": "Dr. Arvind visited the AI Lab to interact with student researchers working on autonomous decision-making agents, sharing frontier research methodologies from DeepMind.",
       "topic": "Reinforcement Learning from First Principles to Frontier Models",
       "photo": {
-        "url": "/images/visitors/arvind-swaminathan.jpg",
+        "url": "/images/visitors/arvind-swaminathan.svg",
         "alt": "Dr. Arvind Swaminathan"
       },
       "visitDate": "18 Jan 2026",
@@ -95,9 +105,14 @@
       "delegationNote": "",
       "quote": "When students tackle open-ended benchmark problems early in their undergrad years, they develop scientific intuition that cannot be taught in a lecture.",
       "quoteAuthor": "Dr. Arvind Swaminathan, Google DeepMind",
-      "tags": ["Reinforcement Learning", "Frontier Models", "Deep Learning", "Alignment"],
+      "tags": [
+        "Reinforcement Learning",
+        "Frontier Models",
+        "Deep Learning",
+        "Alignment"
+      ],
       "gallery": [
-        "/images/visitors/arvind-swaminathan.jpg"
+        "/images/visitors/gallery-deepmind.svg"
       ],
       "location": "Turing Advanced Compute Lab",
       "status": "approved",
@@ -114,7 +129,7 @@
       "bio": "Dr. Lin led a collegiate roundtable examining algorithmic bias, interpretable machine learning, and global regulatory frameworks.",
       "topic": "Ethical Frontiers in AI: Governance, Fairness & Explainability",
       "photo": {
-        "url": "/images/visitors/maya-lin.jpg",
+        "url": "/images/visitors/maya-lin.svg",
         "alt": "Dr. Maya Lin"
       },
       "visitDate": "08 Nov 2025",
@@ -126,9 +141,14 @@
       "delegationNote": "",
       "quote": "Technology built without ethical boundaries creates debt that society must eventually repay with interest.",
       "quoteAuthor": "Dr. Maya Lin, MIT CSAIL",
-      "tags": ["AI Ethics", "Explainable AI", "Governance", "Fairness"],
+      "tags": [
+        "AI Ethics",
+        "Explainable AI",
+        "Governance",
+        "Fairness"
+      ],
       "gallery": [
-        "/images/visitors/maya-lin.jpg"
+        "/images/visitors/gallery-mit.svg"
       ],
       "location": "Seminar Hall 2",
       "status": "approved",
@@ -145,7 +165,7 @@
       "bio": "Dr. Vance conducted an interactive masterclass on GPU-accelerated robotics pipelines, simulation-to-real domain transfer, and edge computing.",
       "topic": "Embodied AI & Synthetic Simulation Environments in Isaac Sim",
       "photo": {
-        "url": "/images/visitors/marcus-vance.jpg",
+        "url": "/images/visitors/marcus-vance.svg",
         "alt": "Dr. Marcus Vance"
       },
       "visitDate": "15 Oct 2025",
@@ -157,9 +177,14 @@
       "delegationNote": "",
       "quote": "When perception meets tactile feedback in GPU physics engines, robots learn in minutes what previously took decades.",
       "quoteAuthor": "Dr. Marcus Vance, NVIDIA",
-      "tags": ["Embodied AI", "Isaac Sim", "Edge Computing", "Robotics"],
+      "tags": [
+        "Embodied AI",
+        "Isaac Sim",
+        "Edge Computing",
+        "Robotics"
+      ],
       "gallery": [
-        "/images/visitors/marcus-vance.jpg"
+        "/images/visitors/gallery-nvidia.svg"
       ],
       "location": "Robotics & Embedded AI Center",
       "status": "approved",
@@ -176,7 +201,7 @@
       "bio": "Elena interacted with student research groups studying neural circuit discovery and dictionary learning for safety validation in generative language models.",
       "topic": "Mechanistic Interpretability in Constitutional AI Systems",
       "photo": {
-        "url": "/images/visitors/elena-rostova.jpg",
+        "url": "/images/visitors/elena-rostova.svg",
         "alt": "Elena Rostova"
       },
       "visitDate": "22 Aug 2025",
@@ -188,9 +213,14 @@
       "delegationNote": "",
       "quote": "Understanding what a neural network actually computes beneath the activations is the true scientific frontier of our decade.",
       "quoteAuthor": "Elena Rostova, Anthropic",
-      "tags": ["Interpretability", "Safety", "Transformers", "Constitutional AI"],
+      "tags": [
+        "Interpretability",
+        "Safety",
+        "Transformers",
+        "Constitutional AI"
+      ],
       "gallery": [
-        "/images/visitors/elena-rostova.jpg"
+        "/images/visitors/gallery-anthropic.svg"
       ],
       "location": "Dr. APJ Abdul Kalam Auditorium",
       "status": "approved",
@@ -207,7 +237,7 @@
       "bio": "Dr. Sundaram reviewed ongoing campus projects on vernacular speech recognition and disease detection in tea and cotton crops.",
       "topic": "AI for Societal Impact: Multilingual Models & Agricultural Tech",
       "photo": {
-        "url": "/images/visitors/rajesh-sundaram.jpg",
+        "url": "/images/visitors/rajesh-sundaram.svg",
         "alt": "Dr. Rajesh Sundaram"
       },
       "visitDate": "14 May 2025",
@@ -219,9 +249,14 @@
       "delegationNote": "",
       "quote": "The true measure of intelligence in AI systems is not their parameter count, but the tangible human hardship they alleviate.",
       "quoteAuthor": "Dr. Rajesh Sundaram, Microsoft Research",
-      "tags": ["Multilingual AI", "AgriTech", "Edge AI", "Societal Impact"],
+      "tags": [
+        "Multilingual AI",
+        "AgriTech",
+        "Edge AI",
+        "Societal Impact"
+      ],
       "gallery": [
-        "/images/visitors/rajesh-sundaram.jpg"
+        "/images/visitors/gallery-multilingual.svg"
       ],
       "location": "Main Auditorium",
       "status": "approved",
@@ -238,7 +273,7 @@
       "bio": "Ananya visited her alma mater to conduct a mentorship circle with over 200 student developers, sharing her journey from campus hackathons to frontier research labs.",
       "topic": "From Sri Shakthi Classrooms to DeepMind Labs: Building an AI Career",
       "photo": {
-        "url": "/images/visitors/ananya-krishnan.jpg",
+        "url": "/images/visitors/ananya-krishnan.svg",
         "alt": "Ananya Krishnan"
       },
       "visitDate": "10 Feb 2025",
@@ -248,46 +283,195 @@
       "description": "Ananya visited her alma mater to conduct a mentorship circle with over 200 student developers, sharing her journey from campus hackathons to frontier research labs.",
       "delegates": [],
       "delegationNote": "",
-      "quote": "Your SIET projects are your portfolio. Build things that break, then fix them. That's how you learn.",
-      "quoteAuthor": "Ananya Krishnan, Google DeepMind",
-      "tags": ["Alumni Mentorship", "Career Guidance", "DeepMind", "Research"],
-      "gallery": [
-        "/images/visitors/ananya-krishnan.jpg"
+      "quote": "Walking back into this lab reminds me that curiosity cultivated during undergrad research is the single highest leverage skill you will ever own.",
+      "quoteAuthor": "Ananya Krishnan, Alumna (DeepMind)",
+      "tags": [
+        "Alumni Mentorship",
+        "Career Guidance",
+        "DeepMind",
+        "Research"
       ],
-      "location": "AI Lab 1",
+      "gallery": [
+        "/images/visitors/gallery-alumni.svg"
+      ],
+      "location": "AI Research Hall",
       "status": "approved",
       "priority": 3,
       "featured": false,
       "createdAt": "2025-02-10T10:00:00Z",
       "updatedAt": "2025-02-10T10:00:00Z"
+    },
+    {
+      "id": "sarah-chen-nus",
+      "name": "Dr. Sarah Chen",
+      "role": "Director of AI & Computational Healthcare",
+      "organization": "National University of Singapore (NUS)",
+      "bio": "Dr. Chen discussed prospective joint research papers and student summer research internships with the Sri Shakthi Biomedical and AI research teams.",
+      "topic": "Federated Learning Paradigms in Clinical Informatics",
+      "photo": {
+        "url": "/images/visitors/sarah-chen.svg",
+        "alt": "Dr. Sarah Chen"
+      },
+      "visitDate": "19 Nov 2024",
+      "year": 2024,
+      "visitorType": "Collaborator",
+      "summary": "Explored privacy-preserving medical imaging analysis across multi-institutional hospital networks.",
+      "description": "Dr. Chen discussed prospective joint research papers and student summer research internships with the Sri Shakthi Biomedical and AI research teams.",
+      "delegates": [],
+      "delegationNote": "",
+      "quote": "Privacy-preserving federated intelligence will unlock collaborative medical breakthroughs previously restricted by institutional data silos.",
+      "quoteAuthor": "Dr. Sarah Chen, NUS",
+      "tags": [
+        "Healthcare AI",
+        "Federated Learning",
+        "Clinical Informatics",
+        "Global Research"
+      ],
+      "gallery": [
+        "/images/visitors/gallery-healthcare.svg"
+      ],
+      "location": "Biomedical AI Research Laboratory",
+      "status": "approved",
+      "priority": 4,
+      "featured": false,
+      "createdAt": "2024-11-19T10:00:00Z",
+      "updatedAt": "2024-11-19T10:00:00Z"
+    },
+    {
+      "id": "karthik-raman-amazon",
+      "name": "Karthik Raman",
+      "role": "Principal Applied Scientist (Class of 2017)",
+      "organization": "Amazon Web Services (AWS), Seattle",
+      "bio": "Karthik returned to campus to deliver hands-on masterclasses in distributed ML architecture, helping student teams optimize deep learning pipelines.",
+      "topic": "Scaling Distributed Transformer Training on Elastic Cloud Infrastructure",
+      "photo": {
+        "url": "/images/visitors/karthik-raman.svg",
+        "alt": "Karthik Raman"
+      },
+      "visitDate": "15 Sep 2024",
+      "year": 2024,
+      "visitorType": "Alumni",
+      "summary": "Technical workshop covering Megatron-LM, tensor parallelism, and cloud infrastructure efficiency.",
+      "description": "Karthik returned to campus to deliver hands-on masterclasses in distributed ML architecture, helping student teams optimize deep learning pipelines.",
+      "delegates": [],
+      "delegationNote": "",
+      "quote": "Every big system is just a collection of small, disciplined design decisions that refused to fail.",
+      "quoteAuthor": "Karthik Raman, Alumnus (AWS)",
+      "tags": [
+        "Alumni Spotlight",
+        "Distributed Training",
+        "Cloud Infrastructure",
+        "MLOps"
+      ],
+      "gallery": [
+        "/images/visitors/gallery-cloud.svg"
+      ],
+      "location": "Advanced Computing Center",
+      "status": "approved",
+      "priority": 3,
+      "featured": false,
+      "createdAt": "2024-09-15T10:00:00Z",
+      "updatedAt": "2024-09-15T10:00:00Z"
+    },
+    {
+      "id": "tetsuya-takahashi-tokyo",
+      "name": "Prof. Tetsuya Takahashi",
+      "role": "Professor of Intelligent Mechatronics",
+      "organization": "University of Tokyo, Japan",
+      "bio": "Prof. Takahashi reviewed student drone navigation prototypes and explored collaborative Japanese research grants with Sri Shakthi faculty.",
+      "topic": "Neuromorphic Sensors & Event-Based Vision for High-Speed Automation",
+      "photo": {
+        "url": "/images/visitors/tetsuya-takahashi.svg",
+        "alt": "Prof. Tetsuya Takahashi"
+      },
+      "visitDate": "28 Mar 2024",
+      "year": 2024,
+      "visitorType": "Collaborator",
+      "summary": "Presented bio-inspired silicon retina sensors and micro-second event camera algorithms.",
+      "description": "Prof. Takahashi reviewed student drone navigation prototypes and explored collaborative Japanese research grants with Sri Shakthi faculty.",
+      "delegates": [],
+      "delegationNote": "",
+      "quote": "True speed in perception comes not from clock cycles, but from rejecting redundant data at the sensory boundary.",
+      "quoteAuthor": "Prof. Tetsuya Takahashi, University of Tokyo",
+      "tags": [
+        "Neuromorphic Vision",
+        "Event Cameras",
+        "Mechatronics",
+        "Robotics"
+      ],
+      "gallery": [
+        "/images/visitors/gallery-neuromorphic.svg"
+      ],
+      "location": "Innovation Boardroom",
+      "status": "approved",
+      "priority": 2,
+      "featured": false,
+      "createdAt": "2024-03-28T10:00:00Z",
+      "updatedAt": "2024-03-28T10:00:00Z"
+    },
+    {
+      "id": "priya-sharma-iisc",
+      "name": "Dr. Priya Sharma",
+      "role": "Associate Professor & Quantum Computing Researcher",
+      "organization": "Indian Institute of Science (IISc), Bengaluru",
+      "bio": "Dr. Sharma visited our lab to initiate a student interest group in quantum algorithms and host a quantum circuit design hack session.",
+      "topic": "Quantum Machine Learning: Variational Quantum Classifiers",
+      "photo": {
+        "url": "/images/visitors/priya-sharma.svg",
+        "alt": "Dr. Priya Sharma"
+      },
+      "visitDate": "12 Jan 2024",
+      "year": 2024,
+      "visitorType": "Guest Speaker",
+      "summary": "Distinguished lecture on quantum algorithms, Qiskit circuits, and hybrid quantum-classical optimization.",
+      "description": "Dr. Sharma visited our lab to initiate a student interest group in quantum algorithms and host a quantum circuit design hack session.",
+      "delegates": [],
+      "delegationNote": "",
+      "quote": "Quantum information forces us to rethink what computing means at the very threshold of physical reality.",
+      "quoteAuthor": "Dr. Priya Sharma, IISc Bengaluru",
+      "tags": [
+        "Quantum ML",
+        "Qiskit",
+        "Quantum Computing",
+        "Hybrid Algorithms"
+      ],
+      "gallery": [
+        "/images/visitors/gallery-quantum.svg"
+      ],
+      "location": "Auditorium Hall B",
+      "status": "approved",
+      "priority": 1,
+      "featured": false,
+      "createdAt": "2024-01-12T10:00:00Z",
+      "updatedAt": "2024-01-12T10:00:00Z"
     }
   ],
   "stats": {
     "totalVisitors": 12,
     "countries": 4,
-    "delegations": 3,
+    "delegations": 2,
     "keynotes": 5,
-    "labSessions": 4,
+    "labSessions": 3,
     "roundtables": 2
   },
   "testimonials": [
     {
       "quote": "The enthusiasm and curiosity of the students here are truly inspiring. The AI Club is doing remarkable work in building the next generation of innovators.",
       "author": "Dr. Revathi Suresh",
-      "role": "Principal AI Research Scientist",
-      "photo": "/images/visitors/revathi-suresh.jpg"
+      "role": "AI Research Scientist & Lead Architect, IBM Research",
+      "photo": "/images/visitors/revathi-suresh.svg"
     },
     {
-      "quote": "When students tackle open-ended benchmark problems early in their undergrad years, they develop scientific intuition that cannot be taught in a lecture.",
-      "author": "Dr. Arvind Swaminathan",
-      "role": "Senior Staff Research Scientist, Google DeepMind",
-      "photo": "/images/visitors/arvind-swaminathan.jpg"
+      "quote": "Walking back into this lab reminds me that curiosity cultivated during undergrad research is the single highest leverage skill you will ever own.",
+      "author": "Ananya Krishnan",
+      "role": "Staff Machine Learning Engineer (Alumna, Class of 2019), Google DeepMind",
+      "photo": "/images/visitors/ananya-krishnan.svg"
     },
     {
-      "quote": "Technology built without ethical boundaries creates debt that society must eventually repay with interest.",
-      "author": "Dr. Maya Lin",
-      "role": "Associate Professor & AI Ethics Fellow, MIT CSAIL",
-      "photo": "/images/visitors/maya-lin.jpg"
+      "quote": "When perception meets tactile feedback in GPU physics engines, robots learn in minutes what previously took decades. The student lab here has tremendous momentum.",
+      "author": "Dr. Marcus Vance",
+      "role": "Principal Robotics Scientist, NVIDIA Robotics Lab",
+      "photo": "/images/visitors/marcus-vance.svg"
     }
   ]
 }

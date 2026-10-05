@@ -193,6 +193,9 @@ export interface GalleryItem {
   speaker: string;
   date: string;
   badge: string;
+  category?: string;
+  location?: string;
+  caption?: string;
 }
 
 // Chatbot types

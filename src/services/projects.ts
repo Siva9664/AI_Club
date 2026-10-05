@@ -1,4 +1,4 @@
-import { isMockMode, simulateDelay, apiClient } from './client';
+import { isMockMode, simulateDelay, apiClient, ApiError } from './client';
 import type { ProjectDetail, ProjectSummary, ProjectFilterMeta, ProjectQueryParams } from '@/types';
 import projectsData from './mock-data/projects.json';
 
@@ -35,7 +35,7 @@ export async function getProject(slug: string): Promise<ProjectDetail> {
   if (isMockMode()) {
     await simulateDelay();
     const project = allProjects.find((p: ProjectDetail) => p.slug === slug);
-    if (!project) throw new Error('Project not found');
+    if (!project) throw new ApiError('Project not found', 404);
     return project;
   }
   const res = await apiClient.get<{ data: ProjectDetail }>(`/projects/${slug}`);
